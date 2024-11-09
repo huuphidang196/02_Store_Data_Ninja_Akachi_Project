@@ -7467,7 +7467,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 507378826}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -42205,17 +42205,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 964624063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 99.241}
---- !u!114 &507378826 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7636386418776428231, guid: 60730ab649b1c33488e524b26e8502da, type: 3}
-  m_PrefabInstance: {fileID: 7636386418678608461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363344102}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6c0d59c58b9eb43b52523812e119d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &513030437
 GameObject:
   m_ObjectHideFlags: 0
@@ -42643,6 +42632,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1952142952}
     m_Modifications:
+    - target: {fileID: 3034696095786008269, guid: b90c6df366fe28c4ba2840ad76e829e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 3496040850911527618, guid: b90c6df366fe28c4ba2840ad76e829e2, type: 3}
       propertyPath: m_Color.b
       value: 0.3584906
@@ -42669,7 +42662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3496040850911527619, guid: b90c6df366fe28c4ba2840ad76e829e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.33
+      value: -7.03
       objectReference: {fileID: 0}
     - target: {fileID: 3496040850911527619, guid: b90c6df366fe28c4ba2840ad76e829e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60790,7 +60783,7 @@ GameObject:
   - component: {fileID: 1264408352}
   - component: {fileID: 1264408351}
   m_Layer: 0
-  m_Name: Particle System La xanh
+  m_Name: Particle_Leaves_Dropping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60901,7 +60894,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -65837,7 +65830,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 507378826}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: NoMoney
         m_Mode: 1
@@ -70106,7 +70099,7 @@ Transform:
   m_GameObject: {fileID: 1591251122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168.4, y: 0, z: -10}
+  m_LocalPosition: {x: 179.01, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -94853,7 +94846,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 507378826}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -96834,6 +96827,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.722
       objectReference: {fileID: 0}
+    - target: {fileID: 142183676381558803, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 995189026069653113, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -96965,6 +96962,10 @@ PrefabInstance:
     - target: {fileID: 5151977800680449962, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5621392479433267408, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5812190109668678457, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: m_LocalRotation.w

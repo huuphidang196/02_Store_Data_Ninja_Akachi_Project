@@ -87,7 +87,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
     public virtual bool CheckIsFacingPlayer()
     {
-        return this._ForwardObjRight;
+        return this._ForwardObjRight && !this.CheckForwardIsHaveRightObjectLayerCustom("Ground");
     }
 
     public virtual float GetDistanceFacingPlayer()

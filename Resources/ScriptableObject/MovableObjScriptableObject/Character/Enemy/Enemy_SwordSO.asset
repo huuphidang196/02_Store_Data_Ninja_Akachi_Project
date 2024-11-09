@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_SwordSO
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
-  Speed_Move_Horizontal: 0.7
+  Speed_Move_Horizontal: 1
   Max_HP: 2
   Length_Ray_Forward_Limit: 8
   Speed_Dash_Horizontal: 3

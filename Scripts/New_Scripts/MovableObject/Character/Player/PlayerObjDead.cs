@@ -16,16 +16,18 @@ public class PlayerObjDead : PlayerAbstract
             this.EndGame();
             return;
         }
-        // StartCoroutine(this.CouroutineRiviveCharacter(2f));
-        Invoke(nameof(this.RiviveCharacter), 2f);
+        Invoke(nameof(this.SetPositionOfPlayerRiviveCharacter), 1.9f);
     }
 
-    protected IEnumerator CouroutineRiviveCharacter(float timeDelay)
-    {
-        yield return new WaitForSeconds(timeDelay);
-        this.RiviveCharacter();
-    }
     protected virtual void RiviveCharacter()
+    {
+        //Set DamReceiver
+        this._PlayerCtrl.PlayerDamReceiver.RiviveCharacter();
+
+        //Set animation Rivival
+        InputManager.Instance.PlayerRiviveAgain();
+    }
+    protected virtual void SetPositionOfPlayerRiviveCharacter()
     {
         //Get Pos Respawn Tower
         Vector3 posRivival = RespawnTowerSC.Instance.GetPositionRespawnTowerPlayerDead();
@@ -35,11 +37,7 @@ public class PlayerObjDead : PlayerAbstract
         //Set pos Player
         this._PlayerCtrl.transform.position = posRivival;
 
-        //Set DamReceiver
-        this._PlayerCtrl.PlayerDamReceiver.RiviveCharacter();
-
-        //Set animation Rivival
-        InputManager.Instance.PlayerRiviveAgain();
+        Invoke(nameof(this.RiviveCharacter), 0.1f);
     }
 
     protected virtual void EndGame()

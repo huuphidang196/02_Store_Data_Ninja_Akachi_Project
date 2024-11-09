@@ -44,10 +44,19 @@ public abstract class MovableObjectMovement : MovableObjAbstract
 
     protected virtual void Update()
     {
+        //if (GameController.Instance.PauseGame) return;
+
         if (this._MovableObjCtrl.ObjDamageReceiver.ObjIsDead) this._Horizontal = 0;
-        this.Flip();
+        
+        this.FucntionBaseUpdateMovableObjectMovement();       
 
     }
+
+    protected virtual void FucntionBaseUpdateMovableObjectMovement()
+    {
+        this.Flip();
+    }
+
     protected virtual void Flip()
     {
         if (this.isFacingRight && this._Horizontal < 0f || !this.isFacingRight && this._Horizontal > 0f) this.isFacingRight = !this.isFacingRight;

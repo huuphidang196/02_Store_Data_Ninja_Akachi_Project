@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,12 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     private static GamePlayUIManager _instance;
     public static GamePlayUIManager Instance => _instance;
 
+    public static Action Event_PauseButton;
+    public static Action Event_HideAllUIButton;
+
     [SerializeField] protected bool isToggle = false;
 
     public bool IsToggle => this.isToggle;
-
 
     [SerializeField] protected bool isHidenUI = false;
 
@@ -26,14 +29,19 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     public virtual void TogglePanelPause()
     {
         this.isToggle = !this.isToggle;
-       
+
+        Event_PauseButton?.Invoke();
     }
 
     public virtual void IsHidenUIScenePlay()
     {
         this.isHidenUI = !this.isHidenUI;
-
+        Event_HideAllUIButton?.Invoke();
     }
 
-    public virtual void TurnOnUIScenPlay() => this.isHidenUI = false;
+    public virtual void TurnOnUIScenPlay()
+    {
+        this.isHidenUI = false;
+        Event_HideAllUIButton?.Invoke();
+    }
 }

@@ -12,6 +12,21 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     [SerializeField] protected SliderTimePlayerHiden _SliderTimePlayerHiden;
     public SliderTimePlayerHiden SliderTimePlayerHiden => this._SliderTimePlayerHiden;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        GamePlayUIManager.Event_PauseButton += this.ToggleUIPausePanel;
+        GamePlayUIManager.Event_HideAllUIButton += this.IsHidenALlChildUIBelow;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        GamePlayUIManager.Event_PauseButton -= this.ToggleUIPausePanel;
+        GamePlayUIManager.Event_HideAllUIButton -= this.IsHidenALlChildUIBelow;
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -36,12 +51,16 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this._SliderTimePlayerHiden.gameObject.SetActive(false);
     }
   
-    protected virtual void FixedUpdate()
-    {
-        this.ToggleUIPausePanel();
-        this.IsHidenALlChildUIBelow();
+    //protected virtual void FixedUpdate()
+    //{
+    //    this.ToggleUIPausePanel();
+    //    this.IsHidenALlChildUIBelow();
 
-    }
+    //}
+    //protected virtual void ConductEventButtonPauseClick()
+    //{
+
+    //}    
 
     protected virtual void Update()
     {

@@ -52,6 +52,8 @@ public class EnemyMovement : CharacterObjMovement
 
     protected override void Update()
     {
+      //  if (GameController.Instance.PauseGame) return;
+
         if (this.EnemyCtrl.EnemyDamReceiver.ObjIsDead) return;
 
         this.UpdateBoolByInputManager();

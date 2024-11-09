@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 3767463365360091610}
-  _Delay: 1.2
+  _Delay: 0.3
   _Timer: 0
 --- !u!1 &7648853755131975020
 GameObject:

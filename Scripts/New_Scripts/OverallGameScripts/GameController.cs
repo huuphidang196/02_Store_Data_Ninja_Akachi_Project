@@ -28,6 +28,7 @@ public class GameController : SystemController
     {
         base.ResetValue();
 
+        this._PauseGame = false;
         this._Distance_Active_Enemies = this._SystemConfig.GameConfigController.Distance_Active_Enemies;
     }
 
@@ -48,4 +49,16 @@ public class GameController : SystemController
         }
     }
 
+    public virtual void PauseGamePlay()
+    {
+        this._PauseGame = false;
+
+        Time.timeScale = 0;
+    }
+    public virtual void ContinueGamePlay()
+    {
+        this._PauseGame = true;
+
+        Time.timeScale = 1f;
+    }
 }

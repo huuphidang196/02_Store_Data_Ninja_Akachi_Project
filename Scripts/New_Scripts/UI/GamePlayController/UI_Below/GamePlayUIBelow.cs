@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class GamePlayUIBelow : GamePlayUIOverallAbstract
 {
-    protected virtual void FixedUpdate()
+    //protected virtual void FixedUpdate()
+    //{
+    //    this.IsHidenALlChildUIBelow();
+    //}
+    protected override void Start()
     {
-        this.IsHidenALlChildUIBelow();
+        base.Start();
+
+        GamePlayUIManager.Event_HideAllUIButton += this.IsHidenALlChildUIBelow;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        GamePlayUIManager.Event_HideAllUIButton -= this.IsHidenALlChildUIBelow;
     }
 
     protected virtual void IsHidenALlChildUIBelow()

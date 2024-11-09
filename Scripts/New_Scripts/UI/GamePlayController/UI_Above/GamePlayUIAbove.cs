@@ -21,9 +21,18 @@ public class GamePlayUIAbove : GamePlayUIOverallAbstract
         this._UI_Above_Left = transform.Find("UI_Above_Left").transform;
     }
 
-    protected virtual void FixedUpdate()
+    protected override void Start()
     {
-        this.IsHidenALlChildUIBelow();
+        base.Start();
+
+        GamePlayUIManager.Event_HideAllUIButton += this.IsHidenALlChildUIBelow;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        GamePlayUIManager.Event_HideAllUIButton -= this.IsHidenALlChildUIBelow;
     }
 
     protected virtual void IsHidenALlChildUIBelow()
