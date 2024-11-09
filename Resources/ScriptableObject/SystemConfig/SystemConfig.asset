@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f51aed81be6cdf46b85c7040369c2f9, type: 3}
+  m_Name: SystemConfig
+  m_EditorClassIdentifier: 
+  Level_Unlock: 1
+  Current_Level: 1
+  Total_Golds: 0
+  Total_Diamonds: 0
+  _GameConfigController: {fileID: 11400000, guid: 7d40b42346e874348b33a6e24f1151f3, type: 2}
+  _GamePlayConfigUIOverall: {fileID: 11400000, guid: e9505d581a5a5ca4e9804d5773d692cc, type: 2}
+  _PlayerSO: {fileID: 11400000, guid: ec04cbb18f95f8f4eadc7f5d185d398b, type: 2}
