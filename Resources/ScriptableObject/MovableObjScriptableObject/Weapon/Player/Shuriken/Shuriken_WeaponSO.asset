@@ -16,4 +16,4 @@ MonoBehaviour:
   Speed_Move_Horizontal: 35
   Max_HP: 1
   Time_Delay_Disable: 0.5
-  Damage_Send: 9999
+  Damage_Send: 1

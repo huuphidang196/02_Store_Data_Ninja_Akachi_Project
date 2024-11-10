@@ -70,6 +70,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         if (this.CheckParentObjectImpactWithAnyLayer("Ground"))
         {
             this.isImpacted_Emit_Ground = true;
+            this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
             return;
         }
 
