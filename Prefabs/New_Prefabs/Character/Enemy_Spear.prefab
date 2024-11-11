@@ -483,7 +483,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2716217, y: -0.097744465}
+  m_Offset: {x: -0.31760895, y: -0.13155496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -494,7 +494,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67089844, y: 1.6607332}
+  m_Size: {x: 0.6383612, y: 1.6354539}
   m_EdgeRadius: 0
 --- !u!1 &1343997502358014806
 GameObject:
@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 1407495253504411010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.187, y: -0.431, z: 0}
+  m_LocalPosition: {x: 0.274, y: -0.431, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1114,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4215349372414154153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.15322588, w: 0.98819125}
+  m_LocalRotation: {x: -0, y: -0, z: -0.15322596, w: 0.9881912}
   m_LocalPosition: {x: 0.065, y: -0.002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   _PosForwardCheck: {fileID: 5362535181489116649}
   _ObjForwardLayer:
   - Player
-  - Enemy
+  - Ground
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
   _TargetFollow: {fileID: 0}
@@ -1656,7 +1656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7857140060475674878}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.6061413, w: 0.795357}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6061414, w: 0.7953569}
   m_LocalPosition: {x: 0.30630666, y: 0.000000086727866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

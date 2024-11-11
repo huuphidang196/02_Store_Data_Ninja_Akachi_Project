@@ -40,7 +40,7 @@ public class EnemyAnimations : CharacterAnimation
     {
         this._Attack_Slash_Ani = !this.isDead && this.EnemyCtrl.EnemyAttack.isSlashing;
 
-        this._Run_Ani = (!this.isDead && !this._Attack_Slash_Ani && this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.CheckIsFacingPlayer());
+        this._Run_Ani = (!this.isDead && !this._Attack_Slash_Ani && this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight);
 
     }
 

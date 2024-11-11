@@ -56,6 +56,7 @@ public class WeaponCharacterVFXManager : WeaponCharacterAbstract
         this._VFX_WoodBox_Emit.gameObject.SetActive(false);
     }
 
+
     protected virtual void Update()
     {
         //Pause Game

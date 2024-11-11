@@ -477,7 +477,7 @@ MonoBehaviour:
   _PosForwardCheck: {fileID: 61565185090289868}
   _ObjForwardLayer:
   - Player
-  - Enemy
+  - Ground
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
   _TargetFollow: {fileID: 0}

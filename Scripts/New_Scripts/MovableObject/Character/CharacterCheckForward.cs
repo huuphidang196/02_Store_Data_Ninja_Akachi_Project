@@ -49,7 +49,12 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
 
         this.GenerateAndDrawAllRaycastHits();
 
-        this._ForwardObjRight = this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
+        this._ForwardObjRight = this.CheckIsFacingTargetLayer();
+    }
+
+    protected virtual bool CheckIsFacingTargetLayer()
+    {
+        return this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
     }
 
     public virtual bool CheckForwardIsHaveRightObjectLayerCustom(string layerCheck)

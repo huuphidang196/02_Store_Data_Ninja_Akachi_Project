@@ -25,7 +25,7 @@ public class EnemyCheckForward : CharacterCheckForward
         //this._ObjForwardLayer[1] = 1 << LayerMask.NameToLayer("Enemy");
         this._ObjForwardLayer = new string[2];
         this._ObjForwardLayer[0] = "Player";
-        this._ObjForwardLayer[1] = "Enemy";
+        this._ObjForwardLayer[1] = "Ground";
     }
 
     protected override void ResetValue()
@@ -44,7 +44,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected virtual void UpdateTargetPlayerAppear()
     {
-        if (!this.CheckIsFacingPlayer())
+        if (!this._ForwardObjRight)
         {
             this.ScanTargetOnFOV();
             return;
@@ -85,14 +85,21 @@ public class EnemyCheckForward : CharacterCheckForward
         this._TargetFollow = null;
     }
 
-    public virtual bool CheckIsFacingPlayer()
+    protected override bool CheckIsFacingTargetLayer()
     {
-        return this._ForwardObjRight && !this.CheckForwardIsHaveRightObjectLayerCustom("Ground");
+        if (!base.CheckIsFacingTargetLayer()) return false;
+
+        if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1])) return true;
+
+        float length_Player = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
+        float length_Ground = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]);
+
+        return length_Ground >= length_Player;
     }
 
     public virtual float GetDistanceFacingPlayer()
     {
-        if (!this.CheckIsFacingPlayer()) return 0;
+        if (!this._ForwardObjRight) return 0;
 
         return this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
     }

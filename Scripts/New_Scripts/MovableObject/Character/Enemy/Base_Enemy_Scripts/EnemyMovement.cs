@@ -46,7 +46,7 @@ public class EnemyMovement : CharacterObjMovement
             this.ChangeDirectionMovement();
 
         //Must facing after set change Direct
-        this.isFacingPlayer = this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.CheckIsFacingPlayer();
+        this.isFacingPlayer = this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight;
 
     }
 

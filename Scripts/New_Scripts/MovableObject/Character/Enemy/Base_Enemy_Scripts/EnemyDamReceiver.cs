@@ -50,7 +50,7 @@ public class EnemyDamReceiver : ObjDamageReceiver
         string nameLayerTurn = this.GetNameLayerImpactTrigger();
         if (this.CheckObjectImapactAllowedImpact(nameLayerTurn, collision2D.transform)) return;
 
-        if (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.CheckIsFacingPlayer()) return;
+        if (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight) return;
 
     }
 

@@ -533,6 +533,7 @@ MonoBehaviour:
   _MObjScriptableObject: {fileID: 11400000, guid: 5279ef4488074e94facc672e396f453b, type: 2}
   _MovableObj_Movement: {fileID: 7440948085712811008}
   _Model: {fileID: 8579910575657321183}
+  _WeaponCharacterVFXManager: {fileID: 8368500775699431455}
 --- !u!50 &2827337257957440491
 Rigidbody2D:
   serializedVersion: 4
