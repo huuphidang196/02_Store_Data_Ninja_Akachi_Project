@@ -29,10 +29,10 @@ public abstract class ObjDamageReceiver : ObjectAbstract
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadCircleCollider();
+        this.LoadColliderObject();
     }
 
-    protected virtual void LoadCircleCollider()
+    protected virtual void LoadColliderObject()
     {
         if (this._BoxCollider2D != null) return;
 

@@ -6,6 +6,12 @@ public class StoneCanBrokeDamReceiver : ObjDamageReceiver
 {
     protected StoneCanBrokeCtrl _StoneCanBrokeCtrl => this._ObjectCtrl as StoneCanBrokeCtrl;
 
+    protected override void LoadColliderObject()
+    {
+        base.LoadColliderObject();
+        this._BoxCollider2D.enabled = true;
+    }
+
     protected override float GetMaxHP()
     {
         return 2f;
@@ -29,6 +35,9 @@ public class StoneCanBrokeDamReceiver : ObjDamageReceiver
     protected virtual void DespawnStoneCanBroke()
     {
         //Holder
-        ProspectObjectSpawner.Instance.Despawn(this.ObjectCtrl.transform);
+        //ProspectObjectSpawner.Instance.Despawn(this.ObjectCtrl.transform);
+
+        //Disable Collider
+        this._BoxCollider2D.enabled = false;
     }    
 }
