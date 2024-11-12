@@ -57,7 +57,7 @@ public class WeaponCharacterVFXManager : WeaponCharacterAbstract
     }
 
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         //Pause Game
         this.UpdateVFXIgniteFire();

@@ -945,9 +945,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474190540647307188}
+  - component: {fileID: 7925542007797252935}
   - component: {fileID: 4829771813405723820}
   - component: {fileID: 4321198172997050794}
-  - component: {fileID: 7925542007797252935}
   - component: {fileID: 874521522491742964}
   - component: {fileID: 8982612458747267966}
   m_Layer: 14
@@ -973,6 +973,31 @@ Transform:
   - {fileID: 4079627715190569125}
   m_Father: {fileID: 5200033951005165211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7925542007797252935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183322007374086156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6665e9f3d50464d96360c92c9c264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterCtrl: {fileID: 2828784259405238438}
+  _Animator: {fileID: 8982612458747267966}
+  _Clips:
+  - {fileID: 7400000, guid: 5fd1a43136311bf44aa91ec3525b8b79, type: 2}
+  - {fileID: 7400000, guid: adc64cfdaf9c40341b600f483956c134, type: 2}
+  - {fileID: 7400000, guid: b5ace3ed56a696c4498e06c94ae2f8dc, type: 2}
+  - {fileID: 7400000, guid: 8a4a6961c81877e48875a81f7ca97e62, type: 2}
+  _Timer_Animation: 0
+  _Time_Duration: 0
+  isDead: 0
+  _Run_Ani: 0
+  _Attack_Slash_Ani: 0
+  _Time_Delay_Attack: 1.5
 --- !u!212 &4829771813405723820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1013,7 +1038,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 193a46aa1524f07438043cd5acc30b65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1060,31 +1085,6 @@ MonoBehaviour:
     m_Extent: {x: 0.9375051, y: 1.2284003, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
---- !u!114 &7925542007797252935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5183322007374086156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6665e9f3d50464d96360c92c9c264a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CharacterCtrl: {fileID: 2828784259405238438}
-  _Animator: {fileID: 8982612458747267966}
-  _Clips:
-  - {fileID: 7400000, guid: 5fd1a43136311bf44aa91ec3525b8b79, type: 2}
-  - {fileID: 7400000, guid: adc64cfdaf9c40341b600f483956c134, type: 2}
-  - {fileID: 7400000, guid: b5ace3ed56a696c4498e06c94ae2f8dc, type: 2}
-  - {fileID: 7400000, guid: 8a4a6961c81877e48875a81f7ca97e62, type: 2}
-  _Timer_Animation: 0
-  _Time_Duration: 0
-  isDead: 0
-  _Run_Ani: 0
-  _Attack_Slash_Ani: 0
-  _Time_Delay_Attack: 1.5
 --- !u!114 &874521522491742964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
       propertyPath: m_LocalScale.x

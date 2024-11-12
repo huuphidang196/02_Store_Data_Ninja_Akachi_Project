@@ -1215,7 +1215,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 7136c580b3749ba4f8c8e80f0626d4e6, type: 2}
   - {fileID: 7400000, guid: 13cb2d1b3065b0449902142aad1d882a, type: 2}
   _Timer_Animation: 0
-  _Time_Duration: 0
+  _Time_Duration: 0.25
   isDead: 0
   _Run_Ani: 0
   _Attack_Slash_Ani: 0

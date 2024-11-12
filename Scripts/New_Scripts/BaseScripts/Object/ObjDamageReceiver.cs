@@ -90,4 +90,9 @@ public abstract class ObjDamageReceiver : ObjectAbstract
 
     protected abstract void OnDead();
 
+    public virtual void IgnoreLayerCollisionOfPlayerObject(string layer_01, string layer_02, bool isInorged)
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layer_01), LayerMask.NameToLayer(layer_02), isInorged);
+    }
+
 }

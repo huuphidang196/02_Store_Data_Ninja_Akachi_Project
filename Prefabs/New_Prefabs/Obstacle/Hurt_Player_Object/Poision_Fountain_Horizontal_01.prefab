@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4368282301229039804}
   - component: {fileID: 4450735186630335592}
   - component: {fileID: 7219152948876485012}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4902,7 +4902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5203120326322511109}
   - component: {fileID: 4581515688396935972}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: PointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4996,7 +4996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4404057718891244708}
   - component: {fileID: 2647121301108267939}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poision_Fountain_Horizontal_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5047,7 +5047,7 @@ GameObject:
   - component: {fileID: 3265016807815687969}
   - component: {fileID: 4834736100965320552}
   - component: {fileID: 1733834481117992129}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poison-Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9815,7 +9815,7 @@ GameObject:
   - component: {fileID: 8982278302047903637}
   - component: {fileID: 8481210475071235287}
   - component: {fileID: 740799410090216050}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9921,6 +9921,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19901276, y: -0.14005327}
-  m_Size: {x: 1.0932465, y: 4.7198935}
+  m_Offset: {x: -0.32408905, y: -0.14005327}
+  m_Size: {x: 1.343399, y: 4.7198935}
   m_Direction: 0

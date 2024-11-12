@@ -11,17 +11,18 @@ public class EnemyDamReceiver : ObjDamageReceiver
     {
         base.ReBorn();
         this._BoxCollider2D.enabled = true;
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("WeaponPlayer"), false);
+        this.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponPlayer", false);
 
     }
     protected override void Start()
     {
         base.Start();
 
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("PlayerHiddenMode"), true);
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("WeaponEnemy"), true);
-
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "PlayerHiddenMode", true);
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "Enemy", true);
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "WeaponEnemy", true);
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "Item", true);
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "ObjInteractableShuriken", true);
     }
     protected override float GetMaxHP()
     {

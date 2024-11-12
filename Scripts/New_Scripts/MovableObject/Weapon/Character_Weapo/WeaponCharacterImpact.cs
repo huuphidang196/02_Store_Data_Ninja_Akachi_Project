@@ -55,7 +55,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
         if (this.CheckParentObjectImpactWithAnyLayer("Item")) return true;
 
-        if (this.CheckParentObjectImpactWithAnyLayer("LethalObstacles")) return true;
+       // if (this.CheckParentObjectImpactWithAnyLayer("LethalObstacles")) return true;
 
         if (this.CheckParentObjectImpactWithAnyLayer("StaticObstacle")) return true;
         return false;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7431778056800464007}
   - component: {fileID: 5518137337284194419}
-  m_Layer: 19
+  m_Layer: 7
   m_Name: Model
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7738603156732710007}
   - component: {fileID: 7155620659414413150}
-  m_Layer: 19
+  m_Layer: 7
   m_Name: ObjDamSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4539105658114065014}
   - component: {fileID: 7149966459304818356}
   - component: {fileID: 1381741864078435146}
-  m_Layer: 19
+  m_Layer: 13
   m_Name: ObjImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8817558453504472741}
   - component: {fileID: 4189046916108988024}
-  m_Layer: 19
+  m_Layer: 7
   m_Name: Lance
   m_TagString: Untagged
   m_Icon: {fileID: 0}

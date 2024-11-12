@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5767341465463507720}
   - component: {fileID: 727247746653228878}
   - component: {fileID: 8059211523415611862}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poison-Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4779,7 +4779,7 @@ GameObject:
   - component: {fileID: 1103140158229007385}
   - component: {fileID: 698391071047571456}
   - component: {fileID: 4965514548378804932}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2008724153178495812}
   - component: {fileID: 7202517959316848943}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: ObjDamSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4954,7 +4954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5728420011833032474}
   - component: {fileID: 7094216084849161136}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poision_Fountain_Vertical_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5004,7 +5004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8936611346067336276}
   - component: {fileID: 3816882591363801787}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: PointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5100,7 +5100,7 @@ GameObject:
   - component: {fileID: 699814715180978520}
   - component: {fileID: 6156104648145795184}
   - component: {fileID: 7244406300908604858}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Poision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
