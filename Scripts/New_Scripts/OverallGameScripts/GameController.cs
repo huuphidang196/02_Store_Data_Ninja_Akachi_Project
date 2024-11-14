@@ -51,13 +51,14 @@ public class GameController : SystemController
 
     public virtual void PauseGamePlay()
     {
-        this._PauseGame = false;
+        this._PauseGame = true;
 
         Time.timeScale = 0;
+       // Debug.Log("Pause");
     }
     public virtual void ContinueGamePlay()
     {
-        this._PauseGame = true;
+        this._PauseGame = false;
 
         Time.timeScale = 1f;
     }
