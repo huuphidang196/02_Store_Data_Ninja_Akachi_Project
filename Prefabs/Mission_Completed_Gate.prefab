@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3744462010200815086}
   - component: {fileID: 3744462010200815087}
   m_Layer: 0
-  m_Name: Cong 1
+  m_Name: Mission_Completed_Gate
   m_TagString: Portail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

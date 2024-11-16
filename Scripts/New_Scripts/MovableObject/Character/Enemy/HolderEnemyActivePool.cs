@@ -45,8 +45,8 @@ public class HolderEnemyActivePool : SurMonoBehaviour
         foreach (Transform enemy in this.transform)
         {
             bool withinScope = this.CheckEnemyWithinScopePlayer(enemy);
-
-            if (!withinScope) break;
+            //Debug.Log("Name: " + enemy.name + ", d = " + Mathf.Abs(enemy.position.x - PlayerCtrl.Instance.transform.position.x));
+            if (!withinScope) continue;
 
             enemy.gameObject.SetActive(withinScope);
         }
