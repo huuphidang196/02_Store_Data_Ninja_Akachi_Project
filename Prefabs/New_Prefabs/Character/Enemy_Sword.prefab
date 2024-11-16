@@ -247,6 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8352624682038021051}
+  - component: {fileID: 4042715913304923088}
   m_Layer: 14
   m_Name: ObjDead
   m_TagString: Untagged
@@ -269,6 +270,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5200033951005165211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4042715913304923088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632970628720341709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef5fdff80cfa8a48a36e676cc2f8532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterCtrl: {fileID: 2828784259405238438}
+  _Gold_SpawnRate: 0.4
+  _Diamond_SpawnRate: 0.1
 --- !u!1 &1816457032507613097
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +854,7 @@ MonoBehaviour:
   _CharacterVFXManager: {fileID: 1687959698191216973}
   _EnemyImpact: {fileID: 4601579217059588932}
   _EnemyAttack: {fileID: 5085290750477625547}
+  _EnemyDeadSpawnMoney: {fileID: 4042715913304923088}
 --- !u!50 &5399154655998023806
 Rigidbody2D:
   serializedVersion: 4

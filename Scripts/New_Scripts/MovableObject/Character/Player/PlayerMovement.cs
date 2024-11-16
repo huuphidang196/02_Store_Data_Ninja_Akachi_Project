@@ -45,6 +45,8 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     [SerializeField] protected float _WallJumpingDuration = 0.4f;
     [SerializeField] protected Vector2 _WallJumpingPower;
 
+    [SerializeField] protected float _Original_Gravity = 5f;
+
     //[SerializeField] protected bool canDash = false;
     [SerializeField] protected bool isDashing = false;
     public bool IsDashing => isDashing;
@@ -67,7 +69,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     {
         base.LoadRigidbody2D();
 
-        this._Rigidbody2D.gravityScale = 3f;
+        this._Rigidbody2D.gravityScale = this._Original_Gravity;
     }
     protected override void Start()
     {
@@ -79,14 +81,16 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         InputManager.Instance.SetInterfaceJumpPlayer(this);
         InputManager.Instance.SetInterfaceAttackDashing(this);
     }
-    protected override void ResetSpeedConfiguration()
+    protected override void ResetDataConfiguration()
     {
-        base.ResetSpeedConfiguration();
+        base.ResetDataConfiguration();
 
         this._Speed_Move_Horizontal = this._PlayerCtrl.PlayerSO.Speed_Move_Horizontal;
         this._Speed_Dash_Horizontal = this._PlayerCtrl.PlayerSO.Speed_Dash_Horizontal;
         this._Speed_Hiding_Horizontal = this._PlayerCtrl.PlayerSO.Speed_Hiding_Horizontal;
+        this._WallSlidingSpeed = this._PlayerCtrl.PlayerSO.WallSlidingSpeed;
 
+        this._Original_Gravity = this._PlayerCtrl.PlayerSO.Original_GravityScale;
         //this.canDash = false;
         this._First_Jump = false;
         this.canHiden = false;
@@ -253,7 +257,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
 
         this._WallJumpingDirection = 1f * this._MovableObjCtrl.transform.localScale.x;
 
-        this._Rigidbody2D.velocity = new Vector2( _WallJumpingDirection * _WallJumpingPower.x, _WallJumpingPower.y);
+        this._Rigidbody2D.velocity = new Vector2(_WallJumpingDirection * _WallJumpingPower.x, _WallJumpingPower.y);
 
         if (transform.localScale.x != _WallJumpingDirection)
         {
@@ -293,13 +297,12 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", true);
 
         // Should set not interact with enemy
-        float originalGravity = this._Rigidbody2D.gravityScale;
         this._Rigidbody2D.gravityScale = 0f;
         this._Rigidbody2D.velocity = new Vector2(this._MovableObjCtrl.transform.localScale.x * this._DashingPower, 0f);
 
         yield return new WaitForSeconds(this._DashingTime);
         //tr.emitting = false;
-        this._Rigidbody2D.gravityScale = originalGravity;
+        this._Rigidbody2D.gravityScale = this._Original_Gravity;
         isDashing = false;
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", false);
 
@@ -308,14 +311,14 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     {
         this.canHiden = false;
         this.isHiding = true;
-        float originalGravity = this._Rigidbody2D.gravityScale;
-        this._Rigidbody2D.gravityScale = 5f;
+
+        this._Rigidbody2D.gravityScale = 7f;
 
         //Change layer While player is hiding in order to avoid be recognized by enemy
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("PlayerHiddenMode");
 
         yield return new WaitForSeconds(this._PlayerCtrl.PlayerAnimation.Time_Delay_Hiden);
-        this.ResetConfigurationPlayerAfterHiden(originalGravity);
+        this.ResetConfigurationPlayerAfterHiden(this._Original_Gravity);
     }
 
     protected virtual void ResetConfigurationPlayerAfterHiden(float originalGravity)

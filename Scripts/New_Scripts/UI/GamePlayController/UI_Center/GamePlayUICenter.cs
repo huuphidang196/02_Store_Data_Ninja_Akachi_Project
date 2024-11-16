@@ -50,7 +50,7 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this._SliderTimePlayerHiden = transform.GetComponentInChildren<SliderTimePlayerHiden>();
         this._SliderTimePlayerHiden.gameObject.SetActive(false);
     }
-  
+
     //protected virtual void FixedUpdate()
     //{
     //    this.ToggleUIPausePanel();
@@ -65,7 +65,7 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     protected virtual void Update()
     {
         this.ToggleUISliderTimeHidenPlayer();
-    }    
+    }
     protected virtual void ToggleUIPausePanel()
     {
         if (GamePlayUIManager.Instance.IsToggle == this._pnl_UI_Pause_Panel.gameObject.activeInHierarchy) return;
@@ -91,6 +91,8 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
 
     protected virtual void ToggleUISliderTimeHidenPlayer()
     {
+        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) this._SliderTimePlayerHiden.gameObject.SetActive(false);
+
         if (InputManager.Instance.Press_Hiden_Mode == this._SliderTimePlayerHiden.gameObject.activeInHierarchy) return;
 
         this._SliderTimePlayerHiden.ResetValueSliderBegin();

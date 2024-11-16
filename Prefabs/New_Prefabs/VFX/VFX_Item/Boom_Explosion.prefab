@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 0}
   _ObjDamageSender: {fileID: 5965228005019762055}
-  _ObjImpact_Overall: {fileID: 6011687257971377153}
+  _ObjImpact_Overall: {fileID: 0}
 --- !u!1 &6140058016474337912
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,9 +153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8361870946108117720}
-  - component: {fileID: 6011687257971377153}
   - component: {fileID: 1634586291685690957}
   - component: {fileID: 6564954446690857063}
+  - component: {fileID: 1610507154009095724}
   m_Layer: 19
   m_Name: ObjImpact
   m_TagString: Untagged
@@ -178,23 +178,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5809292838270882796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6011687257971377153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7648853755131975020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935b85524ae854944ba78be503c755fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 3767463365360091610}
-  _parentObj: {fileID: 0}
-  isImpact: 0
-  _Rigidbody2D: {fileID: 6564954446690857063}
-  _boxCollider: {fileID: 1634586291685690957}
 --- !u!61 &1634586291685690957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267,6 +250,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1610507154009095724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648853755131975020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3d4b58182915a42b437ac240113e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7423659243495113245
 PrefabInstance:
   m_ObjectHideFlags: 0

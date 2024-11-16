@@ -93,7 +93,7 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 2890972321005388380}
   _Target: {fileID: 0}
   distance: 0
-  distanceLimit: 30
+  distanceLimit: 50
 --- !u!1 &1503029039773955865
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108970647142915678}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.083306424, w: 0.99652404}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0833164, w: 0.99652314}
   m_LocalPosition: {x: 0.0839, y: 0.0027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -236,9 +236,9 @@ MonoBehaviour:
   _MovableObjCtrl: {fileID: 2890972321005388380}
   _Rigidbody2D: {fileID: 4110766925072444786}
   _Horizontal: 0
-  _Speed_Move_Horizontal: 5
+  _Speed_Move_Horizontal: 8
   isFacingRight: 1
-  _Move_Right: 1
+  _Move_Right: 0
   _Speed_Dash_Horizontal: 15
   _Move_Left: 0
   _First_Jump: 0
@@ -246,10 +246,11 @@ MonoBehaviour:
   isWallSliding: 0
   isWallJumping: 0
   _JumpingPower: 17
-  _WallSlidingSpeed: 3
+  _WallSlidingSpeed: 5
   _WallJumpingDirection: 0
   _WallJumpingDuration: 0.4
   _WallJumpingPower: {x: 0, y: 0}
+  _Original_Gravity: 5
   isDashing: 0
   _DashingPower: 35
   _DashingTime: 0.3
@@ -414,7 +415,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -450,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2787942163026435548}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.04651206, w: 0.99891776}
+  m_LocalRotation: {x: -0, y: -0, z: 0.046498913, w: 0.9989184}
   m_LocalPosition: {x: 0.081, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1407,7 +1408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6981147424132954953, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.021272112
+      value: -0.021271462
       objectReference: {fileID: 0}
     - target: {fileID: -6866207543706197927, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_Layer
@@ -1771,11 +1772,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2018716003629349803, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999857
+      value: 0.99998564
       objectReference: {fileID: 0}
     - target: {fileID: 2018716003629349803, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0053540654
+      value: 0.0053634234
       objectReference: {fileID: 0}
     - target: {fileID: 2109929220046755671, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1879,11 +1880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4077028276584997344, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.86960864
+      value: 0.86961573
       objectReference: {fileID: 0}
     - target: {fileID: 4077028276584997344, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.49374172
+      value: -0.49372914
       objectReference: {fileID: 0}
     - target: {fileID: 4171367143811046398, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1935,7 +1936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250260803103989485, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006169742
+      value: -0.006171015
       objectReference: {fileID: 0}
     - target: {fileID: 6297934188205415264, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w

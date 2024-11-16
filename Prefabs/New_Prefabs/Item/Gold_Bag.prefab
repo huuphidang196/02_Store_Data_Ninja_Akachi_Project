@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591474972954780151}
   - component: {fileID: 713196170079573366}
-  - component: {fileID: 1032793753947826056}
+  - component: {fileID: 9054183460418916831}
   m_Layer: 19
   m_Name: ObjDamReceiver
   m_TagString: Untagged
@@ -126,7 +126,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.77241516, y: 0.8664446}
   m_EdgeRadius: 0
---- !u!114 &1032793753947826056
+--- !u!114 &9054183460418916831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 649952369144354766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f1fac1bbf16994d9d14bd82cfb443b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9609029fd3310e14ba8f75f82283dee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 4012264196082280292}
@@ -148,9 +148,6 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 50
       Max: 150
-  _Count_Coin_Wave:
-    Min: 3
-    Max: 5
 --- !u!1 &4330391188372710151
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,8 +241,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2952213623092401563}
-  - component: {fileID: 7485670610245846374}
   - component: {fileID: 4012264196082280292}
+  - component: {fileID: 7485670610245846374}
   m_Layer: 19
   m_Name: Gold_Bag
   m_TagString: Untagged
@@ -272,6 +269,21 @@ Transform:
   - {fileID: 5051723840574766317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4012264196082280292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220605478495875361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c6a553fe6741a43900c6e42c9f2a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjDamageReceiver: {fileID: 9054183460418916831}
+  _ObjDamageSender: {fileID: 0}
+  _ObjImpact_Overall: {fileID: 0}
 --- !u!50 &7485670610245846374
 Rigidbody2D:
   serializedVersion: 4
@@ -299,21 +311,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4012264196082280292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6220605478495875361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c6a553fe6741a43900c6e42c9f2a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjDamageReceiver: {fileID: 0}
-  _ObjDamageSender: {fileID: 0}
-  _ObjImpact_Overall: {fileID: 0}
 --- !u!1 &9101106937397338768
 GameObject:
   m_ObjectHideFlags: 0

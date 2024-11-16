@@ -35,8 +35,6 @@ public class ItemLootableDamReceiver : ItemDamReceiver
     [SerializeField] protected ItemDropUnit _ItemDropUnit;
     public ItemDropUnit ItemDropUnit => this._ItemDropUnit;
 
-    [SerializeField] protected MinMaxPair _Count_Coin_Wave = new MinMaxPair(3f, 5);
-
     protected override void Start()
     {
         base.Start();
@@ -51,18 +49,6 @@ public class ItemLootableDamReceiver : ItemDamReceiver
 
     protected virtual void SpawnMoneyBag()
     {
-        float count_Coin = Random.Range(this._Count_Coin_Wave.Min, this._Count_Coin_Wave.Max);
-
-        for (int i = 0; i < count_Coin; i++)
-        {
-            Transform coin = ItemDropSpawner.Instance.Spawn(ItemDropSpawner.Name_Gold_Coin,
-                this._ObjectCtrl.transform.position + new Vector3(Random.Range(-0.3f, 0.3f), 1.5f, 0), Quaternion.identity);
-
-            coin.gameObject.name = ItemDropSpawner.Name_Gold_Bag;
-            coin.localScale = Vector3.one;
-            coin.gameObject.SetActive(true);
-        }
-
         //Spawn text
         Transform textMoney = ItemDropSpawner.Instance.Spawn(ItemDropSpawner.Name_Text_Fly,
             this._ObjectCtrl.transform.position, Quaternion.identity);
@@ -74,6 +60,7 @@ public class ItemLootableDamReceiver : ItemDamReceiver
         textMoney.gameObject.name = ItemDropSpawner.Name_Text_Fly;
         textMoney.localScale = Vector3.one;
         textMoney.gameObject.SetActive(true);
+       
     }
 
     //public virtual float GetValueItemDrop()

@@ -6,7 +6,7 @@ public class PlayerObjDeadByDistance : ObjDespawnByDistance
 {
     public PlayerCtrl PlayerCtrl => this._ObjectCtrl as PlayerCtrl;
 
-    protected override float GetDistanceLimit() => 15f;
+    protected override float GetDistanceLimit() => 50f;
 
     protected override void Start()
     {

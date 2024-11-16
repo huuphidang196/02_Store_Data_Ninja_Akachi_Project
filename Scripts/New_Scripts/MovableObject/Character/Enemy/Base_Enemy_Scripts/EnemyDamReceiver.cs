@@ -40,8 +40,9 @@ public class EnemyDamReceiver : ObjDamageReceiver
 
     protected virtual void InActiveEnemy()
     {
-        this.EnemyCtrl.gameObject.SetActive(false);
-
+        //this.EnemyCtrl.gameObject.SetActive(false);
+        //Spawn Money
+        this.EnemyCtrl.EnemyDeadSpawnMoney.SpawnMoneyBag();
         //Cannot spawn again
         EnemySpawner.Instance.Despawn(this.EnemyCtrl.transform);
     }

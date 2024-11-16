@@ -20,10 +20,10 @@ public abstract class MovableObjectMovement : MovableObjAbstract
     {
         base.ResetValue();
 
-        this.ResetSpeedConfiguration();
+        this.ResetDataConfiguration();
     }
 
-    protected virtual void ResetSpeedConfiguration()
+    protected virtual void ResetDataConfiguration()
     {
         //    this._Speed_MoveHorizontal = this._MovableObjCtrl.MObjScriptableObject.Speed_Horizontal;
     }

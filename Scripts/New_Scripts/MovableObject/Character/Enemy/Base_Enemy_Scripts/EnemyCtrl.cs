@@ -22,12 +22,15 @@ public class EnemyCtrl : CharacterCtrl
     [SerializeField] protected EnemyAttack _EnemyAttack;
     public EnemyAttack EnemyAttack => this._EnemyAttack;
 
+    [SerializeField] protected EnemyDeadSpawnMoney _EnemyDeadSpawnMoney;
+    public EnemyDeadSpawnMoney EnemyDeadSpawnMoney => this._EnemyDeadSpawnMoney;
     protected override void LoadComponents()
     {
         base.LoadComponents();
 
         this.LoadEnemyImpact();
         this.LoadEnemyAttack();
+        this.LoadEnemyDeadSpawnMoney();
     }
 
     protected virtual void LoadEnemyImpact()
@@ -41,6 +44,12 @@ public class EnemyCtrl : CharacterCtrl
         if (this._EnemyAttack != null) return;
 
         this._EnemyAttack = GetComponentInChildren<EnemyAttack>();
+    }
+    protected virtual void LoadEnemyDeadSpawnMoney()
+    {
+        if (this._EnemyDeadSpawnMoney != null) return;
+
+        this._EnemyDeadSpawnMoney = GetComponentInChildren<EnemyDeadSpawnMoney>();
     }
 
 }

@@ -19,7 +19,7 @@ public class EnemyMovement : CharacterObjMovement
         this._Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    protected override void ResetSpeedConfiguration()
+    protected override void ResetDataConfiguration()
     {
         this._Move_Right = true;
 

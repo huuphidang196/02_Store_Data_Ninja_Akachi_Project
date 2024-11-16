@@ -9,6 +9,7 @@ public class VFXObjectDespawnByTime : ObjDespawnByTime
         base.ResetValue();
 
         this._Delay = 0.3f;
+
     }
     public override void DespawnObject()
     {

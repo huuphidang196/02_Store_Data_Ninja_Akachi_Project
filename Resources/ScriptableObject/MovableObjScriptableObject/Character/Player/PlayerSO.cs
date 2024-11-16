@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerSO : CharacterScriptableObject
 {
     [Header("PlayerSO")]
+    public float Original_GravityScale = 5f;
     public float Time_Delay_Hiden = 5f;
     public float JumpingPower = 17f;
     public float WallSlidingSpeed = 3f;

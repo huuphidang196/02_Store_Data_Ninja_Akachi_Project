@@ -11,16 +11,6 @@ public class ObjImpactTargetPlayer : ObjImpact
         // if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("Player")) return true;
         if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("Player")) return true;
 
-        //if (this._parentObj.CompareTag("Inventory")) return false;
-
-        //if (this._parentObj.CompareTag("VFX")) return false;
-
-        //if (this._parentObj.CompareTag("Weapon")) return false;
-
-        //if (this._parentObj.CompareTag("ItemDrop")) return false;
-
-        //if (this._parentObj.CompareTag("SkillChoice")) return false;
-
         return false;
 
     }
@@ -34,4 +24,4 @@ public class ObjImpactTargetPlayer : ObjImpact
 
         objDamSender.Send(this._parentObj);
     }
-}
+}   

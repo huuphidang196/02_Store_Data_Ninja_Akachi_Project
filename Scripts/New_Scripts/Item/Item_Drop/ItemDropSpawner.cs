@@ -8,6 +8,7 @@ public class ItemDropSpawner : Spawner
     public static ItemDropSpawner Instance => m_instance;
 
     public static string Name_Gold_Bag = "Gold_Bag";
+    public static string Name_Diamond_Bag = "Diamond_Bag";
     public static string Name_Gold_Coin = "Gold_Coin";
     public static string Name_Text_Fly = "Text_Fly";
     public static string Name_Boom = "Boom";
