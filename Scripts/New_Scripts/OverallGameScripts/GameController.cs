@@ -18,9 +18,10 @@ public class GameController : SystemController
     [SerializeField] protected bool _Rivive_Again = false;
     public bool Rivive_Again => _Rivive_Again;
 
-   [SerializeField] protected float _Distance_Active_Enemies;
+    [SerializeField] protected float _Distance_Active_Enemies;
     public float Distance_Active_Enemies => this._Distance_Active_Enemies;
 
+    [SerializeField] protected int _Order_Buy = 0;
     
     protected override void Awake()
     {
@@ -39,6 +40,7 @@ public class GameController : SystemController
         this._EndGame = false;
         this._Rivive_Again = false;
         this._Distance_Active_Enemies = this._SystemConfig.GameConfigController.Distance_Active_Enemies;
+        this._Order_Buy = 0;
     }
 
     public virtual void AddMoneyToSystem(ItemDropUnit itemDropUnit)
@@ -63,7 +65,7 @@ public class GameController : SystemController
         this._PauseGame = true;
 
         Time.timeScale = 0;
-       // Debug.Log("Pause");
+        // Debug.Log("Pause");
     }
     public virtual void ContinueGamePlay()
     {
@@ -76,5 +78,20 @@ public class GameController : SystemController
     {
         this._EndGame = PlayerCtrl.Instance.PlayerObjDead.EndGame;
         this._Rivive_Again = InputManager.Instance.IsRiviving;
-    }    
+    }
+
+    public virtual void IncreseOrderBuy() => this._Order_Buy++;
+
+    public virtual float GetValueMoneyToBuyTwoMoreLives(TypeItem typeItem)
+    {
+        if (typeItem == TypeItem.NoType) return 0;
+
+        float valueBegin = (typeItem == TypeItem.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Gold_Rivival_Begin.Value :
+            GameController.Instance.SystemConfig.GameConfigController.Diamond_Rivival_Begin.Value;
+
+        float value_Compensation = (typeItem == TypeItem.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Compensation_Gold_Rivive :
+            GameController.Instance.SystemConfig.GameConfigController.Compensation_Diamond_Rivive;
+
+        return valueBegin + this._Order_Buy * value_Compensation;
+    }
 }

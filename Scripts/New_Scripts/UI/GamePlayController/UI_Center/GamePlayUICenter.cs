@@ -75,6 +75,9 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
        if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
 
         this._pnl_UI_EndGame_Panel.gameObject.SetActive(GameController.Instance.EndGame);
+        
+        //Increase order buy
+        GameController.Instance.IncreseOrderBuy();
     }
 
 

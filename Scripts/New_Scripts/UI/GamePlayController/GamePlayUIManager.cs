@@ -18,6 +18,9 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     [SerializeField] protected bool isHidenUI = false;
 
     public bool IsHidenUI => this.isHidenUI;
+
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -49,7 +52,7 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     {
         this.ProcessEventPlayerRivival();
         this.ProcessEventEndGame();
-       
+
     }
 
     protected virtual void ProcessEventPlayerRivival()
@@ -66,4 +69,5 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
         this.IsHidenUIScenePlay();
     }
+
 }

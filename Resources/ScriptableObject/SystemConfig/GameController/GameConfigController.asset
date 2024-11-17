@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
   Distance_Active_Enemies: 25
+  Gold_Rivival_Begin:
+    TypeItem: 1
+    Value: 2000
+  Compensation_Gold_Rivive: 1000
+  Diamond_Rivival_Begin:
+    TypeItem: 2
+    Value: 25
+  Compensation_Diamond_Rivive: 25
