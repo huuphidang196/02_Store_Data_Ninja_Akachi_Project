@@ -44,4 +44,26 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
         this.isHidenUI = false;
         Event_HideAllUIButton?.Invoke();
     }
+
+    protected virtual void FixedUpdate()
+    {
+        this.ProcessEventPlayerRivival();
+        this.ProcessEventEndGame();
+       
+    }
+
+    protected virtual void ProcessEventPlayerRivival()
+    {
+        if (GameController.Instance.Rivive_Again == this.isHidenUI) return;
+
+        if (GameController.Instance.Rivive_Again) this.IsHidenUIScenePlay();
+        else this.TurnOnUIScenPlay();
+    }
+
+    protected virtual void ProcessEventEndGame()
+    {
+        if (!GameController.Instance.EndGame || GameController.Instance.EndGame == this.isHidenUI) return;
+
+        this.IsHidenUIScenePlay();
+    }
 }

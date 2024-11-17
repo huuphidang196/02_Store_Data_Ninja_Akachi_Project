@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 0}
   _ObjDamageSender: {fileID: 4173425169497627215}
-  _ObjImpact_Overall: {fileID: 8623550462245640260}
+  _ObjImpact_Overall: {fileID: 0}
 --- !u!1 &8133914386263106212
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5799499876017195211}
-  - component: {fileID: 8623550462245640260}
+  - component: {fileID: 8613490722846823813}
   - component: {fileID: 4254204048381072560}
   - component: {fileID: 5652379667059827822}
   m_Layer: 13
@@ -214,7 +214,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2712212677077631659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8623550462245640260
+--- !u!114 &8613490722846823813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,10 +223,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8917583405950937074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935b85524ae854944ba78be503c755fd, type: 3}
+  m_Script: {fileID: 11500000, guid: ec3d4b58182915a42b437ac240113e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
+  _ObjectCtrl: {fileID: 7642697229945956461}
   _parentObj: {fileID: 0}
   isImpact: 0
   _Rigidbody2D: {fileID: 5652379667059827822}

@@ -9,6 +9,9 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     [SerializeField] protected Transform _pnl_UI_Pause_Panel;
     public Transform PNL_UI_Pause_Panel => this._pnl_UI_Pause_Panel;
 
+    [SerializeField] protected Transform _pnl_UI_EndGame_Panel;
+    public Transform PNL_UI_EndGame_Panel => this._pnl_UI_EndGame_Panel;
+
     [SerializeField] protected SliderTimePlayerHiden _SliderTimePlayerHiden;
     public SliderTimePlayerHiden SliderTimePlayerHiden => this._SliderTimePlayerHiden;
 
@@ -33,8 +36,10 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
 
         this.LoadPanelUIPause();
         this.LoadSliderTimePlayerHiden();
+        this.LoadPanelEndGame();
     }
 
+    
     protected virtual void LoadPanelUIPause()
     {
         if (this._pnl_UI_Pause_Panel != null) return;
@@ -51,16 +56,27 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this._SliderTimePlayerHiden.gameObject.SetActive(false);
     }
 
-    //protected virtual void FixedUpdate()
-    //{
-    //    this.ToggleUIPausePanel();
-    //    this.IsHidenALlChildUIBelow();
+    protected virtual void LoadPanelEndGame()
+    {
+        if (this._pnl_UI_EndGame_Panel != null) return;
 
-    //}
-    //protected virtual void ConductEventButtonPauseClick()
-    //{
+        this._pnl_UI_EndGame_Panel = transform.Find("pnlEndGame").transform;
+        this._pnl_UI_EndGame_Panel.gameObject.SetActive(false);
+    }
 
-    //}    
+    protected virtual void FixedUpdate()
+    {
+        this.ToggleUIEndGamePanel();
+
+    }
+
+    protected virtual void ToggleUIEndGamePanel()
+    {
+       if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
+
+        this._pnl_UI_EndGame_Panel.gameObject.SetActive(GameController.Instance.EndGame);
+    }
+
 
     protected virtual void Update()
     {

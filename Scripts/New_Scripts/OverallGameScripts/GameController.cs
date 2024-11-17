@@ -12,9 +12,16 @@ public class GameController : SystemController
     [SerializeField] protected bool _PauseGame;
     public bool PauseGame => _PauseGame;
 
-    [SerializeField] protected float _Distance_Active_Enemies;
+    [SerializeField] protected bool _EndGame = false;
+    public bool EndGame => _EndGame;
+
+    [SerializeField] protected bool _Rivive_Again = false;
+    public bool Rivive_Again => _Rivive_Again;
+
+   [SerializeField] protected float _Distance_Active_Enemies;
     public float Distance_Active_Enemies => this._Distance_Active_Enemies;
 
+    
     protected override void Awake()
     {
         base.Awake();
@@ -29,6 +36,8 @@ public class GameController : SystemController
         base.ResetValue();
 
         this._PauseGame = false;
+        this._EndGame = false;
+        this._Rivive_Again = false;
         this._Distance_Active_Enemies = this._SystemConfig.GameConfigController.Distance_Active_Enemies;
     }
 
@@ -62,4 +71,10 @@ public class GameController : SystemController
 
         Time.timeScale = 1f;
     }
+
+    protected virtual void FixedUpdate()
+    {
+        this._EndGame = PlayerCtrl.Instance.PlayerObjDead.EndGame;
+        this._Rivive_Again = InputManager.Instance.IsRiviving;
+    }    
 }

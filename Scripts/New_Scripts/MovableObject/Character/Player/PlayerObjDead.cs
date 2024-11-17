@@ -8,12 +8,21 @@ public class PlayerObjDead : PlayerAbstract
     [SerializeField] protected int _Count_Life = 4;
     public int Count_Life => this._Count_Life;
 
+    [SerializeField] protected bool _EndGame;
+    public bool EndGame => this._EndGame;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        this._EndGame = false;
+    }
     public virtual void EventPlayerDead()
     {
         this._Count_Life--;
         if (this._Count_Life <= 0)
         {
-            this.EndGame();
+            this.EndGamePlay();
             return;
         }
         Invoke(nameof(this.SetPositionOfPlayerRiviveCharacter), 1.9f);
@@ -40,9 +49,9 @@ public class PlayerObjDead : PlayerAbstract
         Invoke(nameof(this.RiviveCharacter), 0.1f);
     }
 
-    protected virtual void EndGame()
+    protected virtual void EndGamePlay()
     {
         //Call to Game Controller
-
+        this._EndGame = true;
     }
 }
