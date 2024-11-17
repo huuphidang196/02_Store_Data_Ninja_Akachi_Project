@@ -2,32 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
+
+[Serializable]
+public enum TypeImpact
+{
+    NoImapct = 0,
+
+    Igniting_Fire = 1,
+    Emit_Blood = 2,
+    Emit_Ground = 3,
+    Emit_WoodBox = 4,
+}
 
 public class WeaponCharacterImpact : ObjImpactTrigger
 {
     public WeaponCharacterCtrl WeaponCharacterCtrl => this._ObjectCtrl as WeaponCharacterCtrl;
 
     [Header("WeaponCharacterImpact")]
-    [SerializeField] protected bool isImpacted_Igniting_Fire = false;
-    public bool IsImpacted_Igniting_Fire => this.isImpacted_Igniting_Fire;
 
-    [SerializeField] protected bool isImpacted_Emit_Blood = false;
-    public bool IsImpacted_Emit_Blood => this.isImpacted_Emit_Blood;
-
-    [SerializeField] protected bool isImpacted_Emit_Ground = false;
-    public bool IsImpacted_Emit_Ground => this.isImpacted_Emit_Ground;
-
-    [SerializeField] protected bool isImpacted_Emit_WoodBox = false;
-    public bool IsImpacted_Emit_WoodBox => this.isImpacted_Emit_WoodBox;
-
+    [SerializeField] protected TypeImpact _TypeImpact = TypeImpact.NoImapct;
+    public TypeImpact TypeImpact => this._TypeImpact;
     protected override void Reborn()
     {
         base.Reborn();
 
-        this.isImpacted_Emit_Blood = false;
-        this.isImpacted_Igniting_Fire = false;
-        this.isImpacted_Emit_Ground = false;
-        this.isImpacted_Emit_WoodBox = false;
+        this._TypeImpact = TypeImpact.NoImapct;
     }
 
     protected override void LoadRigidbody2D()
@@ -69,15 +69,19 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
         if (this.CheckParentObjectImpactWithAnyLayer("Ground"))
         {
-            this.isImpacted_Emit_Ground = true;
+            //this.isImpacted_Emit_Ground = true;
             this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
-            this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBGroundEmit();
+            this._TypeImpact = TypeImpact.Emit_Ground;
+
+           this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBGroundEmit();
             return;
         }
 
         if (!this.CheckParentObjectImpactWithAnyLayer(new string[] { this.GetNameTargetAttack(), "Item" }))
         {
-            this.isImpacted_Igniting_Fire = true;
+            //this.isImpacted_Igniting_Fire = true;
+            this._TypeImpact = TypeImpact.Igniting_Fire;
+
             this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXIgniteFire();
             return;
         }
@@ -86,15 +90,21 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
         if (this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
-            this.isImpacted_Emit_WoodBox = true;
+            //this.isImpacted_Emit_WoodBox = true;
+            this._TypeImpact = TypeImpact.Emit_WoodBox;
+
             this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXWoodBoxEmit();
             return;
         }
 
-        this.isImpacted_Emit_Blood = true;
+        this._TypeImpact = TypeImpact.Emit_Blood;
+        // this.isImpacted_Emit_Blood = true;
+       
         this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBloodEnemyEmit();
 
     }
     protected virtual string GetNameTargetAttack() => "";
     protected virtual string[] GetArrayNameTargetAttack() => new string[] { "" };
+
+    public virtual void SetStatusWeaponImpact() => this._TypeImpact = TypeImpact.NoImapct;
 }

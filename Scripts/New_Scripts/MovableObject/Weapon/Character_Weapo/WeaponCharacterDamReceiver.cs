@@ -9,7 +9,7 @@ public abstract class WeaponCharacterDamReceiver : ObjDamageReceiver
 
     [Header("ShurikenDamReceiver")]
 
-    [SerializeField] protected float _Time_Delay_InActive = 0.5f;
+    [SerializeField] protected float _Time_Delay_InActive = 0.2f;
 
     protected override void ResetValue()
     {

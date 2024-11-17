@@ -47,7 +47,7 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 7872448578091896245}
   _Target: {fileID: 0}
   distance: 0
-  distanceLimit: 40
+  distanceLimit: 50
 --- !u!1 &2947829383916506747
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   _MObjScriptableObject: {fileID: 11400000, guid: 114a3faddf4323d4d8fc130e145975ed, type: 2}
   _MovableObj_Movement: {fileID: 941184002988405401}
   _Model: {fileID: 1920851156009785146}
-  _WeaponCharacterVFXManager: {fileID: 2528618071192166619}
+  _WeaponCharacterVFXManager: {fileID: 0}
 --- !u!50 &8877227070145469769
 Rigidbody2D:
   serializedVersion: 4
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8693610787025855286}
-  - component: {fileID: 2528618071192166619}
+  - component: {fileID: 1445824736038203464}
   m_Layer: 12
   m_Name: VFX_Shuriken
   m_TagString: Untagged
@@ -359,7 +359,7 @@ Transform:
   - {fileID: 1333966034370234133}
   m_Father: {fileID: 4878854098661576636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2528618071192166619
+--- !u!114 &1445824736038203464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,10 +368,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6438160472211524331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46801c71ab9c0b4ca4efb5088299130, type: 3}
+  m_Script: {fileID: 11500000, guid: f371b5d4e9202434f98ad75ac00464a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _WeaponCharacterCtrl: {fileID: 7872448578091896245}
+  _Trail: {fileID: 1333966034370234133}
 --- !u!1 &7900499034822867862
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +384,7 @@ GameObject:
   - component: {fileID: 1333966034370234133}
   - component: {fileID: 2975526516982041966}
   m_Layer: 12
-  m_Name: Trail
+  m_Name: Trail_Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,10 +669,7 @@ MonoBehaviour:
   _Rigidbody2D: {fileID: 8520175148213268555}
   _boxCollider: {fileID: 6724633032081093313}
   isImpact_Trigger: 0
-  isImpacted_Igniting_Fire: 0
-  isImpacted_Emit_Blood: 0
-  isImpacted_Emit_Ground: 0
-  isImpacted_Emit_WoodBox: 0
+  _TypeImpact: 0
 --- !u!61 &6724633032081093313
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -20,5 +20,5 @@ public class CameraFollowTarget : FollowPlayerTarget
     {
         return new Vector3(12f, 0, 0);
     }
-    protected override float GetSpeedFollowTarget() => 0.05f;
+    protected override float GetSpeedFollowTarget() => 0.07f;
 }

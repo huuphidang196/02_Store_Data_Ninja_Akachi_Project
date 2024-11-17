@@ -66,12 +66,15 @@ public class InputManager : SurMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        Application.targetFrameRate = 45;
+        // Application.targetFrameRate = 30;
 
+        // Sử dụng frame rate tối đa mà thiết bị có thể hỗ trợ
+        Application.targetFrameRate = -1;
+  
     }
     protected virtual void Update()
     {
-        // Kiểm tra phím mũi tên lên
+        //// Kiểm tra phím mũi tên lên
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Debug.Log("Mũi tên lên được nhấn");
