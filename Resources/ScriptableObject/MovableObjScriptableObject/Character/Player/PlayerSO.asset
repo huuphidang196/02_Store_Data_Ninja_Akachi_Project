@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
-  Speed_Move_Horizontal: 8
+  Speed_Move_Horizontal: 6.5
   Max_HP: 1
   Length_Ray_Forward_Limit: 0.35
   Speed_Dash_Horizontal: 15
   Original_GravityScale: 5
   Time_Delay_Hiden: 5
   JumpingPower: 17
-  WallSlidingSpeed: 5
+  WallSlidingSpeed: 4
   WallJumpingTime: 0.2
   WallJumpingDuration: 0.4
   DashingPower: 35

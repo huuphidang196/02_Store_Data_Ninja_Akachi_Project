@@ -236,7 +236,7 @@ MonoBehaviour:
   _MovableObjCtrl: {fileID: 2890972321005388380}
   _Rigidbody2D: {fileID: 4110766925072444786}
   _Horizontal: 0
-  _Speed_Move_Horizontal: 8
+  _Speed_Move_Horizontal: 6.5
   isFacingRight: 1
   _Move_Right: 0
   _Speed_Dash_Horizontal: 15
@@ -246,7 +246,7 @@ MonoBehaviour:
   isWallSliding: 0
   isWallJumping: 0
   _JumpingPower: 17
-  _WallSlidingSpeed: 5
+  _WallSlidingSpeed: 4
   _WallJumpingDirection: 0
   _WallJumpingDuration: 0.4
   _WallJumpingPower: {x: 0, y: 0}

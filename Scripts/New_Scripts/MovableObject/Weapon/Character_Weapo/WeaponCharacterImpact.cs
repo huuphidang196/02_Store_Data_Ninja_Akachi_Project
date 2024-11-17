@@ -71,12 +71,14 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         {
             this.isImpacted_Emit_Ground = true;
             this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
+            this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBGroundEmit();
             return;
         }
 
         if (!this.CheckParentObjectImpactWithAnyLayer(new string[] { this.GetNameTargetAttack(), "Item" }))
         {
             this.isImpacted_Igniting_Fire = true;
+            this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXIgniteFire();
             return;
         }
 
@@ -85,10 +87,12 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         if (this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
             this.isImpacted_Emit_WoodBox = true;
+            this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXWoodBoxEmit();
             return;
         }
 
         this.isImpacted_Emit_Blood = true;
+        this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBloodEnemyEmit();
 
     }
     protected virtual string GetNameTargetAttack() => "";
