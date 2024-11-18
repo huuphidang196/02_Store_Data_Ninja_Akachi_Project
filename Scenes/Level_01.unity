@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 74260681}
   - component: {fileID: 74260683}
   m_Layer: 5
-  m_Name: txtDiamond_Rivival
+  m_Name: txtRivival_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3824,10 +3824,11 @@ GameObject:
   m_Component:
   - component: {fileID: 342574987}
   - component: {fileID: 342574990}
+  - component: {fileID: 342574991}
   - component: {fileID: 342574989}
   - component: {fileID: 342574988}
   m_Layer: 5
-  m_Name: btnSuvival_Gold
+  m_Name: btnRivival_Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3936,6 +3937,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342574986}
   m_CullTransparentMesh: 0
+--- !u!114 &342574991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342574986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a48e58098d309249903c60f15d1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnExect: {fileID: 342574988}
+  _TypeItem: 1
 --- !u!1 &345047014
 GameObject:
   m_ObjectHideFlags: 0
@@ -37673,10 +37688,11 @@ GameObject:
   m_Component:
   - component: {fileID: 523107201}
   - component: {fileID: 523107204}
+  - component: {fileID: 523107205}
   - component: {fileID: 523107203}
   - component: {fileID: 523107202}
   m_Layer: 5
-  m_Name: btnSuvival_Diamond
+  m_Name: btnRivival_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37785,6 +37801,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523107200}
   m_CullTransparentMesh: 0
+--- !u!114 &523107205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523107200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a48e58098d309249903c60f15d1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnExect: {fileID: 523107202}
+  _TypeItem: 2
 --- !u!1 &528716920
 GameObject:
   m_ObjectHideFlags: 0
@@ -65196,7 +65226,7 @@ GameObject:
   - component: {fileID: 1782880894}
   - component: {fileID: 1782880896}
   m_Layer: 5
-  m_Name: txtGold_Rivival
+  m_Name: txtRivival_Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextMoneyNeedRivival : BaseText
+public class ButtonRivivalTwoLiveWithMoney : BaseButton
 {
     [SerializeField] protected TypeItem _TypeItem;
 
@@ -31,13 +32,10 @@ public class TextMoneyNeedRivival : BaseText
         }
     }
 
-    protected override void OnEnable()
+    protected override void OnClick()
     {
-        base.OnEnable();
+        base.OnClick();
 
-        string valueMoneyNeeed = "" + GameController.Instance.GetValueMoneyToBuyTwoMoreLives(this._TypeItem);
-        this.SetContent(valueMoneyNeeed);
+        GameController.Instance.RiviveCharacterByMoneyWitTwoLives(this._TypeItem);
     }
-  
-   
 }

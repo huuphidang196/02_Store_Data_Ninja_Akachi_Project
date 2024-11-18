@@ -22,7 +22,7 @@ public class GameController : SystemController
     public float Distance_Active_Enemies => this._Distance_Active_Enemies;
 
     [SerializeField] protected int _Order_Buy = 0;
-    
+
     protected override void Awake()
     {
         base.Awake();
@@ -93,5 +93,23 @@ public class GameController : SystemController
             GameController.Instance.SystemConfig.GameConfigController.Compensation_Diamond_Rivive;
 
         return valueBegin + this._Order_Buy * value_Compensation;
+    }
+
+    public virtual void RiviveCharacterByMoneyWitTwoLives(TypeItem typeItem)
+    {
+        if (typeItem == TypeItem.NoType) return;
+
+        float valueNeed = this.GetValueMoneyToBuyTwoMoreLives(typeItem);
+
+        //Check Current money enough to buy
+        float currentMoney = (typeItem == TypeItem.Gold) ? this._SystemConfig.Total_Golds : this._SystemConfig.Total_Diamonds;
+
+        if (currentMoney < valueNeed) return;
+
+        if (typeItem == TypeItem.Gold) this._SystemConfig.Total_Golds -= valueNeed;
+        else this._SystemConfig.Total_Diamonds -= valueNeed;
+
+        //Rivive Player with 2 lives
+        PlayerCtrl.Instance.PlayerObjDead.RiviveCharacterByMoneyWitTwoLives();
     }
 }

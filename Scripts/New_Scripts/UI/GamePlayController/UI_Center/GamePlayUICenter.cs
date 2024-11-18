@@ -39,7 +39,7 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this.LoadPanelEndGame();
     }
 
-    
+
     protected virtual void LoadPanelUIPause()
     {
         if (this._pnl_UI_Pause_Panel != null) return;
@@ -72,12 +72,12 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
 
     protected virtual void ToggleUIEndGamePanel()
     {
-       if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
+        if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
 
         this._pnl_UI_EndGame_Panel.gameObject.SetActive(GameController.Instance.EndGame);
-        
+
         //Increase order buy
-        GameController.Instance.IncreseOrderBuy();
+        if (GameController.Instance.EndGame) GameController.Instance.IncreseOrderBuy();
     }
 
 
