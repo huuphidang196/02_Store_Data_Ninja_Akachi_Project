@@ -13,7 +13,7 @@ public class ObjImpact : ObjImpactOverall
     // [SerializeField] protected float _maxRadius = 2f;
     [SerializeField] protected Rigidbody2D _Rigidbody2D;
     [SerializeField] protected BoxCollider2D _boxCollider;
-
+    public BoxCollider2D BoxCollider2D => this._boxCollider;
     protected override void LoadComponents()
     {
         base.LoadComponents();

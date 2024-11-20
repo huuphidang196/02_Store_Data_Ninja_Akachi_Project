@@ -12,6 +12,9 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     [SerializeField] protected Transform _pnl_UI_EndGame_Panel;
     public Transform PNL_UI_EndGame_Panel => this._pnl_UI_EndGame_Panel;
 
+    [SerializeField] protected Transform _pnl_UI_BuyDiamonds_Panel;
+    public Transform PNL_UI_BuyDiamonds_Panel => this._pnl_UI_BuyDiamonds_Panel;
+
     [SerializeField] protected SliderTimePlayerHiden _SliderTimePlayerHiden;
     public SliderTimePlayerHiden SliderTimePlayerHiden => this._SliderTimePlayerHiden;
 
@@ -37,8 +40,8 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this.LoadPanelUIPause();
         this.LoadSliderTimePlayerHiden();
         this.LoadPanelEndGame();
+        this.LoadPanelBuyDiamonds();
     }
-
 
     protected virtual void LoadPanelUIPause()
     {
@@ -64,10 +67,25 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this._pnl_UI_EndGame_Panel.gameObject.SetActive(false);
     }
 
+    protected virtual void LoadPanelBuyDiamonds()
+    {
+        if (this._pnl_UI_BuyDiamonds_Panel != null) return;
+
+        this._pnl_UI_BuyDiamonds_Panel = transform.Find("pnlBuyDiamonds").transform;
+        this._pnl_UI_BuyDiamonds_Panel.gameObject.SetActive(false);
+    }
+
     protected virtual void FixedUpdate()
     {
         this.ToggleUIEndGamePanel();
+        this.ToggleUIBuyDiamondsPanel();
+    }
 
+    protected virtual void ToggleUIBuyDiamondsPanel()
+    {
+        if (GamePlayUIManager.Instance.IsTogglePanelBuyDiamonds == this._pnl_UI_BuyDiamonds_Panel.gameObject.activeInHierarchy) return;
+
+        this._pnl_UI_BuyDiamonds_Panel.gameObject.SetActive(GamePlayUIManager.Instance.IsTogglePanelBuyDiamonds);
     }
 
     protected virtual void ToggleUIEndGamePanel()
@@ -75,9 +93,6 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
 
         this._pnl_UI_EndGame_Panel.gameObject.SetActive(GameController.Instance.EndGame);
-
-        //Increase order buy
-        if (GameController.Instance.EndGame) GameController.Instance.IncreseOrderBuy();
     }
 
 
@@ -87,14 +102,14 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     }
     protected virtual void ToggleUIPausePanel()
     {
-        if (GamePlayUIManager.Instance.IsToggle == this._pnl_UI_Pause_Panel.gameObject.activeInHierarchy) return;
+        if (GamePlayUIManager.Instance.IsTogglePanelPause == this._pnl_UI_Pause_Panel.gameObject.activeInHierarchy) return;
 
-        this._pnl_UI_Pause_Panel.gameObject.SetActive(GamePlayUIManager.Instance.IsToggle);
+        this._pnl_UI_Pause_Panel.gameObject.SetActive(GamePlayUIManager.Instance.IsTogglePanelPause);
     }
 
     protected virtual void IsHidenALlChildUIBelow()
     {
-        if (GamePlayUIManager.Instance.IsHidenUI != GamePlayUIManager.Instance.IsToggle) return;
+        if (GamePlayUIManager.Instance.IsHidenUI != GamePlayUIManager.Instance.IsTogglePanelPause) return;
 
         if (GamePlayUIManager.Instance.IsHidenUI == transform.GetChild(0).gameObject.activeInHierarchy) return;
 

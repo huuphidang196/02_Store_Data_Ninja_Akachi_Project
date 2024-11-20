@@ -4,32 +4,6 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 
-[Serializable]
-public enum TypeItem
-{
-    NoType = 0,
-
-    Gold = 1,
-    Diamond = 2,
-
-}
-
-[Serializable]
-public class ItemDropUnit
-{
-    // protected float _Value_Money;
-
-    public TypeItem TypeItem;
-
-    public MinMaxPair RangeValueDrop;
-    public float Value_Money => Mathf.Round(Random.Range(this.RangeValueDrop.Min, this.RangeValueDrop.Max));
-
-
-    // public virtual void SetValueMoney(float value) => this._Value_Money = value;
-
-    public ItemDropUnit() {; }
-}
-
 public class ItemLootableDamReceiver : ItemDamReceiver
 {
     [SerializeField] protected ItemDropUnit _ItemDropUnit;
@@ -55,7 +29,7 @@ public class ItemLootableDamReceiver : ItemDamReceiver
 
         TextUICtrl textUICtrl = textMoney.GetComponent<TextUICtrl>();
         //Set Content value
-        textUICtrl.TextDescription.SetContent("+ " + this._ItemDropUnit.Value_Money);
+        textUICtrl.TextDescription.SetContent("+ " + this._ItemDropUnit.ItemUnit.Value);
 
         textMoney.gameObject.name = ItemDropSpawner.Name_Text_Fly;
         textMoney.localScale = Vector3.one;

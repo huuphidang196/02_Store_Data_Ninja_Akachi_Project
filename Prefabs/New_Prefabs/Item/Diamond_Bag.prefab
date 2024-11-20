@@ -172,8 +172,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.027749985, y: 0.011949986, z: 0}
-    m_Extent: {x: 0.91355, y: 0.90285003, z: 0}
+    m_Center: {x: 0.029049993, y: 0.010299981, z: 0}
+    m_Extent: {x: 0.91785, y: 0.8947, z: 0}
   m_PointLightInnerAngle: 186.01
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -410,7 +410,6 @@ MonoBehaviour:
   isDead: 0
   _BoxCollider2D: {fileID: 4009834630223583553}
   _ItemDropUnit:
-    TypeItem: 2
     RangeValueDrop:
       Min: 1
       Max: 2

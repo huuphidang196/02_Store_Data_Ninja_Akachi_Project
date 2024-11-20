@@ -27,7 +27,8 @@ public class PlayerDamReceiver : ObjDamageReceiver
         //  Debug.Log("Player Dead");
 
         this.ChangeLayerPlayerByName("Default");
-        this.PlayerCtrl.PlayerMovement.Rigidbody2D.gravityScale = 10f;
+        this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
+        this.SetEnableColliderPlayer(false);
 
     }
 
@@ -36,8 +37,8 @@ public class PlayerDamReceiver : ObjDamageReceiver
        // Debug.Log("Rivival");
         this.ReBorn();
         this.ChangeLayerPlayerByName("Player");
-        this.PlayerCtrl.PlayerMovement.Rigidbody2D.gravityScale = 3f;
-
+        this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        this.SetEnableColliderPlayer(true);
     }
 
     public override void DeductHP(float damage)
@@ -52,12 +53,12 @@ public class PlayerDamReceiver : ObjDamageReceiver
         this.PlayerCtrl.gameObject.layer = LayerMask.NameToLayer(nameNewLayer);
         this.gameObject.layer = LayerMask.NameToLayer(nameNewLayer);
         this.PlayerCtrl.PlayerLooter.gameObject.layer = LayerMask.NameToLayer(nameNewLayer);
-        //// Đổi layer cho tất cả các object con
-        //foreach (Transform child in this.PlayerCtrl.transform)
-        //{
-        //    child.gameObject.layer = LayerMask.NameToLayer(nameNewLayer);
-
-        //}
+      
     }
  
+    protected virtual void SetEnableColliderPlayer(bool playerRivival)
+    {
+        this._BoxCollider2D.enabled = playerRivival;
+        this.PlayerCtrl.PlayerLooter.BoxCollider2D.enabled = playerRivival;
+    }    
 }

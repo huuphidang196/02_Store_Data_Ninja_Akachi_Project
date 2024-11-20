@@ -1,7 +1,42 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
+
+[Serializable]
+public enum TypeItem
+{
+    NoType = 0,
+
+    Gold = 1,
+    Diamond = 2,
+
+}
+
+[Serializable]
+public class ItemDropUnit
+{
+    public MinMaxPair RangeValueDrop;
+
+    protected ItemUnit _ItemUnit;
+    public ItemUnit ItemUnit
+    {
+        get
+        {
+            this._ItemUnit = new ItemUnit(Mathf.Round(Random.Range(this.RangeValueDrop.Min, this.RangeValueDrop.Max)));
+            return this._ItemUnit;
+        }
+        set => this._ItemUnit = value;
+    }
+    public ItemDropUnit() {; }
+    // Constructor
+    public ItemDropUnit(MinMaxPair range)
+    {
+        this.RangeValueDrop = range;
+    }
+
+}
 
 [Serializable]
 public class ItemUnit
@@ -11,6 +46,11 @@ public class ItemUnit
     public float Value;
 
     public ItemUnit() {; }
+    public ItemUnit(float value)
+    {
+        this.Value = value;
+    }
+
 }
 
 [CreateAssetMenu(fileName = "GameConfigController", menuName = "ScriptableObject/Configuration/GameConfigController", order = 1)]

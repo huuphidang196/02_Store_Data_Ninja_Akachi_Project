@@ -53,6 +53,7 @@ public class PlayerObjDead : PlayerAbstract
     {
         //Call to Game Controller
         this._EndGame = true;
+
     }
 
     public virtual void RiviveCharacterByMoneyWitTwoLives()
@@ -60,5 +61,6 @@ public class PlayerObjDead : PlayerAbstract
         this._EndGame = false;
         this._Count_Life = 2;
         Invoke(nameof(this.SetPositionOfPlayerRiviveCharacter), 1.9f);
+        GameController.Instance.IncreseOrderBuy();
     }    
 }

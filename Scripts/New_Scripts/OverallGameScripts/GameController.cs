@@ -45,15 +45,19 @@ public class GameController : SystemController
 
     public virtual void AddMoneyToSystem(ItemDropUnit itemDropUnit)
     {
-        switch (itemDropUnit.TypeItem)
+        this.AddMoneyToSystem(itemDropUnit.ItemUnit);
+    }
+    public virtual void AddMoneyToSystem(ItemUnit itemUnit)
+    {
+        switch (itemUnit.TypeItem)
         {
             case TypeItem.NoType:
                 break;
             case TypeItem.Gold:
-                this._SystemConfig.Total_Golds += itemDropUnit.Value_Money;
+                this._SystemConfig.Total_Golds += itemUnit.Value;
                 break;
             case TypeItem.Diamond:
-                this._SystemConfig.Total_Diamonds += itemDropUnit.Value_Money;
+                this._SystemConfig.Total_Diamonds += itemUnit.Value;
                 break;
             default:
                 break;
@@ -112,4 +116,9 @@ public class GameController : SystemController
         //Rivive Player with 2 lives
         PlayerCtrl.Instance.PlayerObjDead.RiviveCharacterByMoneyWitTwoLives();
     }
+
+    public virtual void BuyDiamondsByMoney(float total_Need)
+    {
+     
+    }    
 }

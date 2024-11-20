@@ -11,9 +11,13 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     public static Action Event_PauseButton;
     public static Action Event_HideAllUIButton;
 
-    [SerializeField] protected bool isToggle = false;
+    [SerializeField] protected bool isTogglePanelPause = false;
 
-    public bool IsToggle => this.isToggle;
+    public bool IsTogglePanelPause => this.isTogglePanelPause;
+
+    [SerializeField] protected bool isTogglePanelBuyDiamonds = false;
+
+    public bool IsTogglePanelBuyDiamonds => this.isTogglePanelBuyDiamonds;
 
     [SerializeField] protected bool isHidenUI = false;
 
@@ -31,7 +35,7 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     }
     public virtual void TogglePanelPause()
     {
-        this.isToggle = !this.isToggle;
+        this.isTogglePanelPause = !this.isTogglePanelPause;
 
         Event_PauseButton?.Invoke();
     }
@@ -46,6 +50,12 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     {
         this.isHidenUI = false;
         Event_HideAllUIButton?.Invoke();
+    }
+
+    public virtual void TogglePanelBuyDiamonds()
+    {
+        this.isTogglePanelBuyDiamonds = !this.isTogglePanelBuyDiamonds;
+
     }
 
     protected virtual void FixedUpdate()
