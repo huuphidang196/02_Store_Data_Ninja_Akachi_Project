@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,26 @@ public class PlayerDamReceiver : ObjDamageReceiver
     {
         base.Start();
 
+        this.SetIgnoreCollision();       
+    }
+
+    protected virtual void SetIgnoreCollision()
+    {
         this.IgnoreLayerCollisionOfPlayerObject("Player", "Enemy", true);
         this.IgnoreLayerCollisionOfPlayerObject("Player", "Item", true);
         this.IgnoreLayerCollisionOfPlayerObject("Player", "ObjInteractableShuriken", true);
 
+        // Ignore với tất cả các layer khác
+        int totalLayers = 32; // Unity hỗ trợ tối đa 32 layer
+        for (int i = 0; i < totalLayers; i++)
+        {
+            if (i != LayerMask.NameToLayer("Ground") && i != LayerMask.NameToLayer("PlayerDead"))
+            {
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerDead"), i, true);
+            }
+        }
     }
+
     protected override float GetMaxHP()
     {
         return 1;// Load from Scriptable Object
@@ -26,9 +42,9 @@ public class PlayerDamReceiver : ObjDamageReceiver
         InputManager.Instance.SetFalseAllBoolWhenPlayerDead();
         //  Debug.Log("Player Dead");
 
-        this.ChangeLayerPlayerByName("Default");
-        this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
-        this.SetEnableColliderPlayer(false);
+        this.ChangeLayerPlayerByName("PlayerDead");
+       // this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
+        //this.SetEnableColliderPlayer(false);
 
     }
 
@@ -38,15 +54,15 @@ public class PlayerDamReceiver : ObjDamageReceiver
         this.ReBorn();
         this.ChangeLayerPlayerByName("Player");
         this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-        this.SetEnableColliderPlayer(true);
+      //  this.SetEnableColliderPlayer(true);
     }
 
-    public override void DeductHP(float damage)
-    {
-        if (this.PlayerCtrl.PlayerMovement.IsDashing) return;
+    //public override void DeductHP(float damage)
+    //{
+    //    if (this.PlayerCtrl.PlayerMovement.IsDashing) return;
 
-        base.DeductHP(damage);
-    }
+    //    base.DeductHP(damage);
+    //}
 
     public virtual void ChangeLayerPlayerByName(string nameNewLayer)
     {

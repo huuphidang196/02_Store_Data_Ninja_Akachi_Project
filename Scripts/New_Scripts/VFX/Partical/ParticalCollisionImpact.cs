@@ -10,10 +10,16 @@ public class ParticalCollisionImpact : ObjImpactOverall
         this.EventImpactEnter2D(other);
     }
 
-    protected override bool CheckObjectImapactAllowedImpactCollision() => this._parentObj.gameObject.layer == LayerMask.NameToLayer("Player");
+    protected override bool CheckObjectImapactAllowedImpactCollision()
+    {
+        if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("Player")) return true;
+        if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("PlayerHiddenMode")) return true;
+
+        return false;
+    }
     protected override void ProcessAfterObjectImapactCollision()
     {
         this._ObjectCtrl.ObjDamageSender.Send(this._parentObj);
     }
-    
+
 }

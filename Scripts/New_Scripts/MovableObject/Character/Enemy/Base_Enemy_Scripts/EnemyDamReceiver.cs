@@ -23,6 +23,7 @@ public class EnemyDamReceiver : ObjDamageReceiver
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "WeaponEnemy", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "Item", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "ObjInteractableShuriken", true);
+
     }
     protected override float GetMaxHP()
     {

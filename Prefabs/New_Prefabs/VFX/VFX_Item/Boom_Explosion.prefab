@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1634586291685690957}
   - component: {fileID: 6564954446690857063}
   - component: {fileID: 1610507154009095724}
-  m_Layer: 19
+  m_Layer: 13
   m_Name: ObjImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,6 +262,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3d4b58182915a42b437ac240113e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ObjectCtrl: {fileID: 3767463365360091610}
+  _parentObj: {fileID: 0}
+  isImpact: 0
+  _Rigidbody2D: {fileID: 6564954446690857063}
+  _boxCollider: {fileID: 1634586291685690957}
 --- !u!1001 &7423659243495113245
 PrefabInstance:
   m_ObjectHideFlags: 0

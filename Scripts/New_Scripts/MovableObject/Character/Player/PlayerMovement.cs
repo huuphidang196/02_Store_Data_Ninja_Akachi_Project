@@ -290,10 +290,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     }
     protected virtual IEnumerator Dash()
     {
-        //canDash = false;
         isDashing = true;
-        //this._PlayerCtrl.PlayerDamReceiver.BoxCollider2D.enabled = false;
-
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", true);
 
         // Should set not interact with enemy
@@ -301,7 +298,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         this._Rigidbody2D.velocity = new Vector2(this._MovableObjCtrl.transform.localScale.x * this._DashingPower, 0f);
 
         yield return new WaitForSeconds(this._DashingTime);
-        //tr.emitting = false;
+
         this._Rigidbody2D.gravityScale = this._Original_Gravity;
         isDashing = false;
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", false);
