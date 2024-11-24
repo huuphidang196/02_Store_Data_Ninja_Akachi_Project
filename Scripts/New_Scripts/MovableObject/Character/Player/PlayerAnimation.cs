@@ -7,14 +7,25 @@ public class PlayerAnimation : CharacterAnimation
 
     [Header("PlayerAnimation")]
     [SerializeField] protected bool _Jump_Ani = false;
-    [SerializeField] protected bool _Dropping = false;
-    [SerializeField] protected bool _Wall_Sliding_Ani = false;
-    [SerializeField] protected bool _Attack_Throw_Ani = false;
-    [SerializeField] protected bool _Attack_Dashing_Ani = false;
+    public bool Jump_Ani => this._Jump_Ani;
 
-    [SerializeField] protected bool _Hiden_Mode_Skill_Ani = false;
+    [SerializeField] protected bool _Dropping = false;
+    public bool Dropping => this._Dropping;
+
+    [SerializeField] protected bool _Wall_Sliding_Ani = false;
+    public bool Wall_Sliding_Ani => this._Wall_Sliding_Ani;
+
+    [SerializeField] protected bool _Attack_Throw_Ani = false;
+    public bool Attack_Throw_Ani => this._Attack_Throw_Ani;
+
+    [SerializeField] protected bool _Attack_Dashing_Ani = false;
+    public bool Attack_Dashing_Ani => this._Attack_Dashing_Ani;
+
+    [SerializeField] protected bool _Hidden_Mode_Skill_Ani = false;
+    public bool Hidden_Mode_Skill_Ani => this._Hidden_Mode_Skill_Ani;
 
     [SerializeField] protected bool _Rivive_Again_Ani = false;
+    public bool Rivive_Again_Ani => this._Rivive_Again_Ani;
 
     [SerializeField] protected float _Time_Delay_Hiden = 5f;
     public float Time_Delay_Hiden => _Time_Delay_Hiden;
@@ -36,7 +47,7 @@ public class PlayerAnimation : CharacterAnimation
             return;
         }
 
-        if (this._Hiden_Mode_Skill_Ani)
+        if (this._Hidden_Mode_Skill_Ani)
         {
             this.SetAnimationHidenModeSkill();
             return;
@@ -74,7 +85,7 @@ public class PlayerAnimation : CharacterAnimation
 
         if (this.CheckAnimationCurrent("Idle")) return;
 
-        if (!this._Hiden_Mode_Skill_Ani) this.SetAnimationHidenCompleted();
+        if (!this._Hidden_Mode_Skill_Ani) this.SetAnimationHidenCompleted();
 
         if (!this._Dropping) this.SetAnimationDropped();
 
@@ -84,21 +95,21 @@ public class PlayerAnimation : CharacterAnimation
 
     protected virtual void UpdateBoolByInputManager()
     {
-        this._Attack_Throw_Ani = !this.isDead && !this._Hiden_Mode_Skill_Ani && InputManager.Instance.Press_Attack_Throw;
+        this._Attack_Throw_Ani = !this.isDead && !this._Hidden_Mode_Skill_Ani && InputManager.Instance.Press_Attack_Throw;
 
         this._Run_Ani = (this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround
             && InputManager.Instance.Press_Left != InputManager.Instance.Press_Right);
 
-        this._Jump_Ani = (!this.isDead && !this._Hiden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y > 0.2f
+        this._Jump_Ani = (!this.isDead && !this._Hidden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y > 0.2f
             && !this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround);
 
-        this._Wall_Sliding_Ani = !this.isDead && !this._Hiden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.IsWallSliding;
+        this._Wall_Sliding_Ani = !this.isDead && !this._Hidden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.IsWallSliding;
 
-        this._Dropping = (!this.isDead && !this._Hiden_Mode_Skill_Ani && !this._Jump_Ani && !this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround && !this._Wall_Sliding_Ani);
+        this._Dropping = (!this.isDead && !this._Hidden_Mode_Skill_Ani && !this._Jump_Ani && !this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround && !this._Wall_Sliding_Ani);
 
-        this._Attack_Dashing_Ani = !this.isDead && !this._Hiden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.IsDashing;
+        this._Attack_Dashing_Ani = !this.isDead && !this._Hidden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.IsDashing;
 
-        this._Hiden_Mode_Skill_Ani = !this.isDead && this._PlayerCtrl.PlayerMovement.IsHiding;
+        this._Hidden_Mode_Skill_Ani = !this.isDead && this._PlayerCtrl.PlayerMovement.IsHiding;
 
         this._Rivive_Again_Ani = InputManager.Instance.IsRiviving;
     }

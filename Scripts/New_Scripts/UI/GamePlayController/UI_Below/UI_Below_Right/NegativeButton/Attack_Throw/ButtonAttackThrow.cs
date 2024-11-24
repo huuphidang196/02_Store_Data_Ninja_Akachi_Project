@@ -9,8 +9,6 @@ public class ButtonAttackThrow : BaseButton
     {
         base.OnClick();
         InputManager.Instance.PointerAttackThrowDown();
-
-        PlayerCtrl.Instance.PlayerAttack.PerformAttackThrowShuriken();
     }
 
 

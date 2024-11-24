@@ -55,7 +55,7 @@ public class ButtonHidenSkillActiveByTime : ActiveByTimer
 
     protected override bool GetBoolVariable()
     {
-        return InputManager.Instance.Press_Hiden_Mode;
+        return InputManager.Instance.Press_Hidden_Mode;
         //return !PlayerCtrl.Instance.PlayerMovement.IsHiding && InputManager.Instance.Press_Hiden_Mode;
 
     }

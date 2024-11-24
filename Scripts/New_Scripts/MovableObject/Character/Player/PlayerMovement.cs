@@ -8,6 +8,12 @@ public enum PlayerStateMachine
 {
     Idle,
 
+    Run,
+
+    First_Jump,
+
+    Double_Jump,
+
     IsWallSliding,
 
     IsWallJumping,
@@ -16,11 +22,14 @@ public enum PlayerStateMachine
 
     IsHiding,
 
+    IsAttackThrowing,
+
     IsRiviving,
 
     Dead,
 }
-public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlayer
+
+public class PlayerMovement : CharacterObjMovement
 {
     [SerializeField] protected PlayerCtrl _PlayerCtrl => this._MovableObjCtrl as PlayerCtrl;
 
@@ -30,10 +39,10 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     //public bool Move_Left => _Move_Left;
 
     [SerializeField] protected bool _First_Jump = false;
-    [SerializeField] protected bool _Double_Jump = false;
+    public bool First_Jump => this._First_Jump;
 
-    // [SerializeField] protected PlayerStateMachine _PlayerStateMachine = PlayerStateMachine.Idle;
-    // public PlayerStateMachine PlayerStateMachine => this._PlayerStateMachine;
+    [SerializeField] protected bool _Double_Jump = false;
+    public bool Double_Jump => this._Double_Jump;
 
     [SerializeField] protected bool isWallSliding = false;
     public bool IsWallSliding => isWallSliding;
@@ -64,23 +73,28 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     [SerializeField] protected float _Speed_Hiding_Horizontal = 1.5f;
     [SerializeField] protected float _HidenTime = 5f;
 
+    #region OnEnable_Disable
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        InputManager.PressJumpButton_Event += this.PressJumpEvent;
+        InputManager.PressDashingButton_Event += this.PressDashingEvent;
+    }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        InputManager.PressJumpButton_Event -= this.PressJumpEvent;
+        InputManager.PressDashingButton_Event -= this.PressDashingEvent;
+    }
     protected override void LoadRigidbody2D()
     {
         base.LoadRigidbody2D();
 
         this._Rigidbody2D.gravityScale = this._Original_Gravity;
     }
-    protected override void Start()
-    {
-        base.Start();
-        //Debug.Log(transform.parent.name);
-        this._WallJumpingPower = new Vector2(Mathf.Tan(5f * Mathf.Deg2Rad) * this._JumpingPower, this._JumpingPower);
-        // this._WallJumpingPower = new Vector2(6f, 15f);
 
-        InputManager.Instance.SetInterfaceJumpPlayer(this);
-        InputManager.Instance.SetInterfaceAttackDashing(this);
-    }
     protected override void ResetDataConfiguration()
     {
         base.ResetDataConfiguration();
@@ -95,7 +109,15 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         this._First_Jump = false;
         this.canHiden = false;
         this.isRiviving = false;
+    }
 
+    #endregion OnEnable_Disable
+
+    protected override void Start()
+    {
+        base.Start();
+        //Debug.Log(transform.parent.name);
+        this._WallJumpingPower = new Vector2(Mathf.Tan(5f * Mathf.Deg2Rad) * this._JumpingPower, this._JumpingPower);
     }
 
     protected override void Update()
@@ -114,20 +136,18 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
 
         this.UpdateSpeedHorizontal();
 
-        if (this.isHiding && InputManager.Instance.Press_Hiden_Mode) return;
+        if (this.isHiding && InputManager.Instance.Press_Hidden_Mode) return;
 
-        this.PlayerHidenSkilMove();
-
-        // this.PlayerAttackDashing();
-
+        this.PressHiddenEvent();
         this.WallSlide();
 
         base.Update();
     }
 
-    protected virtual void PlayerHidenSkilMove()
+    #region Event_Button
+    protected virtual void PressHiddenEvent()
     {
-        if (!InputManager.Instance.Press_Hiden_Mode)
+        if (!InputManager.Instance.Press_Hidden_Mode)
         {
             StopCoroutine(this.Hiden());
             this.ResetConfigurationPlayerAfterHiden(3f);
@@ -137,15 +157,16 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         if (!this.canHiden) return;
 
         StartCoroutine(this.Hiden());
+
     }
 
-    public void PlayerAttackDashing()
+    public void PressDashingEvent()
     {
         if (this.isDashing) return;
 
         StartCoroutine(this.Dash());
     }
-    public void PressJump()
+    public void PressJumpEvent()
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
@@ -153,6 +174,8 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
 
         this.ActionJumpByInput();
     }
+    #endregion Event_Button
+
     protected virtual void FixedUpdate()
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
@@ -182,6 +205,8 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
         this._Double_Jump = !this._Double_Jump && !this.IsGrounded() && this._First_Jump;
 
         this._First_Jump = !this._First_Jump;
+
+        this._PlayerCtrl.PlayerSoundManager.PlaySoundJump();
     }
 
     protected override void UpdateBoolByInputManager()
@@ -196,7 +221,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
 
         // this.canDash = InputManager.Instance.Press_Attack_Dashing;
 
-        this.canHiden = InputManager.Instance.Press_Hiden_Mode;
+        this.canHiden = InputManager.Instance.Press_Hidden_Mode;
 
         if (!this._First_Jump) return;
         if (!this.IsGrounded() && this._Rigidbody2D.velocity.y == 0 || this.isWallSliding) this._First_Jump = false;
@@ -292,7 +317,7 @@ public class PlayerMovement : CharacterObjMovement, IEJumpPlayer, IEDashingPlaye
     {
         isDashing = true;
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", true);
-
+        this._PlayerCtrl.PlayerSoundManager.PlaySoundDashing();
         // Should set not interact with enemy
         this._Rigidbody2D.gravityScale = 0f;
         this._Rigidbody2D.velocity = new Vector2(this._MovableObjCtrl.transform.localScale.x * this._DashingPower, 0f);

@@ -27,6 +27,9 @@ public class PlayerCtrl : CharacterCtrl
     [SerializeField] protected PlayerLooter _PlayerLooter;
     public PlayerLooter PlayerLooter => _PlayerLooter;
 
+    [SerializeField] protected PlayerSoundManager _PlayerSoundManager;
+    public PlayerSoundManager PlayerSoundManager => this._PlayerSoundManager;
+
     protected override void Awake()
     {
         base.Awake();
@@ -42,9 +45,10 @@ public class PlayerCtrl : CharacterCtrl
         this.LoadPlayerObjDead();
         this.LoadPlayerAttack();
         this.LoadPlayerLooter();
+        this.LoadPlayerSoundManager();
     }
 
-    
+  
     protected virtual void LoadPlayerObjDead()
     {
         if (this._PlayerObjDead != null) return;
@@ -60,7 +64,15 @@ public class PlayerCtrl : CharacterCtrl
     }
     protected virtual void LoadPlayerLooter()
     {
+        if (this._PlayerLooter != null) return;
+
         this._PlayerLooter = GetComponentInChildren<PlayerLooter>();
+    }
+    protected virtual void LoadPlayerSoundManager()
+    {
+        if (this._PlayerSoundManager != null) return;
+
+        this._PlayerSoundManager = GetComponentInChildren<PlayerSoundManager>();
     }
 
 }

@@ -15,8 +15,10 @@ public abstract class CharacterAnimation : CharacterAbstract
     public float Time_Duration => _Time_Duration;
 
     [SerializeField] protected bool isDead = false;
+    public bool IsDead => this.isDead;
 
     [SerializeField] protected bool _Run_Ani = false;
+    public bool Run_Ani => this._Run_Ani;
 
     protected override void LoadComponents()
     {

@@ -1,22 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEJumpPlayer
-{
-    public abstract void PressJump();
-
-}
-public interface IEAttackThrowPlayer
-{
-    public abstract void PressAttackThrow();
-
-}
-public interface IEDashingPlayer
-{
-    public abstract void PlayerAttackDashing();
-
-}
 public class InputManager : SurMonoBehaviour
 {
     private static InputManager _instance;
@@ -37,14 +23,16 @@ public class InputManager : SurMonoBehaviour
     [SerializeField] protected bool _Press_Attack_Dashing = false;
     public bool Press_Attack_Dashing => _Press_Attack_Dashing;
 
-    [SerializeField] protected bool _Press_Hiden_Mode = false;
-    public bool Press_Hiden_Mode => _Press_Hiden_Mode;
+    [SerializeField] protected bool _Press_Hidden_Mode = false;
+    public bool Press_Hidden_Mode => _Press_Hidden_Mode;
 
     [SerializeField] protected bool isRiviving;
     public bool IsRiviving => isRiviving;
 
-    [SerializeField] protected IEJumpPlayer _IEJump_Player;
-    [SerializeField] protected IEDashingPlayer _IEDashing_Player;
+    public static Action PressJumpButton_Event;
+    public static Action PressDashingButton_Event;
+    public static Action PressHiddenButton_Event;
+    public static Action PressAttackThrowButton_Event;
 
     protected override void Awake()
     {
@@ -55,14 +43,6 @@ public class InputManager : SurMonoBehaviour
         _instance = this;
     }
 
-    public virtual void SetInterfaceJumpPlayer(IEJumpPlayer eJumpPlayer)
-    {
-        this._IEJump_Player = eJumpPlayer;
-    }
-    public virtual void SetInterfaceAttackDashing(IEDashingPlayer attackDashing)
-    {
-        this._IEDashing_Player = attackDashing;
-    }
     protected override void Start()
     {
         base.Start();
@@ -70,7 +50,7 @@ public class InputManager : SurMonoBehaviour
 
         // Sử dụng frame rate tối đa mà thiết bị có thể hỗ trợ
         Application.targetFrameRate = -1;
-  
+
     }
     protected virtual void Update()
     {
@@ -150,9 +130,10 @@ public class InputManager : SurMonoBehaviour
     //Jump
     public virtual void PointerJumpDown()
     {
-        if (this._Press_Hiden_Mode) return;
+        if (this._Press_Hidden_Mode) return;
+
         this._Press_Jump = true;
-        this._IEJump_Player?.PressJump();
+        PressJumpButton_Event?.Invoke();
     }
     public virtual void PointerJumpUp()
     {
@@ -162,25 +143,25 @@ public class InputManager : SurMonoBehaviour
     //Attack Throw
     public virtual void PointerAttackThrowDown()
     {
-        if (this._Press_Hiden_Mode) return;
+        if (this._Press_Hidden_Mode) return;
 
         this._Press_Attack_Throw = true;
-       // Debug.Log("Press Attack throw");
+        PressAttackThrowButton_Event?.Invoke();
     }
 
     public virtual void PointerAttackThrowPresAndUp()
     {
         this._Press_Attack_Throw = false;
-       // Debug.Log("UnPress Attack throw");
+        // Debug.Log("UnPress Attack throw");
     }
 
     //Attack Dashing
     public virtual void PointerAttackDashingDown()
     {
-        if (this._Press_Hiden_Mode) return;
+        if (this._Press_Hidden_Mode) return;
 
         this._Press_Attack_Dashing = true;
-        this._IEDashing_Player?.PlayerAttackDashing();
+        PressDashingButton_Event?.Invoke();
         //   Debug.Log("Press Attack throw");
     }
 
@@ -189,21 +170,25 @@ public class InputManager : SurMonoBehaviour
         this._Press_Attack_Dashing = false;
     }
 
-    //Hiden
+    //Hidden
     public virtual void PointerHidenModeSkillDown()
     {
-        if (this._Press_Hiden_Mode)
+        //only for sound use event
+        PressHiddenButton_Event?.Invoke();
+
+        if (this._Press_Hidden_Mode)
         {
             this.PointerHidenModeSkillPresAndUp();
             ButtonHidenSkillActiveByTime.Instance.ResetTimer();
             return;
         }
-        this._Press_Hiden_Mode = true;
+        this._Press_Hidden_Mode = true;
+
     }
 
     public virtual void PointerHidenModeSkillPresAndUp()
     {
-        this._Press_Hiden_Mode = false;
+        this._Press_Hidden_Mode = false;
     }
 
     //Riviving

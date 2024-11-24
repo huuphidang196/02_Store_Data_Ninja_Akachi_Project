@@ -127,10 +127,10 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     {
         if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) this._SliderTimePlayerHiden.gameObject.SetActive(false);
 
-        if (InputManager.Instance.Press_Hiden_Mode == this._SliderTimePlayerHiden.gameObject.activeInHierarchy) return;
+        if (InputManager.Instance.Press_Hidden_Mode == this._SliderTimePlayerHiden.gameObject.activeInHierarchy) return;
 
         this._SliderTimePlayerHiden.ResetValueSliderBegin();
-        this._SliderTimePlayerHiden.gameObject.SetActive(InputManager.Instance.Press_Hiden_Mode);
+        this._SliderTimePlayerHiden.gameObject.SetActive(InputManager.Instance.Press_Hidden_Mode);
 
     }
 }

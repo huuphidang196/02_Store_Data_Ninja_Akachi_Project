@@ -15,6 +15,18 @@ public class PlayerAttack : PlayerAbstract
 
     [SerializeField] protected Transform _Pos_Spawn_Shuriken;
 
+    #region OnEnable_Disable
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        InputManager.PressAttackThrowButton_Event += this.PerformAttackThrowShuriken;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        InputManager.PressAttackThrowButton_Event -= this.PerformAttackThrowShuriken;
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -44,6 +56,7 @@ public class PlayerAttack : PlayerAbstract
         this._Pos_Spawn_Shuriken = transform.Find("Pos_Throw_Shuriken");
     }
 
+    #endregion OnEnable_Disable
 
     protected virtual void Update()
     {
@@ -53,7 +66,6 @@ public class PlayerAttack : PlayerAbstract
 
         this.PerformAttackDashing();
 
-        // this.PerformAttackThrowShuriken();
     }
 
     protected virtual void PerformAttackDashing()
