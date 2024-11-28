@@ -5,7 +5,7 @@ using System;
 using Random = UnityEngine.Random;
 
 [Serializable]
-public enum TypeItem
+public enum TypeItemMoney
 {
     NoType = 0,
 
@@ -19,12 +19,12 @@ public class ItemDropUnit
 {
     public MinMaxPair RangeValueDrop;
 
-    protected ItemUnit _ItemUnit;
+    [SerializeField] protected ItemUnit _ItemUnit;
     public ItemUnit ItemUnit
     {
         get
         {
-            this._ItemUnit = new ItemUnit(Mathf.Round(Random.Range(this.RangeValueDrop.Min, this.RangeValueDrop.Max)));
+            this._ItemUnit = new ItemUnit(Mathf.Round(Random.Range(this.RangeValueDrop.Min, this.RangeValueDrop.Max)), this._ItemUnit.TypeItem);
             return this._ItemUnit;
         }
         set => this._ItemUnit = value;
@@ -41,13 +41,14 @@ public class ItemDropUnit
 [Serializable]
 public class ItemUnit
 {
-    public TypeItem TypeItem;
+    public TypeItemMoney TypeItem;
 
     public float Value;
 
     public ItemUnit() {; }
-    public ItemUnit(float value)
+    public ItemUnit(float value, TypeItemMoney typeItem)
     {
+        this.TypeItem = typeItem;
         this.Value = value;
     }
 

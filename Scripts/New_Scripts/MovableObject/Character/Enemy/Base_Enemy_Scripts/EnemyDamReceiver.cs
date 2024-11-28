@@ -22,6 +22,7 @@ public class EnemyDamReceiver : ObjDamageReceiver
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "Enemy", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "WeaponEnemy", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "Item", true);
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "ItemLootable", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "ObjInteractableShuriken", true);
 
     }

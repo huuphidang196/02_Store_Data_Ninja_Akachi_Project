@@ -3,31 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public enum PlayerStateMachine
-{
-    Idle,
-
-    Run,
-
-    First_Jump,
-
-    Double_Jump,
-
-    IsWallSliding,
-
-    IsWallJumping,
-
-    IsDashing,
-
-    IsHiding,
-
-    IsAttackThrowing,
-
-    IsRiviving,
-
-    Dead,
-}
 
 public class PlayerMovement : CharacterObjMovement
 {

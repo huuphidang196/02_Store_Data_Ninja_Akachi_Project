@@ -10,7 +10,7 @@ public class ButtonBuyDiamonds : BaseButton
     {
         base.Reset();
 
-        this._ItemUnit.TypeItem = TypeItem.Diamond;
+        this._ItemUnit.TypeItem = TypeItemMoney.Diamond;
 
         // Tách số từ tên button (giữa ký tự '_' đầu tiên và thứ hai)
         string[] parts = this.gameObject.name.Split('_');

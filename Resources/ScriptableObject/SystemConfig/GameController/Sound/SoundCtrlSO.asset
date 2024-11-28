@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2eec752ee338249ab4614905f1599a, type: 3}
-  m_Name: SoundManagerSO
+  m_Name: SoundCtrlSO
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
   _SoundPlayerSO: {fileID: 11400000, guid: 889048cda921a6742b9fb801fbfff2f2, type: 2}
+  _SoundItemSO: {fileID: 11400000, guid: 916fb005bf716bf41a169642a8c33a68, type: 2}
+  _SoundVFXSO: {fileID: 11400000, guid: 200d1872a12984e468b96dce7812ec22, type: 2}

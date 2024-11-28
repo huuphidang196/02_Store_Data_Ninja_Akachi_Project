@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ButtonRivivalTwoLiveWithMoney : BaseButton
 {
-    [SerializeField] protected TypeItem _TypeItem;
+    [SerializeField] protected TypeItemMoney _TypeItem;
 
     protected override void LoadComponents()
     {
@@ -16,19 +16,19 @@ public class ButtonRivivalTwoLiveWithMoney : BaseButton
 
     protected virtual void LoadTypeItem()
     {
-        if (this._TypeItem != TypeItem.NoType) return;
+        if (this._TypeItem != TypeItemMoney.NoType) return;
 
         // Tìm phần đuôi sau dấu gạch dưới (_), ví dụ: "Gold" hoặc "Diamond"
         string typeName = this.transform.name.Substring(this.transform.name.LastIndexOf('_') + 1);
 
         // Thử chuyển đổi chuỗi thành giá trị enum
-        if (System.Enum.TryParse(typeName, out TypeItem itemType))
+        if (System.Enum.TryParse(typeName, out TypeItemMoney itemType))
         {
             this._TypeItem = itemType;
         }
         else
         {
-            this._TypeItem = TypeItem.NoType; // Mặc định nếu không tìm thấy
+            this._TypeItem = TypeItemMoney.NoType; // Mặc định nếu không tìm thấy
         }
     }
 

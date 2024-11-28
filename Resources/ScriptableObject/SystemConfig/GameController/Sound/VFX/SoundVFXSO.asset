@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52df5ac58e2ecf94eac143a7cce93585, type: 3}
+  m_Name: SoundVFXSO
+  m_EditorClassIdentifier: 
+  _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
+  Sound_Clips_Player:
+  - {fileID: 8300000, guid: bcfbeb9b952f6e7438a735235f30be91, type: 3}
+  - {fileID: 8300000, guid: 942019cf9ecd5854ebeb343b12b7f779, type: 3}
+  - {fileID: 8300000, guid: f8c530d487836345c8d3115f7400ba89, type: 3}
+  - {fileID: 8300000, guid: 94bc8546fe222904c9fd6e0438c1b6fc, type: 3}

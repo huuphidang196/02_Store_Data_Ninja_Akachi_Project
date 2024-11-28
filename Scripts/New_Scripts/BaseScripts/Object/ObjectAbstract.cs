@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectAbstract : SurMonoBehaviour
 {
+
     [SerializeField] protected ObjectCtrl _ObjectCtrl;
     public ObjectCtrl ObjectCtrl => _ObjectCtrl;
 

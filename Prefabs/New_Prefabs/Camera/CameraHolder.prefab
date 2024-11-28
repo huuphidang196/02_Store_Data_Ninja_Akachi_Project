@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2489312524835703038}
   - component: {fileID: 3386580543815652197}
+  - component: {fileID: 7351729726171659092}
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -178,6 +179,14 @@ MonoBehaviour:
   _Target_Follow: {fileID: 0}
   _Speed: 0.07
   _Offset_Distance: {x: 12, y: 0, z: 0}
+--- !u!81 &7351729726171659092
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927047371143773907}
+  m_Enabled: 1
 --- !u!1 &5039375668229256392
 GameObject:
   m_ObjectHideFlags: 0

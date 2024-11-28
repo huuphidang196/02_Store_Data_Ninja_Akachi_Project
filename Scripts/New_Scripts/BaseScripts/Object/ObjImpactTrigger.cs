@@ -36,6 +36,7 @@ public abstract class ObjImpactTrigger : ObjImpact
     protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (this._ObjectCtrl.ObjDamageReceiver.ObjIsDead) return;
+
         //Debug.Log("collider2D : " + collider2D);
         this._parentObj = this.GetParentOfCollider(collider2D); 
         // Debug.Log("Name " + this._parentObj.name);

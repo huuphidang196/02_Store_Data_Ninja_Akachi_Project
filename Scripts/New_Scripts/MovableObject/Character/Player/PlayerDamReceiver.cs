@@ -29,6 +29,9 @@ public class PlayerDamReceiver : ObjDamageReceiver
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerDead"), i, true);
             }
         }
+
+        this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "Item", true);
+        this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "ItemLootable", true);     
     }
 
     protected override float GetMaxHP()

@@ -1134,6 +1134,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &105421498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1345,11 +1348,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3387482895771138822, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5322730047925976315, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472740, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_SortingOrder
@@ -1409,7 +1412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472746, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2090,6 +2093,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &168324193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2686,11 +2692,6 @@ MonoBehaviour:
   - {fileID: 2952213623860071251}
   - {fileID: 1782727443}
   poolObjs: []
---- !u!1 &215873079 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5091593834558209872, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
-  m_PrefabInstance: {fileID: 2626719679242488428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &234054965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2840,7 +2841,7 @@ MonoBehaviour:
   _Press_Jump: 0
   _Press_Attack_Throw: 0
   _Press_Attack_Dashing: 0
-  _Press_Hiden_Mode: 0
+  _Press_Hidden_Mode: 0
   isRiviving: 0
 --- !u!4 &256034578
 Transform:
@@ -4406,6 +4407,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &380897206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4612,11 +4616,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3387482895771138822, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5322730047925976315, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472740, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_SortingOrder
@@ -4676,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472746, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6213090525830662691, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
@@ -38853,7 +38857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220605478495875361, guid: c7c03af911e93354b89365b8c29762a3, type: 3}
       propertyPath: m_Name
-      value: Gold_Bag
+      value: Item_Gold_Bag
       objectReference: {fileID: 0}
     - target: {fileID: 6220605478495875361, guid: c7c03af911e93354b89365b8c29762a3, type: 3}
       propertyPath: m_IsActive
@@ -44511,6 +44515,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &1002164216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56838,6 +56845,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &1507599771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69410,6 +69420,9 @@ MonoBehaviour:
     RangeValueDrop:
       Min: 0
       Max: 0
+    _ItemUnit:
+      TypeItem: 0
+      Value: 0
 --- !u!61 &2034761924
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69464,7 +69477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2036463371}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Holder_Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69615,7 +69628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050754936}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Spear_Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71089,11 +71102,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3387482895771138822, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5322730047925976315, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472740, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_SortingOrder
@@ -71153,7 +71166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8817558453504472746, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6213090525830662691, guid: ec136710c33346443a0c1d00e69efc3b, type: 3}
@@ -72758,24 +72771,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5091593834558209872, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2626719679242488431}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
 --- !u!82 &2626719679242488429 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8838210395138328349, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
   m_PrefabInstance: {fileID: 2626719679242488428}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &2626719679242488431
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215873079}
-  m_Enabled: 1
 --- !u!1001 &2712212676068608897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73013,7 +73015,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4642660823360805095, guid: 7487f2de3319e9143aba61f5b95232c8, type: 3}
       propertyPath: m_Name
-      value: Diamond_Bag
+      value: Item_Diamond_Bag
       objectReference: {fileID: 0}
     - target: {fileID: 4642660823360805095, guid: 7487f2de3319e9143aba61f5b95232c8, type: 3}
       propertyPath: m_IsActive
@@ -73223,7 +73225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6242703791152827912, guid: 01691e5dd4009774c974d12c6c2661a7, type: 3}
       propertyPath: m_Name
-      value: Wood_Box
+      value: Item_Wood_Box
       objectReference: {fileID: 0}
     - target: {fileID: 6242703791152827912, guid: 01691e5dd4009774c974d12c6c2661a7, type: 3}
       propertyPath: m_IsActive

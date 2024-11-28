@@ -70,20 +70,10 @@ public abstract class ObjDamageReceiver : ObjectAbstract
         if (this.isDead) return;
 
         this._currentHP -= damage;
-        if (this._currentHP <= 0) this._currentHP = 0;
 
-        this.CheckIsDead();
-    }
+        if (this._currentHP > 0) return;
 
-    protected virtual bool IsDead()
-    {
-        return this._currentHP <= 0;
-    }
-
-    protected virtual void CheckIsDead()
-    {
-        if (!this.IsDead()) return;
-
+        this._currentHP = 0;
         this.isDead = true;
         this.OnDead();
     }

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundManager : PlayerAbstract
+public class PlayerSoundManager : ObjSoundManager
 {
-    [Header("PlayerSoundManager")]
+    public PlayerCtrl PlayerCtrl => this._ObjectCtrl as PlayerCtrl;
 
-    [SerializeField] protected AudioSource _AudioSource;
+    //[Header("PlayerSoundManager")]
 
     protected override void OnEnable()
     {
@@ -27,41 +27,27 @@ public class PlayerSoundManager : PlayerAbstract
         InputManager.PressAttackThrowButton_Event -= this.PlaySoundAttackThrow;
     }
 
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-
-        this.LoadAudioSource();
-    }
-
-    protected virtual void LoadAudioSource()
-    {
-        if (this._AudioSource != null) return;
-
-        this._AudioSource = GetComponent<AudioSource>();
-    }
-
     protected virtual void Update()
     {
-        if (this._PlayerCtrl.PlayerAnimation.IsDead)//
+        if (this.PlayerCtrl.PlayerAnimation.Rivive_Again_Ani)
         {
-            this.PlayeSoundWithNameAction("Player_Dead");
+            this.PlayeSoundWithNameAction("Player_Rivival_Sound");
             return;
         }
 
-        if (this._PlayerCtrl.PlayerAnimation.Rivive_Again_Ani)
+        if (this.PlayerCtrl.PlayerAnimation.IsDead)//
         {
-            this.PlayeSoundWithNameAction("Player_Rivival");
+            this.PlayeSoundWithNameAction("Player_Dead_Sound");
             return;
         }
 
-        if (this._PlayerCtrl.PlayerMovement.IsDashing)
+        if (this.PlayerCtrl.PlayerMovement.IsDashing)
         {
             //this.PlayeSoundWithNameAction("Player_Dashing");
             return;
         }
 
-        if (this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y > 0)//
+        if (this.PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y > 0)//
         {
             // this.PlayeSoundWithNameAction("Player_Jump");
             return;
@@ -69,39 +55,72 @@ public class PlayerSoundManager : PlayerAbstract
 
         if (this._AudioSource.isPlaying) return;
 
-        if (this._PlayerCtrl.PlayerAnimation.Wall_Sliding_Ani)
-        {
-            this.PlayeSoundWithNameAction("Player_Wall_Sliding");
-            return;
-        }
-
-        if (this._PlayerCtrl.PlayerAnimation.Run_Ani && !this._PlayerCtrl.PlayerAnimation.Dropping)
-        {
-            this.PlayeSoundWithNameAction("Player_Run");
-            return;
-        }
-
-
         this._AudioSource.clip = null;
         this._AudioSource.Stop();
+
+        if (this.PlayerCtrl.PlayerAnimation.Wall_Sliding_Ani)
+        {
+            this.PlayeSoundWithNameAction("Player_Wall_Sliding_Sound");
+            return;
+        }
+
+        if (this.PlayerCtrl.PlayerAnimation.Run_Ani && !this.PlayerCtrl.PlayerAnimation.Dropping && !this.PlayerCtrl.PlayerAnimation.Hidden_Mode_Skill_Ani)
+        {
+            this.PlayeSoundWithNameAction("Player_Run_Sound");
+            return;
+        }
+
     }
 
     public virtual void PlaySoundJump() => this.PlayeSoundWithNameAction("Player_Jump_Sound");
     public virtual void PlaySoundDashing() => this.PlayeSoundWithNameAction("Player_Dashing_Sound");
-    protected virtual void PlaySoundHidden() => this.PlayeSoundWithNameAction("Player_Hidden");
+    protected virtual void PlaySoundHidden() => this.PlayeSoundWithNameAction("Player_Hidden_Sound");
     protected virtual void PlaySoundAttackThrow() => this.PlayeSoundWithNameAction("Player_Attack_Throw_Sound");
 
     protected virtual void PlayeSoundWithNameAction(string nameAction)
     {
-        AudioClip clip = GameController.Instance.SystemConfig.SoundManagerSO.SoundPlayerSO.GetAudioClipByNameAction(nameAction);
+        AudioClip clip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundPlayerSO.GetAudioClipByNameAction(nameAction);
         this.PlaySound(clip);
     }
-    protected virtual void PlaySound(AudioClip clip)
+    protected override void PlaySound(AudioClip clip)
     {
-        if (this._AudioSource.isPlaying) return; // Tránh chồng âm
+        if (clip == null) return;
 
-        this._AudioSource.clip = clip;
-        this._AudioSource.Play();
+        if (this._AudioSource.isPlaying && clip.name == this._AudioSource.clip.name) return; // Tránh chồng âm
+
+        if (!this.CheckOrderSound(clip)) return;
+
+        base.PlaySound(clip);
     }
 
+    protected virtual bool CheckOrderSound(AudioClip clip)
+    {
+        if (this._AudioSource.clip == null) return true;
+        // Chuyển chuỗi thành enum
+        PlayerOrderSounAction soundCheck = (PlayerOrderSounAction)Enum.Parse(typeof(PlayerOrderSounAction), clip.name, true);
+        PlayerOrderSounAction currentSound = (PlayerOrderSounAction)Enum.Parse(typeof(PlayerOrderSounAction), this._AudioSource.clip.name, true);
+
+        return soundCheck > currentSound;
+    }
+
+}
+
+[Serializable]
+public enum PlayerOrderSounAction
+{
+    Player_Run_Sound = 1,
+
+    Player_Wall_Sliding_Sound = 2,
+
+    Player_Attack_Throw_Sound = 3,
+
+    Player_Jump_Sound = 4,
+
+    Player_Dashing_Sound = 5,
+
+    Player_Hidden_Sound = 6,
+
+    Player_Dead_Sound = 7,
+
+    Player_Rivival_Sound = 8,
 }

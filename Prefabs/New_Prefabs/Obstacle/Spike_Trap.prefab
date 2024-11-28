@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1547337425785063565}
   - component: {fileID: 7930662220501654053}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2712212677077631659}
   - component: {fileID: 7642697229945956461}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Spike_Trap
   m_TagString: CNhon
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5303226406899086715}
   - component: {fileID: 4173425169497627215}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjDamSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 8613490722846823813}
   - component: {fileID: 4254204048381072560}
   - component: {fileID: 5652379667059827822}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}

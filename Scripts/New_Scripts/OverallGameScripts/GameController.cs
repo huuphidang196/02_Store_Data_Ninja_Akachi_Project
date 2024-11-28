@@ -51,12 +51,12 @@ public class GameController : SystemController
     {
         switch (itemUnit.TypeItem)
         {
-            case TypeItem.NoType:
+            case TypeItemMoney.NoType:
                 break;
-            case TypeItem.Gold:
+            case TypeItemMoney.Gold:
                 this._SystemConfig.Total_Golds += itemUnit.Value;
                 break;
-            case TypeItem.Diamond:
+            case TypeItemMoney.Diamond:
                 this._SystemConfig.Total_Diamonds += itemUnit.Value;
                 break;
             default:
@@ -86,31 +86,31 @@ public class GameController : SystemController
 
     public virtual void IncreseOrderBuy() => this._Order_Buy++;
 
-    public virtual float GetValueMoneyToBuyTwoMoreLives(TypeItem typeItem)
+    public virtual float GetValueMoneyToBuyTwoMoreLives(TypeItemMoney typeItem)
     {
-        if (typeItem == TypeItem.NoType) return 0;
+        if (typeItem == TypeItemMoney.NoType) return 0;
 
-        float valueBegin = (typeItem == TypeItem.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Gold_Rivival_Begin.Value :
+        float valueBegin = (typeItem == TypeItemMoney.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Gold_Rivival_Begin.Value :
             GameController.Instance.SystemConfig.GameConfigController.Diamond_Rivival_Begin.Value;
 
-        float value_Compensation = (typeItem == TypeItem.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Compensation_Gold_Rivive :
+        float value_Compensation = (typeItem == TypeItemMoney.Gold) ? GameController.Instance.SystemConfig.GameConfigController.Compensation_Gold_Rivive :
             GameController.Instance.SystemConfig.GameConfigController.Compensation_Diamond_Rivive;
 
         return valueBegin + this._Order_Buy * value_Compensation;
     }
 
-    public virtual void RiviveCharacterByMoneyWitTwoLives(TypeItem typeItem)
+    public virtual void RiviveCharacterByMoneyWitTwoLives(TypeItemMoney typeItem)
     {
-        if (typeItem == TypeItem.NoType) return;
+        if (typeItem == TypeItemMoney.NoType) return;
 
         float valueNeed = this.GetValueMoneyToBuyTwoMoreLives(typeItem);
 
         //Check Current money enough to buy
-        float currentMoney = (typeItem == TypeItem.Gold) ? this._SystemConfig.Total_Golds : this._SystemConfig.Total_Diamonds;
+        float currentMoney = (typeItem == TypeItemMoney.Gold) ? this._SystemConfig.Total_Golds : this._SystemConfig.Total_Diamonds;
 
         if (currentMoney < valueNeed) return;
 
-        if (typeItem == TypeItem.Gold) this._SystemConfig.Total_Golds -= valueNeed;
+        if (typeItem == TypeItemMoney.Gold) this._SystemConfig.Total_Golds -= valueNeed;
         else this._SystemConfig.Total_Diamonds -= valueNeed;
 
         //Rivive Player with 2 lives

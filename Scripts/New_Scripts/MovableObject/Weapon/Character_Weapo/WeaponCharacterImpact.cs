@@ -55,7 +55,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
         if (this.CheckParentObjectImpactWithAnyLayer("Item")) return true;
 
-       // if (this.CheckParentObjectImpactWithAnyLayer("LethalObstacles")) return true;
+        if (this.CheckParentObjectImpactWithAnyLayer("LethalObstacles")) return true;
 
         if (this.CheckParentObjectImpactWithAnyLayer("StaticObstacle")) return true;
         return false;
@@ -87,7 +87,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         }
 
         this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
-
+      //  Debug.Log(this._parentObj.name + ", was impacted");
         if (this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
             //this.isImpacted_Emit_WoodBox = true;

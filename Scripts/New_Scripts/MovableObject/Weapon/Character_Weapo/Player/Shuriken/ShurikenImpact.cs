@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShurikenImpact : WeaponCharacterImpact
 {
+
     protected override string[] GetArrayNameTargetAttack()
     {
         return new string[] { "Enemy", "ObjInteractableShuriken", "WeaponEnemy" };

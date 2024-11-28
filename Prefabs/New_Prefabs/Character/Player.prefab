@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96bb8ac931437bc40b114430c31ea0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PlayerCtrl: {fileID: 2890972321005388380}
+  _ObjectCtrl: {fileID: 2890972321005388380}
   _AudioSource: {fileID: 8838210395138328349}
 --- !u!82 &8838210395138328349
 AudioSource:
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   _Wall_Sliding_Ani: 0
   _Attack_Throw_Ani: 0
   _Attack_Dashing_Ani: 0
-  _Hiden_Mode_Skill_Ani: 0
+  _Hidden_Mode_Skill_Ani: 0
   _Rivive_Again_Ani: 0
   _Time_Delay_Hiden: 5
 --- !u!114 &7598211798381717565
