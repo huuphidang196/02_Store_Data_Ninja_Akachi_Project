@@ -22,15 +22,27 @@ public class GamePlayUIBelow : GamePlayUIOverallAbstract
         GamePlayUIManager.Event_HideAllUIButton -= this.IsHidenALlChildUIBelow;
     }
 
+    protected virtual void FixedUpdate()
+    {
+        if (!PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) return;
+
+        this.IsHidenALlChildUIBelow(false);
+    }    
+
     protected virtual void IsHidenALlChildUIBelow()
     {
-       // if (!GamePlayUIManager.Instance.IsHidenUI) return;
+        this.IsHidenALlChildUIBelow(!GamePlayUIManager.Instance.IsHidenUI);
+    }
 
-        if (GamePlayUIManager.Instance.IsHidenUI != transform.GetChild(0).gameObject.activeInHierarchy) return;
+    protected virtual void IsHidenALlChildUIBelow(bool active)
+    {
+        // if (!GamePlayUIManager.Instance.IsHidenUI) return;
+
+        if (!active != transform.GetChild(0).gameObject.activeInHierarchy) return;
 
         foreach (Transform item in this.transform)
         {
-            item.gameObject.SetActive(!GamePlayUIManager.Instance.IsHidenUI);
+            item.gameObject.SetActive(active);
         }
     }
 }

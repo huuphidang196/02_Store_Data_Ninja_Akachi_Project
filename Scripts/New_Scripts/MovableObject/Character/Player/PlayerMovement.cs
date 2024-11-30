@@ -122,6 +122,8 @@ public class PlayerMovement : CharacterObjMovement
     #region Event_Button
     protected virtual void PressHiddenEvent()
     {
+        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+
         if (!InputManager.Instance.Press_Hidden_Mode)
         {
             StopCoroutine(this.Hiden());
@@ -137,6 +139,8 @@ public class PlayerMovement : CharacterObjMovement
 
     public void PressDashingEvent()
     {
+        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+
         if (this.isDashing) return;
 
         StartCoroutine(this.Dash());
@@ -171,6 +175,7 @@ public class PlayerMovement : CharacterObjMovement
 
     protected virtual void ActionJumpByInput()
     {
+
         this.WallJump();
 
         if (this._Double_Jump && !this.IsGrounded()) return;//two time
@@ -188,9 +193,9 @@ public class PlayerMovement : CharacterObjMovement
     {
         this.isRiviving = InputManager.Instance.IsRiviving;
 
-        this._Move_Left = InputManager.Instance.Press_Left;
+        this._Move_Left = InputManager.Instance.Press_Left && !this._PlayerCtrl.PlayerDamReceiver.ObjIsDead;
 
-        this._Move_Right = InputManager.Instance.Press_Right;
+        this._Move_Right = InputManager.Instance.Press_Right && !this._PlayerCtrl.PlayerDamReceiver.ObjIsDead;
 
         if (this.IsGrounded()) this._Double_Jump = false;
 

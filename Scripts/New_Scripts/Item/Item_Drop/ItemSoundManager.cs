@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSoundManager : ObjSoundManager
+public class ItemSoundManager : ObjSoundWasEffectByMusicChanging
 {
     public ItemDropCtrl ItemDropCtrl => this._ObjectCtrl as ItemDropCtrl;
 

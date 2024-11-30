@@ -15,15 +15,18 @@ public class SoundCtrlSO : SystemConfigCtrl
     [SerializeField] protected SoundVFXSO _SoundVFXSO;
     public SoundVFXSO SoundVFXSO => this._SoundVFXSO;
 
+    [SerializeField] protected SoundProspectSO _SoundProspectSO;
+    public SoundProspectSO SoundProspectSO => this._SoundProspectSO;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadSoundPlayerSO();
         this.LoadSoundItemSO();
         this.LoadSoundVFXSO();
+        this.LoadSoundProspectSO();
     }
- 
-
+   
     protected virtual void LoadSoundPlayerSO()
     {
         if (this._SoundPlayerSO != null) return;
@@ -43,6 +46,13 @@ public class SoundCtrlSO : SystemConfigCtrl
 
         this._SoundVFXSO = Resources.Load<SoundVFXSO>("ScriptableObject/SystemConfig/GameController/Sound/VFX/SoundVFXSO");
     }
+    protected virtual void LoadSoundProspectSO()
+    {
+        if (this._SoundProspectSO != null) return;
+
+        this._SoundProspectSO = Resources.Load<SoundProspectSO>("ScriptableObject/SystemConfig/GameController/Sound/Prospect/SoundProspectSO");
+    }
+
 }
 
 [Serializable]
@@ -94,4 +104,13 @@ public enum TypeVFXSound
     Sound_VFX_Ground_Emit = 2,
     Sound_VFX_Ignite_Fire = 3,
     Sound_VFX_Fire_Burning = 4,
+}
+public enum TypeProspectSound
+{
+    NoType = 0,
+
+    Sound_BackGround_01 = 1,
+    Sound_BackGround_02 = 2,
+    Sound_BackGround_03 = 3,
+
 }

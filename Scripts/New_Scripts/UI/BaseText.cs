@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public abstract class BaseText : SurMonoBehaviour
 {
@@ -26,6 +27,11 @@ public abstract class BaseText : SurMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        this.SetTextToShow();
+    }
+
+    protected virtual void SetTextToShow()
+    {
         this._BaseText.text = this._Content;
-    }    
+    }
 }

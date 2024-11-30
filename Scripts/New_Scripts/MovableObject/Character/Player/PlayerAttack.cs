@@ -77,6 +77,8 @@ public class PlayerAttack : PlayerAbstract
 
     public virtual void PerformAttackThrowShuriken()
     {
+        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+
         float timeDelay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
         Invoke(nameof(this.ActionThrowShuriken), timeDelay);
     }

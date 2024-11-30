@@ -23,6 +23,7 @@ public class GameController : SystemController
 
     [SerializeField] protected int _Order_Buy = 0;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -117,8 +118,9 @@ public class GameController : SystemController
         PlayerCtrl.Instance.PlayerObjDead.RiviveCharacterByMoneyWitTwoLives();
     }
 
-    public virtual void BuyDiamondsByMoney(float total_Need)
+    public virtual void ChangeStatusOnOffMusic()
     {
-     
-    }    
+        bool onMusic = GameController.Instance.SystemConfig.GameConfigController.OnMusic;
+        GameController.Instance.SystemConfig.GameConfigController.OnMusic = !onMusic;
+    }
 }

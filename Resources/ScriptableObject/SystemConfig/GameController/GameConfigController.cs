@@ -64,4 +64,10 @@ public class GameConfigController : SystemConfigCtrl
 
     public ItemUnit Diamond_Rivival_Begin;
     public float Compensation_Diamond_Rivive;
+
+    public int _Order_Music_BG = 0;
+
+    public bool OnMusic = true;
+
+
 }

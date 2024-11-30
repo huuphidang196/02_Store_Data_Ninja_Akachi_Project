@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class ObjSoundManager : ObjectAbstract
@@ -24,7 +23,9 @@ public class ObjSoundManager : ObjectAbstract
     protected virtual void PlaySound(AudioClip clip)
     {
         if (clip == null) return;
+
         this._AudioSource.clip = clip;
         this._AudioSource.Play();
     }
+
 }

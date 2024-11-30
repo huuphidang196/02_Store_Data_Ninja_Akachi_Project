@@ -10,6 +10,7 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
     public static Action Event_PauseButton;
     public static Action Event_HideAllUIButton;
+    public static Action Event_MusicChanging;
 
     [SerializeField] protected bool isTogglePanelPause = false;
 
@@ -55,14 +56,12 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     public virtual void TogglePanelBuyDiamonds()
     {
         this.isTogglePanelBuyDiamonds = !this.isTogglePanelBuyDiamonds;
-
     }
 
     protected virtual void FixedUpdate()
     {
         this.ProcessEventPlayerRivival();
         this.ProcessEventEndGame();
-
     }
 
     protected virtual void ProcessEventPlayerRivival()
@@ -80,4 +79,9 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
         this.IsHidenUIScenePlay();
     }
 
+    public virtual void ChangeStatusOnOffMusic()
+    {
+        GameController.Instance.ChangeStatusOnOffMusic();
+        Event_MusicChanging?.Invoke();
+    }    
 }

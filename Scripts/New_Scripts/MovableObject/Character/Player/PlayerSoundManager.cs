@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundManager : ObjSoundManager
+public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
 {
     public PlayerCtrl PlayerCtrl => this._ObjectCtrl as PlayerCtrl;
 
