@@ -13,29 +13,31 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
     {
         this._TypeActionEnemy = this.GetTypeAction();
 
-        if (this._AudioSource.isPlaying)
+        if (this._TypeActionEnemy == TypeActionEnemy.NoType)
         {
-            this.CheckStopSoundAttack();
+            this._AudioSource.Stop();
+            this._AudioSource.clip = null;
             return;
         }
 
-        if (this._TypeActionEnemy == TypeActionEnemy.NoType) return;
+        if (this._AudioSource.isPlaying && this._AudioSource.clip.name == this.GetNameAction()) return;
 
-        if (this._AudioSource.clip != null && this._AudioSource.clip.name != this.GetNameAction()) return;
+        if (this._AudioSource.clip != null && this.GetNameAction() != this.GetNameAction(TypeActionEnemy.Attack)) return;
 
         this.PlayeSoundWithTypeAction();
     }
 
-    protected virtual void CheckStopSoundAttack()
-    {
-        //Sure that clip diff null
-        if (this._TypeActionEnemy != TypeActionEnemy.Attack) return;
+    //protected virtual bool CheckStopSoundAttack()
+    //{
+    //    //Sure that clip diff null
+    //    if (this._TypeActionEnemy != TypeActionEnemy.Attack && this._AudioSource.clip.name != this.GetNameAction(TypeActionEnemy.Attack))
+    //        return false;
 
-        if (this._AudioSource.clip.name != this.GetNameAction(TypeActionEnemy.Attack)) return;
+    //    this._AudioSource.Stop();
+    //    this._AudioSource.clip = null;
 
-        this._AudioSource.clip = null;
-
-    }
+    //    return true;
+    //}
 
     protected virtual TypeActionEnemy GetTypeAction()
     {
@@ -43,7 +45,7 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
 
         if (this.EnemyCtrl.EnemyAnimations.Attack) return TypeActionEnemy.Attack;
 
-        if (this.EnemyCtrl.EnemyAnimations.Run_Ani) return TypeActionEnemy.Detect;
+        if (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight) return TypeActionEnemy.Detect;
 
         return TypeActionEnemy.NoType;
     }
