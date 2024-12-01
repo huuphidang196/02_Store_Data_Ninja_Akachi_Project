@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class ObjSoundManager : ObjectAbstract
 {
     [Header("ObjSoundManager")]

@@ -27,7 +27,6 @@ public class ItemDropUnit
             this._ItemUnit = new ItemUnit(Mathf.Round(Random.Range(this.RangeValueDrop.Min, this.RangeValueDrop.Max)), this._ItemUnit.TypeItem);
             return this._ItemUnit;
         }
-        set => this._ItemUnit = value;
     }
     public ItemDropUnit() {; }
     // Constructor

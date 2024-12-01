@@ -10,6 +10,7 @@ public class EnemyAnimations : CharacterAnimation
     [Header("EnemyAnimations")]
 
     [SerializeField] protected bool _Attack_Slash_Ani = false;
+    public bool Attack => this._Attack_Slash_Ani;
 
     [SerializeField] protected float _Time_Delay_Attack = 1.5f;
     public float Time_Delay_Attack => _Time_Delay_Attack;

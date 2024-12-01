@@ -44,10 +44,6 @@ public class GameController : SystemController
         this._Order_Buy = 0;
     }
 
-    public virtual void AddMoneyToSystem(ItemDropUnit itemDropUnit)
-    {
-        this.AddMoneyToSystem(itemDropUnit.ItemUnit);
-    }
     public virtual void AddMoneyToSystem(ItemUnit itemUnit)
     {
         switch (itemUnit.TypeItem)

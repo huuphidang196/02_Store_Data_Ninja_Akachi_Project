@@ -20,7 +20,7 @@ public class IAPManager : SurMonoBehaviour
     {
         this.CheckTransactWasSuccess();
         //if buying progress was successful
-        GameController.Instance.AddMoneyToSystem(itemDropUnit);
+        GameController.Instance.AddMoneyToSystem(itemDropUnit.ItemUnit);
     }
 
     protected virtual bool CheckTransactWasSuccess()

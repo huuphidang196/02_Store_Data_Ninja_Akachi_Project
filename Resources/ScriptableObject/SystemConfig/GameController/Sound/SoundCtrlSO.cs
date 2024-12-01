@@ -18,15 +18,20 @@ public class SoundCtrlSO : SystemConfigCtrl
     [SerializeField] protected SoundProspectSO _SoundProspectSO;
     public SoundProspectSO SoundProspectSO => this._SoundProspectSO;
 
+    [SerializeField] protected SoundEnemySO _SoundEnemySO;
+    public SoundEnemySO SoundEnemySO => this._SoundEnemySO;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
+
         this.LoadSoundPlayerSO();
         this.LoadSoundItemSO();
         this.LoadSoundVFXSO();
         this.LoadSoundProspectSO();
+        this.LoadSoundEnemySO();
     }
-   
+
     protected virtual void LoadSoundPlayerSO()
     {
         if (this._SoundPlayerSO != null) return;
@@ -51,6 +56,12 @@ public class SoundCtrlSO : SystemConfigCtrl
         if (this._SoundProspectSO != null) return;
 
         this._SoundProspectSO = Resources.Load<SoundProspectSO>("ScriptableObject/SystemConfig/GameController/Sound/Prospect/SoundProspectSO");
+    }
+    protected virtual void LoadSoundEnemySO()
+    {
+        if (this._SoundEnemySO != null) return;
+
+        this._SoundEnemySO = Resources.Load<SoundEnemySO>("ScriptableObject/SystemConfig/GameController/Sound/Enemy/SoundEnemySO");
     }
 
 }
@@ -87,6 +98,16 @@ public enum TypeCharacter
 
     Enemy = 2,
 }
+
+public enum TypeActionEnemy
+{
+    NoType = 0,
+
+    Detect = 1,
+    Attack = 2,
+    Dead = 3,
+}
+
 public enum TypeItemSound
 {
     NoType = 0,
@@ -104,6 +125,7 @@ public enum TypeVFXSound
     Sound_VFX_Ground_Emit = 2,
     Sound_VFX_Ignite_Fire = 3,
     Sound_VFX_Fire_Burning = 4,
+    Sound_VFX_Blood = 5,
 }
 public enum TypeProspectSound
 {
@@ -114,3 +136,26 @@ public enum TypeProspectSound
     Sound_BackGround_03 = 3,
 
 }
+
+
+//public enum TypeActionEnemy
+//{
+//    NoType = 0,
+
+//    //Shooter
+//    Sound_Shooter_Detect = 1,
+//    Sound_Shooter_Chamber_Shooting = 2,
+//    Sound_Shooter_Dead = 3,
+
+//    //Sword
+//    Sound_Sword_Detect = 4,
+//    Sound_Sword_Attack = 5,
+//    Sound_Sword_Dead = 6,
+
+//    //Spear
+//    Sound_Spear_Shouting = 7,
+//    Sound_Spear_Attack = 8,
+//    Sound_Spear_Dead = 9,
+
+//    Sound_Enemy_Hurt = 10,
+//}
