@@ -24,5 +24,4 @@ public class PlayerLooter : CharacterImpactTrigger
       //  Debug.Log("Money: " + value_Money);
     }
 
-
 }

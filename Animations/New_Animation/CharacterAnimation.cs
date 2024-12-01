@@ -90,7 +90,7 @@ public abstract class CharacterAnimation : CharacterAbstract
         this._Animator.SetTrigger("Dead");
 
     }
-    protected virtual bool CheckAnimationCurrent(string nameClip)
+    public virtual bool CheckAnimationCurrent(string nameClip)
     {
         AnimatorStateInfo currentState = this._Animator.GetCurrentAnimatorStateInfo(0);
         if (currentState.fullPathHash != 0)

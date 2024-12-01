@@ -176,7 +176,7 @@ public class PlayerAnimation : CharacterAnimation
         //Debug.Log("Completed");
         InputManager.Instance.PlayerRiviveAgainCompleted();
     }
-    protected override bool CheckAnimationCurrent(string nameClip)
+    public override bool CheckAnimationCurrent(string nameClip)
     {
         if (this._Attack_Throw_Ani)
         {

@@ -106,6 +106,7 @@ public class PlayerMovement : CharacterObjMovement
         if (this.isRiviving)
         {
             this.Flip();
+            this._Horizontal = 0;
             return;//must need update input
         }
 

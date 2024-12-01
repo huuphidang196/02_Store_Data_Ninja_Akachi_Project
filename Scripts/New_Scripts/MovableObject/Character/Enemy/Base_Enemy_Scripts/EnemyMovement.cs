@@ -63,7 +63,7 @@ public class EnemyMovement : CharacterObjMovement
 
     protected virtual void UpdateSpeedHorizontal()
     {
-        if (this.EnemyCtrl.EnemyAttack.isSlashing)
+        if (this.EnemyCtrl.EnemyAttack.isSlashing || this.EnemyCtrl.EnemyAnimations.CheckAnimationCurrent("Slash"))
         {
             this._Horizontal = 0;
             return;

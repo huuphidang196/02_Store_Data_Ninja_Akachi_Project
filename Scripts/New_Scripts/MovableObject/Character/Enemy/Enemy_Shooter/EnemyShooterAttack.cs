@@ -10,7 +10,7 @@ public class EnemyShooterAttack : EnemyAttack
     {
         base.Update();
 
-        if (!this.isSlash) return;
+        if (!this.isSlash && this.EnemyCtrl.EnemyAnimations.CheckAnimationCurrent("Slash")) return;
 
         ParticleSystem ps = this.EnemyCtrl.EnemyAttackActionVFXManager.VFX_Attack.GetComponent<ParticleSystem>();
         if (this.canSpawn == ps.isPlaying) return;
