@@ -58,7 +58,6 @@ public class EnemyAnimations : CharacterAnimation
     {
         string nameAnimation = "Slash";
 
-        // this.SetTimeDurationByAnimationClip(nameAnimation);
         this._Time_Duration = this._Time_Delay_Attack;
 
         if (!this.CheckTimer())
@@ -69,8 +68,7 @@ public class EnemyAnimations : CharacterAnimation
             this._Timer_Animation = 0;
             return;
         }
-        //Debug.Log("Completed");
-        //InputManager.Instance.PlayerRiviveAgainCompleted();
+
     }
     protected virtual void ReturnWlakState()
     {

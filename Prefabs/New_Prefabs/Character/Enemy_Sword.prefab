@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterCtrl: {fileID: 2828784259405238438}
   isSlash: 0
-  _Distance_Attack_Player: 0.3
+  _Distance_Attack_Player: 1.1
   _ObjDamSenderInfinity: {fileID: 1151767888786921084}
   _EmemyImpactTriggerSendDam: {fileID: 8594917776733221608}
 --- !u!1 &5401447303990770522

@@ -1736,7 +1736,7 @@ MonoBehaviour:
   _CharacterVFXManager: {fileID: 6738554635366947806}
   _EnemyImpact: {fileID: 1856815195460584004}
   _EnemyAttack: {fileID: 923979309913533666}
-  _EnemyDeadSpawnMoney: {fileID: 0}
+  _EnemyDeadSpawnMoney: {fileID: 5736099297086830565}
 --- !u!50 &6726823244394114292
 Rigidbody2D:
   serializedVersion: 4
@@ -2136,7 +2136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6192724089161036652, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.68
       objectReference: {fileID: 0}
     - target: {fileID: 6192724089161036652, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2231,7 +2231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.669
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalRotation.w

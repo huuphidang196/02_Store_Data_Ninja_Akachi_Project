@@ -21,6 +21,9 @@ public class SoundCtrlSO : SystemConfigCtrl
     [SerializeField] protected SoundEnemySO _SoundEnemySO;
     public SoundEnemySO SoundEnemySO => this._SoundEnemySO;
 
+    [SerializeField] protected SoundWeaponSO _SoundWeaponSO;
+    public SoundWeaponSO SoundWeaponSO => this._SoundWeaponSO;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -30,6 +33,7 @@ public class SoundCtrlSO : SystemConfigCtrl
         this.LoadSoundVFXSO();
         this.LoadSoundProspectSO();
         this.LoadSoundEnemySO();
+        this.LoadSoundWeaponSO();
     }
 
     protected virtual void LoadSoundPlayerSO()
@@ -63,6 +67,12 @@ public class SoundCtrlSO : SystemConfigCtrl
 
         this._SoundEnemySO = Resources.Load<SoundEnemySO>("ScriptableObject/SystemConfig/GameController/Sound/Enemy/SoundEnemySO");
     }
+    protected virtual void LoadSoundWeaponSO()
+    {
+        if (this._SoundWeaponSO != null) return;
+
+        this._SoundWeaponSO = Resources.Load<SoundWeaponSO>("ScriptableObject/SystemConfig/GameController/Sound/Weapon/SoundWeaponSO");
+    }
 
 }
 
@@ -72,6 +82,7 @@ public class ObjectUnit
     public TypeObject TypeObject;//for path load name folder
 
 }
+
 [Serializable]
 public class ItemSoundUnit : ObjectUnit
 {
@@ -134,9 +145,14 @@ public enum TypeProspectSound
     Sound_BackGround_01 = 1,
     Sound_BackGround_02 = 2,
     Sound_BackGround_03 = 3,
-
 }
 
+public enum TypeWeaponSound
+{
+    NoType = 0,
+
+    Sound_Weapon_Bullet_Enemy = 1,
+}
 
 //public enum TypeActionEnemy
 //{

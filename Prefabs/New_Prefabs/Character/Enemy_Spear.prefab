@@ -1174,7 +1174,7 @@ MonoBehaviour:
   _CharacterVFXManager: {fileID: 4993077369521036290}
   _EnemyImpact: {fileID: 4550610431584458006}
   _EnemyAttack: {fileID: 6202252518660099000}
-  _EnemyDeadSpawnMoney: {fileID: 0}
+  _EnemyDeadSpawnMoney: {fileID: 8103430640624540643}
 --- !u!50 &8568739493272779953
 Rigidbody2D:
   serializedVersion: 4
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterCtrl: {fileID: 3812047171238487804}
   isSlash: 0
-  _Distance_Attack_Player: 2.4
+  _Distance_Attack_Player: 2.5
   _ObjDamSenderInfinity: {fileID: 7796572847727042299}
   _EmemyImpactTriggerSendDam: {fileID: 6041771580801937214}
 --- !u!1 &7718809892404160873

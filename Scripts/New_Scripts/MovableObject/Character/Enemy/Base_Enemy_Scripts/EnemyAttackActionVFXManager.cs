@@ -35,9 +35,9 @@ public class EnemyAttackActionVFXManager : CharacterVFXManager
 
     protected virtual void UpdateVFXAttack()
     {
-        if (this._VFX_Attack.activeInHierarchy == this.EnemyCtrl.EnemyAttack.isSlashing) return;
+        if (this._VFX_Attack.activeInHierarchy == this.EnemyCtrl.EnemyAnimations.CheckAnimationCurrent("Slash")) return;
 
-        this._VFX_Attack.SetActive(this.EnemyCtrl.EnemyAttack.isSlashing);
+        this._VFX_Attack.SetActive(this.EnemyCtrl.EnemyAnimations.CheckAnimationCurrent("Slash"));
 
     }
 }

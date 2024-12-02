@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba3ea36b3f7a847b19ae5b765e9317, type: 3}
+  m_Name: SoundWeaponSO
+  m_EditorClassIdentifier: 
+  _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
+  Sound_Clips_Player:
+  - {fileID: 8300000, guid: a789cdd573bf6944cbab126e8e314596, type: 3}

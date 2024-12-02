@@ -22,7 +22,7 @@ public class EmemyImpactTriggerSendDam : CharacterImpactTrigger
 
     protected override string[] GetNameLayerImpactTrigger()
     {
-        return new string[] { "Player" };
+        return new string[] { "Player", "PlayerHiddenMode" };
     }
 
     protected override void ProcessImpactTrigger()

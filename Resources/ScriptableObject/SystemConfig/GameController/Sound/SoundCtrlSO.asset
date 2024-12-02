@@ -18,3 +18,4 @@ MonoBehaviour:
   _SoundVFXSO: {fileID: 11400000, guid: 200d1872a12984e468b96dce7812ec22, type: 2}
   _SoundProspectSO: {fileID: 11400000, guid: 021fc60f465bd6440bfaef3e8297b1a5, type: 2}
   _SoundEnemySO: {fileID: 11400000, guid: d40b05bf5c0c5a44dbf53f6824b180b3, type: 2}
+  _SoundWeaponSO: {fileID: 11400000, guid: 31b5a0f29f6a1fb40b13c3297b8aa2f0, type: 2}

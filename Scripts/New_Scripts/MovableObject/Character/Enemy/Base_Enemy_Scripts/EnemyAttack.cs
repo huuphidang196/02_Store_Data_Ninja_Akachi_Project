@@ -35,7 +35,6 @@ public class EnemyAttack : EnemyAbstract
 
     protected virtual void UpdateInputConfigurations()
     {
-
         this.UpdateBoolSlash();
     }
 
