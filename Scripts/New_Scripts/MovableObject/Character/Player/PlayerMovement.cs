@@ -107,6 +107,8 @@ public class PlayerMovement : CharacterObjMovement
         {
             this.Flip();
             this._Horizontal = 0;
+            this._Move_Left = false;
+            this._Move_Right = false;
             return;//must need update input
         }
 

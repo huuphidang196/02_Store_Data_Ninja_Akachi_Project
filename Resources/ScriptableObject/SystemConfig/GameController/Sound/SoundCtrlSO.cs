@@ -142,9 +142,11 @@ public enum TypeProspectSound
 {
     NoType = 0,
 
-    Sound_BackGround_01 = 1,
-    Sound_BackGround_02 = 2,
-    Sound_BackGround_03 = 3,
+    Sound_BackGround_01 = 101,
+    Sound_BackGround_02 = 102,
+    Sound_BackGround_03 = 103,
+
+    Sound_Ring_The_Bell = 801,
 }
 
 public enum TypeWeaponSound
