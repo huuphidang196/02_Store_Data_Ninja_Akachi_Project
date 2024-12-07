@@ -210,6 +210,9 @@ public class InputManager : SurMonoBehaviour
         this.PointerAttackThrowPresAndUp();
         this.PointerHidenModeSkillPresAndUp();
         this.PointerJumpUp();
+
+        this.PointerLeftUp();
+        this.PointerRightUp();
     }
 
 }

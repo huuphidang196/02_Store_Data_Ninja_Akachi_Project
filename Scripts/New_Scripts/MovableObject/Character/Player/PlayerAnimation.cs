@@ -59,7 +59,6 @@ public class PlayerAnimation : CharacterAnimation
             return;
         }
 
-
         int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
         if (id_Attack == 0) this._Timer_Animation = 0f;
 
@@ -81,7 +80,7 @@ public class PlayerAnimation : CharacterAnimation
     {
         //if (!this._Rivive_Again_Ani) InputManager.Instance.PlayerRiviveAgainCompleted();
 
-        if (this._Jump_Ani || this._Attack_Throw_Ani) return;
+        if (this._Jump_Ani) return;
 
         if (this.CheckAnimationCurrent("Idle")) return;
 
