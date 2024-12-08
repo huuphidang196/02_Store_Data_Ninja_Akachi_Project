@@ -29,12 +29,12 @@ public class ItemLootableDamReceiver : ItemDamReceiver
 
         TextUICtrl textUICtrl = textMoney.GetComponent<TextUICtrl>();
         //Set Content value
-        textUICtrl.TextDescription.SetContent("+ " + this._ItemDropUnit.ItemUnit.Value);
+        textUICtrl.TextDescription.SetContentAndColor(this._ItemDropUnit.ItemUnit);
 
         textMoney.gameObject.name = ItemDropSpawner.Name_Text_Fly;
         textMoney.localScale = Vector3.one;
         textMoney.gameObject.SetActive(true);
-       
+
     }
 
     //public virtual float GetValueItemDrop()

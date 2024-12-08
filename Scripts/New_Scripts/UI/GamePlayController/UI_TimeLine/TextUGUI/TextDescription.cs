@@ -20,4 +20,23 @@ public class TextDescription : BaseText
 
         this._TextUICtrl = GetComponentInParent<TextUICtrl>();
     }
+    public virtual void SetContentAndColor(ItemUnit itemUnit)
+    {
+        this.SetContent("+ " + itemUnit.Value);
+
+        switch (itemUnit.TypeItem)
+        {
+            case TypeItemMoney.NoType:
+                break;
+            case TypeItemMoney.Gold:
+                this._BaseText.color = Color.yellow;
+                break;
+            case TypeItemMoney.Diamond:
+                this._BaseText.color = Color.blue;
+                break;
+            case TypeItemMoney.Star_Mission:
+                this._BaseText.color = Color.white;
+                break;
+        }
+    }
 }

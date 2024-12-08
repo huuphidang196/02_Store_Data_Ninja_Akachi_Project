@@ -23,6 +23,7 @@ public class GameController : SystemController
 
     [SerializeField] protected int _Order_Buy = 0;
 
+    [SerializeField] protected int _Count_Star_Mission = 0;
 
     protected override void Awake()
     {
@@ -42,6 +43,7 @@ public class GameController : SystemController
         this._Rivive_Again = false;
         this._Distance_Active_Enemies = this._SystemConfig.GameConfigController.Distance_Active_Enemies;
         this._Order_Buy = 0;
+        this._Count_Star_Mission = 0;
     }
 
     public virtual void AddMoneyToSystem(ItemUnit itemUnit)
@@ -55,6 +57,10 @@ public class GameController : SystemController
                 break;
             case TypeItemMoney.Diamond:
                 this._SystemConfig.Total_Diamonds += itemUnit.Value;
+                break;
+            case TypeItemMoney.Star_Mission:
+                this._Count_Star_Mission++;
+                this._SystemConfig.SetCountStarMissionByLevelCurrent(this._Count_Star_Mission);
                 break;
             default:
                 break;

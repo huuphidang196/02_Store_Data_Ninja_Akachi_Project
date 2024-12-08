@@ -11,6 +11,7 @@ public enum TypeItemMoney
 
     Gold = 1,
     Diamond = 2,
+    Star_Mission = 3,
 }
 
 [Serializable]
@@ -50,6 +51,20 @@ public class ItemUnit
         this.Value = value;
     }
 
+}
+
+[Serializable]
+public class StarMissionLevel
+{
+    public int Level_Current;
+    public int Count_Star_Acquired;
+
+    public StarMissionLevel() {; }
+    public StarMissionLevel(int level, int Count)
+    {
+        this.Level_Current = level;
+        this.Count_Star_Acquired = (Count > 3) ? 3 : Count;
+    }
 }
 
 [CreateAssetMenu(fileName = "GameConfigController", menuName = "ScriptableObject/Configuration/GameConfigController", order = 1)]

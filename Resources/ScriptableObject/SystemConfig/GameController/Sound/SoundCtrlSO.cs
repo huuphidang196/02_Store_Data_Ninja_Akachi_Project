@@ -126,6 +126,7 @@ public enum TypeItemSound
     Sound_Gold_Bag_Diamonds_Bag = 1,
     Sound_Wood_Box = 2,
     Sound_Jar_Broke = 3,
+    Sound_Star_Mission = 4,
 }
 
 public enum TypeVFXSound

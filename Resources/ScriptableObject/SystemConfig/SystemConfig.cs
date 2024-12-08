@@ -6,8 +6,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SystemConfig", menuName = "ScriptableObject/Configuration/SystemConfig")]
 public class SystemConfig : ScriptableObject
 {
-    public int Level_Unlock = 1;
+    [SerializeField] protected List<StarMissionLevel> _StarMissionLevels;
+   // public List<StarMissionLevel> StarMissionLevels => this._StarMissionLevels;
+
     public int Current_Level;
+
+    protected int _Level_Unlock = 1;
+
+    public int Level_Unlock
+    {
+        get { return this._Level_Unlock; }
+        set
+        {
+            this._Level_Unlock = value;
+            if (this._StarMissionLevels.Count >= this._Level_Unlock) return;
+
+            this._StarMissionLevels.Add(new StarMissionLevel(this._Level_Unlock, 0));
+        }
+    }
+
+
     public float Total_Golds;
     public float Total_Diamonds;
 
@@ -22,6 +40,24 @@ public class SystemConfig : ScriptableObject
 
     [SerializeField] protected PlayerSO _PlayerSO;
     public PlayerSO PlayerSO => this._PlayerSO;
+
+    public virtual StarMissionLevel GetStarMissionByLevel(int level)
+    {
+        foreach (StarMissionLevel item in this._StarMissionLevels)
+        {
+            if (item.Level_Current == level) return item;
+        }
+
+        return null;
+    }
+
+    public virtual void SetCountStarMissionByLevelCurrent(int count)
+    {
+        StarMissionLevel st = this.GetStarMissionByLevel(this.Current_Level);
+        if (st.Count_Star_Acquired >= count) return;
+
+        st.Count_Star_Acquired = count;
+    }
 
     protected virtual void Reset()
     {
