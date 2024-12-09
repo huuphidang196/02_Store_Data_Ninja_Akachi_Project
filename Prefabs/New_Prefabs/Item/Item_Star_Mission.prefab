@@ -249,8 +249,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0015999973, y: 0.065349996, z: 0}
-    m_Extent: {x: 0.6221, y: 0.59745, z: 0}
+    m_Center: {x: -0.0031000078, y: 0.06694999, z: 0}
+    m_Extent: {x: 0.62520003, y: 0.60365, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -485,8 +485,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1975717571
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 1197489240, guid: 0033a13f3ed5fdb418596fdc0c3c7ff3, type: 3}
   m_Color: {r: 0.9716981, g: 0.46781728, b: 0, a: 1}

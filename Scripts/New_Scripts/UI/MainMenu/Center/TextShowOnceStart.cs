@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextMoneyTotalToShow : BaseText
+public class TextShowOnceStart : BaseText
 {
     protected override void Start()
     {
         base.Start();
 
-        string total = this.GetValueMoneyToShow();
+        string total = this.GetValueToShow();
         this.SetContent(total);       
     }
 
-    protected virtual string GetValueMoneyToShow()
+    protected virtual string GetValueToShow()
     {
         return 0.ToString();
     }

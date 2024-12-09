@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextDiamondsToShow : TextMoneyTotalToShow
+public class TextDiamondsToShow : TextShowOnceStart
 {
-    protected override string GetValueMoneyToShow()
+    protected override string GetValueToShow()
     {
         return MainMenuController.Instance.SystemConfig.Total_Diamonds.ToString();
     }

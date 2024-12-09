@@ -7,15 +7,22 @@ using UnityEngine;
 public class SystemConfig : ScriptableObject
 {
     [SerializeField] protected List<StarMissionLevel> _StarMissionLevels;
-   // public List<StarMissionLevel> StarMissionLevels => this._StarMissionLevels;
+    public List<StarMissionLevel> StarMissionLevels
+    {
+        get
+        {
+            if (this._StarMissionLevels.Count == 0) this._StarMissionLevels.Add(new StarMissionLevel(1, 0));
+            return this._StarMissionLevels;
+        }
+    }
 
     public int Current_Level;
 
-    protected int _Level_Unlock = 1;
+    protected int _Level_Unlock;
 
     public int Level_Unlock
     {
-        get { return this._Level_Unlock; }
+        get { return (this._Level_Unlock > 0) ? this._Level_Unlock : 1; }
         set
         {
             this._Level_Unlock = value;
@@ -24,7 +31,6 @@ public class SystemConfig : ScriptableObject
             this._StarMissionLevels.Add(new StarMissionLevel(this._Level_Unlock, 0));
         }
     }
-
 
     public float Total_Golds;
     public float Total_Diamonds;
@@ -43,16 +49,27 @@ public class SystemConfig : ScriptableObject
 
     public virtual StarMissionLevel GetStarMissionByLevel(int level)
     {
-        foreach (StarMissionLevel item in this._StarMissionLevels)
+        //Set only for public variable
+        foreach (StarMissionLevel item in this.StarMissionLevels)
         {
             if (item.Level_Current == level) return item;
         }
 
         return null;
     }
+    public virtual int GetAllStarMissionAcquired()
+    {
+        int count_SM = 0;
+        foreach (StarMissionLevel item in this.StarMissionLevels)
+        {
+            count_SM += item.Count_Star_Acquired;
+        }
 
+        return count_SM;
+    }    
     public virtual void SetCountStarMissionByLevelCurrent(int count)
     {
+        //Set only for private variable
         StarMissionLevel st = this.GetStarMissionByLevel(this.Current_Level);
         if (st.Count_Star_Acquired >= count) return;
 

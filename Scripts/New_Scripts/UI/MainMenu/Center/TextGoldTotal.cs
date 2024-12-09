@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextGoldTotal : TextMoneyTotalToShow
+public class TextGoldTotal : TextShowOnceStart
 {
-    protected override string GetValueMoneyToShow()
+    protected override string GetValueToShow()
     {
         return MainMenuController.Instance.SystemConfig.Total_Golds.ToString();
     }
