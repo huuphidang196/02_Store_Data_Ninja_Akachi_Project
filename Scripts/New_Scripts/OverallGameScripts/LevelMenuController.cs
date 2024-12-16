@@ -24,7 +24,7 @@ public class LevelMenuController : SystemController
         string str_Level = buttonLevel.name.Substring(buttonLevel.name.LastIndexOf("_") + 1);
         int LevelButton = int.Parse(str_Level);
 
-        ClickedButtonLevel?.Invoke(LevelButton); Debug.Log("LevelButton " + LevelButton);
+        ClickedButtonLevel?.Invoke(LevelButton); //Debug.Log("LevelButton " + LevelButton);
 
         if (this._SystemConfig.Level_Unlock < LevelButton) return;
 

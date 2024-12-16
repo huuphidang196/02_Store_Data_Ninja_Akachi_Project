@@ -39,7 +39,7 @@ public class UIPanelSpecifySceneCtrl : SurMonoBehaviour
         //After Call Invoke 
         this._btnPlay.gameObject.SetActive(this.CheckAllowActive(LevelButton));
 
-        Debug.Log("LevelButton :" + LevelButton + ", bool " + this.CheckAllowActive(LevelButton));
+       // Debug.Log("LevelButton :" + LevelButton + ", bool " + this.CheckAllowActive(LevelButton));
     }
 
     protected virtual bool CheckAllowActive(int LevelCheck)

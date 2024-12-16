@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextGoldTotal : TextShowOnceStart
+public class TextGoldToShow : TextShowGetValue
 {
     protected override string GetValueToShow()
     {
-        return MainMenuController.Instance.SystemConfig.Total_Golds.ToString();
+        return MainMenuController.Instance.SystemConfig.Total_Golds + "";
     }
 }

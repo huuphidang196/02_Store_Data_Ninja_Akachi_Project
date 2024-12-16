@@ -1,7 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 public class GameController : SystemController
 {
     private static GameController m_instance;
@@ -124,5 +126,22 @@ public class GameController : SystemController
     {
         bool onMusic = GameController.Instance.SystemConfig.GameConfigController.OnMusic;
         GameController.Instance.SystemConfig.GameConfigController.OnMusic = !onMusic;
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        this.ResetValue();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextDiamondsToShow : TextShowOnceStart
+public class TextDiamondsToShow : TextShowGetValue
 {
     protected override string GetValueToShow()
     {

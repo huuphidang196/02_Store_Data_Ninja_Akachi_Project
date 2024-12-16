@@ -3,18 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextShowOnceStart : BaseText
+public class TextShowGetValue : BaseText
 {
     protected override void Start()
     {
         base.Start();
-
         string total = this.GetValueToShow();
-        this.SetContent(total);       
+        this.SetContent(total);
     }
 
     protected virtual string GetValueToShow()
     {
-        return 0.ToString();
+        return 0 + "";
     }
 }
