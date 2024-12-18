@@ -24,8 +24,6 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
     public bool IsHidenUI => this.isHidenUI;
 
-
-
     protected override void Awake()
     {
         base.Awake();

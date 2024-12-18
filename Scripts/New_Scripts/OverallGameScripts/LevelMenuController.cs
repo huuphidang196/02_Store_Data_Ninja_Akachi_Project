@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelMenuController : SystemController
 {
@@ -32,6 +33,30 @@ public class LevelMenuController : SystemController
 
     }
 
-    public virtual string GetNameSceneCurrent() => "Level_" + this._SystemConfig.Current_Level.ToString("D2");
+    protected virtual string GetNameSceneCurrent() => "Level_" + this._SystemConfig.Current_Level.ToString("D2");
 
+    public virtual void StartLoadingScene()
+    {
+        string nameScene = this.GetNameSceneCurrent();
+
+        StartCoroutine(LoadSceneWithWait(nameScene));
+    }
+
+    protected IEnumerator LoadSceneWithWait(string sceneName)
+    {
+        // Bắt đầu load scene bất đồng bộ
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        // Đảm bảo scene sẽ không được kích hoạt ngay lập tức khi load xong
+        asyncOperation.allowSceneActivation = false;
+
+        LevelMenuUIManager.Instance.LevelMenuUICtrl.UIBelowCtrl.Image_BG_Loading.gameObject.SetActive(true);
+        // Chờ cho đến khi scene load xong (progress = 0.9)
+        yield return new WaitUntil(() => asyncOperation.progress >= 0.9f);
+
+        //  Debug.Log("Scene loaded. Activating scene now...");
+
+        // Kích hoạt scene sau khi load xong
+        asyncOperation.allowSceneActivation = true;
+    }
 }

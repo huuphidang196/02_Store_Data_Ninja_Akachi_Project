@@ -9,8 +9,6 @@ public class ButtonPlay : BaseButton
     {
         base.OnClick();
 
-        string nameScene = LevelMenuController.Instance.GetNameSceneCurrent();
-
-        SceneManager.LoadScene(nameScene);
+        LevelMenuController.Instance.StartLoadingScene();
     }
 }
