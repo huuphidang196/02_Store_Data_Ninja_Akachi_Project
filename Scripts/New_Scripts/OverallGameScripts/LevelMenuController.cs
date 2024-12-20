@@ -33,8 +33,8 @@ public class LevelMenuController : SystemController
 
     }
 
-    protected virtual string GetNameSceneCurrent() => "Level_" + this._SystemConfig.Current_Level.ToString("D2");
-
+    protected virtual string GetNameSceneCurrent() => this.GetNameSceneByOrder(this._SystemConfig.Current_Level);
+    protected virtual string GetNameSceneByOrder(int order) => "Level_" + order.ToString("D2");
     public virtual void StartLoadingScene()
     {
         string nameScene = this.GetNameSceneCurrent();
@@ -42,6 +42,11 @@ public class LevelMenuController : SystemController
         StartCoroutine(LoadSceneWithWait(nameScene));
     }
 
+    public virtual void StartLoadingSceneByOrderScene(int orderScene)
+    {
+        string nameScene = this.GetNameSceneByOrder(orderScene);
+        StartCoroutine(LoadSceneWithWait(nameScene));
+    }
     protected IEnumerator LoadSceneWithWait(string sceneName)
     {
         // Bắt đầu load scene bất đồng bộ
