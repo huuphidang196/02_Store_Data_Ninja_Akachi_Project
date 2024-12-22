@@ -22,3 +22,6 @@ MonoBehaviour:
     TypeItem: 2
     Value: 25
   Compensation_Diamond_Rivive: 25
+  _Order_Music_BG: 1
+  Distance_ModeOn: 15
+  OnMusic: 1

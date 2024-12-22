@@ -42,7 +42,7 @@ public class GamePlayUIBelow : GamePlayUIOverallAbstract
         if (!PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) return;
 
         this.IsHidenALlChildUIBelow(false);
-    }    
+    }
 
     protected virtual void IsHidenALlChildUIBelow()
     {
@@ -57,6 +57,7 @@ public class GamePlayUIBelow : GamePlayUIOverallAbstract
 
         foreach (Transform item in this.transform)
         {
+            if (item.GetSiblingIndex() == this._UI_Below_Center.GetSiblingIndex()) continue;
             item.gameObject.SetActive(active);
         }
     }

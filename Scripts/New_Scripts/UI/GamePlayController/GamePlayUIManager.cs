@@ -24,6 +24,10 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
     public bool IsHidenUI => this.isHidenUI;
 
+    [SerializeField] protected bool isTogglePanelEndGame = false;
+
+    public bool IsTogglePanelEndGame => this.isTogglePanelEndGame;
+
     protected override void Awake()
     {
         base.Awake();
@@ -60,8 +64,10 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     {
         this.ProcessEventPlayerRivival();
         this.ProcessEventEndGame();
+        this.ProcessEventCompletedMission();
     }
 
+    
     protected virtual void ProcessEventPlayerRivival()
     {
         if (GameController.Instance.Rivive_Again == this.isHidenUI) return;
@@ -75,11 +81,23 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
         if (!GameController.Instance.EndGame || GameController.Instance.EndGame == this.isHidenUI) return;
 
         this.IsHidenUIScenePlay();
+
+       
+    }
+    protected virtual void ProcessEventCompletedMission()
+    {
+        if (GateEntranceAutoRun.Instance.WasCom_Mission == this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.activeInHierarchy) return;
+        Invoke(nameof(this.TogglePanelEndGame), 2f);
+    }
+    
+    protected virtual void TogglePanelEndGame()
+    {
+        this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.SetActive(GateEntranceAutoRun.Instance.WasCom_Mission);
     }
 
     public virtual void ChangeStatusOnOffMusic()
     {
         GameController.Instance.ChangeStatusOnOffMusic();
         Event_MusicChanging?.Invoke();
-    }    
+    }
 }

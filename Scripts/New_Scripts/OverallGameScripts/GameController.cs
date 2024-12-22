@@ -20,6 +20,9 @@ public class GameController : SystemController
     [SerializeField] protected bool _Rivive_Again = false;
     public bool Rivive_Again => _Rivive_Again;
 
+    [SerializeField] protected bool isCompleted_Mission = false;
+    public bool IsCompleted_Mission => isCompleted_Mission;
+
     [SerializeField] protected float _Distance_Active_Enemies;
     public float Distance_Active_Enemies => this._Distance_Active_Enemies;
 
@@ -43,6 +46,7 @@ public class GameController : SystemController
         this._PauseGame = false;
         this._EndGame = false;
         this._Rivive_Again = false;
+        this.isCompleted_Mission = false;
         this._Distance_Active_Enemies = this._SystemConfig.GameConfigController.Distance_Active_Enemies;
         this._Order_Buy = 0;
         this._Count_Star_Mission = 0;
