@@ -79,7 +79,7 @@ public class GateEntranceAutoRun : SurMonoBehaviour
     {
         if (this._Gate_Entrance.Count == 0) return;
 
-        if (PlayerCtrl.Instance.transform.position.x - this._Gate_Entrance[this._Gate_Entrance.Count - 1].Gate.position.x > 2)
+        if (PlayerCtrl.Instance.transform.position.x - this._Gate_Entrance[this._Gate_Entrance.Count - 1].Gate.position.x > 5)
         {
             this.wasCom_Mission = true;
             return;
@@ -94,7 +94,7 @@ public class GateEntranceAutoRun : SurMonoBehaviour
                 this.isEntranceAuto = true;
                 return;
             }
-            item.isPassed = PlayerCtrl.Instance.transform.position.x > item.Gate.position.x + 2f;
+            item.isPassed = PlayerCtrl.Instance.transform.position.x > item.Gate.position.x + 5f;
         }
         this.isEntranceAuto = false;
     }
@@ -103,6 +103,6 @@ public class GateEntranceAutoRun : SurMonoBehaviour
     {
         float distance = gate.position.x - PlayerCtrl.Instance.transform.position.x;
         return distance < this._Distance_ModeOn
-            && distance > -2f;
+            && distance > -5f;
     }
 }

@@ -24,7 +24,7 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
 
         if (this._AudioSource.clip != null && this.GetNameAction() != this.GetNameAction(TypeActionEnemy.Attack)) return;
 
-        this.PlayeSoundWithTypeAction();
+        this.PlaySoundWithTypeAction();
     }
 
     //protected virtual bool CheckStopSoundAttack()
@@ -50,7 +50,7 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
         return TypeActionEnemy.NoType;
     }
 
-    protected virtual void PlayeSoundWithTypeAction()
+    protected virtual void PlaySoundWithTypeAction()
     {
         string nameType = this.GetNameAction();
         //Debug.Log(nameType);

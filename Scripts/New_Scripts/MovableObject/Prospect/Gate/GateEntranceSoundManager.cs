@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundRespawnTower : ObjSoundRunOnlyOnce
+public class GateEntranceSoundManager : ObjSoundRunOnlyOnce
 {
-    [Header("LightRespawnTower")]
     [SerializeField] protected TypeProspectSound _TypeProspectSound;
 
     protected override void Update()
     {
-        if (PlayerCtrl.Instance.transform.position.x <= this._ObjectCtrl.transform.position.x) return;
+        if (!GateEntranceAutoRun.Instance.WasCom_Mission) return;
 
         base.Update();
 
@@ -19,5 +18,5 @@ public class SoundRespawnTower : ObjSoundRunOnlyOnce
         return GameController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._TypeProspectSound);
     }
 
-   
+
 }

@@ -65,9 +65,16 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
         this.ProcessEventPlayerRivival();
         this.ProcessEventEndGame();
         this.ProcessEventCompletedMission();
+        this.ProcessEventEntranceAutoPlayerRunMode();
     }
 
-    
+    protected virtual void ProcessEventEntranceAutoPlayerRunMode()
+    {
+        if (!GateEntranceAutoRun.Instance.IsEntranceAuto || GateEntranceAutoRun.Instance.IsEntranceAuto == this.isHidenUI) return;
+
+        this.IsHidenUIScenePlay();
+    }
+
     protected virtual void ProcessEventPlayerRivival()
     {
         if (GameController.Instance.Rivive_Again == this.isHidenUI) return;
@@ -78,18 +85,19 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
     protected virtual void ProcessEventEndGame()
     {
-        if (!GameController.Instance.EndGame || GameController.Instance.EndGame == this.isHidenUI) return;
+        if (!GameController.Instance.EndGame || GameController.Instance.EndGame == this.isHidenUI
+            || !GateEntranceAutoRun.Instance.IsEntranceAuto) return;
 
         this.IsHidenUIScenePlay();
 
-       
+
     }
     protected virtual void ProcessEventCompletedMission()
     {
         if (GateEntranceAutoRun.Instance.WasCom_Mission == this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.activeInHierarchy) return;
-        Invoke(nameof(this.TogglePanelEndGame), 2f);
+        Invoke(nameof(this.TogglePanelEndGame), 1f);
     }
-    
+
     protected virtual void TogglePanelEndGame()
     {
         this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.SetActive(GateEntranceAutoRun.Instance.WasCom_Mission);

@@ -198,7 +198,7 @@ public class PlayerMovement : CharacterObjMovement
 
         this._Move_Left = InputManager.Instance.Press_Left && !this._PlayerCtrl.PlayerDamReceiver.ObjIsDead;
 
-        this._Move_Right = InputManager.Instance.Press_Right && !this._PlayerCtrl.PlayerDamReceiver.ObjIsDead;
+        this._Move_Right = InputManager.Instance.Press_Right && !this._PlayerCtrl.PlayerDamReceiver.ObjIsDead || GateEntranceAutoRun.Instance.IsEntranceAuto && !GateEntranceAutoRun.Instance.WasCom_Mission;
 
         if (this.IsGrounded()) this._Double_Jump = false;
 
