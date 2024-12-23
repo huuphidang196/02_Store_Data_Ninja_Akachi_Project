@@ -98,13 +98,20 @@ public class InputManager : SurMonoBehaviour
             PlayerCtrl.Instance.PlayerAttack.PerformAttackThrowShuriken();
         }
 
-
         if (Input.GetKeyDown(KeyCode.D))
         {
             //Debug.Log("Mũi tên phải được nhấn");
             this.PointerAttackDashingDown();
         }
+
+        this.UpdateConfigEndGame();
     }
+
+    protected virtual void UpdateConfigEndGame()
+    {
+        if (GateEntranceAutoRun.Instance.WasCom_Mission) this.PointerRightUp();
+    }
+
     //Left
     public virtual void PointerLeftDown()
     {

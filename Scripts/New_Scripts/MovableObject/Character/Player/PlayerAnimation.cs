@@ -97,7 +97,7 @@ public class PlayerAnimation : CharacterAnimation
         this._Attack_Throw_Ani = !this.isDead && !this._Hidden_Mode_Skill_Ani && InputManager.Instance.Press_Attack_Throw;
 
         this._Run_Ani = (this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround
-            && InputManager.Instance.Press_Left != InputManager.Instance.Press_Right) || GateEntranceAutoRun.Instance.IsEntranceAuto && !GateEntranceAutoRun.Instance.WasCom_Mission;
+            && InputManager.Instance.Press_Left != InputManager.Instance.Press_Right) || GateEntranceAutoRun.Instance.IsEntranceAuto;
 
         this._Jump_Ani = (!this.isDead && !this._Hidden_Mode_Skill_Ani && this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y > 0.2f
             && !this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround);
