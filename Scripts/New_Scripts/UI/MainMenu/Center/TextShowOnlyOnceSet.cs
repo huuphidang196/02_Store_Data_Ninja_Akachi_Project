@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextShowGetValue : BaseText
+public class TextShowOnlyOnceSet : BaseText
 {
     protected override void Start()
     {

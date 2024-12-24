@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextGoldToShow : TextShowOnlyOnceSet
+public class TextLevelCurrent : TextShowOnlyOnceSet
 {
     protected override string GetValueToShow()
     {
-        return MainMenuController.Instance.SystemConfig.Total_Golds + "";
+        return GameController.Instance.SystemConfig.Current_Level + "";
     }
 }

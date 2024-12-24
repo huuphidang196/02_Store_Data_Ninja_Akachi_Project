@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextStarMissionAchieved : TextShowGetValue
+public class TextStarMissionAchieved : TextShowOnlyOnceSet
 {
     protected override void Start()
     {

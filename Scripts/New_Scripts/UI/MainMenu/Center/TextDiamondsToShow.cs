@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextDiamondsToShow : TextShowGetValue
+public class TextDiamondsToShow : TextShowOnlyOnceSet
 {
     protected override string GetValueToShow()
     {
