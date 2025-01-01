@@ -6,7 +6,7 @@ public class TextTotalDiamondsRealTime : TextInfoPlayerUpdate
 {
     protected override string GetDataValue()
     {
-        float totalDiamonds = this._UIAboveInfoPlayerManager.GamePlayUIOverall.GamePlayConfigUIOverall.SystemConfig.Total_Diamonds;
+        float totalDiamonds = SystemController.Sys_Instance.SystemConfig.Total_Diamonds;
 
         return totalDiamonds.ToString();
     }

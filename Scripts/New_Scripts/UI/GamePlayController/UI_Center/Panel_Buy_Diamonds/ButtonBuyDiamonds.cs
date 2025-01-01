@@ -27,6 +27,6 @@ public class ButtonBuyDiamonds : BaseButton
     {
         base.OnClick();
 
-        GameController.Instance.AddMoneyToSystem(this._ItemUnit);
+        SystemController.Sys_Instance.AddMoneyToSystem(this._ItemUnit);
     }
 }

@@ -6,7 +6,7 @@ public class TextGoldsRealTime : TextInfoPlayerUpdate
 {
     protected override string GetDataValue()
     {
-        float totalGold = this._UIAboveInfoPlayerManager.GamePlayUIOverall.GamePlayConfigUIOverall.SystemConfig.Total_Golds;
+        float totalGold = SystemController.Sys_Instance.SystemConfig.Total_Golds;
         return totalGold.ToString();
     }
 

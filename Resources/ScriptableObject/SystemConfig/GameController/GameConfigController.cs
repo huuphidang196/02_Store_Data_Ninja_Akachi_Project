@@ -54,6 +54,24 @@ public class ItemUnit
 }
 
 [Serializable]
+public class ItemMoneyUnit
+{
+    public ItemUnit ItemUnit;
+    public Sprite Sprite_Represent_Money;
+    public Color Color_Text
+    {
+        get
+        {
+            if (this.ItemUnit.TypeItem == TypeItemMoney.NoType) return Color.gray;
+
+            if(this.ItemUnit.TypeItem == TypeItemMoney.Gold) return Color.yellow;
+
+            return Color.blue;
+        }
+    }
+}
+
+[Serializable]
 public class StarMissionLevel
 {
     public int Level_Current;

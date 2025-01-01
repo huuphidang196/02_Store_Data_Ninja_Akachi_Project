@@ -52,25 +52,14 @@ public class GameController : SystemController
         this._Count_Star_Mission = 0;
     }
 
-    public virtual void AddMoneyToSystem(ItemUnit itemUnit)
+    public override void AddMoneyToSystem(ItemUnit itemUnit)
     {
-        switch (itemUnit.TypeItem)
-        {
-            case TypeItemMoney.NoType:
-                break;
-            case TypeItemMoney.Gold:
-                this._SystemConfig.Total_Golds += itemUnit.Value;
-                break;
-            case TypeItemMoney.Diamond:
-                this._SystemConfig.Total_Diamonds += itemUnit.Value;
-                break;
-            case TypeItemMoney.Star_Mission:
-                this._Count_Star_Mission++;
-                this._SystemConfig.SetCountStarMissionByLevelCurrent(this._Count_Star_Mission);
-                break;
-            default:
-                break;
-        }
+        base.AddMoneyToSystem(itemUnit);
+        if (itemUnit.TypeItem != TypeItemMoney.Star_Mission) return;
+
+        this._Count_Star_Mission++;
+        this._SystemConfig.SetCountStarMissionByLevelCurrent(this._Count_Star_Mission);
+
     }
 
     public virtual void PauseGamePlay()

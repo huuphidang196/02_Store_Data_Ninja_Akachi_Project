@@ -44,6 +44,9 @@ public class SystemConfig : ScriptableObject
     [SerializeField] protected SoundCtrlSO _SoundCtrlSO;
     public SoundCtrlSO SoundCtrlSO => this._SoundCtrlSO;
 
+    [SerializeField] protected ShopControllerSO _ShopControllerSO;
+    public ShopControllerSO ShopControllerSO => this._ShopControllerSO;
+
     [SerializeField] protected PlayerSO _PlayerSO;
     public PlayerSO PlayerSO => this._PlayerSO;
 
@@ -86,9 +89,11 @@ public class SystemConfig : ScriptableObject
         this.LoadGameConfigController();
         this.LoadGamePlayConfigUIOverall();
         this.LoadSoundCtrlSO();
+        this.LoadShopControllerSO();
         this.LoadPlayerSO();
     }
 
+ 
     protected virtual void LoadGameConfigController()
     {
         if (this._GameConfigController != null) return;
@@ -108,6 +113,12 @@ public class SystemConfig : ScriptableObject
         if (this._SoundCtrlSO != null) return;
 
         this._SoundCtrlSO = Resources.Load<SoundCtrlSO>("ScriptableObject/SystemConfig/GameController/Sound/SoundCtrlSO");
+    }
+    protected virtual void LoadShopControllerSO()
+    {
+        if (this._ShopControllerSO != null) return;
+
+        this._ShopControllerSO = Resources.Load<ShopControllerSO>("ScriptableObject/SystemConfig/Shop/ShopControllerSO");
     }
 
     protected virtual void LoadPlayerSO()
