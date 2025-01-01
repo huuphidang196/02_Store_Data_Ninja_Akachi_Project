@@ -66,7 +66,7 @@ public class ItemMoneyUnit
 
             if(this.ItemUnit.TypeItem == TypeItemMoney.Gold) return Color.yellow;
 
-            return Color.blue;
+            return Color.cyan;
         }
     }
 }

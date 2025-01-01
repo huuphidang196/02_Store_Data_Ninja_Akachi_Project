@@ -20,5 +20,69 @@ MonoBehaviour:
       ItemUnit:
         TypeItem: 0
         Value: 0
-      Sprite_Represent_Moeny: {fileID: 21300000, guid: 15fb3d61d058e564cb655c7055dd1482, type: 3}
+      Sprite_Represent_Money: {fileID: 21300000, guid: b8bcc39f115dbc14f9a141f82da8a38d, type: 3}
     Sprite_Rep_Skin: {fileID: 21300000, guid: 5f2700602bfddac4a9c2ec0a82aab5c5, type: 3}
+  - Name_Skin_Mode: NINJA CHUCKLES
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 1
+        Value: 20000
+      Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
+    Sprite_Rep_Skin: {fileID: -1709202686, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: SUPERIOR NINJA CHUCKLES
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 2
+        Value: 1500
+      Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
+    Sprite_Rep_Skin: {fileID: -1202230043, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: BASIC SAMURAI ARMOR
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 1
+        Value: 25000
+      Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
+    Sprite_Rep_Skin: {fileID: 1452876212, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: SUPERIOR SAMURAI ARMOR
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 2
+        Value: 2500
+      Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
+    Sprite_Rep_Skin: {fileID: -187647583, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: IRON GHOST SAMURAI
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 1
+        Value: 35000
+      Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
+    Sprite_Rep_Skin: {fileID: -365500653, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: NIGHTBLADE SAMURAI
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 2
+        Value: 5000
+      Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
+    Sprite_Rep_Skin: {fileID: 2093822734, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: CHILL GUY SAMURAI
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 2
+        Value: 7500
+      Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
+    Sprite_Rep_Skin: {fileID: -1795161555, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
+  - Name_Skin_Mode: CHILL GEAR SAMURAI
+    Unlock: 0
+    ItemMoneyUnit:
+      ItemUnit:
+        TypeItem: 2
+        Value: 7500
+      Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
+    Sprite_Rep_Skin: {fileID: -1641661849, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}

@@ -44,8 +44,8 @@ public class UICenterShopManager : UICenterShopCtrlAbstract
     }
     protected virtual void TogglePanelDisguise()
     {
-        if (this._UICenterShopCtrl.UI_Disguise.gameObject.activeInHierarchy == !this.isResources) return;
+        if (this._UICenterShopCtrl.UIShopCenterDisguiseManager.gameObject.activeInHierarchy == !this.isResources) return;
 
-        this._UICenterShopCtrl.UI_Disguise.gameObject.SetActive(!this.isResources);
+        this._UICenterShopCtrl.UIShopCenterDisguiseManager.gameObject.SetActive(!this.isResources);
     }
 }

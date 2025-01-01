@@ -8,8 +8,8 @@ public class UICenterShopCtrl : SurMonoBehaviour
     [SerializeField] protected Transform _UI_Resources;
     public Transform UI_Resources => this._UI_Resources;
 
-    [SerializeField] protected Transform _UI_Disguise;
-    public Transform UI_Disguise => this._UI_Disguise;
+    [SerializeField] protected UIShopCenterDisguiseManager _UIShopCenterDisguiseManager;
+    public UIShopCenterDisguiseManager UIShopCenterDisguiseManager => this._UIShopCenterDisguiseManager;
 
     protected override void LoadComponents()
     {
@@ -28,9 +28,9 @@ public class UICenterShopCtrl : SurMonoBehaviour
 
     protected virtual void LoadUIDisguise()
     {
-        if (this._UI_Disguise != null) return;
+        if (this._UIShopCenterDisguiseManager != null) return;
 
-        this._UI_Disguise = transform.Find("UI_Disguise");
+        this._UIShopCenterDisguiseManager = transform.Find("UI_Disguise").GetComponent<UIShopCenterDisguiseManager>();
     }
 
 }
