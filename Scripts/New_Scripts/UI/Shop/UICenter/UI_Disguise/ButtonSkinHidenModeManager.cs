@@ -18,6 +18,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
 
     public virtual void SetSkinHidenMode(SkinHidenMode skinHidenMode) => this._SkinHidenMode = skinHidenMode;
 
+    #region LoadComponents
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -63,8 +64,11 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
         this._txtNameMode = transform.Find("txtName_Mode").GetComponent<TextMeshProUGUI>();
     }
 
+    #endregion LoadComponents
+
     protected override void OnEnable()
     {
+        UIShopCenterDisguiseManager.Event_Select_Other_Skin += this.EventChangeOtherSkinHiden;
         base.OnEnable();
 
         if (this._SkinHidenMode == null) return;
@@ -85,5 +89,19 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
         this._Image_Skin_Rep.sprite = this._SkinHidenMode.Sprite_Rep_Skin;
 
         this._txtNameMode.text = this._SkinHidenMode.Name_Skin_Mode;
+    }
+
+    protected virtual void EventChangeOtherSkinHiden(int order_Skin)
+    {
+        bool isSelecting = this.transform.GetSiblingIndex() == order_Skin;
+
+        this._Light_Selected.gameObject.SetActive(isSelecting);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        UIShopCenterDisguiseManager.Event_Select_Other_Skin -= this.EventChangeOtherSkinHiden;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIShopCenterSpawner : Spawner
 {
-    public static string Button_Skin_Hiden_Mode = "Button_Skin_Hiden_Mode";
+    public static string Button_Skin_Hiden_Mode = "Button_Skin_Hiden_Mode_Manager";
     protected override void LoadHolder()
     {
         if (this._holder != null) return;

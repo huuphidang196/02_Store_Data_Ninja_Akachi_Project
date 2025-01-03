@@ -30,13 +30,28 @@ public class PlayerAnimation : CharacterAnimation
     [SerializeField] protected float _Time_Delay_Hiden = 5f;
     public float Time_Delay_Hiden => _Time_Delay_Hiden;
 
-
+    [SerializeField] protected SpriteRenderer _SpriteRenderer;
     protected override void ResetValue()
     {
         base.ResetValue();
 
         this._Time_Duration = 0.25f;
     }
+
+    protected override void LoadAllClipsAnimation()
+    {
+        base.LoadAllClipsAnimation();
+
+        this.LoadSpriteRenderer();
+    }
+
+    protected virtual void LoadSpriteRenderer()
+    {
+        if (this._SpriteRenderer != null) return;
+
+        this._SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     protected override void ProcessUpdateProcedureObjectLife()
     {
         this.UpdateBoolByInputManager();
@@ -201,6 +216,8 @@ public class PlayerAnimation : CharacterAnimation
             if (this.CheckAnimationCurrent(nameAnimation)) return;
 
             this._Animator.SetTrigger("Hiden");
+            this._SpriteRenderer.sprite = SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.
+                SkinHidenMode_Using.Sprite_Rep_Skin;
             //  Debug.Log("HIden");
         }
     }
@@ -226,6 +243,7 @@ public class PlayerAnimation : CharacterAnimation
         string nameAnimation = "Hiden_Mode";
 
         this.SetAnimationReturnIdleByName(nameAnimation);
+        this._SpriteRenderer.sprite = null;
         // Debug.Log("Hiden_Mode");
 
     }

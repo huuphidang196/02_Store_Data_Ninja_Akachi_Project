@@ -57191,7 +57191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseText: {fileID: 1164990127}
   _Content: 
-  _UIAboveInfoPlayerManager: {fileID: 773001361}
 --- !u!1001 &1169165471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57693,7 +57692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseText: {fileID: 1193024418}
   _Content: 
-  _UIAboveInfoPlayerManager: {fileID: 2066710221}
 --- !u!1 &1195255191
 GameObject:
   m_ObjectHideFlags: 0
@@ -63546,7 +63544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _BaseText: {fileID: 1570513532}
   _Content: 
-  _UIAboveInfoPlayerManager: {fileID: 446616156}
 --- !u!1 &1583153162
 GameObject:
   m_ObjectHideFlags: 0
@@ -78810,6 +78807,10 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3650544992211508476, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: _SpriteRenderer
+      value: 
+      objectReference: {fileID: 2626719679242488430}
+    - target: {fileID: 3650544992211508476, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: _Clips.Array.data[11]
       value: 
       objectReference: {fileID: 7400000, guid: bde08b4619900e44995f339d7c1ee79b, type: 2}
@@ -78937,6 +78938,11 @@ PrefabInstance:
 --- !u!82 &2626719679242488429 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8838210395138328349, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+  m_PrefabInstance: {fileID: 2626719679242488428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2626719679242488430 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2282770483390672096, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
   m_PrefabInstance: {fileID: 2626719679242488428}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2712212676068608897

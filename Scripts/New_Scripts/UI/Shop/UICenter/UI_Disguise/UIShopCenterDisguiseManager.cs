@@ -8,6 +8,11 @@ public class UIShopCenterDisguiseManager : UICenterShopCtrlAbstract
     [SerializeField] protected UIShopCenterSpawner _UIShopCenterSpawner;
     public UIShopCenterSpawner UIShopCenterSpawner => this._UIShopCenterSpawner;
 
+    [SerializeField] protected int _Order_Skin_Selecting = 0;
+    public int Order_Skin_Selecting => this._Order_Skin_Selecting;
+
+    public static Action<int> Event_Select_Other_Skin;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -40,9 +45,16 @@ public class UIShopCenterDisguiseManager : UICenterShopCtrlAbstract
             //Set Skin
             skinHidenModeManager.SetSkinHidenMode(item);
 
-            skin.name += "_" + (transform.GetSiblingIndex() + 1).ToString("D2");
+            skin.name += "_" + (skin.GetSiblingIndex() + 1).ToString("D2");
             skin.localScale = Vector3.one;
             skin.gameObject.SetActive(true);
         }
     }
+
+    public virtual void ChangeOtherSkinHiden(int order_Skin)
+    {
+        this._Order_Skin_Selecting = order_Skin;
+
+        Event_Select_Other_Skin?.Invoke(this._Order_Skin_Selecting);
+    }    
 }

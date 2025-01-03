@@ -9,6 +9,8 @@ public class DisguiseConfigSO : ScriptableObject
     public int _Order_Skin_Equipped;
 
     public List<SkinHidenMode> Skins_Hiden_Mode;
+
+    public SkinHidenMode SkinHidenMode_Using => this.Skins_Hiden_Mode[_Order_Skin_Equipped];
 }
 
 [Serializable]

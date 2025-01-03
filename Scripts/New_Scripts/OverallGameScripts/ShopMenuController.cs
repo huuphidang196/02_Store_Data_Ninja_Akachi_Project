@@ -15,4 +15,14 @@ public class ShopMenuController : SystemController
 
         m_instance = this;
     }
+
+    public virtual void EquipOrBuyingSkinHidenMode()
+    {
+        int order = UICenterShopManager.Instance.UICenterShopCtrl.UIShopCenterDisguiseManager.Order_Skin_Selecting;
+        // Attempt unlock all
+        SkinHidenMode skinPurchasing = this._SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode[order];
+        skinPurchasing.Unlock = true;
+        this._SystemConfig.ShopControllerSO.DisguiseConfigSO._Order_Skin_Equipped = order;
+
+    }
 }
