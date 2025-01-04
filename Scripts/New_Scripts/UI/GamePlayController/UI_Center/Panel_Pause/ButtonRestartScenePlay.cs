@@ -9,7 +9,6 @@ public class ButtonRestartScenePlay : BaseButton
     {
         base.OnClick();
 
-        GameController.Instance.ContinueGamePlay();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GamePlayController.Instance.StartLoadingSceneByOrderScene(GamePlayController.Instance.SystemConfig.Current_Level);
     }
 }

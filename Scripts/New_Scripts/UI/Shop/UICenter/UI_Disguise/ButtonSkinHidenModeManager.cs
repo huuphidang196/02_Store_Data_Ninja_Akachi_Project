@@ -14,7 +14,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
     [SerializeField] protected TextMeshProUGUI _txtPrice;
     [SerializeField] protected Image _Image_Money_Rep;
     [SerializeField] protected Image _Image_Skin_Rep;
-    [SerializeField] protected TextMeshProUGUI _txtNameMode;
+    [SerializeField] protected TextMeshProUGUI _txtNameSkin;
 
     public virtual void SetSkinHidenMode(SkinHidenMode skinHidenMode) => this._SkinHidenMode = skinHidenMode;
 
@@ -59,16 +59,15 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
 
     protected virtual void LoadTextNameMode()
     {
-        if (this._txtNameMode != null) return;
+        if (this._txtNameSkin != null) return;
 
-        this._txtNameMode = transform.Find("txtName_Mode").GetComponent<TextMeshProUGUI>();
+        this._txtNameSkin = transform.Find("txtName_Mode").GetComponent<TextMeshProUGUI>();
     }
 
     #endregion LoadComponents
 
     protected override void OnEnable()
     {
-        UIShopCenterDisguiseManager.Event_Select_Other_Skin += this.EventChangeOtherSkinHiden;
         base.OnEnable();
 
         if (this._SkinHidenMode == null) return;
@@ -77,8 +76,21 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
         this._Sprite_Equipped.gameObject.SetActive(false);
 
         this.UpdateStatusHidenMode();
+
+        this.EventChangeEquipSkinMode();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        UIShopCenterDisguiseManager.Event_Select_Other_Skin += this.EventChangeOtherSkinHiden;
+        UIShopCenterDisguiseManager.Event_Equip_NewSkin += this.EventChangeEquipSkinMode;
+        ShopMenuController.Event_Completed_Transaction += this.EventComTransactionUpdateStatusHidenMode;
+    }
+    protected virtual void EventComTransactionUpdateStatusHidenMode(int order)
+    {
+        this.UpdateStatusHidenMode();
+    }
     protected virtual void UpdateStatusHidenMode()
     {
         //Text Price
@@ -88,7 +100,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
         this._Image_Money_Rep.sprite = this._SkinHidenMode.ItemMoneyUnit.Sprite_Represent_Money;
         this._Image_Skin_Rep.sprite = this._SkinHidenMode.Sprite_Rep_Skin;
 
-        this._txtNameMode.text = this._SkinHidenMode.Name_Skin_Mode;
+        this._txtNameSkin.text = this._SkinHidenMode.Name_Skin_Hiden;
     }
 
     protected virtual void EventChangeOtherSkinHiden(int order_Skin)
@@ -97,11 +109,17 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
 
         this._Light_Selected.gameObject.SetActive(isSelecting);
     }
-
-    protected override void OnDisable()
+   
+    protected virtual void EventChangeEquipSkinMode()
     {
-        base.OnDisable();
-
-        UIShopCenterDisguiseManager.Event_Select_Other_Skin -= this.EventChangeOtherSkinHiden;
+        bool isSelected = this.transform.GetSiblingIndex() == SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped;
+        this._Sprite_Equipped.gameObject.SetActive(isSelected);
     }
+    protected virtual void OnDestroy()
+    {
+        UIShopCenterDisguiseManager.Event_Select_Other_Skin -= this.EventChangeOtherSkinHiden;
+        UIShopCenterDisguiseManager.Event_Equip_NewSkin -= this.EventChangeEquipSkinMode;
+        ShopMenuController.Event_Completed_Transaction -= this.EventComTransactionUpdateStatusHidenMode;
+    }
+
 }

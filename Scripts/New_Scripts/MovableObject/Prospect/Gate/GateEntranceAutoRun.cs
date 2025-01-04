@@ -72,7 +72,7 @@ public class GateEntranceAutoRun : SurMonoBehaviour
     {
         base.Start();
 
-        this._Distance_ModeOn = GameController.Instance.SystemConfig.GameConfigController.Distance_ModeOn;
+        this._Distance_ModeOn = GamePlayController.Instance.SystemConfig.GameConfigController.Distance_ModeOn;
     }
 
     protected virtual void FixedUpdate()

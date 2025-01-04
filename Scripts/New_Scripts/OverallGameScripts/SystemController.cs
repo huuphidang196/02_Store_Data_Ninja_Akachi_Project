@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SystemController : SurMonoBehaviour
 {
@@ -52,5 +53,55 @@ public class SystemController : SurMonoBehaviour
                 break;
         }
     }
+    public virtual bool DeductMoneyToSystem(TypeItemMoney typeItem, float value)
+    {
+        switch (typeItem)
+        {
+            case TypeItemMoney.NoType:
+                break;
 
+            case TypeItemMoney.Gold:
+                if (this._SystemConfig.Total_Golds < value) break;
+                this._SystemConfig.Total_Golds -= value;
+                return true;
+
+            case TypeItemMoney.Diamond:
+                if (this._SystemConfig.Total_Diamonds < value) break;
+                this._SystemConfig.Total_Diamonds -= value;
+                return true;
+
+            default:
+                break;
+        }
+        return false;
+    }
+    protected virtual string GetNameSceneByOrder(int order) => "Level_" + order.ToString("D2");
+
+    public virtual void StartLoadingSceneByOrderScene(int orderScene)
+    {
+        string nameScene = this.GetNameSceneByOrder(orderScene);
+        StartCoroutine(LoadSceneWithWait(nameScene));
+    }
+    protected IEnumerator LoadSceneWithWait(string sceneName)
+    {
+        // Bắt đầu load scene bất đồng bộ
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        // Đảm bảo scene sẽ không được kích hoạt ngay lập tức khi load xong
+        asyncOperation.allowSceneActivation = false;
+
+        this.ConductActionWhileLoadingNewScene();
+        // Chờ cho đến khi scene load xong (progress = 0.9)
+        yield return new WaitUntil(() => asyncOperation.progress >= 0.9f);
+
+        //  Debug.Log("Scene loaded. Activating scene now...");
+
+        // Kích hoạt scene sau khi load xong
+        asyncOperation.allowSceneActivation = true;
+    }
+
+    protected virtual void ConductActionWhileLoadingNewScene()
+    {
+
+    }    
 }

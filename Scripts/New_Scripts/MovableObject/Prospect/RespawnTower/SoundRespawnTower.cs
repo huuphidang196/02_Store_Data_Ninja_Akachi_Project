@@ -16,7 +16,7 @@ public class SoundRespawnTower : ObjSoundRunOnlyOnce
     }
     protected override AudioClip GetAudioClipToRun()
     {
-        return GameController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._TypeProspectSound);
+        return GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._TypeProspectSound);
     }
 
    

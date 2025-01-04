@@ -5,23 +5,6 @@ using UnityEngine;
 
 public class GamePlayUIBelow : GamePlayUIOverallAbstract
 {
-    [SerializeField] protected Transform _UI_Below_Center;
-    public Transform UI_Below_Center => this._UI_Below_Center;
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-
-        this.LoadUIBelowCenter();
-    }
-
-    protected virtual void LoadUIBelowCenter()
-    {
-        if (this._UI_Below_Center != null) return;
-
-        this._UI_Below_Center = transform.Find("UI_Below_Center");
-        this._UI_Below_Center.gameObject.SetActive(false);
-    }
 
     protected override void Start()
     {
@@ -57,7 +40,6 @@ public class GamePlayUIBelow : GamePlayUIOverallAbstract
 
         foreach (Transform item in this.transform)
         {
-            if (item.GetSiblingIndex() == this._UI_Below_Center.GetSiblingIndex()) continue;
             item.gameObject.SetActive(active);
         }
     }

@@ -20,10 +20,10 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
 
     protected virtual AudioClip GetAudioSlipBackGroundByOrder()
     {
-        int order = GameController.Instance.SystemConfig.GameConfigController._Order_Music_BG;
-        AudioClip audioClip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._List_Sound_BG[order]);
+        int order = GamePlayController.Instance.SystemConfig.GameConfigController._Order_Music_BG;
+        AudioClip audioClip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._List_Sound_BG[order]);
 
-        GameController.Instance.SystemConfig.GameConfigController._Order_Music_BG = (order + 1 >= this._List_Sound_BG.Count) ? 0 : order + 1;
+        GamePlayController.Instance.SystemConfig.GameConfigController._Order_Music_BG = (order + 1 >= this._List_Sound_BG.Count) ? 0 : order + 1;
         return audioClip;
     }
 }

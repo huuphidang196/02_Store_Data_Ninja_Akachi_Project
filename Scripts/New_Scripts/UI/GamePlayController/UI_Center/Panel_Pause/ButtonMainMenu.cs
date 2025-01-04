@@ -9,6 +9,6 @@ public class ButtonMainMenu : BaseButton
     {
         base.OnClick();
 
-        SceneManager.LoadScene("LevelMenu");
+        GamePlayController.Instance.StartLoadingSceneByNameScene("LevelMenu");
     }
 }

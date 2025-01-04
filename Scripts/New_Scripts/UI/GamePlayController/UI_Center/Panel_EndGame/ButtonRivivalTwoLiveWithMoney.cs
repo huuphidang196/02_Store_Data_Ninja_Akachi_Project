@@ -36,6 +36,6 @@ public class ButtonRivivalTwoLiveWithMoney : BaseButton
     {
         base.OnClick();
 
-        GameController.Instance.RiviveCharacterByMoneyWitTwoLives(this._TypeItem);
+        GamePlayController.Instance.RiviveCharacterByMoneyWitTwoLives(this._TypeItem);
     }
 }

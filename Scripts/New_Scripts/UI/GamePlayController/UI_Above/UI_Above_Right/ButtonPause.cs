@@ -14,6 +14,6 @@ public class ButtonPause : BaseButton
         GamePlayUIManager.Instance.TurnOnUIScenPlay();
 
         //Pause Game Controller
-        GameController.Instance.PauseGamePlay();
+        GamePlayController.Instance.PauseGamePlay();
     }
 }

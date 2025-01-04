@@ -35,7 +35,7 @@ public class TextMoneyNeedRivival : BaseText
     {
         base.OnEnable();
 
-        string valueMoneyNeeed = "" + GameController.Instance.GetValueMoneyToBuyTwoMoreLives(this._TypeItem);
+        string valueMoneyNeeed = "" + GamePlayController.Instance.GetValueMoneyToBuyTwoMoreLives(this._TypeItem);
         this.SetContent(valueMoneyNeeed);
     }
   

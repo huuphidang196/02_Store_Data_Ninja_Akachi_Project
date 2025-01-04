@@ -61,6 +61,6 @@ public class PlayerObjDead : PlayerAbstract
         this._EndGame = false;
         this._Count_Life = 2;
         Invoke(nameof(this.SetPositionOfPlayerRiviveCharacter), 1.9f);
-        GameController.Instance.IncreseOrderBuy();
+        GamePlayController.Instance.IncreseOrderBuy();
     }    
 }

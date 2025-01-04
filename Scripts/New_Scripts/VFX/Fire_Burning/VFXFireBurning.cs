@@ -9,7 +9,7 @@ public class VFXFireBurning : AudioRuntimeManager
 
     protected override AudioClip GetAudioClipRuntime()
     {
-        return GameController.Instance.SystemConfig.SoundCtrlSO.SoundVFXSO.GetAudioClipByNameTypeVFXSound(this._TypeVFXSound);
+        return GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundVFXSO.GetAudioClipByNameTypeVFXSound(this._TypeVFXSound);
     }
 
 }

@@ -12,7 +12,7 @@ public class UIShopCenterDisguiseManager : UICenterShopCtrlAbstract
     public int Order_Skin_Selecting => this._Order_Skin_Selecting;
 
     public static Action<int> Event_Select_Other_Skin;
-
+    public static Action Event_Equip_NewSkin;
     protected override void LoadComponents()
     {
         base.LoadComponents();

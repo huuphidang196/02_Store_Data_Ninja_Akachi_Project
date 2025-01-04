@@ -33,7 +33,7 @@ public class HolderEnemyActivePool : SurMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (GameController.Instance.PauseGame) return;
+        if (GamePlayController.Instance.PauseGame) return;
 
         if (this.transform.childCount == 0) return;
 
@@ -56,6 +56,6 @@ public class HolderEnemyActivePool : SurMonoBehaviour
     {
         float distanceX = Mathf.Abs(enemy.position.x - PlayerCtrl.Instance.transform.position.x);
 
-        return distanceX <= GameController.Instance.Distance_Active_Enemies;
+        return distanceX <= GamePlayController.Instance.Distance_Active_Enemies;
     }
 }

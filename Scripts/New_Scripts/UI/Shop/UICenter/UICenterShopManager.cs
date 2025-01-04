@@ -20,6 +20,13 @@ public class UICenterShopManager : UICenterShopCtrlAbstract
         m_instance = this;
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this.isResources = true;
+    }
+
     public virtual void ChangeBoolResourcesPanel(bool resource)
     {
         this.isResources = resource;
@@ -48,4 +55,5 @@ public class UICenterShopManager : UICenterShopCtrlAbstract
 
         this._UICenterShopCtrl.UIShopCenterDisguiseManager.gameObject.SetActive(!this.isResources);
     }
+    
 }

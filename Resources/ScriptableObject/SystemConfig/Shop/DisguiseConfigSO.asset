@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c5da5ef348e724c86ff11f97c5ee66, type: 3}
   m_Name: DisguiseConfigSO
   m_EditorClassIdentifier: 
-  _Order_Skin_Equipped: 0
+  Order_Skin_Equipped: 0
   Skins_Hiden_Mode:
-  - Name_Skin_Mode: CLASSIC TREE TRUNK
+  - Name_Skin_Hiden: Skin_01
     Unlock: 1
     ItemMoneyUnit:
       ItemUnit:
@@ -22,7 +22,7 @@ MonoBehaviour:
         Value: 0
       Sprite_Represent_Money: {fileID: 21300000, guid: b8bcc39f115dbc14f9a141f82da8a38d, type: 3}
     Sprite_Rep_Skin: {fileID: 21300000, guid: 5f2700602bfddac4a9c2ec0a82aab5c5, type: 3}
-  - Name_Skin_Mode: NINJA CHUCKLES
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -30,7 +30,7 @@ MonoBehaviour:
         Value: 20000
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: -1709202686, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: SUPERIOR NINJA CHUCKLES
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -38,7 +38,7 @@ MonoBehaviour:
         Value: 1500
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -1202230043, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: BASIC SAMURAI ARMOR
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -46,7 +46,7 @@ MonoBehaviour:
         Value: 25000
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: 1452876212, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: SUPERIOR SAMURAI ARMOR
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -54,7 +54,7 @@ MonoBehaviour:
         Value: 2500
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -187647583, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: IRON GHOST SAMURAI
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -62,7 +62,7 @@ MonoBehaviour:
         Value: 35000
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: -365500653, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: NIGHTBLADE SAMURAI
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -70,7 +70,7 @@ MonoBehaviour:
         Value: 5000
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: 2093822734, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: CHILL GUY SAMURAI
+  - Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -78,7 +78,7 @@ MonoBehaviour:
         Value: 7500
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -1795161555, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
-  - Name_Skin_Mode: CHILL GEAR SAMURAI
+  - Name_Skin_Hiden: Skin_08
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:

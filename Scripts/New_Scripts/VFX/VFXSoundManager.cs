@@ -11,7 +11,7 @@ public class VFXSoundManager : ObjSoundWasEffectByMusicChanging
     {
         base.OnEnable();
 
-        if (GameController.Instance == null) return;
+        if (GamePlayController.Instance == null) return;
 
         this.GetClipAndRun();
     }
@@ -22,7 +22,7 @@ public class VFXSoundManager : ObjSoundWasEffectByMusicChanging
 
         if (this._AudioSource.isPlaying) return;
 
-        AudioClip audioClip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundVFXSO.GetAudioClipByNameTypeVFXSound(this._TypeVFXSound);
+        AudioClip audioClip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundVFXSO.GetAudioClipByNameTypeVFXSound(this._TypeVFXSound);
         //Debug.Log("name: " + audioClip.name);
         this.PlaySound(audioClip);
 

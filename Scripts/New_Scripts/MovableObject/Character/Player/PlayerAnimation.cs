@@ -93,13 +93,13 @@ public class PlayerAnimation : CharacterAnimation
 
     protected virtual void ReturnIdleFromAllState()
     {
-        //if (!this._Rivive_Again_Ani) InputManager.Instance.PlayerRiviveAgainCompleted();
+
 
         if (this._Jump_Ani) return;
 
-        if (this.CheckAnimationCurrent("Idle")) return;
+        if (!this._Hidden_Mode_Skill_Ani && !this._Animator.enabled) this.SetAnimationHidenCompleted();
 
-        if (!this._Hidden_Mode_Skill_Ani) this.SetAnimationHidenCompleted();
+        if (this.CheckAnimationCurrent("Idle")) return;
 
         if (!this._Dropping) this.SetAnimationDropped();
 
@@ -162,7 +162,7 @@ public class PlayerAnimation : CharacterAnimation
         if (this.CheckAnimationCurrent(nameAnimation)) return;
 
         this._Animator.SetTrigger("Dropping");
-        // Debug.Log("Droopping");
+
     }
 
     protected virtual void SetAnimationDashing()
@@ -187,7 +187,7 @@ public class PlayerAnimation : CharacterAnimation
             this._Animator.SetTrigger("Rivival");
             return;
         }
-        //Debug.Log("Completed");
+
         InputManager.Instance.PlayerRiviveAgainCompleted();
     }
     public override bool CheckAnimationCurrent(string nameClip)
@@ -196,29 +196,24 @@ public class PlayerAnimation : CharacterAnimation
         {
             nameClip += "_Throw";
             this.SetTimeDurationByAnimationClip(nameClip);
-            //Debug.Log("Name : " + nameClip + ", Time : " + this._Time_Duration);
+
         }
 
         bool result = base.CheckAnimationCurrent(nameClip);
-        //if (result) Debug.Log("Name : " + nameClip + ", Time : " + this._Time_Duration);
 
         return result;
     }
 
     protected virtual void SetAnimationHidenModeSkill()
     {
-        string nameAnimation = "Hiden_Mode";
-
+        // string nameAnimation = "Hiden_Mode";
         this._Time_Duration = this._Time_Delay_Hiden;
 
         if (!this.CheckTimer())
         {
-            if (this.CheckAnimationCurrent(nameAnimation)) return;
+            if (!this._Animator.enabled) return;
 
-            this._Animator.SetTrigger("Hiden");
-            this._SpriteRenderer.sprite = SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.
-                SkinHidenMode_Using.Sprite_Rep_Skin;
-            //  Debug.Log("HIden");
+            this.ActiveAndInActiveSkinHidenMode(false);
         }
     }
 
@@ -240,22 +235,33 @@ public class PlayerAnimation : CharacterAnimation
 
     protected virtual void SetAnimationHidenCompleted()
     {
-        string nameAnimation = "Hiden_Mode";
+        if (this._SpriteRenderer.sprite == null) return;
 
-        this.SetAnimationReturnIdleByName(nameAnimation);
-        this._SpriteRenderer.sprite = null;
-        // Debug.Log("Hiden_Mode");
+        this.ActiveAndInActiveSkinHidenMode(true);
+        this.ReturnIdle();
 
     }
+
+    protected virtual void ActiveAndInActiveSkinHidenMode(bool active)
+    {
+        this._Animator.enabled = active;
+
+        foreach (Transform item in this.transform)
+        {
+            item.gameObject.SetActive(active);
+        }
+
+        this._SpriteRenderer.sprite = active ? null : GamePlayController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.
+SkinHidenMode_Using.Sprite_Rep_Skin;
+    }
+
     protected virtual void ReturnIdle() => this._Animator.SetTrigger("Dropped");//=> Debug.Log("Return Idle");
 
     protected virtual void SetAnimationReturnIdleByName(string nameAnimation)
     {
-        //Debug.Log("réesult: " + this.CheckAnimationCurrent(nameAnimation) + ", current : " + this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
         if (!this.CheckAnimationCurrent(nameAnimation)) return;
 
         this.ReturnIdle();
-        //  Debug.Log("Name: " + nameAnimation);
 
     }
     #endregion

@@ -20,7 +20,7 @@ public class PlayerLooter : CharacterImpactTrigger
 
         if (itemDropUnit == null) return;
         //Add to the systemcconfig
-        GameController.Instance.AddMoneyToSystem(itemDropUnit.ItemUnit);
+        GamePlayController.Instance.AddMoneyToSystem(itemDropUnit.ItemUnit);
       //  Debug.Log("Money: " + value_Money);
     }
 

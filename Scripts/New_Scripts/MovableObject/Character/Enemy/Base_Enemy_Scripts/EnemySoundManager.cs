@@ -59,7 +59,7 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
 
     protected virtual void PlayeSoundWithNameAction(string nameAction)
     {
-        AudioClip clip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundEnemySO.GetAudioClipByNameAction(nameAction);
+        AudioClip clip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundEnemySO.GetAudioClipByNameAction(nameAction);
         this.PlaySound(clip);
     }
 

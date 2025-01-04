@@ -77,15 +77,15 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
     protected virtual void ProcessEventPlayerRivival()
     {
-        if (GameController.Instance.Rivive_Again == this.isHidenUI) return;
+        if (GamePlayController.Instance.Rivive_Again == this.isHidenUI) return;
 
-        if (GameController.Instance.Rivive_Again) this.IsHidenUIScenePlay();
+        if (GamePlayController.Instance.Rivive_Again) this.IsHidenUIScenePlay();
         else this.TurnOnUIScenPlay();
     }
 
     protected virtual void ProcessEventEndGame()
     {
-        if (!GameController.Instance.EndGame || GameController.Instance.EndGame == this.isHidenUI
+        if (!GamePlayController.Instance.EndGame || GamePlayController.Instance.EndGame == this.isHidenUI
             || !GateEntranceAutoRun.Instance.IsEntranceAuto) return;
 
         this.IsHidenUIScenePlay();
@@ -94,18 +94,18 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
     }
     protected virtual void ProcessEventCompletedMission()
     {
-        if (GateEntranceAutoRun.Instance.WasCom_Mission == this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.activeInHierarchy) return;
-        Invoke(nameof(this.TogglePanelEndGame), 1f);
+        if (GateEntranceAutoRun.Instance.WasCom_Mission == this.GamePlayUIOverall.GamePlayUICenter.UI_Completed_Mission.gameObject.activeInHierarchy) return;
+        Invoke(nameof(this.TogglePanelCompletedMission), 1f);
     }
 
-    protected virtual void TogglePanelEndGame()
+    protected virtual void TogglePanelCompletedMission()
     {
-        this.GamePlayUIOverall.GamePlayUIBelow.UI_Below_Center.gameObject.SetActive(GateEntranceAutoRun.Instance.WasCom_Mission);
+        this.GamePlayUIOverall.GamePlayUICenter.UI_Completed_Mission.gameObject.SetActive(GateEntranceAutoRun.Instance.WasCom_Mission);
     }
 
     public virtual void ChangeStatusOnOffMusic()
     {
-        GameController.Instance.ChangeStatusOnOffMusic();
+        GamePlayController.Instance.ChangeStatusOnOffMusic();
         Event_MusicChanging?.Invoke();
     }
 }

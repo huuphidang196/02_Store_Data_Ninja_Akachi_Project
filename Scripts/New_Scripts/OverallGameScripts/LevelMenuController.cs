@@ -34,7 +34,7 @@ public class LevelMenuController : SystemController
     }
 
     protected virtual string GetNameSceneCurrent() => this.GetNameSceneByOrder(this._SystemConfig.Current_Level);
-    protected virtual string GetNameSceneByOrder(int order) => "Level_" + order.ToString("D2");
+
     public virtual void StartLoadingScene()
     {
         string nameScene = this.GetNameSceneCurrent();
@@ -42,26 +42,10 @@ public class LevelMenuController : SystemController
         StartCoroutine(LoadSceneWithWait(nameScene));
     }
 
-    public virtual void StartLoadingSceneByOrderScene(int orderScene)
+   
+    protected override void ConductActionWhileLoadingNewScene()
     {
-        string nameScene = this.GetNameSceneByOrder(orderScene);
-        StartCoroutine(LoadSceneWithWait(nameScene));
-    }
-    protected IEnumerator LoadSceneWithWait(string sceneName)
-    {
-        // Bắt đầu load scene bất đồng bộ
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-
-        // Đảm bảo scene sẽ không được kích hoạt ngay lập tức khi load xong
-        asyncOperation.allowSceneActivation = false;
-
         LevelMenuUIManager.Instance.LevelMenuUICtrl.UIBelowCtrl.Image_BG_Loading.gameObject.SetActive(true);
-        // Chờ cho đến khi scene load xong (progress = 0.9)
-        yield return new WaitUntil(() => asyncOperation.progress >= 0.9f);
-
-        //  Debug.Log("Scene loaded. Activating scene now...");
-
-        // Kích hoạt scene sau khi load xong
-        asyncOperation.allowSceneActivation = true;
     }
+    
 }

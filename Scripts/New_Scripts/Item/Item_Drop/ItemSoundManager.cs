@@ -17,7 +17,7 @@ public class ItemSoundManager : ObjSoundRunOnlyOnce
 
     protected override AudioClip GetAudioClipToRun()
     {
-      return GameController.Instance.SystemConfig.SoundCtrlSO.SoundItemSO.GetAudioClipByNameTypeItemSound(this._TypeItemSound);
+      return GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundItemSO.GetAudioClipByNameTypeItemSound(this._TypeItemSound);
     }
 
 }

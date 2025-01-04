@@ -25,7 +25,7 @@ public class WeaponSoundManager : ObjSoundWasEffectByMusicChanging
 
     protected virtual void PlaySoundWeapon()
     {
-        AudioClip audioClip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundWeaponSO.GetAudioClipByNameTypeWeaponSound(this._TypeWeaponSound);
+        AudioClip audioClip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundWeaponSO.GetAudioClipByNameTypeWeaponSound(this._TypeWeaponSound);
 
         this.PlaySound(audioClip);
     }

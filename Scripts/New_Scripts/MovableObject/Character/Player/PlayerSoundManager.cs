@@ -79,7 +79,7 @@ public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
 
     protected virtual void PlayeSoundWithNameAction(string nameAction)
     {
-        AudioClip clip = GameController.Instance.SystemConfig.SoundCtrlSO.SoundPlayerSO.GetAudioClipByNameAction(nameAction);
+        AudioClip clip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundPlayerSO.GetAudioClipByNameAction(nameAction);
         this.PlaySound(clip);
     }
     protected override void PlaySound(AudioClip clip)

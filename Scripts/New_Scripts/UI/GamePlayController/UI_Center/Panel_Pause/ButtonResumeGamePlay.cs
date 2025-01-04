@@ -10,6 +10,6 @@ public class ButtonResumeGamePlay : BaseButton
 
         GamePlayUIManager.Instance.TogglePanelPause();
         //Pause Game Controller
-        GameController.Instance.ContinueGamePlay();
+        GamePlayController.Instance.ContinueGamePlay();
     }
 }

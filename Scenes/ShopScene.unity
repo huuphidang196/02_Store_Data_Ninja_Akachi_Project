@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Light_Selected: {fileID: 798661942}
   _SkinHidenMode:
-    Name_Skin_Mode: 
+    Name_Skin_Hiden: 
     Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -1395,42 +1395,7 @@ MonoBehaviour:
   _txtPrice: {fileID: 1929312493}
   _Image_Money_Rep: {fileID: 1290498515}
   _Image_Skin_Rep: {fileID: 143150310}
-  _txtNameMode: {fileID: 1651128784}
---- !u!1 &488748257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 488748258}
-  m_Layer: 5
-  m_Name: MainMenuUIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &488748258
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488748257}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 870146876}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  _txtNameSkin: {fileID: 0}
 --- !u!1 &536514054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,7 +2159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4064995, b: 0.09803921, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2547,7 +2512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &830859880
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2675,7 +2640,6 @@ RectTransform:
   - {fileID: 756380205}
   - {fileID: 112272621}
   - {fileID: 2018932181}
-  - {fileID: 488748258}
   m_Father: {fileID: 580318581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3662,6 +3626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117365683}
+  - component: {fileID: 1117365684}
   m_Layer: 5
   m_Name: Button_Status_Purchasing
   m_TagString: Untagged
@@ -3690,6 +3655,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -376}
   m_SizeDelta: {x: 266, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1117365684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117365682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aeccb270c9f9aa429994f2c4b9606d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnExcecute: {fileID: 705570864}
+  _txtTextStatus: {fileID: 905012736}
 --- !u!1 &1118954325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5766,7 +5745,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.990566, g: 0.9707097, b: 0.032707386, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -18,6 +18,13 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     [SerializeField] protected SliderTimePlayerHiden _SliderTimePlayerHiden;
     public SliderTimePlayerHiden SliderTimePlayerHiden => this._SliderTimePlayerHiden;
 
+    [SerializeField] protected Transform _UI_Completed_Mission;
+    public Transform UI_Completed_Mission => this._UI_Completed_Mission;
+
+    [SerializeField] protected Transform _UI_Image_BG_Loading;
+    public Transform UI_Image_BG_Loading => this._UI_Image_BG_Loading;
+
+ 
     protected override void Start()
     {
         base.Start();
@@ -41,6 +48,8 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this.LoadSliderTimePlayerHiden();
         this.LoadPanelEndGame();
         this.LoadPanelBuyDiamonds();
+        this.LoadUICompletedMission();
+        this.LoadImageBGLoading();
     }
 
     protected virtual void LoadPanelUIPause()
@@ -55,7 +64,7 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
     {
         if (this._SliderTimePlayerHiden != null) return;
 
-        this._SliderTimePlayerHiden = transform.GetComponentInChildren<SliderTimePlayerHiden>();
+        this._SliderTimePlayerHiden = transform.Find("SliderTimeHidenPlayer").GetComponent<SliderTimePlayerHiden>();
         this._SliderTimePlayerHiden.gameObject.SetActive(false);
     }
 
@@ -75,6 +84,21 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
         this._pnl_UI_BuyDiamonds_Panel.gameObject.SetActive(false);
     }
 
+    protected virtual void LoadUICompletedMission()
+    {
+        if (this._UI_Completed_Mission != null) return;
+
+        this._UI_Completed_Mission = transform.Find("UI_Completed_Mission").transform;
+        this._UI_Completed_Mission.gameObject.SetActive(false);
+    }
+
+    protected virtual void LoadImageBGLoading()
+    {
+        if (this._UI_Image_BG_Loading != null) return;
+
+        this._UI_Image_BG_Loading = transform.Find("Image_BG_Loading");
+        this._UI_Image_BG_Loading.gameObject.SetActive(false);
+    }
     protected virtual void FixedUpdate()
     {
         this.ToggleUIEndGamePanel();
@@ -90,9 +114,9 @@ public class GamePlayUICenter : GamePlayUIOverallAbstract
 
     protected virtual void ToggleUIEndGamePanel()
     {
-        if (GameController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
+        if (GamePlayController.Instance.EndGame == this._pnl_UI_EndGame_Panel.gameObject.activeInHierarchy) return;
 
-        this._pnl_UI_EndGame_Panel.gameObject.SetActive(GameController.Instance.EndGame);
+        this._pnl_UI_EndGame_Panel.gameObject.SetActive(GamePlayController.Instance.EndGame);
     }
 
 

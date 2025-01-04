@@ -14,6 +14,9 @@ public class GamePlayUIOverall : SurMonoBehaviour
     [SerializeField] protected GamePlayUIBelow _GamePlayUIBelow;
     public GamePlayUIBelow GamePlayUIBelow => this._GamePlayUIBelow;
 
+    [SerializeField] protected GamePlayUICenter _GamePlayUICenter;
+    public GamePlayUICenter GamePlayUICenter => this._GamePlayUICenter;
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -21,6 +24,7 @@ public class GamePlayUIOverall : SurMonoBehaviour
         this.LoadGamePlayConfigUIOverall();
         this.LoadGamePlayUIManager();
         this.LoadGamePlayUIBelow();
+        this.LoadGamePlayUICenter();
     }
 
     protected virtual void LoadGamePlayUIManager()
@@ -42,6 +46,13 @@ public class GamePlayUIOverall : SurMonoBehaviour
         if (this._GamePlayUIBelow != null) return;
 
         this._GamePlayUIBelow = GetComponentInChildren<GamePlayUIBelow>();
+    }
+
+    protected virtual void LoadGamePlayUICenter()
+    {
+        if (this._GamePlayUICenter != null) return;
+
+        this._GamePlayUICenter = GetComponentInChildren<GamePlayUICenter>();
     }
 
 }
