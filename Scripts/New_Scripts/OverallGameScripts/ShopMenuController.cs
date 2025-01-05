@@ -28,7 +28,7 @@ public class ShopMenuController : SystemController
         if (skinPurchasing.Unlock)
         {
             this._SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped = order;
-            UIShopCenterDisguiseManager.Event_Equip_NewSkin?.Invoke();
+            UIShopCenterDisguiseManager.Event_Equip_NewSkin?.Invoke(order);
             return;
         }
 

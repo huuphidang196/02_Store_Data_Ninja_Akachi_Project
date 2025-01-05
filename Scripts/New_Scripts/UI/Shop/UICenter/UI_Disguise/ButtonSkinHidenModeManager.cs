@@ -77,7 +77,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
 
         this.UpdateStatusHidenMode();
 
-        this.EventChangeEquipSkinMode();
+        this.EventChangeEquipSkinMode(0);
     }
 
     protected override void Start()
@@ -95,6 +95,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
     {
         //Text Price
         this._txtPrice.text = this._SkinHidenMode.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
+
         this._txtPrice.color = this._SkinHidenMode.ItemMoneyUnit.Color_Text;
 
         this._Image_Money_Rep.sprite = this._SkinHidenMode.ItemMoneyUnit.Sprite_Represent_Money;
@@ -109,11 +110,17 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
 
         this._Light_Selected.gameObject.SetActive(isSelecting);
     }
-   
-    protected virtual void EventChangeEquipSkinMode()
+
+    protected virtual void EventChangeEquipSkinMode(int order)
     {
-        bool isSelected = this.transform.GetSiblingIndex() == SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped;
-        this._Sprite_Equipped.gameObject.SetActive(isSelected);
+        bool wasEquipped = this.transform.GetSiblingIndex() == SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped;
+        this._Sprite_Equipped.gameObject.SetActive(wasEquipped);
+        if (wasEquipped)
+        {
+            this._txtPrice.text = "EQUIPPED";
+            return;
+        }
+        this._txtPrice.text = this._SkinHidenMode.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
     }
     protected virtual void OnDestroy()
     {

@@ -40,24 +40,27 @@ public class ButtonStatusPurchasingManager : SurMonoBehaviour
 
         UIShopCenterDisguiseManager.Event_Select_Other_Skin += this.EventChangeSelectedSkinHiden;
         ShopMenuController.Event_Completed_Transaction += this.EventChangeSelectedSkinHiden;
+        UIShopCenterDisguiseManager.Event_Equip_NewSkin += EventChangeSelectedSkinHiden;
     }
 
     protected virtual void OnDestroy()
     {
         UIShopCenterDisguiseManager.Event_Select_Other_Skin -= this.EventChangeSelectedSkinHiden;
         ShopMenuController.Event_Completed_Transaction -= this.EventChangeSelectedSkinHiden;
+        UIShopCenterDisguiseManager.Event_Equip_NewSkin -= EventChangeSelectedSkinHiden;
     }
     protected virtual void EventChangeSelectedSkinHiden(int order)
     {
-        bool wasEquipped =( order == ShopMenuController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped);
+        bool wasEquipped = (order == ShopMenuController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped);
         //Check Has SkinMode been Selected
-        this._btnExcecute.gameObject.SetActive(!wasEquipped);
         Image imageBtn = this._btnExcecute.GetComponentInChildren<Image>();
+        this._btnExcecute.gameObject.SetActive(!wasEquipped);
 
         //Text
         this._txtTextStatus.gameObject.SetActive(!wasEquipped);
         bool wasPurchased = ShopMenuController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode[order].Unlock;
         this._txtTextStatus.text = wasPurchased ? "EQUIP" : "PURCHASE";
-        imageBtn.color = wasPurchased ? new Color(178f / 255f, 34f / 255f, 34f / 255f) : Color.white;
-    }    
+        if (!wasEquipped) imageBtn.color = wasPurchased ? new Color(178f / 255f, 34f / 255f, 34f / 255f) : Color.white;
+    }
+
 }
