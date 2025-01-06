@@ -78930,6 +78930,14 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2438873199284408476, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7134362
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438873199284408476, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9267182
+      objectReference: {fileID: 0}
     - target: {fileID: 2616093089934787148, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: m_Name
       value: Player

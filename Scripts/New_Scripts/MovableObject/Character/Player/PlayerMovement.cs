@@ -114,8 +114,11 @@ public class PlayerMovement : CharacterObjMovement
 
         this.UpdateSpeedHorizontal();
 
-        if (this.isHiding && InputManager.Instance.Press_Hidden_Mode) return;
-
+        if (this.isHiding && InputManager.Instance.Press_Hidden_Mode)
+        {
+            this.Flip();
+            return;
+        }
         this.PressHiddenEvent();
         this.WallSlide();
 
@@ -125,7 +128,7 @@ public class PlayerMovement : CharacterObjMovement
     #region Event_Button
     protected virtual void PressHiddenEvent()
     {
-        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+       // if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
         if (!InputManager.Instance.Press_Hidden_Mode)
         {

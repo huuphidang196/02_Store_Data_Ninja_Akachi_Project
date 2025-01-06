@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108970647142915678}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.083313994, w: 0.9965233}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0833164, w: 0.99652314}
   m_LocalPosition: {x: 0.0839, y: 0.0027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2787942163026435548}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.04649822, w: 0.99891835}
+  m_LocalRotation: {x: -0, y: -0, z: 0.046498913, w: 0.9989184}
   m_LocalPosition: {x: 0.081, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1329,7 +1329,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14418772, y: 0.9042762}
+  m_Offset: {x: -0.14418772, y: 0.9267182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1340,7 +1340,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66029316, y: 1.6685523}
+  m_Size: {x: 0.66029316, y: 1.7134362}
   m_EdgeRadius: 0
 --- !u!50 &4541454917553581024
 Rigidbody2D:
@@ -1563,7 +1563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6981147424132954953, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.021271575
+      value: -0.021271462
       objectReference: {fileID: 0}
     - target: {fileID: -6866207543706197927, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_Layer
@@ -1931,7 +1931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2018716003629349803, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.005361123
+      value: 0.0053634234
       objectReference: {fileID: 0}
     - target: {fileID: 2109929220046755671, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2035,11 +2035,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4077028276584997344, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8696162
+      value: 0.86961573
       objectReference: {fileID: 0}
     - target: {fileID: 4077028276584997344, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4937283
+      value: -0.49372914
       objectReference: {fileID: 0}
     - target: {fileID: 4171367143811046398, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2091,7 +2091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250260803103989485, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006171278
+      value: -0.006171015
       objectReference: {fileID: 0}
     - target: {fileID: 6297934188205415264, guid: f445685702e52bf449b6ab67033deba8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2320,6 +2320,7 @@ MonoBehaviour:
   _Hidden_Mode_Skill_Ani: 0
   _Rivive_Again_Ani: 0
   _Time_Delay_Hiden: 5
+  _SpriteRenderer: {fileID: 0}
 --- !u!114 &7598211798381717565
 MonoBehaviour:
   m_ObjectHideFlags: 0

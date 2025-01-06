@@ -107,6 +107,6 @@ public abstract class CharacterAnimation : CharacterAbstract
     {
         this._Time_Duration = this.GetAnimationDuration(nameAnimation);
 
-        if (nameAnimation.Contains("Idle_Throw")) this._Time_Duration /= 2f;
+        //if (nameAnimation.Contains("Idle_Throw")) this._Time_Duration /= 2f;
     }
 }

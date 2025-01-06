@@ -15,6 +15,19 @@ public class PlayerAttack : PlayerAbstract
 
     [SerializeField] protected Transform _Pos_Spawn_Shuriken;
 
+    [SerializeField] protected bool isThrowing;
+    [SerializeField] protected float _Time_Delay = 0.25f;
+    [SerializeField] protected float _Timer = 0;
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this.isThrowing = false;
+        this._Timer = 0;
+        this._Time_Delay = 0.25f;
+    }
+
     #region OnEnable_Disable
     protected override void OnEnable()
     {
@@ -66,6 +79,15 @@ public class PlayerAttack : PlayerAbstract
 
         this.PerformAttackDashing();
 
+        if (!this.isThrowing) return;
+
+        this._Timer += Time.deltaTime;
+
+        if (this._Timer < this._Time_Delay) return;
+
+        this.ActionThrowShuriken();
+        
+        this.ResetValue();
     }
 
     protected virtual void PerformAttackDashing()
@@ -79,8 +101,10 @@ public class PlayerAttack : PlayerAbstract
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
-        float timeDelay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
-        Invoke(nameof(this.ActionThrowShuriken), timeDelay);
+        this._Time_Delay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
+        this.isThrowing = true;
+        // float timeDelay = 0.25f;
+       // Invoke(nameof(this.ActionThrowShuriken), timeDelay);
     }
 
     protected virtual void ActionThrowShuriken()

@@ -93,8 +93,6 @@ public class PlayerAnimation : CharacterAnimation
 
     protected virtual void ReturnIdleFromAllState()
     {
-
-
         if (this._Jump_Ani) return;
 
         if (!this._Hidden_Mode_Skill_Ani && !this._Animator.enabled) this.SetAnimationHidenCompleted();
@@ -106,7 +104,7 @@ public class PlayerAnimation : CharacterAnimation
         if (!this._Wall_Sliding_Ani) this.SetAnimationWallSlided();
 
     }
-
+ 
     protected virtual void UpdateBoolByInputManager()
     {
         this._Attack_Throw_Ani = !this.isDead && !this._Hidden_Mode_Skill_Ani && InputManager.Instance.Press_Attack_Throw;
