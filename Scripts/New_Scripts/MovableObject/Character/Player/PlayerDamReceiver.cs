@@ -57,15 +57,13 @@ public class PlayerDamReceiver : ObjDamageReceiver
         this.ReBorn();
         this.ChangeLayerPlayerByName("Player");
         this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-      //  this.SetEnableColliderPlayer(true);
+        Invoke(nameof(this.SetOffRiviving), 3f);
     }
 
-    //public override void DeductHP(float damage)
-    //{
-    //    if (this.PlayerCtrl.PlayerMovement.IsDashing) return;
-
-    //    base.DeductHP(damage);
-    //}
+    protected virtual void SetOffRiviving()
+    {
+        InputManager.Instance.PlayerRiviveAgainCompleted();
+    }    
 
     public virtual void ChangeLayerPlayerByName(string nameNewLayer)
     {

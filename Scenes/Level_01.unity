@@ -78970,6 +78970,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3634078915104734939, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0ace25d0e5ac3914484799ae811a41fe, type: 2}
     - target: {fileID: 3650544992211508476, guid: f56079f2c94735e45b2ba555a811f41e, type: 3}
       propertyPath: _Sam
       value: 

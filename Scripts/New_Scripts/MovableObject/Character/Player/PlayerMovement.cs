@@ -325,7 +325,7 @@ public class PlayerMovement : CharacterObjMovement
         //Change layer While player is hiding in order to avoid be recognized by enemy
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("PlayerHiddenMode");
 
-        yield return new WaitForSeconds(this._PlayerCtrl.PlayerAnimation.Time_Delay_Hiden);
+        yield return new WaitForSeconds(this._PlayerCtrl.PlayerSO.Time_Delay_Hiden);
         this.ResetConfigurationPlayerAfterHiden(this._Original_Gravity);
     }
 

@@ -64,7 +64,7 @@ public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
             return;
         }
 
-        if (this.PlayerCtrl.PlayerAnimation.Run_Ani && !this.PlayerCtrl.PlayerAnimation.Dropping && !this.PlayerCtrl.PlayerAnimation.Hidden_Mode_Skill_Ani)
+        if (this.PlayerCtrl.PlayerAnimation.Run_Ani)
         {
             this.PlayeSoundWithNameAction("Player_Run_Sound");
             return;
