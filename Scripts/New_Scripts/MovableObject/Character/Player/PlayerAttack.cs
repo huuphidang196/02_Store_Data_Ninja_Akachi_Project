@@ -101,9 +101,9 @@ public class PlayerAttack : PlayerAbstract
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
-        this._Time_Delay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
+      //  this._Time_Delay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
         this.isThrowing = true;
-        // float timeDelay = 0.25f;
+        // 
        // Invoke(nameof(this.ActionThrowShuriken), timeDelay);
     }
 
