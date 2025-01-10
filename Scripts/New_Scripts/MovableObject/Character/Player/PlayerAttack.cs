@@ -110,7 +110,7 @@ public class PlayerAttack : PlayerAbstract
     protected virtual void ActionThrowShuriken()
     {
         Transform shurikenSpawned = WeaponCharacterSpawner.Instance.Spawn(WeaponCharacterSpawner.Name_Shuriken, this._Pos_Spawn_Shuriken.position, Quaternion.identity);
-
+        shurikenSpawned.position = this._Pos_Spawn_Shuriken.position;
         //Set Direction fly
         ShurikenCtrl shurikenCtrl = shurikenSpawned.GetComponent<ShurikenCtrl>();
 
@@ -119,6 +119,7 @@ public class PlayerAttack : PlayerAbstract
 
         shurikenSpawned.localScale = Vector3.one;
         shurikenSpawned.name = WeaponCharacterSpawner.Name_Shuriken;
+
         shurikenSpawned.gameObject.SetActive(true);
     }
 }

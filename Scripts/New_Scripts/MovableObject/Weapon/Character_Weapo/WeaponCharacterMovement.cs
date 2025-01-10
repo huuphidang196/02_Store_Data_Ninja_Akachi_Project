@@ -15,15 +15,20 @@ public class WeaponCharacterMovement : MovableObjectMovement
     {
         float localX = dir.x;
         this._Move_Right = (localX > 0);
-        //Debug.Log("ObjThrow: " + ObjThrow.name + ", localX : " + localX + ",_Move_Right: " + _Move_Right);
+        this._Horizontal = (this._Move_Right) ? 1f * this._Speed_Move_Horizontal : -1f * this._Speed_Move_Horizontal;
     }
 
+    protected override void Reset()
+    {
+        base.Reset();
+
+        this._Horizontal = 0;
+    }
     protected override void ResetValue()
     {
         base.ResetValue();
 
         this._Speed_Move_Horizontal = this.WeaponCharacterCtrl.WeaponSO.Speed_Move_Horizontal;
-        this._Horizontal = this._Speed_Move_Horizontal;
     }
 
     protected override void LoadRigidbody2D()
@@ -41,7 +46,7 @@ public class WeaponCharacterMovement : MovableObjectMovement
             this._Horizontal = 0f;
             return;
         }
-        this._Horizontal = (this._Move_Right) ? 1f * this._Speed_Move_Horizontal : -1f * this._Speed_Move_Horizontal;
+       
 
         base.Update();
     }

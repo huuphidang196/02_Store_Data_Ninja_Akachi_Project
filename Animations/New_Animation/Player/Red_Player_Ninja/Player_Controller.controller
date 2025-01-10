@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!206 &-8722435728852478387
 BlendTree:
   m_ObjectHideFlags: 1
@@ -236,6 +236,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Run
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2311673619854035636}
   m_Solo: 0
@@ -392,7 +395,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
@@ -427,7 +430,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1102 &-448739439482680211
 AnimatorState:
   serializedVersion: 6
@@ -861,7 +864,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 2
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!206 &7529088279580585811
 BlendTree:
   m_ObjectHideFlags: 1
@@ -934,7 +937,7 @@ AnimatorStateMachine:
     m_Position: {x: -340, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -448739439482680211}
-    m_Position: {x: 230, y: 620, z: 0}
+    m_Position: {x: 190, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5195420065553868524}
     m_Position: {x: 240, y: 810, z: 0}
@@ -1003,6 +1006,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Run
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7554086193473263255}

@@ -47,52 +47,63 @@ public class PlayerAnimation : CharacterAnimation
         this.UpdateAnimationControllers();
 
         this.SetAnimationHidenSetup();
-
-
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
 
-        InputManager.PressAttackThrowButton_Event += this.TestThrow;
+        InputManager.PressAttackThrowButton_Event += this.PerformAttackThrow;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        InputManager.PressAttackThrowButton_Event -= this.TestThrow;
+        InputManager.PressAttackThrowButton_Event -= this.PerformAttackThrow;
     }
     protected virtual void UpdateAnimationControllers()
     {
-        this._Animator.SetBool("isDead", this.isDead);
-        this._Animator.SetBool("isRiviving", this._Rivive_Again_Ani);
-        this._Animator.SetBool("isHiding", this.isHiding);
-        this._Animator.SetBool("isDashing", this.isDashing);
-        
+        this.SetBoolNoRepeat("isDead", this.isDead);
+        this.SetBoolNoRepeat("isRiviving", this._Rivive_Again_Ani);
+        this.SetBoolNoRepeat("isHiding", this.isHiding);
+        this.SetBoolNoRepeat("isDashing", this.isDashing);
+
         int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
         if (id_Attack == 0) this._Timer_Animation = 0f;
 
-        this._Animator.SetFloat("Throw_ID", id_Attack);
+        this.SetFloatNoRepeat("Throw_ID", id_Attack);
 
-        this._Animator.SetBool("isGrounded", this.isGrounded);
-        this._Animator.SetBool("isSliding", this.isSliding);
+        this.SetBoolNoRepeat("isGrounded", this.isGrounded);
+        this.SetBoolNoRepeat("isSliding", this.isSliding);
 
-        this._Animator.SetFloat("yVelocity", this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y);
+        this.SetFloatNoRepeat("yVelocity", this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y);
 
-        this._Animator.SetBool("Run", this._Run_Ani);
+        this.SetBoolNoRepeat("Run", this._Run_Ani);
 
         this.SetTimeDurationByAnimationClip(this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
-        if (this._Attack_Throw_Ani && !this.CheckTimer()) return;
+        if (this._Attack_Throw_Ani && !this.CheckTimer() || !this._Attack_Throw_Ani) return;
         this._Attack_Throw_Ani = false;
     }
 
-    protected virtual void TestThrow()
+    protected virtual void SetBoolNoRepeat(string variableBool, bool actives)
+    {
+        if (this._Animator.GetBool(variableBool) == actives) return;
+
+        this._Animator.SetBool(variableBool, actives);
+    }
+
+    protected virtual void SetFloatNoRepeat(string variableBool, float num)
+    {
+        if (this._Animator.GetFloat(variableBool) == num) return;
+
+        this._Animator.SetFloat(variableBool, num);
+    }    
+    protected virtual void PerformAttackThrow()
     {
         this._Attack_Throw_Ani = true;
     }
-    
+
     protected virtual void UpdateBoolByInputManager()
     {
         //this._Attack_Throw_Ani = !this.isDead && !this.isHiding && InputManager.Instance.Press_Attack_Throw;
