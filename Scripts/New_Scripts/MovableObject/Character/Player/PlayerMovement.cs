@@ -128,7 +128,7 @@ public class PlayerMovement : CharacterObjMovement
     #region Event_Button
     protected virtual void PressHiddenEvent()
     {
-       // if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+        // if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
         if (!InputManager.Instance.Press_Hidden_Mode)
         {
@@ -210,7 +210,7 @@ public class PlayerMovement : CharacterObjMovement
         this.canHiden = InputManager.Instance.Press_Hidden_Mode;
 
         if (!this._First_Jump) return;
-        if (!this.IsGrounded() && this._Rigidbody2D.velocity.y == 0 || this.isWallSliding) this._First_Jump = false;
+        if (this.IsGrounded() || this.isWallSliding) this._First_Jump = false;
 
     }
 
