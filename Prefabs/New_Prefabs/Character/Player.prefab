@@ -2321,18 +2321,18 @@ MonoBehaviour:
   - {fileID: 7400000, guid: b472d6c594716d14096e9de70cc9abf2, type: 2}
   - {fileID: 7400000, guid: 2152edde36cf24b488c2f319557f51a1, type: 2}
   - {fileID: 7400000, guid: 7fc91b545acd82b47baa599a621519f6, type: 2}
-  - {fileID: 7400000, guid: 4d4e3893a4e01d045bf30ed56e26d4d6, type: 2}
-  - {fileID: 7400000, guid: 04a41464ce0494d4eab17a61b9cba9b3, type: 2}
-  - {fileID: 7400000, guid: ca8f518d0f00be64f9b8d1e71b2e81f6, type: 2}
-  - {fileID: 7400000, guid: c2c77ee4b32c36e42b8a4bd6223cee27, type: 2}
   - {fileID: 7400000, guid: 949100261d22b5841a6274acadb933df, type: 2}
   - {fileID: 7400000, guid: 052a00907f6bbe04b874fe043847e486, type: 2}
   - {fileID: 7400000, guid: fa6093bebe023b7488eefbc61f5ee6c8, type: 2}
   - {fileID: 7400000, guid: bde08b4619900e44995f339d7c1ee79b, type: 2}
   - {fileID: 7400000, guid: b6b8f7af4ebe16c46b51493d7e98bb49, type: 2}
   - {fileID: 7400000, guid: 269d59c1f9612e844b7ea9166fb90ac2, type: 2}
+  - {fileID: 7400000, guid: 4d4e3893a4e01d045bf30ed56e26d4d6, type: 2}
+  - {fileID: 7400000, guid: 04a41464ce0494d4eab17a61b9cba9b3, type: 2}
+  - {fileID: 7400000, guid: ca8f518d0f00be64f9b8d1e71b2e81f6, type: 2}
+  - {fileID: 7400000, guid: c2c77ee4b32c36e42b8a4bd6223cee27, type: 2}
   _Timer_Animation: 0
-  _Time_Duration: 0.25
+  _Time_Duration: 0
   isDead: 0
   _Run_Ani: 0
   isGrounded: 0

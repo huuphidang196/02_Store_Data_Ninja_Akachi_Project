@@ -49,6 +49,13 @@ public class PlayerAnimation : CharacterAnimation
         this.SetAnimationHidenSetup();
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        if (!this._Attack_Throw_Ani || this._Attack_Throw_Ani && !this.CheckTimer()) return;
+        this._Attack_Throw_Ani = false;
+    }
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -82,8 +89,7 @@ public class PlayerAnimation : CharacterAnimation
 
         this.SetTimeDurationByAnimationClip(this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
-        if (this._Attack_Throw_Ani && !this.CheckTimer() || !this._Attack_Throw_Ani) return;
-        this._Attack_Throw_Ani = false;
+     
     }
 
     protected virtual void SetBoolNoRepeat(string variableBool, bool actives)

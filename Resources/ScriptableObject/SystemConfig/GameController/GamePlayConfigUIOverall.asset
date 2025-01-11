@@ -15,5 +15,5 @@ MonoBehaviour:
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
   Time_Delay_Button_Hiden: 5
   Time_Delay_Active_Button_Hiden: 12
-  Time_Delay_Active_Button_Attack_Throw: 0.5
+  Time_Delay_Active_Button_Attack_Throw: 0.6
   Time_Delay_Active_Button_Attack_Dashing: 5
