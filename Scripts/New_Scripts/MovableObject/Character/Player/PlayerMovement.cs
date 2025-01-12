@@ -181,7 +181,6 @@ public class PlayerMovement : CharacterObjMovement
 
     protected virtual void ActionJumpByInput()
     {
-
         this.WallJump();
 
         if (this._Double_Jump && !this.IsGrounded()) return;//two time
@@ -210,7 +209,7 @@ public class PlayerMovement : CharacterObjMovement
         this.canHiden = InputManager.Instance.Press_Hidden_Mode;
 
         if (!this._First_Jump) return;
-        if (this.IsGrounded() || this.isWallSliding) this._First_Jump = false;
+        if (this.IsGrounded() && this._Rigidbody2D.velocity.y < 0.1f || this.isWallSliding) this._First_Jump = false;
 
     }
 
