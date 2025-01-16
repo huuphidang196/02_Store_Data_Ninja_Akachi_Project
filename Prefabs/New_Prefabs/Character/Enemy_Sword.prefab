@@ -880,8 +880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MovableObjCtrl: {fileID: 2828784259405238438}
   _Rigidbody2D: {fileID: 5399154655998023806}
-  _Horizontal: 1
-  _Speed_Move_Horizontal: 1
+  _Horizontal: 1.1
+  _Speed_Move_Horizontal: 1.1
   isFacingRight: 1
   _Move_Right: 1
   _Speed_Dash_Horizontal: 3

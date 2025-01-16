@@ -41990,6 +41990,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.6061413
       objectReference: {fileID: 0}
+    - target: {fileID: 6086221729598240433, guid: 0ba7f931777b2cf4cab9acd8b8b787c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.015379751
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43405,7 +43409,7 @@ Transform:
   m_GameObject: {fileID: 622733280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -99.81, y: -0.36, z: 787.0196}
+  m_LocalPosition: {x: -103.17, y: -0.36, z: 787.0196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61413,6 +61417,10 @@ PrefabInstance:
     - target: {fileID: 2198468453284106295, guid: 1219b9f86484bc840bd2e4e7022ad7f3, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.0009445957
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796985135456616060, guid: 1219b9f86484bc840bd2e4e7022ad7f3, type: 3}
+      propertyPath: _Length_Raycast
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4360727475140183720, guid: 1219b9f86484bc840bd2e4e7022ad7f3, type: 3}
       propertyPath: m_Name

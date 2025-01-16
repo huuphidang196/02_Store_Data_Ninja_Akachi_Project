@@ -13,7 +13,7 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
     {
         this._TypeActionEnemy = this.GetTypeAction();
 
-        if (this._TypeActionEnemy == TypeActionEnemy.NoType)
+        if (this._TypeActionEnemy == TypeActionEnemy.NoType && !this._AudioSource.isPlaying)
         {
             this._AudioSource.Stop();
             this._AudioSource.clip = null;
@@ -26,18 +26,6 @@ public class EnemySoundManager : ObjSoundWasEffectByMusicChanging
 
         this.PlaySoundWithTypeAction();
     }
-
-    //protected virtual bool CheckStopSoundAttack()
-    //{
-    //    //Sure that clip diff null
-    //    if (this._TypeActionEnemy != TypeActionEnemy.Attack && this._AudioSource.clip.name != this.GetNameAction(TypeActionEnemy.Attack))
-    //        return false;
-
-    //    this._AudioSource.Stop();
-    //    this._AudioSource.clip = null;
-
-    //    return true;
-    //}
 
     protected virtual TypeActionEnemy GetTypeAction()
     {
