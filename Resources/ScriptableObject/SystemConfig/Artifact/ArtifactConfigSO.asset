@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ced320ba2d8a444fbacd9bd740d1e76, type: 3}
+  m_Name: ArtifactConfigSO
+  m_EditorClassIdentifier: 
+  _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
+  List_ArtifactItems:
+  - TypeNameArtifact: 2
+    Sprite_Represent: {fileID: 21300000, guid: 62ed14c3a30e3ff40b4b44e59ec71acd, type: 3}
+    Note_Detail_Artifact: Increases critical hit by 100%
+    Price_Artifact: 0.99
+    Unlock: 0
+  - TypeNameArtifact: 3
+    Sprite_Represent: {fileID: 21300000, guid: 6b933699a132a0e4ca817db996a79975, type: 3}
+    Note_Detail_Artifact: Reduces the dash cooldown by 20%
+    Price_Artifact: 0.99
+    Unlock: 0
+  - TypeNameArtifact: 4
+    Sprite_Represent: {fileID: 21300000, guid: e8a86b7b5b75d49488e97578845ac52c, type: 3}
+    Note_Detail_Artifact: Reduces the disguise cooldown by 20%
+    Price_Artifact: 0.99
+    Unlock: 0
+  - TypeNameArtifact: 1
+    Sprite_Represent: {fileID: 21300000, guid: f5ea08bfc22175740a93c4be10b6e0c3, type: 3}
+    Note_Detail_Artifact: It increases the maximum life by 1
+    Price_Artifact: 1.99
+    Unlock: 0

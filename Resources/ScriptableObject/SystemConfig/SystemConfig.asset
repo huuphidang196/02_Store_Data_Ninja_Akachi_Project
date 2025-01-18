@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _StarMissionLevels: []
   Current_Level: 1
-  Total_Golds: 999999
-  Total_Diamonds: 99999
+  Total_Golds: 9999
+  Total_Diamonds: 9999
   _GameConfigController: {fileID: 11400000, guid: 7d40b42346e874348b33a6e24f1151f3, type: 2}
   _GamePlayConfigUIOverall: {fileID: 11400000, guid: e9505d581a5a5ca4e9804d5773d692cc, type: 2}
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
   _ShopControllerSO: {fileID: 11400000, guid: 0129192c39e969f4bb23a69b394c77fb, type: 2}
+  _ArtifactConfigSO: {fileID: 11400000, guid: 6759ef0fca43c0a4087343e0e74036f9, type: 2}
   _PlayerSO: {fileID: 11400000, guid: ec04cbb18f95f8f4eadc7f5d185d398b, type: 2}

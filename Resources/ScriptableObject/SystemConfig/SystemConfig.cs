@@ -47,6 +47,9 @@ public class SystemConfig : ScriptableObject
     [SerializeField] protected ShopControllerSO _ShopControllerSO;
     public ShopControllerSO ShopControllerSO => this._ShopControllerSO;
 
+    [SerializeField] protected ArtifactConfigSO _ArtifactConfigSO;
+    public ArtifactConfigSO ArtifactConfigSO => this._ArtifactConfigSO;
+
     [SerializeField] protected PlayerSO _PlayerSO;
     public PlayerSO PlayerSO => this._PlayerSO;
 
@@ -69,7 +72,7 @@ public class SystemConfig : ScriptableObject
         }
 
         return count_SM;
-    }    
+    }
     public virtual void SetCountStarMissionByLevelCurrent(int count)
     {
         //Set only for private variable
@@ -90,10 +93,17 @@ public class SystemConfig : ScriptableObject
         this.LoadGamePlayConfigUIOverall();
         this.LoadSoundCtrlSO();
         this.LoadShopControllerSO();
+        this.LoadArtifactConfigSO();
         this.LoadPlayerSO();
     }
 
- 
+    protected virtual void LoadArtifactConfigSO()
+    {
+        if (this._ArtifactConfigSO != null) return;
+
+        this._ArtifactConfigSO = Resources.Load<ArtifactConfigSO>("ScriptableObject/SystemConfig/Artifact/ArtifactConfigSO");
+    }
+
     protected virtual void LoadGameConfigController()
     {
         if (this._GameConfigController != null) return;
