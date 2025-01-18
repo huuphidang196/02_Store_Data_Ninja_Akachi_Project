@@ -17,6 +17,7 @@ MonoBehaviour:
   Max_HP: 1
   Length_Ray_Forward_Limit: 0.35
   Speed_Dash_Horizontal: 15
+  Max_Life: 3
   Original_GravityScale: 5
   Time_Delay_Hiden: 5
   JumpingPower: 17
@@ -27,3 +28,4 @@ MonoBehaviour:
   DashingTime: 0.3
   Speed_Hiding_Horizontal: 1.5
   Radius_Check: 0.1
+  _ShurikenSO: {fileID: 11400000, guid: 114a3faddf4323d4d8fc130e145975ed, type: 2}

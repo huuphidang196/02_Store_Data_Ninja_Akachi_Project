@@ -19,7 +19,7 @@ public class ArtifactSceneManager : SystemController
 
     public virtual void UnlockArtifactByPurchasing(ArtifactItem artifactItem)
     {
-      //  Debug.Log("type: " + artifactItem.TypeNameArtifact);
+        //  Debug.Log("type: " + artifactItem.TypeNameArtifact);
         if (artifactItem == null) return;
 
         if (artifactItem.TypeNameArtifact == TypeNameArtifact.NoType) return;
@@ -29,13 +29,40 @@ public class ArtifactSceneManager : SystemController
         if (!purchasing_Success) return;
 
         artifactItem.Unlock = true;
-  
+
         //Update Artifact display immidiately
         UICenterArtifactManager.Instance.ChangeSelectItemArtifact(UICenterArtifactManager.Instance.Order_Artifact_Selected);
+
+        //Process Conduct artifact
+        this.ProcessConductArtifact(artifactItem);
         //Save immidiately
         ///
+
+    }
+
+    protected virtual void ProcessConductArtifact(ArtifactItem artifactItem)
+    {
+        if (artifactItem.TypeNameArtifact == TypeNameArtifact.Golden_Shuriken)
+        {
+
+            this._SystemConfig.PlayerSO.ShurikenSO.Damage_Send *= 2f;
+            return;
+        }
+
+        if (artifactItem.TypeNameArtifact == TypeNameArtifact.Sacred_Tsuka)
+        {
+            this._SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Attack_Dashing *= 0.8f;
+            return;
+        }
+        if (artifactItem.TypeNameArtifact == TypeNameArtifact.Coin_Of_Luck)
+        {
+            this._SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Hiden *= 0.8f;
+            return;
+        }
+        //Increase max life +1
+        this._SystemConfig.PlayerSO.Max_Life++;
     }
 
     private bool TestPurchasing() => true;
-    
+
 }
