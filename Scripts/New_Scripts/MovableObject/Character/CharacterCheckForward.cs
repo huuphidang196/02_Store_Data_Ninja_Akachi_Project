@@ -43,13 +43,22 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
         this.LoadPosCheckForward();
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         if (this._CharacterCheckContactEnviroment.CharacterCtrl.ObjDamageReceiver.ObjIsDead) return;
 
+        if (!this.CheckAllOtherConditionsToContinue())
+        {
+            this._ForwardObjRight = false;
+            return;
+        }
         this.GenerateAndDrawAllRaycastHits();
-
         this._ForwardObjRight = this.CheckIsFacingTargetLayer();
+    }
+
+    protected virtual bool CheckAllOtherConditionsToContinue()
+    {
+        return true;
     }
 
     protected virtual bool CheckIsFacingTargetLayer()
@@ -77,10 +86,14 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
 
     protected virtual void GenerateAndDrawAllRaycastHits()
     {
-        this._Direction_Raycast2D = this._CharacterCheckContactEnviroment.CharacterCtrl.transform.localScale.x * Vector2.right;
-        Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D * this._Length_Raycast, Color.red);
+        this._Direction_Raycast2D = this.GetDirectionRaycast();
+        Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D, Color.red);
         // Thực hiện Raycast
         this._Hits = Physics2D.RaycastAll(this._PosForwardCheck.position, this._Direction_Raycast2D, this._Length_Raycast);
     }
 
+    protected virtual Vector2 GetDirectionRaycast()
+    {
+        return this._CharacterCheckContactEnviroment.CharacterCtrl.transform.localScale.x * Vector2.right * this._Length_Raycast;
+    }
 }

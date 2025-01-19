@@ -7,7 +7,7 @@ public class EnemyCtrl : CharacterCtrl
 {
     public EnemySO EnemySO => this._MObjScriptableObject as EnemySO;
     public EnemyAnimations EnemyAnimations => this._CharacterAnimation as EnemyAnimations;
-    public EnemyCheckContactEnvirment EnemyCheckContactEnviroment => this._CharacterCheckContactEnviroment as EnemyCheckContactEnvirment;
+    public EnemyCheckContactEnviroment EnemyCheckContactEnviroment => this._CharacterCheckContactEnviroment as EnemyCheckContactEnviroment;
 
     public EnemyMovement EnemyMovement => this._MovableObj_Movement as EnemyMovement;
 

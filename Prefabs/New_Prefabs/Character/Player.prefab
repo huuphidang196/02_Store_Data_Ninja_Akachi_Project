@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerCtrl: {fileID: 2890972321005388380}
-  _Count_Life: 4
+  _Count_Life: 3
   _EndGame: 0
 --- !u!114 &7944004319230000084
 MonoBehaviour:

@@ -10,6 +10,6 @@ public class EnemySO : CharacterScriptableObject
     public float Time_Delay_Attack = 1.5f;
     public float Distance_Change_Dir_Enemy = 0.5f;
     public float Distance_Attack_Player = 0.3f;
-    public float DetectionRange = 5f;
+
     public float FieldOfViewAngle = 180f;
 }
