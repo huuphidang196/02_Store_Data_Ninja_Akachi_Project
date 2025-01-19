@@ -6,7 +6,7 @@ public class PlayerObjDeadByDistance : ObjDespawnByDistance
 {
     public PlayerCtrl PlayerCtrl => this._ObjectCtrl as PlayerCtrl;
 
-    protected override float GetDistanceLimit() => 20f;
+    protected override float GetDistanceLimit() => 10f;
 
     protected override void Start()
     {
@@ -16,6 +16,19 @@ public class PlayerObjDeadByDistance : ObjDespawnByDistance
         this.SetTargetToReference(camera_Main);
     }
 
+    protected override Vector2 GetPostionTarget()
+    {
+        Vector2 target = new Vector2(0, base.GetPostionTarget().y);
+
+        return target;
+    }
+
+    protected override Vector2 GetPosOriginal()
+    {
+        Vector2 pos = new Vector2(0, transform.position.y);
+
+        return pos;
+    }
     public override void DespawnObject()
     {
         if (this.PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;

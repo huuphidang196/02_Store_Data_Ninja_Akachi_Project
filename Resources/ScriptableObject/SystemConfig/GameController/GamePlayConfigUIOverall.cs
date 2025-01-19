@@ -9,4 +9,5 @@ public class GamePlayConfigUIOverall : SystemConfigCtrl
     public float Time_Delay_Active_Button_Hiden = 12f;
     public float Time_Delay_Active_Button_Attack_Throw = 0.5f;
     public float Time_Delay_Active_Button_Attack_Dashing = 5f;
+    public float TimeDelay_Fadein = 1f;
 }

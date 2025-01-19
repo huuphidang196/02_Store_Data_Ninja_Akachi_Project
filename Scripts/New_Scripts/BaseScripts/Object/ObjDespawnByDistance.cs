@@ -8,7 +8,7 @@ public class ObjDespawnByDistance : ObjDespawn
     [Header("Despawn By Distance")]
     [SerializeField] protected Transform _Target;
     [SerializeField] protected float distance = 0f;
-    
+
     [SerializeField] protected float distanceLimit = 30f;
     public float DistanceLimit => distanceLimit;
 
@@ -38,13 +38,23 @@ public class ObjDespawnByDistance : ObjDespawn
     }
 
     protected virtual float GetDistanceLimit() => 30f;
-   
+
     protected override bool CanDespawn()
     {
         // if (GameController.Instance.PauseGame) return false;
 
-        this.distance = Vector2.Distance(transform.position, this._Target.position);
+        this.distance = Vector2.Distance(this.GetPosOriginal(), this.GetPostionTarget());
         return this.PrequisiteBoolDistance();
+    }
+
+    protected virtual Vector2 GetPostionTarget()
+    {
+        return this._Target.position;
+    }
+
+    protected virtual Vector2 GetPosOriginal()
+    {
+        return transform.position;
     }
 
     protected virtual bool PrequisiteBoolDistance() => (this.distance > this.distanceLimit);

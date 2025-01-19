@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerObjDead : PlayerAbstract
 {
-    [SerializeField] protected int _Count_Life = 4;
+    [SerializeField] protected int _Count_Life = 3;
     public int Count_Life => this._Count_Life;
 
     [SerializeField] protected bool _EndGame;
@@ -16,6 +16,13 @@ public class PlayerObjDead : PlayerAbstract
         base.OnEnable();
 
         this._EndGame = false;
+    }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this._Count_Life = this._PlayerCtrl.PlayerSO.Max_Life;
     }
     public virtual void EventPlayerDead()
     {

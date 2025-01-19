@@ -44,6 +44,8 @@ public class PlayerAnimation : CharacterAnimation
     {
         this.UpdateBoolByInputManager();
 
+        if (this.CheckAnimationCurrent("Dashing")) return;
+
         this.UpdateAnimationControllers();
 
         this.SetAnimationHidenSetup();
