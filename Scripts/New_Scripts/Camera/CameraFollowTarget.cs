@@ -18,7 +18,7 @@ public class CameraFollowTarget : FollowPlayerTarget
 
     protected override Vector3 GetOffSetDistance()
     {
-        return new Vector3(12f, 0, 0);
+        return new Vector3(2f, 0, 0);
     }
     protected override float GetSpeedFollowTarget() => 0.07f;
 }

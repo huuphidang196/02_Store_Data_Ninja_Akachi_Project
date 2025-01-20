@@ -19,5 +19,5 @@ MonoBehaviour:
   Speed_Dash_Horizontal: 3
   Time_Delay_Attack: 1.5
   Distance_Change_Dir_Enemy: 0.5
-  Distance_Attack_Player: 1
+  Distance_Attack_Player: 0.9
   FieldOfViewAngle: 180

@@ -94,7 +94,7 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 2890972321005388380}
   _Target: {fileID: 0}
   distance: 0
-  distanceLimit: 20
+  distanceLimit: 25
 --- !u!1 &1503029039773955865
 GameObject:
   m_ObjectHideFlags: 0
