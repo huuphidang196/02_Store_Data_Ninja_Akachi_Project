@@ -27,9 +27,9 @@ public abstract class WeaponCharacterDamReceiver : ObjDamageReceiver
     protected IEnumerator ProcessShurikenAfterImpacted()
     {
         yield return new WaitForSeconds(this._Time_Delay_InActive);
-
-        this.WeaponCharacterCtrl.gameObject.SetActive(false);
         this.MoveOverToHolder();
+        this.WeaponCharacterCtrl.gameObject.SetActive(false);
+
 
     }
 

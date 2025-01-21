@@ -23,13 +23,21 @@ public class SystemConfig : ScriptableObject
     public int Level_Unlock
     {
         get { return (this._Level_Unlock > 0) ? this._Level_Unlock : 1; }
-        set
-        {
-            this._Level_Unlock = value;
-            if (this._StarMissionLevels.Count >= this._Level_Unlock) return;
+    }
+    public virtual void SetLevelUnlock()
+    {
+        this.SetLevelUnlock(this.Current_Level);
+    }
 
-            this._StarMissionLevels.Add(new StarMissionLevel(this._Level_Unlock, 0));
-        }
+    public virtual void SetLevelUnlock(int levelSet)
+    {
+        //also for using SaveManager set together
+        if (levelSet < this.Level_Unlock) return;
+
+        this._Level_Unlock = levelSet + 1;
+        if (this._StarMissionLevels.Count >= this._Level_Unlock) return;
+
+        this._StarMissionLevels.Add(new StarMissionLevel(this._Level_Unlock, 0));
     }
 
     public float Total_Golds;

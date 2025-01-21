@@ -94,14 +94,14 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
     protected virtual void UpdateStatusHidenMode()
     {
         //Text Price
-        this._txtPrice.text = this._SkinHidenMode.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
+        this._txtPrice.text = this._SkinHidenMode.BaseThingUnlock.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
 
         this._txtPrice.color = this._SkinHidenMode.ItemMoneyUnit.Color_Text;
 
         this._Image_Money_Rep.sprite = this._SkinHidenMode.ItemMoneyUnit.Sprite_Represent_Money;
         this._Image_Skin_Rep.sprite = this._SkinHidenMode.Sprite_Rep_Skin;
 
-        this._txtNameSkin.text = this._SkinHidenMode.Name_Skin_Hiden;
+        this._txtNameSkin.text = this._SkinHidenMode.BaseThingUnlock.Name_Skin_Hiden;
     }
 
     protected virtual void EventChangeOtherSkinHiden(int order_Skin)
@@ -120,7 +120,7 @@ public class ButtonSkinHidenModeManager : UIButtonContainLightSelected
             this._txtPrice.text = "EQUIPPED";
             return;
         }
-        this._txtPrice.text = this._SkinHidenMode.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
+        this._txtPrice.text = this._SkinHidenMode.BaseThingUnlock.Unlock ? "PURCHASED" : this._SkinHidenMode.ItemMoneyUnit.ItemUnit.Value.ToString();
     }
     protected virtual void OnDestroy()
     {

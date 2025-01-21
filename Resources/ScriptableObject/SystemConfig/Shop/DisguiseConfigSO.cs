@@ -18,9 +18,14 @@ public class DisguiseConfigSO : ScriptableObject
 [Serializable]
 public class SkinHidenMode
 {
-    public string Name_Skin_Hiden;
-    public bool Unlock;
+    public BaseThingUnlock BaseThingUnlock;
     public ItemMoneyUnit ItemMoneyUnit;
     public Sprite Sprite_Rep_Skin;
 
+}
+[Serializable]
+public class BaseThingUnlock
+{
+    public string Name_Skin_Hiden;
+    public bool Unlock;
 }

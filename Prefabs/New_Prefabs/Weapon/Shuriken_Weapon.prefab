@@ -193,7 +193,7 @@ MonoBehaviour:
   _currentHP: 1
   isDead: 0
   _BoxCollider2D: {fileID: 5226012759095860217}
-  _Time_Delay_InActive: 1
+  _Time_Delay_InActive: 0.5
 --- !u!1 &4213220640880722072
 GameObject:
   m_ObjectHideFlags: 0
