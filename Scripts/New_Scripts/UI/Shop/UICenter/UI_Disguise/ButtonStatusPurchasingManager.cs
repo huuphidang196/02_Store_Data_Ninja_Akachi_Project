@@ -58,7 +58,7 @@ public class ButtonStatusPurchasingManager : SurMonoBehaviour
 
         //Text
         this._txtTextStatus.gameObject.SetActive(!wasEquipped);
-        bool wasPurchased = ShopMenuController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode[order].BaseThingUnlock.Unlock;
+        bool wasPurchased = ShopMenuController.Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode[order].BaseDataUnlock.Unlock;
         this._txtTextStatus.text = wasPurchased ? "EQUIP" : "PURCHASE";
         if (!wasEquipped) imageBtn.color = wasPurchased ? new Color(178f / 255f, 34f / 255f, 34f / 255f) : Color.white;
     }

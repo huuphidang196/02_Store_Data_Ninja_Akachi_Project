@@ -39,6 +39,7 @@ public class LevelMenuController : SystemController
     {
         string nameScene = this.GetNameSceneCurrent();
 
+        SaveManager.Instance.SaveGame();
         StartCoroutine(LoadSceneWithWait(nameScene));
     }
 

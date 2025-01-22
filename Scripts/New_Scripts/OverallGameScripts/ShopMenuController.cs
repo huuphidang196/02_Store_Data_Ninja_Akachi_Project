@@ -25,7 +25,7 @@ public class ShopMenuController : SystemController
         // Attempt unlock all
         SkinHidenMode skinPurchasing = this._SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode[order];
 
-        if (skinPurchasing.BaseThingUnlock.Unlock)
+        if (skinPurchasing.BaseDataUnlock.Unlock)
         {
             this._SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped = order;
             UIShopCenterDisguiseManager.Event_Equip_NewSkin?.Invoke(order);
@@ -34,7 +34,7 @@ public class ShopMenuController : SystemController
 
         if (!this.DeductMoneyToSystem(skinPurchasing.ItemMoneyUnit.ItemUnit.TypeItem, skinPurchasing.ItemMoneyUnit.ItemUnit.Value)) return;
 
-        skinPurchasing.BaseThingUnlock.Unlock = true;
+        skinPurchasing.BaseDataUnlock.Unlock = true;
         //this._SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped = order;
         Event_Completed_Transaction?.Invoke(order);
 

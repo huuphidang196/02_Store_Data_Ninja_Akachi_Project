@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class MainMenuController : SystemController
 {
@@ -15,5 +18,17 @@ public class MainMenuController : SystemController
 
         m_instance = this;
     }
+    protected override void Start()
+    {
+        base.Start();
 
+        this.LoadGameBySetDataSO();
+    }
+
+    protected virtual void LoadGameBySetDataSO()
+    {
+        SaveData saveData = SaveManager.Instance.DataSaved;
+
+        if (saveData)
+    }
 }

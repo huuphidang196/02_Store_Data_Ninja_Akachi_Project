@@ -103,5 +103,10 @@ public class SystemController : SurMonoBehaviour
     protected virtual void ConductActionWhileLoadingNewScene()
     {
 
-    }    
+    }
+
+    protected virtual void OnApplicationQuit()
+    {
+        SaveManager.Instance.SaveGame(); // Lưu dữ liệu từ ScriptableObject xuống file
+    }
 }
