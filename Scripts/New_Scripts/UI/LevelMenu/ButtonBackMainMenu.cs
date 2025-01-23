@@ -8,9 +8,15 @@ public class ButtonBackMainMenu : BaseButton
     {
         base.OnClick();
 
-        SceneManager.LoadScene("MainMenu");
+        SaveManager.Instance.SaveGame();
 
+        Invoke(nameof(this.LoadMainMenu), 0.5f);
     }
+
+    protected virtual void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }    
 }
 
 

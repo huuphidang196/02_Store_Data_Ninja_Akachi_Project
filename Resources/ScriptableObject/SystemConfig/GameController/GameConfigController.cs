@@ -74,13 +74,13 @@ public class ItemMoneyUnit
 [Serializable]
 public class StarMissionLevel
 {
-    public int Level_Current;
+    public int Level_Mission;
     public int Count_Star_Acquired;
 
     public StarMissionLevel() {; }
     public StarMissionLevel(int level, int Count)
     {
-        this.Level_Current = level;
+        this.Level_Mission = level;
         this.Count_Star_Acquired = (Count > 3) ? 3 : Count;
     }
 }

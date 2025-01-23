@@ -9,6 +9,7 @@ public class ButtonMainMenu : BaseButton
     {
         base.OnClick();
 
+        SaveManager.Instance.SaveGame();
         GamePlayController.Instance.StartLoadingSceneByNameScene("LevelMenu");
     }
 }

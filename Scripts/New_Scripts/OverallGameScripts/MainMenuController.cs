@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-
 
 public class MainMenuController : SystemController
 {
@@ -29,6 +27,7 @@ public class MainMenuController : SystemController
     {
         SaveData saveData = SaveManager.Instance.DataSaved;
 
-        if (saveData)
+        //Set PlayerSO and Shuriken
+        
     }
 }

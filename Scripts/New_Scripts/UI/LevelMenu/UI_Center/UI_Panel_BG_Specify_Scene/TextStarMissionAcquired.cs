@@ -6,6 +6,6 @@ public class TextStarMissionAcquired : TextShowOnlyOnceSet
 {
     protected override string GetValueToShow()
     {
-        return (LevelMenuController.Instance.SystemConfig.GetAllStarMissionAcquired() + "/45");
+        return (LevelMenuController.Instance.SystemConfig.GetCountAllStarMissionAcquired() + "/45");
     }
 }

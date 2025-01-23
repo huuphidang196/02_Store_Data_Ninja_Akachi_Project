@@ -26,18 +26,22 @@ public class SystemConfig : ScriptableObject
     }
     public virtual void SetLevelUnlock()
     {
-        this.SetLevelUnlock(this.Current_Level);
+        this.SetLevelUnlock(this.Current_Level + 1);
     }
 
     public virtual void SetLevelUnlock(int levelSet)
     {
         //also for using SaveManager set together
-        if (levelSet < this.Level_Unlock) return;
+        if (levelSet <= this.Level_Unlock) return;
 
-        this._Level_Unlock = levelSet + 1;
+        this._Level_Unlock = levelSet;
         if (this._StarMissionLevels.Count >= this._Level_Unlock) return;
 
-        this._StarMissionLevels.Add(new StarMissionLevel(this._Level_Unlock, 0));
+        for (int i = this._StarMissionLevels.Count - 1; i < this._Level_Unlock; i++)
+        {
+            this._StarMissionLevels.Add(new StarMissionLevel(i + 1, 0));
+        }
+
     }
 
     public float Total_Golds;
@@ -66,12 +70,12 @@ public class SystemConfig : ScriptableObject
         //Set only for public variable
         foreach (StarMissionLevel item in this.StarMissionLevels)
         {
-            if (item.Level_Current == level) return item;
+            if (item.Level_Mission == level) return item;
         }
 
         return null;
     }
-    public virtual int GetAllStarMissionAcquired()
+    public virtual int GetCountAllStarMissionAcquired()
     {
         int count_SM = 0;
         foreach (StarMissionLevel item in this.StarMissionLevels)
@@ -84,7 +88,15 @@ public class SystemConfig : ScriptableObject
     public virtual void SetCountStarMissionByLevelCurrent(int count)
     {
         //Set only for private variable
-        StarMissionLevel st = this.GetStarMissionByLevel(this.Current_Level);
+        this.SetCountStarMissionByLevel(count, this.Current_Level);
+    }
+
+    public virtual void SetCountStarMissionByLevel(int count, int levelSet)
+    {
+        //Set only for private variable
+        StarMissionLevel st = this.GetStarMissionByLevel(levelSet);
+        if (st == null) return;
+      
         if (st.Count_Star_Acquired >= count) return;
 
         st.Count_Star_Acquired = count;
