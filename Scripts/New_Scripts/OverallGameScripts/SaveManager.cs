@@ -36,6 +36,7 @@ public class SaveManager : SurMonoBehaviour
     {
         this.saveData = new SaveData();
 
+        if (SystemController.Sys_Instance == null) return;
         this.ProgressSaveGame();
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -78,9 +79,9 @@ public class SaveManager : SurMonoBehaviour
         foreach (ArtifactItem item in SystemController.Sys_Instance.SystemConfig.ArtifactConfigSO.List_ArtifactItems)
         {
             BaseDataUnlock baseDataUnlock = new BaseDataUnlock(item.TypeNameArtifact.ToString(), item.Unlock);
+            Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
             this.saveData.ArtifactData.List_ArtifactItems.Add(baseDataUnlock);
         }
-
     }
 
     public virtual void LoadGame()
@@ -88,8 +89,9 @@ public class SaveManager : SurMonoBehaviour
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
-            this.saveData = JsonUtility.FromJson<SaveData>(json);  
+            this.saveData = JsonUtility.FromJson<SaveData>(json);
 
+            if (SystemController.Sys_Instance == null) return;
             this.ProgressLoadGame();
             Debug.Log("Game loaded successfully.");
         }

@@ -17,3 +17,4 @@ MonoBehaviour:
   Time_Delay_Active_Button_Hiden: 12
   Time_Delay_Active_Button_Attack_Throw: 0.6
   Time_Delay_Active_Button_Attack_Dashing: 5
+  TimeDelay_Fadein: 1

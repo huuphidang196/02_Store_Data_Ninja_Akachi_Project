@@ -18,7 +18,7 @@ public class SystemConfig : ScriptableObject
 
     public int Current_Level;
 
-    protected int _Level_Unlock;
+    [SerializeField] protected int _Level_Unlock;
 
     public int Level_Unlock
     {
@@ -39,7 +39,7 @@ public class SystemConfig : ScriptableObject
 
         for (int i = this._StarMissionLevels.Count - 1; i < this._Level_Unlock; i++)
         {
-            this._StarMissionLevels.Add(new StarMissionLevel(i + 1, 0));
+            this._StarMissionLevels.Add(new StarMissionLevel(i + 2, 0));
         }
 
     }
@@ -96,7 +96,7 @@ public class SystemConfig : ScriptableObject
         //Set only for private variable
         StarMissionLevel st = this.GetStarMissionByLevel(levelSet);
         if (st == null) return;
-      
+
         if (st.Count_Star_Acquired >= count) return;
 
         st.Count_Star_Acquired = count;
