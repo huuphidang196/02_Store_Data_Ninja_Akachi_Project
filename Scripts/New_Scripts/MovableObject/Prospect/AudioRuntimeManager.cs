@@ -14,7 +14,7 @@ public class AudioRuntimeManager : ObjSoundWasEffectByMusicChanging
 
     protected virtual void FixedUpdate()
     {
-        if (!this._AudioSource.isPlaying && !GamePlayController.Instance.SystemConfig.GameConfigController.OnMusic) return;
+        if (!this._AudioSource.isPlaying && !SystemController.Sys_Instance.SystemConfig.OnMusic) return;
 
         if (!this.CheckConditionOnMusic()) return;
 

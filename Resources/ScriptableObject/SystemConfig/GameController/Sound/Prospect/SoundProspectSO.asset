@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
   Sound_Clips_Player:
+  - {fileID: 8300000, guid: d0b040ee086774c44922eb42c00cbbd7, type: 3}
+  - {fileID: 8300000, guid: 8a92ea5abca1ddf459b77fb75a3328bd, type: 3}
   - {fileID: 8300000, guid: da6ca2340e0ffab4985394bc0403f2a5, type: 3}
-  - {fileID: 8300000, guid: dfe6b8fdc00ebb64cbb070b4ffc4203f, type: 3}
+  - {fileID: 8300000, guid: 4b08536ee6c70874f8d1b022146593c3, type: 3}
+  - {fileID: 8300000, guid: dcfbbcec0e88f1a4dad85350a4e154b5, type: 3}
+  - {fileID: 8300000, guid: 2aaddc95af4b9994ca92af6e9df7a1eb, type: 3}
   - {fileID: 8300000, guid: 3f40752c419de844c9e74069ad153ca9, type: 3}

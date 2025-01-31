@@ -13,7 +13,7 @@ public class ObjSoundWasEffectByMusicChanging : ObjSoundManager
 
     protected virtual bool CheckConditionOnMusic()
     {
-        if (!GamePlayController.Instance.SystemConfig.GameConfigController.OnMusic)
+        if (!SystemController.Sys_Instance.SystemConfig.OnMusic)
         {
             this._AudioSource.Stop();
             return false;

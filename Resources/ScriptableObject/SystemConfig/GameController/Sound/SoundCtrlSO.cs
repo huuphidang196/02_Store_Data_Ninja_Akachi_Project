@@ -139,6 +139,7 @@ public enum TypeVFXSound
     Sound_VFX_Fire_Burning = 4,
     Sound_VFX_Blood = 5,
 }
+
 public enum TypeProspectSound
 {
     NoType = 0,
@@ -146,6 +147,10 @@ public enum TypeProspectSound
     Sound_BackGround_01 = 101,
     Sound_BackGround_02 = 102,
     Sound_BackGround_03 = 103,
+    Sound_BackGround_04 = 104,
+    Sound_BackGround_05 = 105,
+
+    Sound_MainMenu_Adventure = 301,
 
     Sound_Ring_The_Bell = 801,
 }

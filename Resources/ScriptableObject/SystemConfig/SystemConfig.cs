@@ -46,6 +46,7 @@ public class SystemConfig : ScriptableObject
 
     public float Total_Golds;
     public float Total_Diamonds;
+    public bool OnMusic = true;
 
     [SerializeField] protected GameConfigController _GameConfigController;
     public GameConfigController GameConfigController => this._GameConfigController;
