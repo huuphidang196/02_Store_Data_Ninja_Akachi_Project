@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioRuntimeManager : ObjSoundWasEffectByMusicChanging
 {
+    [SerializeField] protected bool isSoundLevelMode;
     protected override void LoadAudioSource()
     {
         base.LoadAudioSource();
@@ -14,6 +16,12 @@ public class AudioRuntimeManager : ObjSoundWasEffectByMusicChanging
 
     protected virtual void FixedUpdate()
     {
+        if (this.GetNameSceneCurrent().Contains("Level_") != this.isSoundLevelMode)
+        {
+            this._AudioSource.Stop();
+            return;
+        }
+
         if (!this._AudioSource.isPlaying && !SystemController.Sys_Instance.SystemConfig.OnMusic) return;
 
         if (!this.CheckConditionOnMusic()) return;
@@ -26,5 +34,10 @@ public class AudioRuntimeManager : ObjSoundWasEffectByMusicChanging
     protected virtual AudioClip GetAudioClipRuntime()
     {
         return null;
+    }
+
+    protected virtual string GetNameSceneCurrent()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }

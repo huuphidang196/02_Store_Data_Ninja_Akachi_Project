@@ -7,7 +7,7 @@ public class SoundCtrlSOAbstract : ScriptableObject
     [SerializeField] protected SoundCtrlSO _SoundCtrlSO;
     public SoundCtrlSO SoundCtrlSO => this._SoundCtrlSO;
 
-    public AudioClip[] Sound_Clips_Player;
+    public AudioClip[] Sound_Clips;
 
     protected virtual void Reset()
     {
@@ -23,7 +23,7 @@ public class SoundCtrlSOAbstract : ScriptableObject
 
     public virtual AudioClip GetAudioClipByName(string nameClip)
     {
-        foreach (AudioClip audi in this.Sound_Clips_Player)
+        foreach (AudioClip audi in this.Sound_Clips)
         {
             if (audi.name.Contains(nameClip)) return audi;
         }

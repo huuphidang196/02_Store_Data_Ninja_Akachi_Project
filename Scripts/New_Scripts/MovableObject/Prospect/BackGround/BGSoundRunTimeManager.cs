@@ -20,10 +20,17 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
 
     protected virtual AudioClip GetAudioSlipBackGroundByOrder()
     {
-        int order = GamePlayController.Instance.SystemConfig.GameConfigController._Order_Music_BG;
+        int order = GamePlayController.Instance.SystemConfig.GameConfigController.Order_Music_BG;
         AudioClip audioClip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._List_Sound_BG[order]);
 
-        GamePlayController.Instance.SystemConfig.GameConfigController._Order_Music_BG = (order + 1 >= this._List_Sound_BG.Count) ? 0 : order + 1;
         return audioClip;
     }
+
+    public virtual void IncreseOrderSound()
+    {
+        int order = GamePlayController.Instance.SystemConfig.GameConfigController.Order_Music_BG;
+        GamePlayController.Instance.SystemConfig.GameConfigController.Order_Music_BG = (order + 1 >= this._List_Sound_BG.Count) ? 0 : order + 1;
+        this._AudioSource.clip = this.GetAudioSlipBackGroundByOrder();
+    }
+
 }

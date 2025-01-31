@@ -3,18 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IAPManager : SurMonoBehaviour
+public class IAPManager : Singleton<IAPManager>
 {
-    private static IAPManager _instance;
-    public static IAPManager Instance => _instance;
-    protected override void Awake()
-    {
-        base.Awake();
-
-        if (_instance != null) Debug.LogError("Only IAPManager was allowed existed");
-
-        _instance = this;
-    }
 
     public virtual void ProcessBuyDiamonds(ItemDropUnit itemDropUnit)
     {

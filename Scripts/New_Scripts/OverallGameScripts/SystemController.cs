@@ -80,8 +80,10 @@ public class SystemController : SurMonoBehaviour
     public virtual void StartLoadingSceneByOrderScene(int orderScene)
     {
         string nameScene = this.GetNameSceneByOrder(orderScene);
+
         StartCoroutine(LoadSceneWithWait(nameScene));
     }
+
     protected IEnumerator LoadSceneWithWait(string sceneName)
     {
         // Bắt đầu load scene bất đồng bộ

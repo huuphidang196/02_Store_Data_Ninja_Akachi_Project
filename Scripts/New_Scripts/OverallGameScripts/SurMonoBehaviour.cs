@@ -39,3 +39,22 @@ public class SurMonoBehaviour : MonoBehaviour
        
     }
 }
+
+public class Singleton<T> : SurMonoBehaviour where T : SurMonoBehaviour
+{
+    public static T Instance { get; private set; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (Instance == null)
+        {
+            Instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}

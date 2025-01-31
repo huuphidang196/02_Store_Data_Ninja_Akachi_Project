@@ -117,8 +117,8 @@ public class GamePlayController : SystemController
 
     public virtual void ChangeStatusOnOffMusic()
     {
-        bool onMusic = GamePlayController.Instance.SystemConfig.GameConfigController.OnMusic;
-        GamePlayController.Instance.SystemConfig.GameConfigController.OnMusic = !onMusic;
+        bool onMusic = SystemController.Sys_Instance.SystemConfig.OnMusic;
+        SystemController.Sys_Instance.SystemConfig.OnMusic = !onMusic;
     }
 
     protected override void OnEnable()
@@ -148,6 +148,7 @@ public class GamePlayController : SystemController
     {
         this.ContinueGamePlay();
         base.StartLoadingSceneByOrderScene(orderScene);
+        SoundManagerOverall.Instance.BG_Sound_Scene_Play_Mode.IncreseOrderSound();
     }
     protected override void ConductActionWhileLoadingNewScene()
     {

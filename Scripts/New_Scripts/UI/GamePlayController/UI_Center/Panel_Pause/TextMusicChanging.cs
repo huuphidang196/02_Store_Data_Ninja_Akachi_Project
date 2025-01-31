@@ -22,7 +22,7 @@ public class TextMusicChanging : BaseText
 
     protected virtual void ChangeTextMusic()
     {
-        bool onMusic = GamePlayController.Instance.SystemConfig.GameConfigController.OnMusic;
+        bool onMusic = SystemController.Sys_Instance.SystemConfig.OnMusic;
         this.SetContent(onMusic ? "MUSIC : ON" : "MUSIC : OFF");
         this.SetTextToShow();
     }
