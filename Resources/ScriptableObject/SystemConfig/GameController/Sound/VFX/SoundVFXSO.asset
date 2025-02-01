@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SoundVFXSO
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
-  Sound_Clips_Player:
+  Sound_Clips:
+  - {fileID: 8300000, guid: 0ed486d1157a6781f988d15589966381, type: 3}
   - {fileID: 8300000, guid: bcfbeb9b952f6e7438a735235f30be91, type: 3}
+  - {fileID: 8300000, guid: 94bc8546fe222904c9fd6e0438c1b6fc, type: 3}
   - {fileID: 8300000, guid: 942019cf9ecd5854ebeb343b12b7f779, type: 3}
   - {fileID: 8300000, guid: f8c530d487836345c8d3115f7400ba89, type: 3}
-  - {fileID: 8300000, guid: 94bc8546fe222904c9fd6e0438c1b6fc, type: 3}
-  - {fileID: 8300000, guid: 0ed486d1157a6781f988d15589966381, type: 3}

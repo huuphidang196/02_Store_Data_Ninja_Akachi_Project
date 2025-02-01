@@ -99852,6 +99852,7 @@ GameObject:
   - component: {fileID: 1604662978}
   - component: {fileID: 1604662977}
   - component: {fileID: 1604662976}
+  - component: {fileID: 1604662980}
   - component: {fileID: 1604662979}
   m_Layer: 5
   m_Name: btnRight
@@ -99970,42 +99971,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604662974}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408fad98c9920f14d8c5d3082a7a5f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnExect: {fileID: 1604662976}
+  _Event_Trigger: {fileID: 1604662980}
+--- !u!114 &1604662980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604662974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 256034577}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: PointerRightDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 256034577}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: PointerRightUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
 --- !u!1001 &1605479883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108069,7 +108052,8 @@ GameObject:
   - component: {fileID: 1796920425}
   - component: {fileID: 1796920424}
   - component: {fileID: 1796920423}
-  - component: {fileID: 1796920428}
+  - component: {fileID: 1796920427}
+  - component: {fileID: 1796920426}
   m_Layer: 5
   m_Name: btnLeft
   m_TagString: btnLeft
@@ -108178,7 +108162,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796920421}
   m_CullTransparentMesh: 0
---- !u!114 &1796920428
+--- !u!114 &1796920426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796920421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1e7ceacdfe6fe4d99c9b5b9b5ed86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnExect: {fileID: 1796920423}
+  _Event_Trigger: {fileID: 1796920427}
+--- !u!114 &1796920427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108190,39 +108188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 256034577}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: PointerLeftDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 256034577}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: PointerLeftUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
 --- !u!1 &1797248041
 GameObject:
   m_ObjectHideFlags: 0

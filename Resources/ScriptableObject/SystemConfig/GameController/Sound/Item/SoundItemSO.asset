@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoundItemSO
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
-  Sound_Clips_Player:
+  Sound_Clips:
   - {fileID: 8300000, guid: a781c3e4419a15417bb409d33ef95235, type: 3}
   - {fileID: 8300000, guid: 0956a0dd5dcf3066e84b5431f8f48958, type: 3}
   - {fileID: 8300000, guid: ebac8820912282f3085b1626169cc897, type: 3}

@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : Singleton<InputManager>
+public class InputManager : SurMonoBehaviour
 {
+    private static InputManager _instance;
+    public static InputManager Instance => _instance;
+
     [SerializeField] protected bool _Press_Left = false;
     public bool Press_Left => _Press_Left;
 
@@ -30,6 +33,15 @@ public class InputManager : Singleton<InputManager>
     public static Action PressDashingButton_Event;
     public static Action PressHiddenButton_Event;
     public static Action PressAttackThrowButton_Event;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (_instance != null) Debug.LogError("Only InputManager was allowed existed");
+
+        _instance = this;
+    }
 
     protected override void Start()
     {

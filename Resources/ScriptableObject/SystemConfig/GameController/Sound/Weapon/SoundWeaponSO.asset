@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SoundWeaponSO
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
-  Sound_Clips_Player:
+  Sound_Clips:
   - {fileID: 8300000, guid: a789cdd573bf6944cbab126e8e314596, type: 3}

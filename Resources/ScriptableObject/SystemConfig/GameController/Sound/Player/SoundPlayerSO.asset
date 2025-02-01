@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SoundPlayerSO
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
-  Sound_Clips_Player:
-  - {fileID: 8300000, guid: 44712f855edf4afb8a9ed2169d89bf72, type: 3}
-  - {fileID: 8300000, guid: a33c5d630f1829f4da965d85a5aabdf6, type: 3}
-  - {fileID: 8300000, guid: 5a7837b53ae69456b9164dec1604dead, type: 3}
-  - {fileID: 8300000, guid: f733358c35021294ba0c8fd09eec4366, type: 3}
+  Sound_Clips:
+  - {fileID: 8300000, guid: 6259119f201fafa4ca80646eff6b4b1f, type: 3}
   - {fileID: 8300000, guid: b99f5f9d19da49380b531e1d6649a8de, type: 3}
+  - {fileID: 8300000, guid: f733358c35021294ba0c8fd09eec4366, type: 3}
+  - {fileID: 8300000, guid: 5a7837b53ae69456b9164dec1604dead, type: 3}
   - {fileID: 8300000, guid: 0b05e1e96723e334caff0c88d3052607, type: 3}
   - {fileID: 8300000, guid: ad5de75eeb6f27a49a13d399389a8f7b, type: 3}
-  - {fileID: 8300000, guid: 6259119f201fafa4ca80646eff6b4b1f, type: 3}
+  - {fileID: 8300000, guid: a33c5d630f1829f4da965d85a5aabdf6, type: 3}
+  - {fileID: 8300000, guid: 44712f855edf4afb8a9ed2169d89bf72, type: 3}

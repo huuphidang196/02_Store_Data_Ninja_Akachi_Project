@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: SoundEnemySO
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
-  Sound_Clips_Player:
-  - {fileID: 8300000, guid: 6c70c2507df23ab4d908dee64d33cb5e, type: 3}
-  - {fileID: 8300000, guid: 893367f476c5c0449a1c1e2249f5e168, type: 3}
-  - {fileID: 8300000, guid: abad7bbe1ffaf2e4881860de8f7d3219, type: 3}
+  Sound_Clips:
   - {fileID: 8300000, guid: 251a74be878ee544ebf66c8d62796aad, type: 3}
   - {fileID: 8300000, guid: 6120d72500362164b85e297fe1590fd3, type: 3}
   - {fileID: 8300000, guid: d92e452c4717eef449c114212a837a4c, type: 3}
   - {fileID: 8300000, guid: 258d326dad6399e42b1dbb70b140f59e, type: 3}
   - {fileID: 8300000, guid: 6331ecb691702f847b49824c9acb0c2a, type: 3}
   - {fileID: 8300000, guid: 2f7267c2b2261bb42969b21ccb5d2e0b, type: 3}
+  - {fileID: 8300000, guid: 6c70c2507df23ab4d908dee64d33cb5e, type: 3}
+  - {fileID: 8300000, guid: 893367f476c5c0449a1c1e2249f5e168, type: 3}
+  - {fileID: 8300000, guid: abad7bbe1ffaf2e4881860de8f7d3219, type: 3}

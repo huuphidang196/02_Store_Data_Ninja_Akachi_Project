@@ -79,7 +79,7 @@ public class SaveManager : SurMonoBehaviour
         foreach (ArtifactItem item in SystemController.Sys_Instance.SystemConfig.ArtifactConfigSO.List_ArtifactItems)
         {
             BaseDataUnlock baseDataUnlock = new BaseDataUnlock(item.TypeNameArtifact.ToString(), item.Unlock);
-            Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
+           // Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
             this.saveData.ArtifactData.List_ArtifactItems.Add(baseDataUnlock);
         }
     }
@@ -93,11 +93,11 @@ public class SaveManager : SurMonoBehaviour
 
             if (SystemController.Sys_Instance == null) return;
             this.ProgressLoadGame();
-            Debug.Log("Game loaded successfully.");
+         //   Debug.Log("Game loaded successfully.");
         }
         else
         {
-            Debug.LogWarning("No save file found.");
+          //  Debug.LogWarning("No save file found.");
         }
     }
 
