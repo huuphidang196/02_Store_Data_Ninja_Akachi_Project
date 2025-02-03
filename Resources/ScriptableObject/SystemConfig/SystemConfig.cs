@@ -37,9 +37,9 @@ public class SystemConfig : ScriptableObject
         this._Level_Unlock = levelSet;
         if (this._StarMissionLevels.Count >= this._Level_Unlock) return;
 
-        for (int i = this._StarMissionLevels.Count - 1; i < this._Level_Unlock; i++)
+        for (int i = this._StarMissionLevels.Count; i < this._Level_Unlock; i++)
         {
-            this._StarMissionLevels.Add(new StarMissionLevel(i + 2, 0));
+            this._StarMissionLevels.Add(new StarMissionLevel(i + 1, 0));
         }
 
     }

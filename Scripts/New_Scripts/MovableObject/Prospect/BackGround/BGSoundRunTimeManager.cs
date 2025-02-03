@@ -10,7 +10,7 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
     protected override void LoadAudioSource()
     {
         base.LoadAudioSource();
-        this._AudioSource.volume = 0.2f;
+        this._AudioSource.volume = 0.4f;
     }
 
     protected override AudioClip GetAudioClipRuntime()
