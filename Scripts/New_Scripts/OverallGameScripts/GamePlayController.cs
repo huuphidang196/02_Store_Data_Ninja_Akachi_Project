@@ -142,13 +142,16 @@ public class GamePlayController : SystemController
     {
         this.ContinueGamePlay();
         StartCoroutine(LoadSceneWithWait(nameScene));
+        
     }
 
     public override void StartLoadingSceneByOrderScene(int orderScene)
     {
         this.ContinueGamePlay();
-        base.StartLoadingSceneByOrderScene(orderScene);
         SoundManagerOverall.Instance.BG_Sound_Scene_Play_Mode.IncreseOrderSound();
+        // Load Ads
+        GoogleAdsManager.Instance.WatchVideoAdsAfterCompletedMissionOrEndGame(() => base.StartLoadingSceneByOrderScene(orderScene));
+
     }
     protected override void ConductActionWhileLoadingNewScene()
     {
