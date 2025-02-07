@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class LanceTrapEventsAutoOn : SurMonoBehaviour
 {
-    [SerializeField] protected List<Transform> _LanceObjects; // Danh sách các Lance
+    [SerializeField] protected List<ObjectCtrl> _LanceObjects; // Danh sách các Lance
     [SerializeField] protected float raiseHeight = 3f; // Độ cao nâng lên
-    [SerializeField] protected float raiseSpeed = 2f; // Tốc độ nâng lên
+    [SerializeField] protected float totalTime = 3f; // Tốc độ nâng lên
     [SerializeField] protected float activationDistance = 5f; // Khoảng cách để kích hoạt
 
     [SerializeField] protected List<Vector3> _StartPositions; // Lưu vị trí ban đầu của các lance
@@ -33,14 +33,21 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
 
         foreach (Transform item in this.transform)
         {
-            this._LanceObjects.Add(item);
-            this._StartPositions.Add(item.position);
-            this._TargetPositions.Add(this.transform.GetChild(this.transform.childCount - 1).position + Vector3.up * raiseHeight);
+            ObjectCtrl objCtrl = item.GetComponent<ObjectCtrl>();
+            this._LanceObjects.Add(objCtrl);
         }
+
+        this._StartPositions.Add(this._LanceObjects[0].transform.position);
+        this._TargetPositions.Add(
+               new Vector3(this._LanceObjects[0].transform.position.x, this.transform.GetChild(this.transform.childCount - 1).position.y + raiseHeight, 0));
 
         for (int i = 1; i < this._LanceObjects.Count; i++)
         {
-            this._LanceObjects[i].position = new Vector3(this._LanceObjects[i - 1].position.x - 0.5f, this._LanceObjects[i].position.y, 0);
+            this._LanceObjects[i].transform.position = 
+                new Vector3(this._LanceObjects[i - 1].transform.position.x - 0.5f, this._LanceObjects[i].transform.position.y, 0);
+            this._StartPositions.Add(this._LanceObjects[i].transform.position);
+            this._TargetPositions.Add(
+                new Vector3(this._LanceObjects[i].transform.position.x, this.transform.GetChild(this.transform.childCount - 1).position.y + raiseHeight, 0));
         }
     }
 
@@ -60,17 +67,26 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
 
     protected IEnumerator RaiseLances()
     {
-        float t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime * raiseSpeed; // Điều chỉnh tốc độ
+        float timePerLance = totalTime / this._LanceObjects.Count; // Thời gian cho mỗi Lance
 
-            for (int i = 0; i < this._LanceObjects.Count; i++)
+        for (int i = 0; i < this._LanceObjects.Count; i++)
+        {
+            float elapsedTime = 0;
+            Vector3 startPos = this._StartPositions[i];
+            Vector3 targetPos = this._TargetPositions[i];
+
+            // Di chuyển từ từ đến vị trí target
+            while (elapsedTime < timePerLance)
             {
-                this._LanceObjects[i].position = Vector3.Lerp(_StartPositions[i], _TargetPositions[i], t);
+                elapsedTime += Time.deltaTime;
+                float t = elapsedTime / timePerLance;
+                this._LanceObjects[i].transform.position = Vector3.Lerp(startPos, targetPos, t);
+                yield return null;
             }
 
-            yield return null; // Chờ frame tiếp theo
+            // Đảm bảo vị trí cuối cùng chính xác
+            this._LanceObjects[i].transform.position = targetPos;
         }
     }
 }
+

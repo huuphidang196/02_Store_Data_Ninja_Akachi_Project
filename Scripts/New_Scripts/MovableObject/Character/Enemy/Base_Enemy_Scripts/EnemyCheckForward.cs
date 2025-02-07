@@ -39,20 +39,34 @@ public class EnemyCheckForward : CharacterCheckForward
 
         this._FieldOfViewAngle = this.EnemyCheckContactEnviroment.EnemyCtrl.EnemySO.FieldOfViewAngle;
     }
-    protected override void FixedUpdate()
+
+    protected override void ProcessFixedUpdateEvent()
     {
-        base.FixedUpdate();
+        base.ProcessFixedUpdateEvent();
+
+        if (!this.isOtherConditionAllow) return;
+
         this.UpdateTargetPlayerAppear();
+
     }
+
     protected override bool CheckAllOtherConditionsToContinue()
     {
-        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -1.5f;
+        bool allow = Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -2f;
+
+        if (!allow)
+        {
+            this.isChangedDirForward = false;
+            this.isScanning = false;
+        }
+        return allow;
     }
+
     protected virtual Vector2 GetVectorToPlayer() => PlayerCtrl.Instance.transform.position - this.EnemyCheckContactEnviroment.EnemyCtrl.transform.position;
 
     protected virtual void UpdateTargetPlayerAppear()
     {
-        if (!this._ForwardObjRight)
+        if (!this._ForwardObjRight || this.isScanning)
         {
             this.ScanTargetOnFOV();
             return;
@@ -61,7 +75,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
         this._TargetFollow = PlayerCtrl.Instance.transform;
         this.isChangedDirForward = false;
-        // Debug.Log("Don't change");
+        this.isScanning = false;
     }
 
     protected virtual void SetChangeDirection()
@@ -72,19 +86,14 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected virtual void ScanTargetOnFOV()
     {
-        if (this._TargetFollow == null)
-        {
-            this.isChangedDirForward = false;
-            return;
-        }
+        this._TargetFollow = PlayerCtrl.Instance.transform;
         this.isScanning = true;
         this.GenerateAndDrawAllRaycastHits();
-        
+
         if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]))
         {
             this.SetChangeDirection();
             this.isScanning = false;
-     
             return;
         }
 

@@ -20,6 +20,8 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
 
     [SerializeField] protected Vector2 _Direction_Raycast2D;
 
+    [SerializeField] protected bool isOtherConditionAllow = true;
+    public bool IsOtherConditionAllow => this.isOtherConditionAllow;
     protected override void ResetValue()
     {
         this.LoadLayerMaskForward();
@@ -47,11 +49,19 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
     {
         if (this._CharacterCheckContactEnviroment.CharacterCtrl.ObjDamageReceiver.ObjIsDead) return;
 
+        this.ProcessFixedUpdateEvent();
+    }
+
+    protected virtual void ProcessFixedUpdateEvent()
+    {
         if (!this.CheckAllOtherConditionsToContinue())
         {
             this._ForwardObjRight = false;
+            this.isOtherConditionAllow = false;
             return;
         }
+        this.isOtherConditionAllow = true;
+
         this.GenerateAndDrawAllRaycastHits();
         this._ForwardObjRight = this.CheckIsFacingTargetLayer();
     }
@@ -87,7 +97,7 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
     protected virtual void GenerateAndDrawAllRaycastHits()
     {
         this._Direction_Raycast2D = this.GetDirectionRaycast();
-   //     Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D, Color.red);
+        Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D, Color.red);
         // Thực hiện Raycast
         this._Hits = Physics2D.RaycastAll(this._PosForwardCheck.position, this._Direction_Raycast2D, this._Length_Raycast);
     }
