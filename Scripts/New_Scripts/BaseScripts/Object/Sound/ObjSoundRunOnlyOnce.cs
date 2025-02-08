@@ -5,9 +5,6 @@ using UnityEngine;
 
 public abstract class ObjSoundRunOnlyOnce : ObjSoundWasEffectByMusicChanging
 {
-    public ItemDropCtrl ItemDropCtrl => this._ObjectCtrl as ItemDropCtrl;
-
-
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -20,10 +17,10 @@ public abstract class ObjSoundRunOnlyOnce : ObjSoundWasEffectByMusicChanging
 
         if (this._AudioSource.isPlaying) return;
 
-        StartCoroutine(this.PlaySoundOnceisable());
+        StartCoroutine(this.PlaySoundOnce());
     }
 
-    protected IEnumerator PlaySoundOnceisable()
+    protected IEnumerator PlaySoundOnce()
     {
         while (this._AudioSource.clip == null)
         {

@@ -29,8 +29,6 @@ public abstract class WeaponCharacterDamReceiver : ObjDamageReceiver
         yield return new WaitForSeconds(this._Time_Delay_InActive);
         this.MoveOverToHolder();
         this.WeaponCharacterCtrl.gameObject.SetActive(false);
-
-
     }
 
     protected abstract void MoveOverToHolder();

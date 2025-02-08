@@ -6,13 +6,14 @@ using UnityEngine;
 public class LanceTrapEventsAutoOn : SurMonoBehaviour
 {
     [SerializeField] protected List<ObjectCtrl> _LanceObjects; // Danh sách các Lance
-    [SerializeField] protected float raiseHeight = 3f; // Độ cao nâng lên
+    [SerializeField] protected float raiseHeight = 3.7f; // Độ cao nâng lên
     [SerializeField] protected float totalTime = 3f; // Tốc độ nâng lên
     [SerializeField] protected float activationDistance = 5f; // Khoảng cách để kích hoạt
 
     [SerializeField] protected List<Vector3> _StartPositions; // Lưu vị trí ban đầu của các lance
     [SerializeField] protected List<Vector3> _TargetPositions; // Lưu vị trí sau khi bật lên
     [SerializeField] protected bool activated = false; // Đánh dấu đã kích hoạt hay chưa
+    public bool LancesActivated => this.activated;
 
     protected override void ResetValue()
     {
@@ -43,7 +44,7 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
 
         for (int i = 1; i < this._LanceObjects.Count; i++)
         {
-            this._LanceObjects[i].transform.position = 
+            this._LanceObjects[i].transform.position =
                 new Vector3(this._LanceObjects[i - 1].transform.position.x - 0.5f, this._LanceObjects[i].transform.position.y, 0);
             this._StartPositions.Add(this._LanceObjects[i].transform.position);
             this._TargetPositions.Add(
@@ -59,8 +60,8 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
         float distance = this.transform.position.x - PlayerCtrl.Instance.transform.position.x;
         if (distance < activationDistance)
         {
-            StartCoroutine(RaiseLances());
             activated = true;
+            StartCoroutine(RaiseLances());
         }
 
     }
@@ -86,7 +87,19 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
 
             // Đảm bảo vị trí cuối cùng chính xác
             this._LanceObjects[i].transform.position = targetPos;
+            this.SpawnVFXWeaponByName(targetPos - 2f * Vector3.down);
         }
+    }
+
+    protected virtual void SpawnVFXWeaponByName(Vector3 lanceStartpos)
+    {
+        Transform vfx_Need = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Ground_Emit, lanceStartpos, Quaternion.identity);
+
+        if (vfx_Need == null) return;
+
+        vfx_Need.localScale = Vector3.one;
+        vfx_Need.gameObject.SetActive(true);
+
     }
 }
 

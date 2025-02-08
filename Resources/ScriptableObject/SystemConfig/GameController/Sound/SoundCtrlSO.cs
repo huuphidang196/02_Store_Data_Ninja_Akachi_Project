@@ -153,6 +153,8 @@ public enum TypeProspectSound
     Sound_MainMenu_Adventure = 301,
 
     Sound_Ring_The_Bell = 801,
+
+    Sound_LanceTrapEventsAutoOn = 1001,
 }
 
 public enum TypeWeaponSound

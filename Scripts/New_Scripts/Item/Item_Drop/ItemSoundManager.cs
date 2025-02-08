@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ItemSoundManager : ObjSoundRunOnlyOnce
 {
+    public ItemDropCtrl ItemDropCtrl => this._ObjectCtrl as ItemDropCtrl;
+
     [Header("ItemSoundManager")]
     [SerializeField] protected TypeItemSound _TypeItemSound;
 

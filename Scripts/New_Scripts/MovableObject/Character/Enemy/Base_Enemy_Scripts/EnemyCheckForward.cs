@@ -44,7 +44,12 @@ public class EnemyCheckForward : CharacterCheckForward
     {
         base.ProcessFixedUpdateEvent();
 
-        if (!this.isOtherConditionAllow) return;
+        if (!this.isOtherConditionAllow)
+        {
+            this.isChangedDirForward = false;
+            this.isScanning = false;
+            return;
+        }
 
         this.UpdateTargetPlayerAppear();
 
@@ -52,17 +57,10 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected override bool CheckAllOtherConditionsToContinue()
     {
-        bool allow = Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -2f;
-
-        if (!allow)
-        {
-            this.isChangedDirForward = false;
-            this.isScanning = false;
-        }
-        return allow;
+        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -2f;
     }
 
-    protected virtual Vector2 GetVectorToPlayer() => PlayerCtrl.Instance.transform.position - this.EnemyCheckContactEnviroment.EnemyCtrl.transform.position;
+    protected virtual Vector2 GetVectorToPlayer() => PlayerCtrl.Instance.transform.position + Vector3.up - this.EnemyCheckContactEnviroment.EnemyCtrl.transform.position;
 
     protected virtual void UpdateTargetPlayerAppear()
     {
@@ -83,23 +81,25 @@ public class EnemyCheckForward : CharacterCheckForward
         float localX = this.EnemyCheckContactEnviroment.EnemyCtrl.transform.localScale.x;
         this.isChangedDirForward = (localX * this._Direction_Raycast2D.x < 0 && Mathf.Abs(this._Direction_Raycast2D.x) > 0.1f) ? true : false;
     }
-
     protected virtual void ScanTargetOnFOV()
     {
-        this._TargetFollow = PlayerCtrl.Instance.transform;
+        if (this._TargetFollow == null) return;
+
         this.isScanning = true;
+
         this.GenerateAndDrawAllRaycastHits();
 
         if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]))
         {
             this.SetChangeDirection();
-            this.isScanning = false;
+
             return;
         }
 
         this._TargetFollow = null;
         this.isScanning = false;
     }
+
     protected override Vector2 GetDirectionRaycast()
     {
         if (this.isScanning) return this.GetVectorToPlayer();
