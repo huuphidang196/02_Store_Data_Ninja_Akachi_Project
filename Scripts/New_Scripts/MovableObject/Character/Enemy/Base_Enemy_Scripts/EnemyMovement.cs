@@ -39,7 +39,7 @@ public class EnemyMovement : CharacterObjMovement
     protected override void UpdateBoolByInputManager()
     {
         //Change Direction by check forward player and enemy Impact turn collider2D
-        this.isChangeDir = (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.IsChangedDirForward || 
+        this.isChangeDir = (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.IsChangedDirForward ||
             this.EnemyCtrl.EnemyImpact.IsImpact_Trigger);
 
         if (this.isChangeDir)
@@ -52,7 +52,7 @@ public class EnemyMovement : CharacterObjMovement
 
     protected override void Update()
     {
-      //  if (GameController.Instance.PauseGame) return;
+        //  if (GameController.Instance.PauseGame) return;
 
         if (this.EnemyCtrl.EnemyDamReceiver.ObjIsDead) return;
 
@@ -67,8 +67,8 @@ public class EnemyMovement : CharacterObjMovement
         {
             this._Horizontal = 0;
             return;
-        } 
-            
+        }
+
         float speed_Move = this.isFacingPlayer ? this._Speed_Dash_Horizontal : this._Speed_Move_Horizontal;
 
         this._Horizontal = (this._Move_Right) ? 1f * speed_Move : -1f * speed_Move;

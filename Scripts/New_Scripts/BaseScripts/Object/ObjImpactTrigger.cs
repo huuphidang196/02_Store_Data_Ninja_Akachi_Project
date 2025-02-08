@@ -13,7 +13,6 @@ public abstract class ObjImpactTrigger : ObjImpact
         base.OnEnable();
 
         this.Reborn();
-
     }
 
     protected virtual void Reborn()
@@ -33,6 +32,7 @@ public abstract class ObjImpactTrigger : ObjImpact
 
         this._Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
     }
+
     protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (this._ObjectCtrl.ObjDamageReceiver.ObjIsDead) return;

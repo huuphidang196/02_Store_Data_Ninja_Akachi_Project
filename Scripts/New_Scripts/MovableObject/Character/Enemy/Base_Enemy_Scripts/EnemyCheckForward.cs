@@ -10,8 +10,6 @@ public class EnemyCheckForward : CharacterCheckForward
     [SerializeField] protected Transform _TargetFollow;
     public Transform TargetFollow => this._TargetFollow;
 
-    [SerializeField] protected float _Distance_Change_Dir_Enemy = 0.5f;
-    [SerializeField] protected float _FieldOfViewAngle = 180f;
 
     [SerializeField] protected bool isChangedDirForward = false;
     public bool IsChangedDirForward => this.isChangedDirForward;
@@ -26,25 +24,17 @@ public class EnemyCheckForward : CharacterCheckForward
         //this._ObjForwardLayer = new LayerMask[2];
         //this._ObjForwardLayer[0] = 1 << LayerMask.NameToLayer("Player");
         //this._ObjForwardLayer[1] = 1 << LayerMask.NameToLayer("Enemy");
-        this._ObjForwardLayer = new string[2];
+        this._ObjForwardLayer = new string[3];
         this._ObjForwardLayer[0] = "Player";
         this._ObjForwardLayer[1] = "Ground";
-    }
-
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-
-        this._Distance_Change_Dir_Enemy = this.EnemyCheckContactEnviroment.EnemyCtrl.EnemySO.Distance_Change_Dir_Enemy;
-
-        this._FieldOfViewAngle = this.EnemyCheckContactEnviroment.EnemyCtrl.EnemySO.FieldOfViewAngle;
+        this._ObjForwardLayer[2] = "BoxChangeDir";
     }
 
     protected override void ProcessFixedUpdateEvent()
     {
         base.ProcessFixedUpdateEvent();
 
-        if (!this.isOtherConditionAllow)
+        if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact_Trigger)
         {
             this.isChangedDirForward = false;
             this.isScanning = false;
@@ -57,7 +47,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected override bool CheckAllOtherConditionsToContinue()
     {
-        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -2f;
+        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > 0f;
     }
 
     protected virtual Vector2 GetVectorToPlayer() => PlayerCtrl.Instance.transform.position + Vector3.up - this.EnemyCheckContactEnviroment.EnemyCtrl.transform.position;
@@ -89,7 +79,8 @@ public class EnemyCheckForward : CharacterCheckForward
 
         this.GenerateAndDrawAllRaycastHits();
 
-        if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]))
+        if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]) 
+            && !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[2]))
         {
             this.SetChangeDirection();
 

@@ -63,7 +63,6 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
             activated = true;
             StartCoroutine(RaiseLances());
         }
-
     }
 
     protected IEnumerator RaiseLances()
@@ -87,7 +86,7 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
 
             // Đảm bảo vị trí cuối cùng chính xác
             this._LanceObjects[i].transform.position = targetPos;
-            this.SpawnVFXWeaponByName(targetPos - 2f * Vector3.down);
+            this.SpawnVFXWeaponByName(targetPos + 2f * Vector3.down);
         }
     }
 
