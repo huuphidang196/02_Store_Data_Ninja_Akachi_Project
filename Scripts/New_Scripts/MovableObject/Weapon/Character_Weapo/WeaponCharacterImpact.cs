@@ -51,7 +51,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
     {
         if (this.CheckParentObjectImpactWithAnyLayer("Ground")) return true;
 
-        if (this.CheckParentObjectImpactWithAnyLayer(this.GetArrayNameTargetAttack())) return true;
+        if (this.CheckParentObjectImpactWithAnyLayer(this.GetArrayNameAllowImpact())) return true;
 
         if (this.CheckParentObjectImpactWithAnyLayer("Item")) return true;
 
@@ -73,11 +73,11 @@ public class WeaponCharacterImpact : ObjImpactTrigger
             this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
             this._TypeImpact = TypeImpact.Emit_Ground;
 
-           this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBGroundEmit();
+            this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBGroundEmit();
             return;
         }
 
-        if (!this.CheckParentObjectImpactWithAnyLayer(new string[] { this.GetNameTargetAttack(), "Item" }))
+        if (!this.CheckParentObjectImpactWithAnyLayer(this.GetArrayNameTargetAttack()) && !this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
             //this.isImpacted_Igniting_Fire = true;
             this._TypeImpact = TypeImpact.Igniting_Fire;
@@ -87,7 +87,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         }
 
         this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
-      //  Debug.Log(this._parentObj.name + ", was impacted");
+        //  Debug.Log(this._parentObj.name + ", was impacted");
         if (this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
             //this.isImpacted_Emit_WoodBox = true;
@@ -99,12 +99,12 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
         this._TypeImpact = TypeImpact.Emit_Blood;
         // this.isImpacted_Emit_Blood = true;
-       
+
         this.WeaponCharacterCtrl.WeaponCharacterVFXManager.SpawnVFXBloodEnemyEmit();
 
     }
-    protected virtual string GetNameTargetAttack() => "";
     protected virtual string[] GetArrayNameTargetAttack() => new string[] { "" };
+    protected virtual string[] GetArrayNameAllowImpact() => new string[] { "" };
 
     public virtual void SetStatusWeaponImpact() => this._TypeImpact = TypeImpact.NoImapct;
 }

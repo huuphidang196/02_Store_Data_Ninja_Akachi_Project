@@ -26,7 +26,7 @@ public class GoogleAdsManager : Singleton<GoogleAdsManager>
         this.isWatchGift = false;
 
         this.ShowRewardedAd(onAdFinished);
-        Debug.Log("Watch");
+       // Debug.Log("Watch");
     }
 
 

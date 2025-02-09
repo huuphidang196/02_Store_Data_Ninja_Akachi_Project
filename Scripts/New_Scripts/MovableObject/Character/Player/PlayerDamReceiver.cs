@@ -46,8 +46,6 @@ public class PlayerDamReceiver : ObjDamageReceiver
         //  Debug.Log("Player Dead");
 
         this.ChangeLayerPlayerByName("PlayerDead");
-       // this.PlayerCtrl.PlayerMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
-        //this.SetEnableColliderPlayer(false);
 
     }
 

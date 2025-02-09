@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletEnemyShooterCtrl : WeaponCharacterCtrl
 {
-    public BulletEnemyShooterImpact BulletEnemyShooterImpact => this.WeaponCharacterImpact as BulletEnemyShooterImpact;
+    public ObjTriigerImpactTargetPlayerAndHidenMode BulletEnemyShooterImpact => this.WeaponCharacterImpact as ObjTriigerImpactTargetPlayerAndHidenMode;
     public BulletEmemyShooterDamReceiver BulletEmemyShooterDamReceiver => this.WeaponCharacterDamReceiver as BulletEmemyShooterDamReceiver;
 
     protected override string GetNameFolderTypeObjectUsing()

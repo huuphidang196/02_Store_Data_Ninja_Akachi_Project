@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjImpactTrigger : ObjImpact
+public abstract class ObjImpactTrigger : ObjImpactBoxCollider
 {
     [SerializeField] protected bool isImpact_Trigger;
     public bool IsImpact_Trigger => this.isImpact_Trigger;
