@@ -2,37 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjImpactCircleCollider : ObjImpactOverall
+[RequireComponent(typeof(CircleCollider2D))]
+public class ObjImpactCircleCollider : ObjImpactBasement
 {
     [Header("ObjImpactCircleCollider")]
 
-    [SerializeField] protected BoxCollider2D _boxCollider;
-    public BoxCollider2D BoxCollider2D => this._boxCollider;
+    [SerializeField] protected CircleCollider2D _CircleCollider2D;
+    public CircleCollider2D CircleCollider2D => this._CircleCollider2D;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
 
-        this.LoadCollider2D();
+        this.LoadCircleCollider2D();
     }
 
-    protected virtual void LoadCollider2D()
+    protected virtual void LoadCircleCollider2D()
     {
-        if (this._boxCollider != null) return;
+        if (this._CircleCollider2D != null) return;
 
-        this._boxCollider = GetComponent<BoxCollider2D>();
-        //  this._boxCollider.isTrigger = true;
+        this._CircleCollider2D = GetComponent<CircleCollider2D>();      
     }
 
-
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected override void ProcessAfterObjectImpacted()
     {
-        this.EventImpactEnter2D(collision.gameObject);
-        // Debug.Log(transform.name + " Impact " + collision.transform.name);
+
     }
 
-    protected override void ProcessAfterObjectImapactCollision()
+    protected override bool CheckObjectImapactAllowedImpact()
     {
-
+        return true;
     }
 }
+

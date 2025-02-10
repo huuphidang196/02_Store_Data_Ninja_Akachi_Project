@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterImpactTrigger : ObjImpactTrigger
+public abstract class CharacterImpactTrigger : ObjImpactBoxColliderTrigger
 {
-    protected override bool CheckConditionOverallAllowImpact()
+    protected override void ProcessAfterObjectImpacted()
+    {
+
+    }
+
+    protected override bool CheckObjectImapactAllowedImpact()
     {
         string[] nameLayerTurn = this.GetNameLayerImpactTrigger();
         return this.CheckParentObjectImpactWithAnyLayer(nameLayerTurn);

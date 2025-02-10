@@ -34,7 +34,7 @@ public class EnemyCheckForward : CharacterCheckForward
     {
         base.ProcessFixedUpdateEvent();
 
-        if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact_Trigger)
+        if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact)
         {
             this.isChangedDirForward = false;
             this.isScanning = false;

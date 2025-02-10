@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-  
-public class ObjImpactTargetPlayer : ObjImpactBoxCollider
+public class StoneScrollEventImpact : ObjImpactCircleColliderTrigger
 {
-    //  [Header("Object Impact Harmful")]
-
     protected override bool CheckObjectImapactAllowedImpact()
     {
-        return this.CheckParentObjectImpactWithAnyLayer("Player");
+        return this.CheckParentObjectImpactWithAnyLayer(new string[] { "Player", "PlayerHiddenMode" });
     }
 
     protected override void ProcessAfterObjectImpacted()

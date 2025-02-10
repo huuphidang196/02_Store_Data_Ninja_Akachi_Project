@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ObjImpactCharacterDead : ObjImpactTargetPlayerAndHidenModePlayer
 {
-    protected override bool CheckObjectImapactAllowedImpactCollision()
+    protected override bool CheckObjectImapactAllowedImpact()
     {
-        if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("Enemy")) return true;
-
-        return base.CheckObjectImapactAllowedImpactCollision();
-
+        if (this.CheckParentObjectImpactWithAnyLayer("Enemy")) return true;
+        return base.CheckObjectImapactAllowedImpact();
     }
 }

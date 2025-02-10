@@ -40,7 +40,7 @@ public class EnemyMovement : CharacterObjMovement
     {
         //Change Direction by check forward player and enemy Impact turn collider2D
         this.isChangeDir = (this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.IsChangedDirForward ||
-            this.EnemyCtrl.EnemyImpact.IsImpact_Trigger);
+            this.EnemyCtrl.EnemyImpact.IsImpact);
 
         if (this.isChangeDir)
             this.ChangeDirectionMovement();
@@ -85,6 +85,6 @@ public class EnemyMovement : CharacterObjMovement
     protected virtual void ChangeDirectionMovement()
     {
         this._Move_Right = !this._Move_Right;
-        this.EnemyCtrl.EnemyImpact.SetChangeImpacTurn();
+        this.EnemyCtrl.EnemyImpact.SetChangeBoolImpact(false);
     }
 }

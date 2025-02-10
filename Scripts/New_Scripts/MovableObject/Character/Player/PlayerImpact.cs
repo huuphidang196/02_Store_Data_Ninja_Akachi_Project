@@ -25,9 +25,9 @@ public class PlayerImpact : CharacterImpactTrigger
     {
         return new string[] { "Enemy", "Item", "ItemLootable" };
     }
-
-    protected override void ProcessImpactTrigger()
+    protected override void ProcessAfterObjectImpacted()
     {
         this._PlayerAttack.ObjDamSenderInfinity.Send(this._parentObj);
+
     }
 }

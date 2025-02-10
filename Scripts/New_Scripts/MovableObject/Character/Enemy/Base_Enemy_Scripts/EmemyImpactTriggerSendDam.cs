@@ -25,9 +25,10 @@ public class EmemyImpactTriggerSendDam : CharacterImpactTrigger
         return new string[] { "Player", "PlayerHiddenMode" };
     }
 
-    protected override void ProcessImpactTrigger()
+    protected override void ProcessAfterObjectImpacted()
     {
         this._EnemyAttack.ObjDamSenderInfinity.Send(this._parentObj);
         //   Debug.Log("Name : " + this._parentObj);
     }
+
 }

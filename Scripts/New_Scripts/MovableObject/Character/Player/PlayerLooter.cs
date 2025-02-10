@@ -8,7 +8,7 @@ public class PlayerLooter : CharacterImpactTrigger
     {
         return new string[] { "ItemLootable" };
     }
-    protected override void ProcessImpactTrigger()
+    protected override void ProcessAfterObjectImpacted()
     {
         ItemLootableDamReceiver itemLootableDamReceiver = this._parentObj.GetComponentInChildren<ItemLootableDamReceiver>();
 

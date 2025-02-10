@@ -30,8 +30,8 @@ public class WeaponCharacterModelSpriteRenderer : WeaponCharacterAbstract
 
     protected virtual void Update()
     {
-        if (this._Model_SpriteRenderer.enabled != this._WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact_Trigger) return;
+        if (this._Model_SpriteRenderer.enabled != this._WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact) return;
 
-        this._Model_SpriteRenderer.enabled = !this._WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact_Trigger;
+        this._Model_SpriteRenderer.enabled = !this._WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact;
     }
 }

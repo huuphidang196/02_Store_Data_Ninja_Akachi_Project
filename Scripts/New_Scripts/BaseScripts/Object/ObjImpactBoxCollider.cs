@@ -5,9 +5,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 
-public class ObjImpactBoxCollider : ObjImpactOverall
+public class ObjImpactBoxCollider : ObjImpactBasement
 {
-    [Header("Object Impact")]
+    [Header("ObjImpactBoxCollider")]
 
     [SerializeField] protected BoxCollider2D _boxCollider;
     public BoxCollider2D BoxCollider2D => this._boxCollider;
@@ -15,25 +15,23 @@ public class ObjImpactBoxCollider : ObjImpactOverall
     {
         base.LoadComponents();
 
-        this.LoadCollider2D();
+        this.LoadBoxCollider2D();
     }
 
-    protected virtual void LoadCollider2D()
+    protected virtual void LoadBoxCollider2D()
     {
         if (this._boxCollider != null) return;
 
         this._boxCollider = GetComponent<BoxCollider2D>();
-        //  this._boxCollider.isTrigger = true;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected override void ProcessAfterObjectImpacted()
     {
-        this.EventImpactEnter2D(collision.gameObject);
-        // Debug.Log(transform.name + " Impact " + collision.transform.name);
+
     }
 
-    protected override void ProcessAfterObjectImapactCollision()
+    protected override bool CheckObjectImapactAllowedImpact()
     {
-
+        return true;
     }
 }

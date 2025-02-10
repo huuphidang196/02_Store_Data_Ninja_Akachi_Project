@@ -12,8 +12,5 @@ public class EnemyImpact : CharacterImpactTrigger
         return new string[] { "BoxChangeDir" };
     }
 
-    protected override void ProcessImpactTrigger()
-    {
-
-    }
+   
 }

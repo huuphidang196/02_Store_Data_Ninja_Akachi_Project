@@ -15,7 +15,7 @@ public enum TypeImpact
     Emit_WoodBox = 4,
 }
 
-public class WeaponCharacterImpact : ObjImpactTrigger
+public class WeaponCharacterImpact : ObjImpactBoxColliderTrigger
 {
     public WeaponCharacterCtrl WeaponCharacterCtrl => this._ObjectCtrl as WeaponCharacterCtrl;
 
@@ -23,9 +23,9 @@ public class WeaponCharacterImpact : ObjImpactTrigger
 
     [SerializeField] protected TypeImpact _TypeImpact = TypeImpact.NoImapct;
     public TypeImpact TypeImpact => this._TypeImpact;
-    protected override void Reborn()
+    protected override void ResetValue()
     {
-        base.Reborn();
+        base.ResetValue();
 
         this._TypeImpact = TypeImpact.NoImapct;
     }
@@ -39,15 +39,16 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         this._Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
-    protected override Transform GetParentOfCollider(Collider2D collider2D)
+    protected override Transform GetParent(GameObject col)
     {
-        if (collider2D.gameObject.layer != LayerMask.NameToLayer("Ground"))
-            return base.GetParentOfCollider(collider2D);
+        if (col.gameObject.layer != LayerMask.NameToLayer("Ground"))
+            return base.GetParent(col);
 
-        return collider2D.transform;
+        return col.transform;
     }
+   
 
-    protected override bool CheckConditionOverallAllowImpact()
+    protected override bool CheckObjectImapactAllowedImpact()
     {
         if (this.CheckParentObjectImpactWithAnyLayer("Ground")) return true;
 
@@ -61,7 +62,7 @@ public class WeaponCharacterImpact : ObjImpactTrigger
         return false;
     }
 
-    protected override void ProcessImpactTrigger()
+    protected override void ProcessAfterObjectImpacted()
     {
         // Debug.Log("name: " + this._parentObj.name + ", layer: " + LayerMask.LayerToName(this._parentObj.gameObject.layer));
         //Call OnDead in DamReceiver of Shuriken

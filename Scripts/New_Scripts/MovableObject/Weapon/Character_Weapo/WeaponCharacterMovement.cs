@@ -41,7 +41,7 @@ public class WeaponCharacterMovement : MovableObjectMovement
 
     protected override void Update()
     {
-        if (this.WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact_Trigger)
+        if (this.WeaponCharacterCtrl.WeaponCharacterImpact.IsImpact)
         {
             this._Horizontal = 0f;
             return;

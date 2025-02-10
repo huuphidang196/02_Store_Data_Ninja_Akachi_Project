@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ObjImpactTargetPlayerAndHidenModePlayer : ObjImpactTargetPlayer
 {
-    protected override bool CheckObjectImapactAllowedImpactCollision()
+    protected override bool CheckObjectImapactAllowedImpact()
     {
-        if (this._parentObj.gameObject.layer == LayerMask.NameToLayer("PlayerHiddenMode")) return true;
-
-        return base.CheckObjectImapactAllowedImpactCollision();
-
+        if (this.CheckParentObjectImpactWithAnyLayer("PlayerHiddenMode")) return true;
+        return base.CheckObjectImapactAllowedImpact();
     }
+
 }

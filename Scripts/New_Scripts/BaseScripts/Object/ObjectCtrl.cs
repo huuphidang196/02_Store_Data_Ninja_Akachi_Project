@@ -13,8 +13,8 @@ public class ObjectCtrl : SurMonoBehaviour
     [SerializeField] protected ObjDamageSender _ObjDamageSender;
     public ObjDamageSender ObjDamageSender => _ObjDamageSender;
 
-    [SerializeField] protected ObjImpactOverall _ObjImpact_Overall;
-    public ObjImpactOverall ObjImpactOverall => _ObjImpact_Overall;
+    [SerializeField] protected ObjImpactBasement _ObjImpact_Overall;
+    public ObjImpactBasement ObjImpactOverall => _ObjImpact_Overall;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -42,7 +42,7 @@ public class ObjectCtrl : SurMonoBehaviour
     {
         if (this._ObjImpact_Overall != null) return;
 
-        this._ObjImpact_Overall = transform.GetComponentInChildren<ObjImpactOverall>();
+        this._ObjImpact_Overall = transform.GetComponentInChildren<ObjImpactBasement>();
     }
 
 }
