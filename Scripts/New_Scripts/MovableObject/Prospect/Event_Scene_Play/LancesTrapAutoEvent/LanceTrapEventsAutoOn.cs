@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanceTrapEventsAutoOn : SurMonoBehaviour
+public class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
 {
     [SerializeField] protected List<ObjectCtrl> _LanceObjects; // Danh sách các Lance
     [SerializeField] protected float raiseHeight = 3.7f; // Độ cao nâng lên
     [SerializeField] protected float totalTime = 3f; // Tốc độ nâng lên
-    [SerializeField] protected float activationDistance = 5f; // Khoảng cách để kích hoạt
 
     [SerializeField] protected List<Vector3> _StartPositions; // Lưu vị trí ban đầu của các lance
     [SerializeField] protected List<Vector3> _TargetPositions; // Lưu vị trí sau khi bật lên
-    [SerializeField] protected bool activated = false; // Đánh dấu đã kích hoạt hay chưa
-    public bool LancesActivated => this.activated;
 
     protected override void ResetValue()
     {
@@ -52,18 +49,6 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
         }
     }
 
-    protected virtual void Update()
-    {
-        // Kiểm tra khoảng cách với Player
-        if (activated) return;
-
-        float distance = this.transform.position.x - PlayerCtrl.Instance.transform.position.x;
-        if (distance < activationDistance)
-        {
-            activated = true;
-            StartCoroutine(RaiseLances());
-        }
-    }
 
     protected IEnumerator RaiseLances()
     {
@@ -99,6 +84,11 @@ public class LanceTrapEventsAutoOn : SurMonoBehaviour
         vfx_Need.localScale = Vector3.one;
         vfx_Need.gameObject.SetActive(true);
 
+    }
+
+    protected override void ConductActionEvents()
+    {
+        StartCoroutine(RaiseLances());
     }
 }
 

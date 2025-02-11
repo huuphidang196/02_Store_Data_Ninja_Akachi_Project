@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
   
-public class ObjImpactTargetPlayer : ObjImpactBoxCollider
+public class ObjImpactTargetPlayer : ObjImpactBoxColliderTrigger
 {
     //  [Header("Object Impact Harmful")]
 
