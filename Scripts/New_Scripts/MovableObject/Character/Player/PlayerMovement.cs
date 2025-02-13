@@ -163,7 +163,11 @@ public class PlayerMovement : CharacterObjMovement
 
     protected virtual void FixedUpdate()
     {
-        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead)
+        {
+            this._Rigidbody2D.velocity = new Vector2(0, this._Rigidbody2D.velocity.y);
+            return;
+        }
 
         if (this.isRiviving)
         {

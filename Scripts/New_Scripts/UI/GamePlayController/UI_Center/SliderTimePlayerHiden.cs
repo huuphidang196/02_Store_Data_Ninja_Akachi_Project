@@ -27,9 +27,11 @@ public class SliderTimePlayerHiden : BaseSlider
     {
         base.ResetValue();
 
+        this._TimeDelay_Hidden = this._GamePlayUICenter.GamePlayUIOverall.GamePlayConfigUIOverall.SystemConfig.PlayerSO.Time_Delay_Hiden;
+
         this.slider.minValue = 0f;
         this.slider.maxValue = this._TimeDelay_Hidden;
-        this._TimeDelay_Hidden = this._GamePlayUICenter.GamePlayUIOverall.GamePlayConfigUIOverall.SystemConfig.PlayerSO.Time_Delay_Hiden;
+
         this.ResetValueSliderBegin();
     }
 
@@ -46,9 +48,11 @@ public class SliderTimePlayerHiden : BaseSlider
 
     protected virtual void Update()
     {
-        this.slider.value -= Time.deltaTime;
 
         // if (this.slider.value <= 0 || PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) this.gameObject.SetActive(false);
+
+        this.slider.value -= Time.deltaTime;
+
 
 
     }

@@ -5124,6 +5124,7 @@ GameObject:
   - component: {fileID: 699814715180978520}
   - component: {fileID: 6156104648145795184}
   - component: {fileID: 7244406300908604858}
+  - component: {fileID: 1676291632619369131}
   m_Layer: 26
   m_Name: Poision
   m_TagString: Untagged
@@ -5163,6 +5164,7 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 7094216084849161136}
   _parentObj: {fileID: 0}
   isImpact: 0
+  _Rigidbody2D: {fileID: 1676291632619369131}
 --- !u!199 &6156104648145795184
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -9958,3 +9960,30 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!50 &1676291632619369131
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962374100430312771}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -2,20 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackWaiting : EnemyAttackByImpact
+public class EnemyAttackWaiting : EnemyAttackAlways
 {
-    //[Header("EnemyAttackWaiting")]
-
-    protected override void Update()
+    protected override void EnemyAttackPlayer()
     {
-        base.Update();
-
-        if (this.isSlash == this._EmemyImpactTriggerSendDam.gameObject.activeInHierarchy) return;
-
-        Invoke(nameof(this.EnemyAttackPlayer), 0.2f);
+        Invoke(nameof(this.EnemyAttackPlayerAfterWaiting), 0.2f);
     }
-
-    protected virtual void EnemyAttackPlayer()
+    protected virtual void EnemyAttackPlayerAfterWaiting()
     {
         this.ChangeLayerWeaponToAttacKPlayer(this.isSlash);
         this._EmemyImpactTriggerSendDam.gameObject.SetActive(this.isSlash);

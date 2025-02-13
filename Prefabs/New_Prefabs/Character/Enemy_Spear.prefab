@@ -104,7 +104,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 189565099275129902}
   _boxCollider: {fileID: 9077811795379842213}
-  isImpact_Trigger: 0
 --- !u!61 &9077811795379842213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -602,7 +601,7 @@ GameObject:
   - component: {fileID: 6041771580801937214}
   - component: {fileID: 1557852955699843425}
   - component: {fileID: 5458873268368798955}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: EnemyImpactSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +640,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 5458873268368798955}
   _boxCollider: {fileID: 1557852955699843425}
-  isImpact_Trigger: 0
   _EnemyAttack: {fileID: 0}
 --- !u!61 &1557852955699843425
 BoxCollider2D:
@@ -965,7 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2358422952147156614}
   - component: {fileID: 7796572847727042299}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: ObjDamSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterCtrl: {fileID: 3812047171238487804}
   _CharacterCheckForward: {fileID: 5560519321396977036}
+  _CharacterCheckGround: {fileID: 0}
 --- !u!1 &5333185033657885056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,18 +1491,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterCheckContactEnviroment: {fileID: 6628670476056546263}
-  _Length_Raycast: 8
+  _Length_Raycast: 12
   _PosForwardCheck: {fileID: 5362535181489116649}
   _ObjForwardLayer:
   - Player
   - Ground
+  - BoxChangeDir
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
+  isOtherConditionAllow: 1
   _TargetFollow: {fileID: 0}
-  _Distance_Change_Dir_Enemy: 0.5
-  _DetectionRange: 5
-  _FieldOfViewAngle: 180
   isChangedDirForward: 0
+  isScanning: 0
 --- !u!1 &6639587208217992526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313293722465258549}
   - component: {fileID: 6202252518660099000}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Enemy_Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

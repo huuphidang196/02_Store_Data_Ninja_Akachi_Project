@@ -21,9 +21,7 @@ public class EnemyCheckForward : CharacterCheckForward
     protected override void LoadLayerMaskForward()
     {
         if (this._ObjForwardLayer.Length > 0) return;
-        //this._ObjForwardLayer = new LayerMask[2];
-        //this._ObjForwardLayer[0] = 1 << LayerMask.NameToLayer("Player");
-        //this._ObjForwardLayer[1] = 1 << LayerMask.NameToLayer("Enemy");
+ 
         this._ObjForwardLayer = new string[3];
         this._ObjForwardLayer[0] = "Player";
         this._ObjForwardLayer[1] = "Ground";
@@ -47,7 +45,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected override bool CheckAllOtherConditionsToContinue()
     {
-        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > 0f;
+        return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -0.5f;
     }
 
     protected virtual Vector2 GetVectorToPlayer() => PlayerCtrl.Instance.transform.position + Vector3.up - this.EnemyCheckContactEnviroment.EnemyCtrl.transform.position;
@@ -79,8 +77,8 @@ public class EnemyCheckForward : CharacterCheckForward
 
         this.GenerateAndDrawAllRaycastHits();
 
-        if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]) 
-            && !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[2]))
+        //exclude enemy Shooter
+        if (this.CheckConditionAllowFlip() )
         {
             this.SetChangeDirection();
 
@@ -89,6 +87,12 @@ public class EnemyCheckForward : CharacterCheckForward
 
         this._TargetFollow = null;
         this.isScanning = false;
+    }
+
+    protected virtual bool CheckConditionAllowFlip()
+    {
+        return !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1])
+            && !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[2]);
     }
 
     protected override Vector2 GetDirectionRaycast()

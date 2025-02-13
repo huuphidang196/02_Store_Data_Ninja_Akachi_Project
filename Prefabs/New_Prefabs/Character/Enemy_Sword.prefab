@@ -337,7 +337,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 8221271042748981545}
   _boxCollider: {fileID: 5325193940632432686}
-  isImpact_Trigger: 0
   _EnemyAttack: {fileID: 5085290750477625547}
 --- !u!61 &5325193940632432686
 BoxCollider2D:
@@ -435,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937807980870037407}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.020063875, w: 0.9997987}
+  m_LocalRotation: {x: 0, y: 0, z: 0.020064024, w: 0.9997987}
   m_LocalPosition: {x: 0.18334547, y: 0.0052724183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -490,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterCheckContactEnviroment: {fileID: 713585711012794800}
-  _Length_Raycast: 8
+  _Length_Raycast: 12
   _PosForwardCheck: {fileID: 61565185090289868}
   _ObjForwardLayer:
   - Player
@@ -620,7 +619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3259974719582262825}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.24568224, w: 0.96935046}
+  m_LocalRotation: {x: -0, y: -0, z: 0.2456821, w: 0.96935046}
   m_LocalPosition: {x: 0.2547, y: -0.0029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1767,9 +1766,8 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 2828784259405238438}
   _parentObj: {fileID: 0}
   isImpact: 0
-  _Rigidbody2D: {fileID: 0}
+  _Rigidbody2D: {fileID: 9100436160394034009}
   _boxCollider: {fileID: 4379822857217627739}
-  isImpact_Trigger: 0
 --- !u!1 &8031338565232187105
 GameObject:
   m_ObjectHideFlags: 0

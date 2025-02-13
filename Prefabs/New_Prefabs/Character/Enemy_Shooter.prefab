@@ -336,7 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterCtrl: {fileID: 7246467510690638084}
-  _CharacterCheckForward: {fileID: 7354432684831676084}
+  _CharacterCheckForward: {fileID: 0}
+  _CharacterCheckGround: {fileID: 0}
 --- !u!1 &1469626937306618120
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +853,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 2658729292424941644}
   _boxCollider: {fileID: 6554697486992878765}
-  isImpact_Trigger: 0
 --- !u!1 &4791480433850212321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164326149256487483}
-  - component: {fileID: 7354432684831676084}
+  - component: {fileID: 5374630214731015999}
   m_Layer: 14
   m_Name: Check_Forward
   m_TagString: Untagged
@@ -1895,7 +1895,7 @@ Transform:
   - {fileID: 5238452810777516295}
   m_Father: {fileID: 854705401967644373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7354432684831676084
+--- !u!114 &5374630214731015999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8375135708577057017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b6728d1a5493d4cafcb0361f029f0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 41b6370831d9797479dad7ca7ed2b1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterCheckContactEnviroment: {fileID: 7523792436061621284}
@@ -1913,13 +1913,13 @@ MonoBehaviour:
   _ObjForwardLayer:
   - Player
   - Ground
+  - BoxChangeDir
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
+  isOtherConditionAllow: 1
   _TargetFollow: {fileID: 0}
-  _Distance_Change_Dir_Enemy: 0.5
-  _DetectionRange: 5
-  _FieldOfViewAngle: 180
   isChangedDirForward: 0
+  isScanning: 0
 --- !u!1 &8644734217066542225
 GameObject:
   m_ObjectHideFlags: 0

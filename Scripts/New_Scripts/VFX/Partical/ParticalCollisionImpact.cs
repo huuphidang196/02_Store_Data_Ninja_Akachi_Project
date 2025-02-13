@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ParticalCollisionImpact : ObjImpactBasement
 {
+    protected override void LoadRigidbody2D()
+    {
+        base.LoadRigidbody2D();
 
+        this._Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+    }
     protected virtual void OnParticleCollision(GameObject other)
     {
         this.EventImpactEnter2D(other);
