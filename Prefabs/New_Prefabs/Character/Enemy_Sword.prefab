@@ -494,7 +494,7 @@ MonoBehaviour:
   _ObjForwardLayer:
   - Player
   - Ground
-  - BoxChangeDir
+  - PlayerHiddenMode
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
   isOtherConditionAllow: 1

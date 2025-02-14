@@ -22,10 +22,11 @@ public class EnemyCheckForward : CharacterCheckForward
     {
         if (this._ObjForwardLayer.Length > 0) return;
  
-        this._ObjForwardLayer = new string[3];
+        this._ObjForwardLayer = new string[4];
         this._ObjForwardLayer[0] = "Player";
         this._ObjForwardLayer[1] = "Ground";
         this._ObjForwardLayer[2] = "BoxChangeDir";
+        this._ObjForwardLayer[2] = "PlayerHiddenMode";
     }
 
     protected override void ProcessFixedUpdateEvent()
@@ -91,8 +92,12 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected virtual bool CheckConditionAllowFlip()
     {
-        return !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1])
-            && !this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[2]);
+        for (int i = 1; i < this._ObjForwardLayer.Length; i++)
+        {
+            if (this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[i])) return false;
+        }
+
+        return true;
     }
 
     protected override Vector2 GetDirectionRaycast()

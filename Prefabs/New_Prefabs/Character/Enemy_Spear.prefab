@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MovableObjCtrl: {fileID: 3812047171238487804}
   _Rigidbody2D: {fileID: 8568739493272779953}
-  _Horizontal: 0.7
-  _Speed_Move_Horizontal: 0.7
+  _Horizontal: 0.9
+  _Speed_Move_Horizontal: 0.9
   isFacingRight: 1
   _Move_Right: 1
   _Speed_Dash_Horizontal: 3
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   _ObjForwardLayer:
   - Player
   - Ground
-  - BoxChangeDir
+  - PlayerHiddenMode
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
   isOtherConditionAllow: 1

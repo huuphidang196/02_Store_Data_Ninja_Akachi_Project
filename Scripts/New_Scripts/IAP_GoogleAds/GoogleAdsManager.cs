@@ -62,6 +62,7 @@ public class GoogleAdsManager : Singleton<GoogleAdsManager>
             onAdFinished(); // Nếu quảng cáo không có, chuyển cảnh ngay lập tức
         }
         */
+        onAdFinished();
     }
 
     //private void HandleUserEarnedReward(object sender, Reward args)

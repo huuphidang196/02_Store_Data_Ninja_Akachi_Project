@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
   Sound_Clips:
-  - {fileID: 8300000, guid: d0b040ee086774c44922eb42c00cbbd7, type: 3}
+  - {fileID: 8300000, guid: 2cc3a177b5a9b67429f331f811ee4179, type: 3}
   - {fileID: 8300000, guid: 8a92ea5abca1ddf459b77fb75a3328bd, type: 3}
   - {fileID: 8300000, guid: da6ca2340e0ffab4985394bc0403f2a5, type: 3}
   - {fileID: 8300000, guid: 4b08536ee6c70874f8d1b022146593c3, type: 3}
