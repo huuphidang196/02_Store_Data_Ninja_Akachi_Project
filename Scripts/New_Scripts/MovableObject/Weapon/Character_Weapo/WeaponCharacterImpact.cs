@@ -46,7 +46,7 @@ public class WeaponCharacterImpact : ObjImpactBoxColliderTrigger
 
         return col.transform;
     }
-   
+
 
     protected override bool CheckObjectImapactAllowedImpact()
     {
@@ -88,7 +88,7 @@ public class WeaponCharacterImpact : ObjImpactBoxColliderTrigger
         }
 
         this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
-        //  Debug.Log(this._parentObj.name + ", was impacted");
+
         if (this.CheckParentObjectImpactWithAnyLayer("Item"))
         {
             //this.isImpacted_Emit_WoodBox = true;

@@ -111,7 +111,7 @@ public class SaveManager : SurMonoBehaviour
         //Must set level unlock first cause count of starsMission have to set before
         SystemController.Sys_Instance.SystemConfig.SetLevelUnlock(this.saveData.systemConfigData.Level_Unlock);
 
-        foreach (StarMissionLevel item in SystemController.Sys_Instance.SystemConfig.StarMissionLevels)
+        foreach (StarMissionLevel item in this.saveData.systemConfigData.StarMissionLevels)
         {
             SystemController.Sys_Instance.SystemConfig.SetCountStarMissionByLevel(item.Level_Mission, item.Count_Star_Acquired);
         }
