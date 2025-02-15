@@ -21,12 +21,12 @@ public class EnemyCheckForward : CharacterCheckForward
     protected override void LoadLayerMaskForward()
     {
         if (this._ObjForwardLayer.Length > 0) return;
- 
+
         this._ObjForwardLayer = new string[4];
         this._ObjForwardLayer[0] = "Player";
         this._ObjForwardLayer[1] = "Ground";
         this._ObjForwardLayer[2] = "BoxChangeDir";
-        this._ObjForwardLayer[2] = "PlayerHiddenMode";
+        this._ObjForwardLayer[3] = "PlayerHiddenMode";
     }
 
     protected override void ProcessFixedUpdateEvent()
@@ -41,7 +41,6 @@ public class EnemyCheckForward : CharacterCheckForward
         }
 
         this.UpdateTargetPlayerAppear();
-
     }
 
     protected override bool CheckAllOtherConditionsToContinue()
@@ -79,7 +78,7 @@ public class EnemyCheckForward : CharacterCheckForward
         this.GenerateAndDrawAllRaycastHits();
 
         //exclude enemy Shooter
-        if (this.CheckConditionAllowFlip() )
+        if (this.CheckConditionAllowFlip())
         {
             this.SetChangeDirection();
 
@@ -113,10 +112,17 @@ public class EnemyCheckForward : CharacterCheckForward
 
         if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1])) return true;
 
-        float length_Player = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
-        float length_Ground = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[1]);
+        return this.CheckDistanceForwardWithLayer(1);
+    }
 
-        return length_Ground >= length_Player;
+    protected virtual bool CheckDistanceForwardWithLayer(int order)
+    {
+        if (!this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[order])) return true;
+
+        float length_Player = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[0]);
+        float length_LayerCheck = this.GetDistanceForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[order]);
+
+        return length_LayerCheck >= length_Player;
     }
 
     public virtual float GetDistanceFacingPlayer()

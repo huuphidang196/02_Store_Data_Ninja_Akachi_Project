@@ -434,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937807980870037407}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.020064024, w: 0.9997987}
+  m_LocalRotation: {x: 0, y: 0, z: 0.020063875, w: 0.9997987}
   m_LocalPosition: {x: 0.18334547, y: 0.0052724183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   _ObjForwardLayer:
   - Player
   - Ground
+  - BoxChangeDir
   - PlayerHiddenMode
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
@@ -619,7 +620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3259974719582262825}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.2456821, w: 0.96935046}
+  m_LocalRotation: {x: -0, y: -0, z: 0.24568224, w: 0.96935046}
   m_LocalPosition: {x: 0.2547, y: -0.0029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -89,10 +89,10 @@ public class SystemConfig : ScriptableObject
     public virtual void SetCountStarMissionByLevelCurrent(int count)
     {
         //Set only for private variable
-        this.SetCountStarMissionByLevel(count, this.Current_Level);
+        this.SetCountStarMissionByLevel(this.Current_Level, count);
     }
 
-    public virtual void SetCountStarMissionByLevel(int count, int levelSet)
+    public virtual void SetCountStarMissionByLevel(int levelSet, int count)
     {
         //Set only for private variable
         StarMissionLevel st = this.GetStarMissionByLevel(levelSet);

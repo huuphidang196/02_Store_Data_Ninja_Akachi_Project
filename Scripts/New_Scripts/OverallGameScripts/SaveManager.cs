@@ -9,7 +9,7 @@ public class SaveManager : SurMonoBehaviour
     private static SaveManager instance;
     public static SaveManager Instance => instance;
 
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveData3.json");
+    private string savePath => Path.Combine(Application.persistentDataPath, "saveData5.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
@@ -41,7 +41,7 @@ public class SaveManager : SurMonoBehaviour
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
-        Debug.Log($"Game saved to {savePath}");
+       // Debug.Log($"Game saved to {savePath}");
     }
 
     protected virtual void ProgressSaveGame()
