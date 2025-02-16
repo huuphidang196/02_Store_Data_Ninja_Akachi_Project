@@ -138,24 +138,22 @@ public class GamePlayController : SystemController
         this.ResetValue();
     }
 
-    public virtual void StartLoadingSceneByNameSceneAfterWatchAds(string nameScene)
+    protected virtual void ConductSomeActionBeforeLoadScene()
     {
         this.ContinueGamePlay();
         SoundManagerOverall.Instance.BG_Sound_Scene_Play_Mode.IncreseOrderSound();
+    }
+
+    public virtual void StartLoadingSceneByNameSceneAfterWatchAds(string nameScene)
+    {
+        this.ConductSomeActionBeforeLoadScene();
         // Load Ads
         GoogleAdsManager.Instance.WatchVideoAdsAfterCompletedMissionOrEndGame(() => StartCoroutine(LoadSceneWithWait(nameScene)));
     }
 
-    public virtual void StartLoadingSceneByNameScene(string nameScene)
-    {
-        this.ContinueGamePlay();
-        StartCoroutine(LoadSceneWithWait(nameScene));     
-    }
-
     public override void StartLoadingSceneByOrderScene(int orderScene)
     {
-        this.ContinueGamePlay();
-        SoundManagerOverall.Instance.BG_Sound_Scene_Play_Mode.IncreseOrderSound();
+        this.ConductSomeActionBeforeLoadScene();
         // Load Ads
         GoogleAdsManager.Instance.WatchVideoAdsAfterCompletedMissionOrEndGame(() => base.StartLoadingSceneByOrderScene(orderScene));
 
@@ -163,5 +161,11 @@ public class GamePlayController : SystemController
     protected override void ConductActionWhileLoadingNewScene()
     {
         GamePlayUIManager.Instance.GamePlayUIOverall.GamePlayUICenter.UI_Image_BG_Loading.gameObject.SetActive(true);
+    }
+
+    public virtual void LoadNextStageAndConductAllActionSet()
+    {
+        this._SystemConfig.Current_Level += 1;
+        SaveManager.Instance.SaveGame();
     }
 }

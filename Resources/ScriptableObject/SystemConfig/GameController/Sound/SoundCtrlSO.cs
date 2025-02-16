@@ -154,7 +154,7 @@ public enum TypeProspectSound
 
     Sound_Ring_The_Bell = 801,
 
-    Sound_LanceTrapEventsAutoOn = 1001,
+    Sound_LanceTrap_Ground_EventsAutoOn = 1001,
 }
 
 public enum TypeWeaponSound

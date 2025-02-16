@@ -4,24 +4,24 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveManager : SurMonoBehaviour
+public class SaveManager : Singleton<SaveManager>
 {
-    private static SaveManager instance;
-    public static SaveManager Instance => instance;
+    //private static SaveManager instance;
+    //public static SaveManager Instance => instance;
 
     private string savePath => Path.Combine(Application.persistentDataPath, "saveData5.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
 
-    protected override void Awake()
-    {
-        base.Awake();
+    //protected override void Awake()
+    //{
+    //    base.Awake();
 
-        if (instance != null) Debug.LogError("Allow only SaveManager has been exist");
+    //    if (instance != null) Debug.LogError("Allow only SaveManager has been exist");
 
-        instance = this;
-    }
+    //    instance = this;
+    //}
 
     protected override void Start()
     {

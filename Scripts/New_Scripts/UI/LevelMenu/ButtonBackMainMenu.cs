@@ -10,7 +10,7 @@ public class ButtonBackMainMenu : BaseButton
 
         if (SaveManager.Instance != null) SaveManager.Instance.SaveGame();
 
-        Invoke(nameof(this.LoadMainMenu), 0.5f);
+        Invoke(nameof(this.LoadMainMenu), 1f);
     }
 
     protected virtual void LoadMainMenu()

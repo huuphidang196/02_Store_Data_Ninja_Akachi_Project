@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
+public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
 {
     [SerializeField] protected List<ObjectCtrl> _LanceObjects; // Danh sách các Lance
-    [SerializeField] protected float raiseHeight = 3.7f; // Độ cao nâng lên
     [SerializeField] protected float totalTime = 3f; // Tốc độ nâng lên
-
+    [SerializeField] protected float raiseHeight = 3.7f; // Độ cao nâng lên
     [SerializeField] protected List<Vector3> _StartPositions; // Lưu vị trí ban đầu của các lance
     [SerializeField] protected List<Vector3> _TargetPositions; // Lưu vị trí sau khi bật lên
 
@@ -34,23 +33,9 @@ public class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
             ObjectCtrl objCtrl = item.GetComponent<ObjectCtrl>();
             this._LanceObjects.Add(objCtrl);
         }
-
-        this._StartPositions.Add(this._LanceObjects[0].transform.position);
-        this._TargetPositions.Add(
-               new Vector3(this._LanceObjects[0].transform.position.x, this.transform.GetChild(this.transform.childCount - 1).position.y + raiseHeight, 0));
-
-        for (int i = 1; i < this._LanceObjects.Count; i++)
-        {
-            this._LanceObjects[i].transform.position =
-                new Vector3(this._LanceObjects[i - 1].transform.position.x - 0.5f, this._LanceObjects[i].transform.position.y, 0);
-            this._StartPositions.Add(this._LanceObjects[i].transform.position);
-            this._TargetPositions.Add(
-                new Vector3(this._LanceObjects[i].transform.position.x, this.transform.GetChild(this.transform.childCount - 1).position.y + raiseHeight, 0));
-        }
+    
     }
-
-
-    protected IEnumerator RaiseLances()
+    protected virtual IEnumerator RaiseLances()
     {
         float timePerLance = totalTime / this._LanceObjects.Count; // Thời gian cho mỗi Lance
 
@@ -71,13 +56,14 @@ public class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
 
             // Đảm bảo vị trí cuối cùng chính xác
             this._LanceObjects[i].transform.position = targetPos;
-            this.SpawnVFXWeaponByName(targetPos + 2f * Vector3.down);
+            this.SpawnVFXWeaponByName(targetPos + this.GetOffSetSpawnVFX(this._LanceObjects[i].transform));
         }
     }
 
+    protected abstract Vector3 GetOffSetSpawnVFX(Transform lance);
     protected virtual void SpawnVFXWeaponByName(Vector3 lanceStartpos)
     {
-        Transform vfx_Need = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Ground_Emit, lanceStartpos, Quaternion.identity);
+        Transform vfx_Need = VFXObjectSpawner.Instance.Spawn(this.GetNamVFXSpawn(), lanceStartpos, Quaternion.identity);
 
         if (vfx_Need == null) return;
 
@@ -86,9 +72,14 @@ public class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
 
     }
 
+    protected virtual  string GetNamVFXSpawn()
+    {
+        return VFXObjectSpawner.VFX_Ground_Emit;
+    }
+
     protected override void ConductActionEvents()
     {
         StartCoroutine(RaiseLances());
     }
-}
 
+}

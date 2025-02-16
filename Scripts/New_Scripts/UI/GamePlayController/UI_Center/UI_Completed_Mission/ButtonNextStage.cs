@@ -8,6 +8,7 @@ public class ButtonNextStage : BaseButton
     {
         base.OnClick();
 
+        GamePlayController.Instance.LoadNextStageAndConductAllActionSet();
         GamePlayController.Instance.StartLoadingSceneByOrderScene(GamePlayController.Instance.SystemConfig.Current_Level + 1);
 
     }
