@@ -77,7 +77,7 @@ public class GateEntranceAutoRun : SurMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (this._Gate_Entrance.Count == 0) return;
+        if (this._Gate_Entrance.Count == 0 || this.wasCom_Mission) return;
 
         if (PlayerCtrl.Instance.transform.position.x - this._Gate_Entrance[this._Gate_Entrance.Count - 1].Gate.position.x >= 0)
         {
