@@ -3,18 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MovableObjectMovement : MovableObjAbstract
+public abstract class MovableObjectMovementFlip : MovableObjMovement
 {
-    [Header("MovableObjectMovement")]
-
-    [SerializeField] protected Rigidbody2D _Rigidbody2D;
-    public Rigidbody2D Rigidbody2D => _Rigidbody2D;
-
-    [SerializeField] protected float _Horizontal = 0f;
-    [SerializeField] protected float _Speed_Move_Horizontal = 8f;///Set from scriptable Object
-
-    [SerializeField] protected bool isFacingRight = true;
-    [SerializeField] protected bool _Move_Right = false;
 
     protected override void ResetValue()
     {
@@ -25,21 +15,7 @@ public abstract class MovableObjectMovement : MovableObjAbstract
 
     protected virtual void ResetDataConfiguration()
     {
-        //    this._Speed_MoveHorizontal = this._MovableObjCtrl.MObjScriptableObject.Speed_Horizontal;
-    }
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-
-        this.LoadRigidbody2D();
-    }
-
-    protected virtual void LoadRigidbody2D()
-    {
-        if (this._Rigidbody2D != null) return;
-
-        this._Rigidbody2D = this._MovableObjCtrl.transform.GetComponent<Rigidbody2D>();
+       
     }
 
     protected virtual void Update()

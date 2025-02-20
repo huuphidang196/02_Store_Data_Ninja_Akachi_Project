@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponCharacterMovement : MovableObjectMovement
+public class WeaponCharacterMovement : MovableObjectMovementFlip
 {
     public WeaponCharacterCtrl WeaponCharacterCtrl => this._MovableObjCtrl as WeaponCharacterCtrl;
 

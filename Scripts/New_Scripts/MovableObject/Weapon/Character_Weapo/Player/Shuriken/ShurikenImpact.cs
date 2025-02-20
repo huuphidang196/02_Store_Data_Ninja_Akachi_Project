@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShurikenImpact : WeaponCharacterImpact
 {
-
     protected override void EventImpactEnter2D(GameObject col)
     {
         if (this.isImpact) return;

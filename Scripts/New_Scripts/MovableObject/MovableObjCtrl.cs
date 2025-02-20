@@ -10,8 +10,8 @@ public abstract class MovableObjCtrl : ObjectCtrl
     [SerializeField] protected MObjScriptableObject _MObjScriptableObject;
     public MObjScriptableObject MObjScriptableObject => _MObjScriptableObject;
 
-    [SerializeField] protected MovableObjectMovement _MovableObj_Movement;
-    public MovableObjectMovement MovableObj_Movement => _MovableObj_Movement;
+    [SerializeField] protected MovableObjMovement _MovableObj_Movement;
+    public MovableObjMovement MovableObj_Movement => _MovableObj_Movement;
 
     protected override void LoadComponents()
     {
@@ -44,7 +44,7 @@ public abstract class MovableObjCtrl : ObjectCtrl
     {
         if (this._MovableObj_Movement != null) return;
 
-        this._MovableObj_Movement = GetComponentInChildren<MovableObjectMovement>();
+        this._MovableObj_Movement = GetComponentInChildren<MovableObjMovement>();
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterObjMovement : MovableObjectMovement
+public abstract class CharacterObjMovement : MovableObjectMovementFlip
 {
     [Header("CharacterObjMovement")]
 

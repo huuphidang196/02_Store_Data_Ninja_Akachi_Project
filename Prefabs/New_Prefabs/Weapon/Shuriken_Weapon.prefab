@@ -98,6 +98,11 @@ MonoBehaviour:
   _Speed_Move_Horizontal: 25
   isFacingRight: 1
   _Move_Right: 0
+  _Rigidbody2D: {fileID: 8877227070145469769}
+  _Horizontal: 25
+  _Speed_Move_Horizontal: 25
+  isFacingRight: 1
+  _Move_Right: 0
 --- !u!1 &3860715676569776889
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +257,7 @@ MonoBehaviour:
   _MObjScriptableObject: {fileID: 11400000, guid: 114a3faddf4323d4d8fc130e145975ed, type: 2}
   _MovableObj_Movement: {fileID: 941184002988405401}
   _Model: {fileID: 1920851156009785146}
-  _WeaponCharacterVFXManager: {fileID: 0}
+  _WeaponCharacterVFXManager: {fileID: 1445824736038203464}
 --- !u!50 &8877227070145469769
 Rigidbody2D:
   serializedVersion: 4
@@ -668,7 +673,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 8520175148213268555}
   _boxCollider: {fileID: 6724633032081093313}
-  isImpact_Trigger: 0
   _TypeImpact: 0
 --- !u!61 &6724633032081093313
 BoxCollider2D:
