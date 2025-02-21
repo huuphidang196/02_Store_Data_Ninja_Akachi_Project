@@ -22,6 +22,5 @@ public abstract class ObjDespawn : ObjectAbstract
  
     //Tùy theo despawn by distance or time, nên chắc chắc candespawn sẽ bị ghi đè, 2 concept khác nhau nên để abstract
     protected abstract bool CanDespawn();
-
      
 }

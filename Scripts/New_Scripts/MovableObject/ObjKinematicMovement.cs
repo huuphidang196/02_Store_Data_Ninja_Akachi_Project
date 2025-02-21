@@ -10,6 +10,7 @@ public abstract class ObjKinematicMovement : MovableObjectMovementFlip
         base.ResetValue();
 
         this._Speed_Move_Horizontal = this.GetSpeedMoveHorizontal();
+
     }
 
     protected abstract float GetSpeedMoveHorizontal();

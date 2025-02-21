@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - VCStoneMoveSky
+  - Ground
+  - Enemy
+  - FxTemporaire
+  - btnLeft
+  - btnRight
+  - btnJump
+  - btnStart
+  - pnlPausePanel
+  - SLTime
+  - pnlEndGame
+  - CNhon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Test6
+  - BG_Behind
+  - BackGround
+  - Test9
+  - Player
+  - Test11
+  - WeaponPlayer
+  - WeaponEnemy
+  - Enemy
+  - ObjDeadCharacter
+  - Test16
+  - Ground
+  - Item
+  - ItemLootable
+  - BoxChangeDir
+  - Test21
+  - Test22
+  - LethalObstacles
+  - Test24
+  - Test25
+  - ObjInteractableShuriken
+  - Test27
+  - PlayerHiddenMode
+  - StaticProspect
+  - PlayerDead
+  - Test31
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2424153585
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 3928980359
+    locked: 0
+  - name: FaceGround
+    uniqueID: 3480336805
+    locked: 0
+  - name: Character
+    uniqueID: 269259703
+    locked: 0
+  - name: BehindProspect
+    uniqueID: 1574564123
+    locked: 0
+  - name: UI
+    uniqueID: 2642157737
+    locked: 0

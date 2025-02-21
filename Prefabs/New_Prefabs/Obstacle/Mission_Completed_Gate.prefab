@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920959998362667490}
   - component: {fileID: 1607828462661773840}
-  m_Layer: 17
+  m_Layer: 29
   m_Name: Model_Forrward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,9 +214,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 908877463
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: -255934338, guid: f5f9ea2680a8fd24fbe702349d2304d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017015807771787019}
   - component: {fileID: 6609914686968569033}
-  m_Layer: 17
+  m_Layer: 0
   m_Name: Staircases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,11 +342,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.6765442, y: -2.2998729}
+    - - {x: 5.5914, y: -2.7238655}
+      - {x: 1.6765442, y: -2.2998729}
       - {x: 0.10805601, y: -2.268499}
       - {x: -1.8247848, y: -2.836103}
       - {x: -0.556044, y: -2.8245106}
-      - {x: 4.8913946, y: -2.8260407}
+      - {x: 6.831397, y: -2.8770933}
   m_UseDelaunayMesh: 0
 --- !u!1 &7026007883674629330
 GameObject:
@@ -570,6 +571,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Stone of Recall_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2183321564951531335, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319273174036298326, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -635,6 +644,14 @@ PrefabInstance:
     - target: {fileID: 2183321564951531335, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Stone of Recall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183321564951531335, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319273174036298326, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

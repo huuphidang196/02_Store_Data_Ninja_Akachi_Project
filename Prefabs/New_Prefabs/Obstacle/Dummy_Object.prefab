@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3873982011020337850}
   - component: {fileID: 2703827201364997860}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8038695535884952828}
   - component: {fileID: 4248094952072781492}
   - component: {fileID: 7531055762946286008}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: ObjDamReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3451756242166459156}
-  m_Layer: 7
+  m_Layer: 26
   m_Name: Dummy_Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}

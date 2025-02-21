@@ -8,6 +8,12 @@ public class DynamicBridgeMovement : ObjKinematicMovement
 
     [SerializeField] protected DynamicMovementCtrl _DynamicMovementCtrl;
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this._Horizontal = this._Speed_Move_Horizontal;
+    }
     protected override void LoadComponents()
     {
         this.LoadDynamicMovementCtrl();
@@ -27,6 +33,8 @@ public class DynamicBridgeMovement : ObjKinematicMovement
         if (this._Rigidbody2D != null) return;
 
         this._Rigidbody2D = this._DynamicMovementCtrl.transform.GetComponent<Rigidbody2D>();
+        this._Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+        this._Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
     protected override float GetSpeedMoveHorizontal()

@@ -71,8 +71,8 @@ MonoBehaviour:
   - {fileID: 25991266578133664}
   - {fileID: 1699358202043917541}
   - {fileID: 5555644614106453493}
-  raiseHeight: 3.7
   totalTime: 3
+  raiseHeight: 3.7
   _StartPositions:
   - {x: 144.50002, y: -3.9499998, z: 0}
   - {x: 144.00002, y: -4.462, z: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 9186598989822587359}
   - component: {fileID: 2329055365707127610}
   - component: {fileID: 8214813402692959826}
-  m_Layer: 19
+  m_Layer: 0
   m_Name: Sound_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

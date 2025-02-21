@@ -43,8 +43,7 @@ public class PlayerDamReceiver : ObjDamageReceiver
         this.PlayerCtrl.PlayerObjDead.EventPlayerDead();
 
         InputManager.Instance.SetFalseAllBoolWhenPlayerDead();
-        //  Debug.Log("Player Dead");
-
+       
         this.ChangeLayerPlayerByName("PlayerDead");
 
     }
