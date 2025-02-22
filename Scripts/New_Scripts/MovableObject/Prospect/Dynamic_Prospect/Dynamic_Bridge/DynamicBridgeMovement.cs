@@ -17,4 +17,10 @@ public class DynamicBridgeMovement : MovableObjKinematicMovement
 
         this._Horizontal = this._Speed_Move_Horizontal;
     }
+
+    protected override void Flip()
+    {
+        //must null
+    }
+
 }

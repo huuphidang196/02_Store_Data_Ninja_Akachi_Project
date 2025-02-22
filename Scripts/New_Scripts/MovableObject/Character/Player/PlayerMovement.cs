@@ -11,7 +11,7 @@ public class PlayerMovement : CharacterObjMovement
     [Header("PlayerMovement")]
 
     [SerializeField] protected bool _Move_Left = false;
-    //public bool Move_Left => _Move_Left;
+    public bool Move_Left => _Move_Left;
 
     [SerializeField] protected bool _First_Jump = false;
     public bool First_Jump => this._First_Jump;

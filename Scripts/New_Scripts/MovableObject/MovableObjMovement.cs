@@ -14,7 +14,7 @@ public class MovableObjMovement : MovableObjAbstract
 
     [SerializeField] protected bool isFacingRight = true;
     [SerializeField] protected bool _Move_Right = true;
-
+    public bool Move_Right => this._Move_Right;
     protected override void LoadComponents()
     {
         base.LoadComponents();

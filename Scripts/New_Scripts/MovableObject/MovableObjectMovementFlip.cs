@@ -22,7 +22,7 @@ public abstract class MovableObjectMovementFlip : MovableObjMovement
     {
         //if (GameController.Instance.PauseGame) return;
 
-        if (this._MovableObjCtrl.ObjDamageReceiver.ObjIsDead) this._Horizontal = 0;
+        if (this._MovableObjCtrl.ObjDamageReceiver != null && this._MovableObjCtrl.ObjDamageReceiver.ObjIsDead) this._Horizontal = 0;
         
         this.FucntionBaseUpdateMovableObjectMovement();       
 
