@@ -8,7 +8,7 @@ public class DynamicProspectImpact : MovableObjImpactToChangeDir
 
     protected override void ProcessAfterObjectImpacted()
     {
-        this.DynamicMovementCtrl.ObjKinematicMovement.ChangeDir();
+        this.DynamicMovementCtrl.MovableObjKinematicMovement.ChangeDir();
 
     }
 }

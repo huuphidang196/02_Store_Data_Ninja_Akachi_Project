@@ -3,14 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjKinematicMovement : MovableObjectMovementFlip
+public abstract class MovableObjKinematicMovement : MovableObjectMovementFlip
 {
-    protected override void ResetValue()
+    protected override void ResetDataConfiguration()
     {
-        base.ResetValue();
-
+        base.ResetDataConfiguration();
         this._Speed_Move_Horizontal = this.GetSpeedMoveHorizontal();
-
     }
 
     protected abstract float GetSpeedMoveHorizontal();

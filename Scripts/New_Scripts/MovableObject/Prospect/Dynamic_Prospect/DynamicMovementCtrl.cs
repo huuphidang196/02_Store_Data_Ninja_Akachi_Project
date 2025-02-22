@@ -3,23 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicMovementCtrl : ObjectCtrl
+public class DynamicMovementCtrl : MovableObjCtrl
 {
-    [SerializeField] protected ObjKinematicMovement _ObjKinematicMovement;
-    public ObjKinematicMovement ObjKinematicMovement => this._ObjKinematicMovement;
+    public MovableObjKinematicMovement MovableObjKinematicMovement => this._MovableObj_Movement as MovableObjKinematicMovement;
 
-
-    protected override void LoadComponents()
+    protected override string GetNameFolderTypeObject()
     {
-        base.LoadComponents();
-
-        this.LoadObjKinematicMovement();
-    }
-
-    protected virtual void LoadObjKinematicMovement()
-    {
-        if (this._ObjKinematicMovement != null) return;
-
-        this._ObjKinematicMovement = GetComponentInChildren<ObjKinematicMovement>();
+        return "Prospect";
     }
 }

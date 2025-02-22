@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2693469594246211813}
   - component: {fileID: 9162976878675254021}
   - component: {fileID: 6791866666053783250}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 7125123321907859204}
   - component: {fileID: 8843477517420887483}
   - component: {fileID: 7720979828404936496}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Stone_Scroll_Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 6155599546093334603}
   - component: {fileID: 914838898275543546}
   - component: {fileID: 4257529400877553647}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjDamReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5798110434834920025}
   - component: {fileID: 1592944652927744579}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272820481535585986}
   - component: {fileID: 8598865874650793136}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjDead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2735159147671613054}
   - component: {fileID: 1017847098272435467}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: ObjDamSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}

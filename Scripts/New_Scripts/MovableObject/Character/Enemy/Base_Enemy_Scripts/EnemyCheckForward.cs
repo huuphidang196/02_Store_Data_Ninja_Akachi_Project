@@ -91,6 +91,8 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected virtual bool CheckConditionAllowFlip()
     {
+        if (this._TargetFollow.gameObject.layer == LayerMask.NameToLayer("PlayerDead")) return false;
+
         for (int i = 1; i < this._ObjForwardLayer.Length; i++)
         {
             if (this.CheckForwardIsHaveRightObjectLayerCustom(this._ObjForwardLayer[i])) return false;
