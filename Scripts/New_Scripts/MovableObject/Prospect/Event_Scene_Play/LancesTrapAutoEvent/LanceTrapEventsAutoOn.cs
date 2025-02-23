@@ -48,7 +48,7 @@ public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlay
             // Di chuyển từ từ đến vị trí target
             while (elapsedTime < timePerLance)
             {
-                elapsedTime += Time.fixedDeltaTime;
+                elapsedTime += Time.deltaTime;
                 float t = elapsedTime / timePerLance;
                 this._LanceObjects[i].transform.position = Vector3.Lerp(startPos, targetPos, t);
                 yield return null;

@@ -6,7 +6,7 @@ public class ObjDisableOrEnableFollowTargetManager : EventScenePlayAutoOnByDista
 {
     [SerializeField] protected Transform _Obj_Action;
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
         if (this._Obj_Action == null) return;
 

@@ -14,7 +14,7 @@ public abstract class EventScenePlayAutoOnByDistancePlayer : SurMonoBehaviour
         base.ResetValue();
         this.activated = false;
     }
-    protected virtual void FixedUpdate()
+    protected virtual void Update()
     {
         // Kiểm tra khoảng cách với Player
         if (activated) return;

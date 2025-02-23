@@ -17,6 +17,12 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
         this.LoadListPoision();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this._Timer = 0f;
+    }
     protected virtual void LoadListPoision()
     {
         if (this._List_Poisions.Count > 0) return;
@@ -46,7 +52,7 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
         {
             if ((i % 2 == 0 && isAlternating) || (i % 2 != 0 && !isAlternating))
             {
-                this.SetEmissionRate(this._List_Poisions[i], 200);
+                this.SetEmissionRate(this._List_Poisions[i], 50);
                 continue;
             }
 

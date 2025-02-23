@@ -3,31 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicProspectEnableByDistanceManager : ObjDisableOrEnableFollowTargetManager
+public class DynamicProspectEnableByDistanceManager : HolderObjectActivePoolByDistance
 {
-    [SerializeField] protected DynamicMovementCtrl _DynamicMovementCtrl;
+    [SerializeField] protected float _Active_Distance = 25f;
 
-    protected override void LoadComponents()
+    protected override float GetActiveDistance()
     {
-        base.LoadComponents();
-
-        this.LoadDynamicMovementCtrl();
+        return this._Active_Distance;
     }
-
-    protected virtual void LoadDynamicMovementCtrl()
-    {
-        if (this._DynamicMovementCtrl != null) return;
-
-        this._DynamicMovementCtrl = transform.Find("DynamicProspect_Bridge_Horizontal_Movement").GetComponent<DynamicMovementCtrl>();
-        this._DynamicMovementCtrl.gameObject.SetActive(false);
-    }
-
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-
-        this.activationDistance = this._DynamicMovementCtrl.DynamicProspectObjMovementSO.Distance_Active;
-        this._Obj_Action = this._DynamicMovementCtrl.transform;
-    }
-
 }
