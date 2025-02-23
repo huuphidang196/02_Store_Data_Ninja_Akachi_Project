@@ -12,7 +12,7 @@ public class LanceTrapsAutoOnSoundManager : ObjSoundRunOnlyOnce
 
     protected override void Update()
     {
-        if (!this.LanceTrapEventCtrl.LanceTrapEventsAutoOn.LancesActivated) return;
+        if (!this.LanceTrapEventCtrl.LanceTrapEventsAutoOn.Activated) return;
 
         base.Update();
 

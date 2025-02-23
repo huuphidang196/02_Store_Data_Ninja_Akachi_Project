@@ -24,11 +24,13 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
         foreach (Transform item in this.transform)
         {
             ParticleSystem par = item.GetComponentInChildren<ParticleSystem>();
+            if (par == null) continue;
+
             this._List_Poisions.Add(par);
         }
     }
 
-   protected virtual void Update()
+    protected virtual void Update()
     {
         this._Timer += Time.deltaTime;
 
@@ -59,7 +61,7 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
         emission.rateOverTime = rate;
     }
 
-   protected virtual IEnumerator FadeEmissionToZero(ParticleSystem particleSystem)
+    protected virtual IEnumerator FadeEmissionToZero(ParticleSystem particleSystem)
     {
         var emission = particleSystem.emission;
         float startRate = emission.rateOverTime.constant;
@@ -75,5 +77,13 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
 
         // Đảm bảo emission về đúng 0 sau khi kết thúc
         emission.rateOverTime = 0;
+    }
+
+    public virtual void SetActiveOrInActveAllWaterFall(bool active)
+    {
+        foreach (ParticleSystem item in this._List_Poisions)
+        {
+            item.gameObject.SetActive(active);
+        }
     }
 }

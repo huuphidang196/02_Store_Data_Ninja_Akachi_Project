@@ -6,6 +6,8 @@ using UnityEngine;
 public class DynamicMovementCtrl : MovableObjCtrl
 {
     public MovableObjKinematicMovement MovableObjKinematicMovement => this._MovableObj_Movement as MovableObjKinematicMovement;
+    public DynamicProspectObjMovementSO DynamicProspectObjMovementSO => this._MObjScriptableObject as DynamicProspectObjMovementSO;
+
     [Header("DynamicMovementCtrl")]
 
     [SerializeField] protected DynamicProspectContainerPlayer _DynamicProspectContainerPlayer;

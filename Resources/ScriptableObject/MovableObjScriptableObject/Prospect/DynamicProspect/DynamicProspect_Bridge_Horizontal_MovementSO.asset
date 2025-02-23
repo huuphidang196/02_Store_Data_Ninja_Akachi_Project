@@ -15,3 +15,4 @@ MonoBehaviour:
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
   Speed_Move_Horizontal: 3
   Max_HP: 9999
+  Distance_Active: 45
