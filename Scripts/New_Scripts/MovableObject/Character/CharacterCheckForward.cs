@@ -97,7 +97,7 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
     protected virtual void GenerateAndDrawAllRaycastHits()
     {
         this._Direction_Raycast2D = this.GetDirectionRaycast();
-        Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D, Color.red);
+        //Debug.DrawRay(this._PosForwardCheck.position, this._Direction_Raycast2D, Color.red);
         // Thực hiện Raycast
         this._Hits = Physics2D.RaycastAll(this._PosForwardCheck.position, this._Direction_Raycast2D.normalized, this._Direction_Raycast2D.magnitude);
     }

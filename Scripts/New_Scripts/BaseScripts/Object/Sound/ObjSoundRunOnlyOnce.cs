@@ -5,31 +5,29 @@ using UnityEngine;
 
 public abstract class ObjSoundRunOnlyOnce : ObjSoundWasEffectByMusicChanging
 {
+    [SerializeField] protected bool isActived = false;
+
     protected override void OnEnable()
     {
         base.OnEnable();
 
-        this._AudioSource.clip = null;
+        this.isActived = false;
     }
     protected virtual void Update()
     {
-        if (this._AudioSource.clip != null) return;
-
-        if (this._AudioSource.isPlaying) return;
+        if (this.isActived) return;
 
         StartCoroutine(this.PlaySoundOnce());
     }
 
     protected IEnumerator PlaySoundOnce()
     {
-        while (this._AudioSource.clip == null)
-        {
-            yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.01f);
 
-            AudioClip audioClip = this.GetAudioClipToRun();
+        AudioClip audioClip = this.GetAudioClipToRun();
 
-            this.PlaySound(audioClip);
-        }
+        this.PlaySound(audioClip);
+        this.isActived = true;
     }
 
     protected abstract AudioClip GetAudioClipToRun();

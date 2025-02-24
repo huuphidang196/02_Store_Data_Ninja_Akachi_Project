@@ -8,7 +8,8 @@ public class ItemBrokeSpawnMoney : ItemDamReceiver
     protected override void OnDead()
     {
         this.SpawnMoneyBag();
-        base.OnDead();
+        // base.OnDead();
+        Destroy(this.ItemDropCtrl.gameObject);
     }
 
     protected virtual void SpawnMoneyBag()

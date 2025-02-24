@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjDisableParentByTargetByTarget : ObjDisableOrEnableFollowTargetManager
+public class ObjDisableParentByDistaneCompareTarget : ObjDisableOrEnableFollowTargetManager
 {
     protected override void ResetValue()
     {
