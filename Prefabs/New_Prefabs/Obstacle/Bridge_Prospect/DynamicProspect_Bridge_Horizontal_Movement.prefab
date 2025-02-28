@@ -54,7 +54,7 @@ MonoBehaviour:
   _ObjDamageSender: {fileID: 0}
   _ObjImpact_Overall: {fileID: 5598014641925657889}
   _MObjScriptableObject: {fileID: 11400000, guid: 25458b9f6bdb2254fabf681aede2300e, type: 2}
-  _MovableObj_Movement: {fileID: 4388952732387212211}
+  _MovableObj_Movement: {fileID: 8236212754669278935}
   _DynamicProspectContainerPlayer: {fileID: 1768821761593995586}
 --- !u!50 &3379093542641079417
 Rigidbody2D:
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6711429143414891448}
-  - component: {fileID: 4388952732387212211}
+  - component: {fileID: 8236212754669278935}
   m_Layer: 17
   m_Name: ObjMovement
   m_TagString: Untagged
@@ -414,7 +414,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4696385284315076526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4388952732387212211
+--- !u!114 &8236212754669278935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8097473530794837928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e637cb0d97bcc74a90a660376a40c39, type: 3}
+  m_Script: {fileID: 11500000, guid: 139eacb631978ce46af7bdd2d752075c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _MovableObjCtrl: {fileID: 421160747979127705}
@@ -432,7 +432,9 @@ MonoBehaviour:
   _Speed_Move_Horizontal: 3
   isFacingRight: 1
   _Move_Right: 1
-  _Old_Position: {x: 13.5, y: -4.91, z: 0}
+  _Vertical: 0
+  _Speed_Move_Vertical: 0
+  _Old_Position: {x: 201.2, y: 5.7, z: 0}
 --- !u!1001 &1842442147048450651
 PrefabInstance:
   m_ObjectHideFlags: 0
