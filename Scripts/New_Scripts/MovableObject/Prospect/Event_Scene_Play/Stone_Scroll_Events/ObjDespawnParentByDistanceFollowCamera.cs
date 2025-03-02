@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneScrollEventsDespawnByDistance : ObjDespawnByDistance
+public class ObjDespawnParentByDistanceFollowCamera : ObjDespawnByDistance
 {
-    [SerializeField] protected Transform _Stone_Scroll_Events;
+    [SerializeField] protected Transform _Parent_Desapawn;
 
     protected override void LoadComponents()
     {
@@ -16,9 +16,9 @@ public class StoneScrollEventsDespawnByDistance : ObjDespawnByDistance
 
     protected virtual void LoadStoneScrollEvents()
     {
-        if (this._Stone_Scroll_Events != null) return;
+        if (this._Parent_Desapawn != null) return;
 
-        this._Stone_Scroll_Events = transform.parent;
+        this._Parent_Desapawn = transform.parent;
     }
 
     protected override float GetDistanceLimit() => 30f;
@@ -33,6 +33,6 @@ public class StoneScrollEventsDespawnByDistance : ObjDespawnByDistance
 
     public override void DespawnObject()
     {
-        this._Stone_Scroll_Events.gameObject.SetActive(false);
+        this._Parent_Desapawn.gameObject.SetActive(false);
     }
 }
