@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 770254340218472176}
   _OldPos: {x: 311.1, y: 0, z: 0}
+  _Time_Delay_Drop: 3
 --- !u!1 &8624914585397314473
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,5 +428,5 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 770254340218472176}
   _Target: {fileID: 0}
   distance: 0
-  distanceLimit: 150
+  distanceLimit: 300
   _Parent_Desapawn: {fileID: 8128873104179492923}

@@ -6,8 +6,6 @@ public class WeaponCharacterDespawnByDistance : ObjDespawnByDistance
 {
     public WeaponCharacterCtrl WeaponCharacterCtrl => this._ObjectCtrl as WeaponCharacterCtrl;
 
-    protected override float GetDistanceLimit() => 50f;
-
     protected override void Start()
     {
         base.Start();

@@ -21,7 +21,6 @@ public class ObjDespawnParentByDistanceFollowCamera : ObjDespawnByDistance
         this._Parent_Desapawn = transform.parent;
     }
 
-    protected override float GetDistanceLimit() => 30f;
    
     protected override void Start()
     {

@@ -22,7 +22,6 @@ public class ObjDespawnByDistance : ObjDespawn
     protected virtual void ReBorn()
     {
         this.distance = 0;
-        this.distanceLimit = this.GetDistanceLimit();
     }
 
     protected virtual void SetTargetToReference(Transform Target)
@@ -36,8 +35,6 @@ public class ObjDespawnByDistance : ObjDespawn
 
         this.ReBorn();
     }
-
-    protected virtual float GetDistanceLimit() => 30f;
 
     protected override bool CanDespawn()
     {
