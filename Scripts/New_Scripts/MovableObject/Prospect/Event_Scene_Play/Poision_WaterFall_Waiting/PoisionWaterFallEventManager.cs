@@ -52,7 +52,7 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
         {
             if ((i % 2 == 0 && isAlternating) || (i % 2 != 0 && !isAlternating))
             {
-                this.SetEmissionRate(this._List_Poisions[i], 50);
+                this.SetEmissionRate(this._List_Poisions[i], 150);
                 continue;
             }
 
