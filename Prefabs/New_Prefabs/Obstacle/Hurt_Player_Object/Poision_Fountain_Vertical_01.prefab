@@ -8936,7 +8936,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9044,7 +9044,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 268436480
+      m_Bits: 268567552
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
