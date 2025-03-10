@@ -5,26 +5,12 @@ using UnityEngine;
 
 public class BearTrapImpact : ObjImpactTargetPlayerAndHidenModePlayer
 {
-    [SerializeField] protected ObjActionNip _ObjActionNip;
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-
-        this.LoadObjActionNip();
-    }
-
-    protected virtual void LoadObjActionNip()
-    {
-        if (this._ObjActionNip != null) return;
-
-        this._ObjActionNip = GetComponentInParent<ObjActionNip>();
-    }
+    public JawBearTrapCtrl JawBearTrapCtrl => this._ObjectCtrl as JawBearTrapCtrl;
 
     protected override void EventImpactEnter2D(GameObject col)
     {
         //base.EventImpactEnter2D(col);
 
-        this._ObjActionNip.CloseTrap();
+        this.JawBearTrapCtrl.ObjActionNipIndependantManager.CloseTrap();
     }
 }

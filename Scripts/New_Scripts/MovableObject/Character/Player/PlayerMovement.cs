@@ -45,6 +45,10 @@ public class PlayerMovement : CharacterObjMovement
     [SerializeField] protected bool isRiviving;
     public bool IsRiviving => isRiviving;
 
+    [SerializeField] protected bool isStunned = false;
+    public bool IsStunned { get => isStunned; set => isStunned = value; }
+
+
     [SerializeField] protected float _Speed_Hiding_Horizontal = 1.5f;
     [SerializeField] protected float _HidenTime = 5f;
 
@@ -101,6 +105,8 @@ public class PlayerMovement : CharacterObjMovement
 
         if (this.isDashing) return;//wait couroutine
 
+        if (this.isStunned) return;//Was stunned
+     
         this.UpdateBoolByInputManager();
 
         if (this.isRiviving)
@@ -174,8 +180,14 @@ public class PlayerMovement : CharacterObjMovement
             this._Rigidbody2D.velocity = new Vector2(0, this._Rigidbody2D.velocity.y);
             return;
         }
-
+  
         if (this.isDashing) return;
+
+        if (this.isStunned)
+        {
+            this._Rigidbody2D.velocity = new Vector2(0, 0);
+            return;
+        }
 
         if (!this.isWallJumping)
         {
