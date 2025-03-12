@@ -48,7 +48,6 @@ public class PlayerMovement : CharacterObjMovement
     [SerializeField] protected bool isStunned = false;
     public bool IsStunned { get => isStunned; set => isStunned = value; }
 
-
     [SerializeField] protected float _Speed_Hiding_Horizontal = 1.5f;
     [SerializeField] protected float _HidenTime = 5f;
 
@@ -103,9 +102,9 @@ public class PlayerMovement : CharacterObjMovement
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
-        if (this.isDashing) return;//wait couroutine
-
         if (this.isStunned) return;//Was stunned
+
+        if (this.isDashing) return;//wait couroutine
      
         this.UpdateBoolByInputManager();
 
@@ -135,6 +134,7 @@ public class PlayerMovement : CharacterObjMovement
     protected virtual void PressHiddenEvent()
     {
         // if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
+        if (this.isStunned) return;//Was stunned
 
         if (!InputManager.Instance.Press_Hidden_Mode)
         {
@@ -153,6 +153,8 @@ public class PlayerMovement : CharacterObjMovement
     {
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
+        if (this.isStunned) return;//Was stunned
+
         if (this.isDashing) return;
 
         StartCoroutine(this.Dash());
@@ -169,25 +171,14 @@ public class PlayerMovement : CharacterObjMovement
 
     protected virtual void FixedUpdate()
     {
-        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead)
+        if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead || this.isStunned || this.isRiviving)
         {
             this._Rigidbody2D.velocity = new Vector2(0, this._Rigidbody2D.velocity.y);
             return;
         }
 
-        if (this.isRiviving)
-        {
-            this._Rigidbody2D.velocity = new Vector2(0, this._Rigidbody2D.velocity.y);
-            return;
-        }
   
         if (this.isDashing) return;
-
-        if (this.isStunned)
-        {
-            this._Rigidbody2D.velocity = new Vector2(0, 0);
-            return;
-        }
 
         if (!this.isWallJumping)
         {
@@ -240,7 +231,6 @@ public class PlayerMovement : CharacterObjMovement
         float speed_Move = !this.isHiding ? this._Speed_Move_Horizontal : this._Speed_Hiding_Horizontal;
 
         this._Horizontal = (this._Move_Left) ? -1f * speed_Move : 1f * speed_Move;
-
     }
 
     protected virtual bool IsGrounded()
@@ -318,6 +308,7 @@ public class PlayerMovement : CharacterObjMovement
     {
         isDashing = true;
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", true);
+        this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "StopTrap", true);
         this._PlayerCtrl.PlayerSoundManager.PlaySoundDashing();
         // Should set not interact with enemy
         this._Rigidbody2D.gravityScale = 0f;
@@ -327,7 +318,7 @@ public class PlayerMovement : CharacterObjMovement
 
         this._Rigidbody2D.gravityScale = this._Original_Gravity;
         isDashing = false;
-        this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", false);
+        this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "StopTrap", false);
 
     }
     protected virtual IEnumerator Hiden()

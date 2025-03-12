@@ -24,6 +24,9 @@ public class PlayerAnimation : CharacterAnimation
     [SerializeField] protected bool _Rivive_Again_Ani = false;
     public bool Rivive_Again_Ani => this._Rivive_Again_Ani;
 
+    [SerializeField] protected bool isStunned = false;
+    public bool IsStunned => isStunned;
+
     [SerializeField] protected SpriteRenderer _SpriteRenderer;
 
     protected override void LoadAllClipsAnimation()
@@ -73,6 +76,8 @@ public class PlayerAnimation : CharacterAnimation
     protected virtual void UpdateAnimationControllers()
     {
         this.SetBoolNoRepeat("isDead", this.isDead);
+
+        this.SetBoolNoRepeat("isStunned", this.IsStunned);
         this.SetBoolNoRepeat("isRiviving", this._Rivive_Again_Ani);
         this.SetBoolNoRepeat("isHiding", this.isHiding);
         this.SetBoolNoRepeat("isDashing", this.isDashing);
@@ -91,7 +96,6 @@ public class PlayerAnimation : CharacterAnimation
 
         this.SetTimeDurationByAnimationClip(this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
-     
     }
 
     protected virtual void SetBoolNoRepeat(string variableBool, bool actives)
@@ -106,7 +110,7 @@ public class PlayerAnimation : CharacterAnimation
         if (this._Animator.GetFloat(variableBool) == num) return;
 
         this._Animator.SetFloat(variableBool, num);
-    }    
+    }
     protected virtual void PerformAttackThrow()
     {
         this._Attack_Throw_Ani = true;
@@ -128,6 +132,8 @@ public class PlayerAnimation : CharacterAnimation
 
         this._Run_Ani = (!this.isDead && this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround
             && InputManager.Instance.Press_Left != InputManager.Instance.Press_Right && !this.isDashing && !this.isHiding) || GateEntranceAutoRun.Instance.IsEntranceAuto;
+
+        this.isStunned = this._PlayerCtrl.PlayerMovement.IsStunned;
     }
 
     protected virtual void SetAnimationHidenSetup()

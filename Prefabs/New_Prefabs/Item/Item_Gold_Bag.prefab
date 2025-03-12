@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f543a269014a84daa9eb10cfdd5f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ItemDropCtrl: {fileID: 4012264196082280292}
+  _ObjectCtrl: {fileID: 4012264196082280292}
   _Rigidbody2D: {fileID: 7485670610245846374}
   _AVR_Force: 0.7
   _Force: 10
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 4012264196082280292}
   _AudioSource: {fileID: 1573071790230200753}
+  isActived: 0
   _TypeItemSound: 1
 --- !u!82 &1573071790230200753
 AudioSource:

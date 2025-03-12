@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ObjActionNip : ObjectAbstract
 {
@@ -9,12 +10,12 @@ public class ObjActionNip : ObjectAbstract
     [SerializeField] protected HingeJoint _HingeJoint;
     [SerializeField] protected Rigidbody _Rid;
 
-    [SerializeField] protected float _Spring_Value = 120f;
+    [SerializeField] protected float _Spring_Value = 300f;
 
     [SerializeField] protected MinMaxPair _TargetRot;
     [SerializeField] protected MinMaxPair _LimitRot;
 
-
+    [SerializeField] protected float forceStrength = 5f; // Lực đẩy tối đa
 
     protected override void LoadComponents()
     {
@@ -45,7 +46,7 @@ public class ObjActionNip : ObjectAbstract
         base.ResetValue();
 
         JointSpring Spring = this._HingeJoint.spring;
-        Spring.spring = 120f;
+        Spring.spring = 300f;
         Spring.targetPosition = _TargetRot.Min;
         this._HingeJoint.spring = Spring;
 
@@ -65,15 +66,33 @@ public class ObjActionNip : ObjectAbstract
 
         this._HingeJoint.spring = Spring;
 
-        Invoke(nameof(this.DisableAction), 0.5f);
+        Invoke(nameof(this.DisableActionAfterTrip), 0.1f);
     }
 
-    protected virtual void DisableAction()
+    public virtual void DisableActionAfterTrip()
     {
-        Destroy(this._HingeJoint);
+        this.RemoveComponentsAvoidTripping();
         Destroy(this._Rid);
-        this._ObjectCtrl.ObjImpactOverall.gameObject.SetActive(false);
+
         this.gameObject.SetActive(false);
     }
+    public virtual void DisableActionAfterDead()
+    {
+        this.RemoveComponentsAvoidTripping();
 
+        // X và Z ngẫu nhiên nhỏ hơn, Y có giá trị lớn hơn
+        Vector3 randomDirection = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.8f, 1f), Random.Range(-0.5f, 0.5f)).normalized;
+
+        // Add lực để vật thể văng ra
+        this._Rid.AddForce(randomDirection * forceStrength, ForceMode.Impulse);
+
+        //this.gameObject.SetActive(false);
+    }
+
+    protected virtual void RemoveComponentsAvoidTripping()
+    {
+        Destroy(this._HingeJoint);
+
+        this._ObjectCtrl.ObjImpactOverall.gameObject.SetActive(false);
+    }    
 }

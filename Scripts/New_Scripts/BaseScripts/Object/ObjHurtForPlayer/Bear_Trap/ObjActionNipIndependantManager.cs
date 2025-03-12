@@ -6,6 +6,8 @@ using UnityEngine;
 public class ObjActionNipIndependantManager : ObjectAbstract
 {
     [SerializeField] protected List<JawBearTrapCtrl> _List_JawBearTrapCtrl;
+    public List<JawBearTrapCtrl> List_JawBearTrapCtrl => this._List_JawBearTrapCtrl;
+
     public BearTrapCtrl BearTrapCtrl => this._ObjectCtrl as BearTrapCtrl;
 
     [SerializeField] protected bool isTrapActivated = false;
@@ -27,24 +29,29 @@ public class ObjActionNipIndependantManager : ObjectAbstract
             JawBearTrapCtrl nip = item.GetComponent<JawBearTrapCtrl>();
             this._List_JawBearTrapCtrl.Add(nip);
         }
-
     }
 
     public virtual void CloseTrap()
     {
         if (this.isTrapActivated) return;
 
+        if (PlayerCtrl.Instance.PlayerMovement.IsDashing) return;
+
+        this.BearTrapCtrl.ObjDamageReceiver.BoxCollider2D.enabled = false;
+
         foreach (JawBearTrapCtrl jaw in this._List_JawBearTrapCtrl)
         {
             jaw.ObjActionNip.CloseTrap();
         }
 
-        this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(true);
-        //Remember Freeze Player
+         this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(true);
 
-        this.isTrapActivated = true;
+        //Remember Freeze Player
+        this.RemoveComponentsAvoidTripping();
+
         PlayerCtrl.Instance.PlayerMovement.IsStunned = true;
-        Invoke(nameof(this.SetPos), 0.6f);
+     
+        Invoke(nameof(this.SetPos), 0.15f);
     }
 
     protected virtual void SetPos()
@@ -52,4 +59,24 @@ public class ObjActionNipIndependantManager : ObjectAbstract
         this.BearTrapCtrl.transform.position = PlayerCtrl.Instance.transform.position;
     }    
 
+    public virtual void TrapWasKilled()
+    {
+        
+        //Call remov hingle and rigid
+        foreach (JawBearTrapCtrl jaw in this._List_JawBearTrapCtrl)
+        {
+            jaw.ObjActionNip.DisableActionAfterDead();
+        }
+        this.RemoveComponentsAvoidTripping();
+
+        //false vfx
+        this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(false);
+    }
+
+    protected virtual void RemoveComponentsAvoidTripping()
+    {
+        this.BearTrapCtrl.ObjDespawnByTime.gameObject.SetActive(true);
+
+        this.isTrapActivated = true;
+    }
 }
