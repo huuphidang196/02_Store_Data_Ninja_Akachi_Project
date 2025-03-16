@@ -105,7 +105,7 @@ public class PlayerMovement : CharacterObjMovement
         if (this.isStunned) return;//Was stunned
 
         if (this.isDashing) return;//wait couroutine
-     
+
         this.UpdateBoolByInputManager();
 
         if (this.isRiviving)
@@ -177,7 +177,7 @@ public class PlayerMovement : CharacterObjMovement
             return;
         }
 
-  
+
         if (this.isDashing) return;
 
         if (!this.isWallJumping)

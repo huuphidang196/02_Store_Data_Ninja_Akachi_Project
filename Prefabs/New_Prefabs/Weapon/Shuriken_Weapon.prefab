@@ -98,11 +98,6 @@ MonoBehaviour:
   _Speed_Move_Horizontal: 25
   isFacingRight: 1
   _Move_Right: 0
-  _Rigidbody2D: {fileID: 8877227070145469769}
-  _Horizontal: 25
-  _Speed_Move_Horizontal: 25
-  isFacingRight: 1
-  _Move_Right: 0
 --- !u!1 &3860715676569776889
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +712,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.384964, y: 0.389403}
+  m_Size: {x: 0.35, y: 0.35}
   m_EdgeRadius: 0
 --- !u!50 &8520175148213268555
 Rigidbody2D:

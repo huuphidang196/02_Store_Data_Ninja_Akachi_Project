@@ -2878,6 +2878,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2080865412}
     m_Modifications:
+    - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.7223315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09752965
+      objectReference: {fileID: 0}
     - target: {fileID: 4928983096652191413, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_Name
       value: Stone_Can_Broke_3
@@ -2896,7 +2904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalScale.y
@@ -2908,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 376.22
+      value: 376.25
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6454,6 +6462,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2080865412}
     m_Modifications:
+    - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.700247
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.12111378
+      objectReference: {fileID: 0}
     - target: {fileID: 4928983096652191413, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_Name
       value: Stone_Can_Broke_1
@@ -6484,7 +6500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.52
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -83187,11 +83203,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_Size.x
-      value: 0.9669359
+      value: 0.97338414
       objectReference: {fileID: 0}
     - target: {fileID: 3390861802802672637, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_Offset.x
-      value: -1.9914833
+      value: -1.9947075
       objectReference: {fileID: 0}
     - target: {fileID: 4928983096652191413, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_Name
@@ -83207,7 +83223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.728
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5357287090826104907, guid: b4a41f3826fe6ca469d254cc736aa39b, type: 3}
       propertyPath: m_LocalScale.z

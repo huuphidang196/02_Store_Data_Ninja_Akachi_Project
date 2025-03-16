@@ -69,6 +69,13 @@ public class EnemyCheckForward : CharacterCheckForward
         float localX = this.EnemyCheckContactEnviroment.EnemyCtrl.transform.localScale.x;
         this.isChangedDirForward = (localX * this._Direction_Raycast2D.x < 0 && Mathf.Abs(this._Direction_Raycast2D.x) > 0.1f) ? true : false;
     }
+
+    public virtual void ScanTargetAfterWasHurt()
+    {
+        if (this._ForwardObjRight) return;
+
+        this._TargetFollow = PlayerCtrl.Instance.transform;
+    }
     protected virtual void ScanTargetOnFOV()
     {
         if (this._TargetFollow == null) return;

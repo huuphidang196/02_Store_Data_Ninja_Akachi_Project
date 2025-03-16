@@ -31,14 +31,22 @@ public class EnemyDamReceiver : ObjDamageReceiver
         this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "ItemLootable", true);
         this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "StopTrap", true);
     }
-protected override float GetMaxHP()
+    protected override float GetMaxHP()
     {
         return this.EnemyCtrl.EnemySO.Max_HP;// Load from Scriptable Object
     }
+
+    public override void DeductHP(float damage)
+    {
+        base.DeductHP(damage);
+
+        this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ScanTargetAfterWasHurt();
+    }
+
     protected override void OnDead()
     {
         this.EnemyCtrl.EnemyMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
-       // Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("WeaponPlayer"), true);
+        // Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("WeaponPlayer"), true);
 
         //this._BoxCollider2D.enabled = false;
         Invoke(nameof(this.InActiveEnemy), 2f);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletEmemyShooterDamReceiver : WeaponCharacterDamReceiver
 {
+
     protected override void MoveOverToHolder()
     {
         //Holder

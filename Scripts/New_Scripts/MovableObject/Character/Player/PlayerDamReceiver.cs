@@ -31,7 +31,8 @@ public class PlayerDamReceiver : ObjDamageReceiver
         }
 
         this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "Item", true);
-        this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "ItemLootable", true);     
+        this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "ItemLootable", true);
+        this.IgnoreLayerCollisionOfPlayerObject("PlayerHiddenMode", "WoodThing", true);
     }
 
     protected override float GetMaxHP()
