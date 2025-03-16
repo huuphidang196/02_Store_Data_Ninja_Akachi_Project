@@ -22,7 +22,7 @@ public class ButtonDashingActiveByTime : ActiveByTimer
     }
     protected override bool CheckAllPrequisite()
     {
-        return PlayerCtrl.Instance.PlayerMovement.IsHiding;
+        return PlayerCtrl.Instance.PlayerMovement.IsHiding || PlayerCtrl.Instance.PlayerMovement.IsStunned;
     }
 }
 

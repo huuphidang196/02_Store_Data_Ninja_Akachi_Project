@@ -61,7 +61,7 @@ public class ButtonHidenSkillActiveByTime : ActiveByTimer
     }
     protected override bool CheckAllPrequisite()
     {
-        return PlayerCtrl.Instance.PlayerMovement.IsDashing;
+        return PlayerCtrl.Instance.PlayerMovement.IsDashing || PlayerCtrl.Instance.PlayerMovement.IsStunned;
     }
 
     protected override void SetAllConfigurationBeforeInActiveButton()

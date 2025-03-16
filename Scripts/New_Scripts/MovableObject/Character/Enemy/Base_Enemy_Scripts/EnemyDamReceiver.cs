@@ -11,7 +11,6 @@ public class EnemyDamReceiver : ObjDamageReceiver
     {
         base.ReBorn();
         this._BoxCollider2D.enabled = true;
-        this.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponPlayer", false);
 
     }
     protected override void Start()
@@ -26,8 +25,13 @@ public class EnemyDamReceiver : ObjDamageReceiver
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "ObjInteractableShuriken", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "LethalObstacles", true);
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "StopTrap", true);
+
+        this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "WoodThing", true);
+        this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "Item", true);
+        this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "ItemLootable", true);
+        this.IgnoreLayerCollisionOfPlayerObject("WeaponEnemy", "StopTrap", true);
     }
-    protected override float GetMaxHP()
+protected override float GetMaxHP()
     {
         return this.EnemyCtrl.EnemySO.Max_HP;// Load from Scriptable Object
     }

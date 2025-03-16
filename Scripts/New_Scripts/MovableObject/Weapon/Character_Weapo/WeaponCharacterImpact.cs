@@ -89,7 +89,7 @@ public class WeaponCharacterImpact : ObjImpactBoxColliderTrigger
 
         this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
 
-        if (this.CheckParentObjectImpactWithAnyLayer("Item"))
+        if (this.CheckParentObjectImpactWithAnyLayer("Item") || this.CheckParentObjectImpactWithAnyLayer("WoodThing"))
         {
             //this.isImpacted_Emit_WoodBox = true;
             this._TypeImpact = TypeImpact.Emit_WoodBox;

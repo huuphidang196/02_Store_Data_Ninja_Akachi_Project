@@ -239,7 +239,7 @@ MonoBehaviour:
   _Horizontal: 0
   _Speed_Move_Horizontal: 6.5
   isFacingRight: 1
-  _Move_Right: 0
+  _Move_Right: 1
   _Speed_Dash_Horizontal: 15
   _Move_Left: 0
   _First_Jump: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   isWallSliding: 0
   isWallJumping: 0
   _JumpingPower: 17
-  _WallSlidingSpeed: 4
+  _WallSlidingSpeed: 1
   _WallJumpingDirection: 0
   _WallJumpingDuration: 0.4
   _WallJumpingPower: {x: 0, y: 0}
@@ -258,6 +258,7 @@ MonoBehaviour:
   canHiden: 0
   isHiding: 0
   isRiviving: 0
+  isStunned: 0
   _Speed_Hiding_Horizontal: 1.5
   _HidenTime: 5
 --- !u!1 &2406784581263668612
@@ -420,7 +421,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5c53c3ddf78b717498bf06b27bdda851, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1040,7 +1041,6 @@ MonoBehaviour:
   _CharacterCtrl: {fileID: 2890972321005388380}
   _CharacterCheckForward: {fileID: 8229091319739320884}
   _CharacterCheckGround: {fileID: 7672622520612203018}
-  _PlayerCheckGround: {fileID: 7672622520612203018}
 --- !u!1 &7921779421601797057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1092,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 2493794044161841125}
   _boxCollider: {fileID: 5684618791735300410}
-  isImpact_Trigger: 0
   _PlayerAttack: {fileID: 3900214037766800936}
 --- !u!61 &5684618791735300410
 BoxCollider2D:
@@ -1301,7 +1300,6 @@ MonoBehaviour:
   isImpact: 0
   _Rigidbody2D: {fileID: 4541454917553581024}
   _boxCollider: {fileID: 2438873199284408476}
-  isImpact_Trigger: 0
 --- !u!61 &2438873199284408476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2343,6 +2341,7 @@ MonoBehaviour:
   isDashing: 0
   isHiding: 0
   _Rivive_Again_Ani: 0
+  isStunned: 0
   _SpriteRenderer: {fileID: 2282770483390672096}
 --- !u!114 &7598211798381717565
 MonoBehaviour:

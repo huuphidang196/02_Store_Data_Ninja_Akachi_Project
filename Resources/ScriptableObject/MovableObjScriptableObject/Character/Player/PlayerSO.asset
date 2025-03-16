@@ -21,7 +21,7 @@ MonoBehaviour:
   Original_GravityScale: 5
   Time_Delay_Hiden: 5
   JumpingPower: 17
-  WallSlidingSpeed: 4
+  WallSlidingSpeed: 1
   WallJumpingTime: 0.2
   WallJumpingDuration: 0.4
   DashingPower: 35

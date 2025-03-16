@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3697778084136856915}
   - component: {fileID: 8284570019553844780}
   - component: {fileID: 3325578494765944620}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Fire_Killer_Prospect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 77854958897014367}
   - component: {fileID: 4934425448046440705}
   - component: {fileID: 324431226556743530}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4956,7 +4956,7 @@ GameObject:
   - component: {fileID: 8599787679277829997}
   - component: {fileID: 1807261933208617679}
   - component: {fileID: 7658552944055584795}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9799,7 +9799,7 @@ GameObject:
   - component: {fileID: 6397998516729506716}
   - component: {fileID: 7654220252148704851}
   - component: {fileID: 8296260462240716444}
-  m_Layer: 13
+  m_Layer: 23
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

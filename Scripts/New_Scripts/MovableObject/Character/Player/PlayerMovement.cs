@@ -319,6 +319,7 @@ public class PlayerMovement : CharacterObjMovement
         this._Rigidbody2D.gravityScale = this._Original_Gravity;
         isDashing = false;
         this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "StopTrap", false);
+        this._PlayerCtrl.PlayerDamReceiver.IgnoreLayerCollisionOfPlayerObject("Player", "WeaponEnemy", false);
 
     }
     protected virtual IEnumerator Hiden()

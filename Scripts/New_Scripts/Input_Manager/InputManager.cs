@@ -137,7 +137,7 @@ public class InputManager : SurMonoBehaviour
     //Jump
     public virtual void PointerJumpDown()
     {
-        if (this._Press_Hidden_Mode) return;
+        if (this._Press_Hidden_Mode || PlayerCtrl.Instance.PlayerMovement.IsStunned) return;
 
         this._Press_Jump = true;
         PressJumpButton_Event?.Invoke();

@@ -22,6 +22,6 @@ public class ButtonThrowActiveByTime : ActiveByTimer
     }
     protected override bool CheckAllPrequisite()
     {
-        return PlayerCtrl.Instance.PlayerMovement.IsHiding || PlayerCtrl.Instance.PlayerMovement.IsDashing;
+        return PlayerCtrl.Instance.PlayerMovement.IsHiding || PlayerCtrl.Instance.PlayerMovement.IsDashing || PlayerCtrl.Instance.PlayerMovement.IsStunned; ;
     }
 }

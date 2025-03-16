@@ -25,7 +25,7 @@ public class ShurikenImpact : WeaponCharacterImpact
     }
     protected override string[] GetArrayNameAllowImpact()
     {
-        return new string[] { "Enemy", "ObjInteractableShuriken", "WeaponEnemy", "StaticProspect" };
+        return new string[] { "Enemy", "ObjInteractableShuriken", "WeaponEnemy", "StaticProspect", "WoodThing" };
     }
 
     protected override string[] GetArrayNameTargetAttack()
