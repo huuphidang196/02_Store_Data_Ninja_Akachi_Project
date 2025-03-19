@@ -8,8 +8,6 @@ public class EnemySpawner : Spawner
     private static EnemySpawner _instance;
     public static EnemySpawner Instance => _instance;
 
-    public static string Name_Shuriken = "Shuriken_Weapon";
-
     [Header("EnemySpawner")]
     //Holder to consist all enemy object Active
     [SerializeField] protected Transform _Holder_Enemy_Active_Pool;

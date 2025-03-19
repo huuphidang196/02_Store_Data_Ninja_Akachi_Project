@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class LanceTrapGroundEventsAutoOn : LanceTrapEventsAutoOn
 {
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+
+        this.activationDistance = 5f;
+    }
+
     protected override Vector3 GetOffSetSpawnVFX(Transform lance)
     {
         return 2f * Vector3.down;

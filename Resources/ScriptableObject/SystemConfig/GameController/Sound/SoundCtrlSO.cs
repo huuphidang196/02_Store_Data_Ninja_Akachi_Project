@@ -155,6 +155,8 @@ public enum TypeProspectSound
     Sound_Ring_The_Bell = 801,
 
     Sound_LanceTrap_Ground_EventsAutoOn = 1001,
+
+    Sound_RockHiddenShooterOpening= 1201,
 }
 
 public enum TypeWeaponSound

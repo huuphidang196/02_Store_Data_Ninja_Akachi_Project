@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,20 @@ using UnityEngine;
 public class EnemyShooterAttack : EnemyAttack
 {
     [SerializeField] protected bool canSpawn = false;
+    [SerializeField] protected Transform _Pos_Spawn_Bullet;
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+
+        this.LoadPosSpawnBullet();
+    }
+
+    protected virtual void LoadPosSpawnBullet()
+    {
+        if (this._Pos_Spawn_Bullet != null) return;
+
+        this._Pos_Spawn_Bullet = transform.Find("Pos_Spawn_Bullet");
+    }
 
     protected override void Update()
     {
@@ -27,7 +42,7 @@ public class EnemyShooterAttack : EnemyAttack
     protected virtual void EnemyAttackShoot()
     {
         // Spawn bullet
-        Transform bullet = WeaponCharacterSpawner.Instance.Spawn(WeaponCharacterSpawner.Name_Bullet_Enemy_Shooter, this.transform.position, Quaternion.identity);
+        Transform bullet = WeaponCharacterSpawner.Instance.Spawn(WeaponCharacterSpawner.Name_Bullet_Enemy_Shooter, this._Pos_Spawn_Bullet.position, Quaternion.identity);
 
         //Set Direction fly
         BulletEnemyShooterCtrl bulletEnemyShooterCtrl = bullet.GetComponent<BulletEnemyShooterCtrl>();

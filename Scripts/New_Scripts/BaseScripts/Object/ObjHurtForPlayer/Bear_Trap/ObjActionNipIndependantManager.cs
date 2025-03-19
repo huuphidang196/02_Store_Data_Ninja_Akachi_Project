@@ -41,7 +41,7 @@ public class ObjActionNipIndependantManager : ObjectAbstract
 
         foreach (JawBearTrapCtrl jaw in this._List_JawBearTrapCtrl)
         {
-            jaw.ObjActionNip.CloseTrap();
+            jaw.ObjActionNip.SpringTarget();
         }
 
          this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(true);
