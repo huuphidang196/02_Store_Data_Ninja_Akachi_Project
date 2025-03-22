@@ -21,7 +21,7 @@ public class ObjActionNip : ObjActionHingeJoint
     public override void SpringTarget()
     {
         base.SpringTarget();
-        Invoke(nameof(this.DisableActionAfterTrip), 0.1f);
+        Invoke(nameof(this.DisableActionAfterTrip), 0.15f);
     }
 
     public virtual void DisableActionAfterTrip()
