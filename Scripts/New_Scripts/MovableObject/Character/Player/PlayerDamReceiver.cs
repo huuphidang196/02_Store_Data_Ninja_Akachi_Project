@@ -47,8 +47,18 @@ public class PlayerDamReceiver : ObjDamageReceiver
        
         this.ChangeLayerPlayerByName("PlayerDead");
 
+        this.SpawnVFXBlood();
     }
+    protected virtual void SpawnVFXBlood()
+    {
+        Transform vfx_Need = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Blood_Fly, this.transform.position, Quaternion.identity);
 
+        if (vfx_Need == null) return;
+
+        vfx_Need.name = VFXObjectSpawner.VFX_Blood_Fly;
+        vfx_Need.gameObject.SetActive(true);
+
+    }
     public virtual void RiviveCharacter()
     {
        // Debug.Log("Rivival");
