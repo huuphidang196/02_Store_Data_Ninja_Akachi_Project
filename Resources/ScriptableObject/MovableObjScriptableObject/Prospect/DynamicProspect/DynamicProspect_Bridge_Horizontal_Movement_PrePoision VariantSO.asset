@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DynamicProspect_Bridge_Horizontal_Movement_PrePoision VariantSO
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
-  Speed_Move_Horizontal: 1
+  Speed_Move_Horizontal: 1.5
   Max_HP: 99999
   Speed_Move_Vertical: 0
   Distance_Active: 45
