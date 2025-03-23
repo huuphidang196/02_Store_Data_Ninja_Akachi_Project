@@ -6,11 +6,12 @@ using UnityEngine;
 public class RockHiddenShooterOpening : ObjActionHingeJoint
 {
     [Header("RockHiddenShooterOpening")]
-    [SerializeField] protected float _Distance_Open = 12f;
     [SerializeField] protected bool isActivated = false;
     public bool IsActivated => this.isActivated;
 
     [SerializeField] protected Transform _Sprite_Rock_Hidden;
+    [SerializeField] protected RockHiddenShooterCheckForward _RockHiddenShooterCheckForward;
+
     protected override void ResetValue()
     {
         base.ResetValue();
@@ -23,6 +24,7 @@ public class RockHiddenShooterOpening : ObjActionHingeJoint
         base.LoadComponents();
 
         this.LoadSpriteRockHidden();
+        this.LoadRockHiddenShooterCheckForward();
     }
 
     protected virtual void LoadSpriteRockHidden()
@@ -32,22 +34,25 @@ public class RockHiddenShooterOpening : ObjActionHingeJoint
         this._Sprite_Rock_Hidden = transform.Find("Sprite_RockHidden_Disable");
     }
 
+    protected virtual void LoadRockHiddenShooterCheckForward()
+    {
+        if (this._RockHiddenShooterCheckForward != null) return;
+
+        this._RockHiddenShooterCheckForward = GetComponentInChildren<RockHiddenShooterCheckForward>();
+    }
+
     protected virtual void FixedUpdate()
     {
         if (this.isActivated) return;
 
         if (PlayerCtrl.Instance == null) return;
 
-        if (this.GetDistance() > this._Distance_Open) return;
+        if (!this._RockHiddenShooterCheckForward.ForwardObjRight) return;
 
         this.SpringTarget();
 
         this.isActivated = true;
         this._Sprite_Rock_Hidden.gameObject.SetActive(false);
-    }
-
-    protected virtual float GetDistance()
-    {
-        return this.transform.position.x - PlayerCtrl.Instance.transform.position.x;
+        this._RockHiddenShooterCheckForward.gameObject.SetActive(false);
     }
 }

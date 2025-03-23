@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &368165935636958518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4699851862141883103}
+  m_Layer: 17
+  m_Name: Pos_Check_Forward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4699851862141883103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368165935636958518}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.12, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6192277784748750371}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600724395252699164
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +65,7 @@ Transform:
   m_Children:
   - {fileID: 584295296738329546}
   - {fileID: 6543371471772877736}
+  - {fileID: 6192277784748750371}
   m_Father: {fileID: 884115268237957811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7211507821985804937
@@ -58,9 +90,9 @@ MonoBehaviour:
   _LimitRot:
     Min: 0
     Max: -95
-  _Distance_Open: 15
   isActivated: 0
   _Sprite_Rock_Hidden: {fileID: 6543371471772877736}
+  _RockHiddenShooterCheckForward: {fileID: 6710909307138456888}
 --- !u!54 &4857434321878698514
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100,7 +132,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 102.23, y: 2.288, z: 0}
+  m_ConnectedAnchor: {x: 103.436, y: 2.288, z: 0}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
@@ -565,6 +597,59 @@ MonoBehaviour:
   _AudioSource: {fileID: 590981468653731475}
   isActived: 0
   _TypeProspectSound: 1201
+--- !u!1 &4195192323699699984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6192277784748750371}
+  - component: {fileID: 6710909307138456888}
+  m_Layer: 0
+  m_Name: RockHiddenShooterCheckForward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6192277784748750371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195192323699699984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4699851862141883103}
+  m_Father: {fileID: 4468315570657732391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6710909307138456888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195192323699699984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ea97c16b1b9044dbf5b8e5f377a3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterCheckContactEnviroment: {fileID: 0}
+  _Length_Raycast: 15
+  _PosForwardCheck: {fileID: 4699851862141883103}
+  _ObjForwardLayer:
+  - Player
+  _ForwardObjRight: 0
+  _Direction_Raycast2D: {x: 0, y: 0}
+  isOtherConditionAllow: 1
 --- !u!1 &6800356532388951999
 GameObject:
   m_ObjectHideFlags: 0
