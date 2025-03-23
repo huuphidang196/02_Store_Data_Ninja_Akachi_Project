@@ -12,4 +12,15 @@ public class BearTrapDespawnByTIme : ObjDespawnByTime
 
         this.BearTrapCtrl.gameObject.SetActive(false);
     }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (!PlayerCtrl.Instance.PlayerMovement.IsStunned) return;
+
+        if (!PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) return;
+
+        this.DespawnObject();
+    }
 }
