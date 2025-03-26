@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd01a650c4a4c444bb9c1d797c72d335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
+  _ObjectCtrl: {fileID: 4008432509699728760}
   _HingeJoint: {fileID: 7812898773913003892}
   _Rid: {fileID: 4857434321878698514}
   _Spring_Value: 120
@@ -276,7 +276,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.81959754, y: -0.026428819}
+  m_Offset: {x: -0.9709377, y: -0.026428819}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -287,7 +287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2977628, y: 1.4979131}
+  m_Size: {x: 0.99508244, y: 1.4979131}
   m_EdgeRadius: 0
 --- !u!1 &1696680767729342531
 GameObject:
@@ -406,7 +406,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.2404969, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -417,7 +417,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8625, y: 3.3}
+  m_Size: {x: 0.38150644, y: 3.3}
   m_EdgeRadius: 0
 --- !u!1 &2997950541592919141
 GameObject:
@@ -593,10 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303bca8f4d03a784a87c8156bdf36ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
+  _ObjectCtrl: {fileID: 4008432509699728760}
   _AudioSource: {fileID: 590981468653731475}
   isActived: 0
-  _TypeProspectSound: 1201
+  _TypeProspectSound: 0
 --- !u!1 &4195192323699699984
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +650,7 @@ MonoBehaviour:
   _ForwardObjRight: 0
   _Direction_Raycast2D: {x: 0, y: 0}
   isOtherConditionAllow: 1
+  _RockHiddenShooterCtrl: {fileID: 4008432509699728760}
 --- !u!1 &6800356532388951999
 GameObject:
   m_ObjectHideFlags: 0
