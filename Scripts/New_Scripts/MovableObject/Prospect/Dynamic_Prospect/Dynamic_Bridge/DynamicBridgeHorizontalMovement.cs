@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DynamicBridgeHorizontalMovement : DynamicBridgeMovement
 {
+   
     protected override void LoadRigidbody2D()
     {
         base.LoadRigidbody2D();
