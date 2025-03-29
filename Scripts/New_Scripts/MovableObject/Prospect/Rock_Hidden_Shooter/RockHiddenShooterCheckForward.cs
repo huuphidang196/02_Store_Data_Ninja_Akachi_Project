@@ -42,6 +42,6 @@ public class RockHiddenShooterCheckForward : CharacterCheckForward
     }
     protected override Vector2 GetDirectionRaycast()
     {
-        return -1f * this._RockHiddenShooterCtrl.transform.right * this._Length_Raycast;
+        return -1f * new Vector3(this._RockHiddenShooterCtrl.transform.localScale.x, 0, 0) * this._Length_Raycast;
     }
 }

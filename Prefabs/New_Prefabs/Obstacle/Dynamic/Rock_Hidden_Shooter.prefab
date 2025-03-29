@@ -596,7 +596,7 @@ MonoBehaviour:
   _ObjectCtrl: {fileID: 4008432509699728760}
   _AudioSource: {fileID: 590981468653731475}
   isActived: 0
-  _TypeProspectSound: 0
+  _TypeProspectSound: 1201
 --- !u!1 &4195192323699699984
 GameObject:
   m_ObjectHideFlags: 0
