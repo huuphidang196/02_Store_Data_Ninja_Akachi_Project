@@ -5,6 +5,8 @@ using UnityEngine;
 
 public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlayer
 {
+    [SerializeField] protected LanceTrapEventCtrl _LanceTrapEventCtrl;
+
     [SerializeField] protected List<ObjectCtrl> _LanceObjects; // Danh sách các Lance
     [SerializeField] protected float totalTime = 3f; // Tốc độ nâng lên
     [SerializeField] protected float raiseHeight = 3.7f; // Độ cao nâng lên
@@ -22,6 +24,14 @@ public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlay
         base.LoadComponents();
 
         this.LoadLanceObjects();
+        this.LoadLanceTrapEventCtrl();
+    }
+
+    protected virtual void LoadLanceTrapEventCtrl()
+    {
+        if (this._LanceTrapEventCtrl != null) return;
+
+        this._LanceTrapEventCtrl = GetComponentInParent<LanceTrapEventCtrl>();
     }
 
     protected virtual void LoadLanceObjects()
@@ -33,7 +43,7 @@ public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlay
             ObjectCtrl objCtrl = item.GetComponent<ObjectCtrl>();
             this._LanceObjects.Add(objCtrl);
         }
-    
+
     }
     protected virtual IEnumerator RaiseLances()
     {
@@ -72,7 +82,7 @@ public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlay
 
     }
 
-    protected virtual  string GetNamVFXSpawn()
+    protected virtual string GetNamVFXSpawn()
     {
         return VFXObjectSpawner.VFX_Ground_Emit;
     }
@@ -82,4 +92,8 @@ public abstract class LanceTrapEventsAutoOn : EventScenePlayAutoOnByDistancePlay
         StartCoroutine(RaiseLances());
     }
 
+    protected override bool AllowActive()
+    {
+        return Mathf.Abs(this._LanceTrapEventCtrl.transform.position.y - PlayerCtrl.Instance.transform.position.y) <= 3.5f && base.AllowActive();
+    }
 }

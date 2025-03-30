@@ -9,7 +9,7 @@ public class LanceTrapGroundEventsAutoOn : LanceTrapEventsAutoOn
     {
         base.ResetValue();
 
-        this.activationDistance = 5f;
+        this.activationDistance = 2.5f;
     }
 
     protected override Vector3 GetOffSetSpawnVFX(Transform lance)
@@ -35,7 +35,8 @@ public class LanceTrapGroundEventsAutoOn : LanceTrapEventsAutoOn
         }
     }
 
+  
 
-    
+
 }
 

@@ -17,7 +17,7 @@ public class LanceTrapSkyEventsAutoOn : LanceTrapEventsAutoOn
 
         base.LoadLanceObjects();
         this.LoadStartAndTargetPos();
-        this.activationDistance = this.raiseHeight + 3f;
+        this.activationDistance = 2f;
     }
     protected virtual void LoadStartAndTargetPos()
     {
