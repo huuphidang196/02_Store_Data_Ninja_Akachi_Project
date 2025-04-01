@@ -14,9 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _StarMissionLevels:
   - Level_Mission: 1
-    Count_Star_Acquired: 0
+    Count_Star_Acquired: 3
+  - Level_Mission: 2
+    Count_Star_Acquired: 3
+  - Level_Mission: 3
+    Count_Star_Acquired: 3
+  - Level_Mission: 4
+    Count_Star_Acquired: 3
+  - Level_Mission: 5
+    Count_Star_Acquired: 3
+  - Level_Mission: 6
+    Count_Star_Acquired: 3
+  - Level_Mission: 7
+    Count_Star_Acquired: 3
+  - Level_Mission: 8
+    Count_Star_Acquired: 3
+  - Level_Mission: 9
+    Count_Star_Acquired: 2
+  - Level_Mission: 10
+    Count_Star_Acquired: 1
   Current_Level: 1
-  _Level_Unlock: 1
+  _Level_Unlock: 10
   Total_Golds: 10995
   Total_Diamonds: 2
   OnMusic: 1
