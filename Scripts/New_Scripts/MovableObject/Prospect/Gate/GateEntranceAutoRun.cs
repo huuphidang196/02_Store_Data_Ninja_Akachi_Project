@@ -84,6 +84,8 @@ public class GateEntranceAutoRun : SurMonoBehaviour
             this.wasCom_Mission = true;
             // Set Level Unlock
             SystemController.Sys_Instance.SystemConfig.SetLevelUnlock();
+
+            Invoke(nameof(this.SetAutoRunFalseAfterComMission), 3f);
         }
 
         foreach (EntranceCheck item in this._Gate_Entrance)
@@ -100,6 +102,7 @@ public class GateEntranceAutoRun : SurMonoBehaviour
         this.isEntranceAuto = false;
     }
 
+    protected virtual void SetAutoRunFalseAfterComMission() => this.isEntranceAuto = false;
     protected virtual bool CheckDistanceAutoMode(Transform gate)
     {
         float distance = gate.position.x - PlayerCtrl.Instance.transform.position.x;
