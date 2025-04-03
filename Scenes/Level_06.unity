@@ -2016,6 +2016,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2282841
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2282841
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2830189
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83771,6 +83783,18 @@ PrefabInstance:
     - target: {fileID: 5627259049238313305, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
       propertyPath: forceMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20260769
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20260769
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321474388175864066, guid: 338f123a2065b2e4cafcbec466d370f2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2735849
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
