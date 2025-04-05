@@ -8,6 +8,8 @@ public class LightRespawnTower : BaseLight2D
     [Header("LightRespawnTower")]
     [SerializeField] protected float _On_Intensity = 0.7f;
     [SerializeField] protected bool wasTurned = false;
+    public bool WasTurned => this.wasTurned;
+
     [SerializeField] protected Transform _VFX_SpawnPoint;
     protected override void ResetValue()
     {
@@ -42,8 +44,16 @@ public class LightRespawnTower : BaseLight2D
     {
         if (this.wasTurned) return;
 
-        this.wasTurned = PlayerCtrl.Instance.transform.position.x > this._ObjectCtrl.transform.position.x;
+        this.wasTurned = this.GetConditionTurning();
+
         this._Light2D.intensity = (this.wasTurned) ? this._On_Intensity : 0f;
         this._VFX_SpawnPoint.gameObject.SetActive(this.wasTurned);
-    }    
+    }
+
+    protected virtual bool GetConditionTurning()
+    {
+        return PlayerCtrl.Instance.transform.position.x - this._ObjectCtrl.transform.position.x > 1f &&
+              PlayerCtrl.Instance.transform.position.x - this._ObjectCtrl.transform.position.x < 1.5f &&
+                Mathf.Abs(PlayerCtrl.Instance.transform.position.y - this._ObjectCtrl.transform.position.y) < 3f;
+    }
 }

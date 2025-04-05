@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219d05c95fb8a3d42a308a5e61c5c2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 8126283332703468372}
+  _ObjectCtrl: {fileID: 0}
   _AudioSource: {fileID: 321602284566752673}
   isActived: 0
   _TypeProspectSound: 801
@@ -5128,7 +5128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9107733209731864141}
-  - component: {fileID: 8126283332703468372}
+  - component: {fileID: 5640422439292220486}
   m_Layer: 0
   m_Name: Respawn_Tower
   m_TagString: Untagged
@@ -5154,7 +5154,7 @@ Transform:
   - {fileID: 8101100472069437009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8126283332703468372
+--- !u!114 &5640422439292220486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5163,12 +5163,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7944364068278786619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e01f85edcf02a4cae07225cc29f20d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0265dd9530bf53449b6068f6f7c22b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 0}
   _ObjDamageSender: {fileID: 0}
   _ObjImpact_Overall: {fileID: 0}
+  _LightRespawnTower: {fileID: 6586214181195034146}
 --- !u!1 &8276338304214003970
 GameObject:
   m_ObjectHideFlags: 0
@@ -10046,7 +10047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f31afdbf88331340b32a3ee048569bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 8126283332703468372}
+  _ObjectCtrl: {fileID: 5640422439292220486}
   _Light2D: {fileID: 5031936183895607867}
   _On_Intensity: 0.7
   wasTurned: 0
@@ -10085,8 +10086,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.06575, y: -1.91095, z: 0}
-    m_Extent: {x: 1.95165, y: 2.68625, z: 0}
+    m_Center: {x: -0.0636, y: -1.9182501, z: 0}
+    m_Extent: {x: 1.951, y: 2.67915, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

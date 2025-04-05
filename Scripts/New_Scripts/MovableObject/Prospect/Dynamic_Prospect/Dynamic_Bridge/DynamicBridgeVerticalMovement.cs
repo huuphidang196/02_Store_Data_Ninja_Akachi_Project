@@ -12,6 +12,22 @@ public class DynamicBridgeVerticalMovement : DynamicBridgeMovement
         this.MoveOn = true;
     }
 
+    protected override void ResetDataConfiguration()
+    {
+       
+    }
+    protected override void Reset()
+    {
+        base.Reset();
+
+        this._Speed_Move_Horizontal = this.DynamicMovementCtrl.MObjScriptableObject.Speed_Move_Horizontal;
+        this._Horizontal = this._Speed_Move_Horizontal;
+
+        this._Speed_Move_Vertical = this.DynamicMovementCtrl.DynamicProspectObjMovementSO.Speed_Move_Vertical;
+        this._Vertical = this._Speed_Move_Vertical;
+
+        this._Old_Position = this.DynamicMovementCtrl.transform.position;
+    }
     public override void ChangeDir()
     {
         this.MoveOn = !this.MoveOn;

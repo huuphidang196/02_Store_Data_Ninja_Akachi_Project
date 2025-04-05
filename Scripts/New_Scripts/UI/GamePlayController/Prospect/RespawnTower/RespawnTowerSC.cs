@@ -40,19 +40,20 @@ public class RespawnTowerSC : SurMonoBehaviour
     {
         Vector3 playerPos = PlayerCtrl.Instance.transform.position;
 
-       // Transform secondTower = this._List_RespawnTowers[1];
-       // if (playerPos.x < secondTower.position.x) return this._List_RespawnTowers[0].position + new Vector3(0.5f, 0.5f, 0);
+        // Transform secondTower = this._List_RespawnTowers[1];
+        // if (playerPos.x < secondTower.position.x) return this._List_RespawnTowers[0].position + new Vector3(0.5f, 0.5f, 0);
 
-        for (int i = 0; i < this._List_RespawnTowers.Count - 1; i++)
+        for (int i = this._List_RespawnTowers.Count - 1 ; i >= 0; i--)
         {
-            Transform firstTower = this._List_RespawnTowers[i];
-            Transform secondTower = this._List_RespawnTowers[i + 1];
+            RespawnTowerCtrl respawnTowerCtrl = this._List_RespawnTowers[i].GetComponent<RespawnTowerCtrl>();
 
-            if (playerPos.x < secondTower.position.x) return new Vector3(firstTower.position.x + 1, firstTower.position.y + 1, playerPos.z);
+            if (respawnTowerCtrl == null) continue;
+
+            return new Vector3(respawnTowerCtrl.transform.position.x + 1, respawnTowerCtrl.transform.position.y + 1, playerPos.z);
         }
- 
+
         // There is not any tower has pos.x > player
-        return this._List_RespawnTowers[this._List_RespawnTowers.Count - 1].position + new Vector3(1f, 1f, 0);
+        return this._List_RespawnTowers[0].position + new Vector3(1f, 1f, 0);
 
     }
 }
