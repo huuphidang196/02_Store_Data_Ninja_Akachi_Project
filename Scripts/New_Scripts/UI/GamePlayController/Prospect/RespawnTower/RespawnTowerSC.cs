@@ -49,6 +49,8 @@ public class RespawnTowerSC : SurMonoBehaviour
 
             if (respawnTowerCtrl == null) continue;
 
+            if (!respawnTowerCtrl.LightRespawnTower.WasTurned) continue;
+
             return new Vector3(respawnTowerCtrl.transform.position.x + 1, respawnTowerCtrl.transform.position.y + 1, playerPos.z);
         }
 
