@@ -68,7 +68,7 @@ public class ParallaxController : SurMonoBehaviour
     protected virtual void LateUpdate()
     {
         this._Distance = this._MainCamera.position.x - this._Cam_Start_Pos.x;
-        this.transform.position = new Vector3(this._MainCamera.position.x, this.transform.position.y, 4);
+        this.transform.position = new Vector3(this._MainCamera.position.x, this.transform.position.y, 100);
 
         for (int i = 0; i < this._List_Elements_BG.Count; i++)
         {

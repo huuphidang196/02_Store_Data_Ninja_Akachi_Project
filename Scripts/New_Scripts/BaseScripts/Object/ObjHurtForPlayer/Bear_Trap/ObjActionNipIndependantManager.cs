@@ -51,7 +51,7 @@ public class ObjActionNipIndependantManager : ObjectAbstract
 
         PlayerCtrl.Instance.PlayerMovement.IsStunned = true;
      
-        Invoke(nameof(this.SetPos), 0.15f);
+        Invoke(nameof(this.SetPos), 0.2f);
     }
 
     protected virtual void SetPos()

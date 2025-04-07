@@ -23,7 +23,7 @@ public class PlayerImpact : CharacterImpactTrigger
 
     protected override string[] GetNameLayerImpactTrigger()
     {
-        return new string[] { "Enemy", "Item", "ItemLootable" , "WoodThing" };
+        return new string[] { "Enemy", "Item", "ItemLootable" , "WoodThing" , "StopTrap" };
     }
     protected override void ProcessAfterObjectImpacted()
     {

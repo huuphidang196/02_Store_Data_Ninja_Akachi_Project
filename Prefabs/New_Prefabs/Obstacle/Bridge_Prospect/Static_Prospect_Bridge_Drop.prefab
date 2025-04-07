@@ -297,8 +297,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4667757214754575567}
-  - component: {fileID: 6231158401318207188}
   - component: {fileID: 3521470814065114420}
+  - component: {fileID: 6231158401318207188}
   m_Layer: 17
   m_Name: StaticBridgeProspectDropping
   m_TagString: Untagged
@@ -321,6 +321,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8128873104179492923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3521470814065114420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378966792273986690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d649a63236d1d42849971673f8b0bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjectCtrl: {fileID: 770254340218472176}
+  _OldPos: {x: 311.1, y: 0, z: 0}
+  _Time_Delay_Drop: 2
 --- !u!61 &6231158401318207188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -366,21 +381,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.0843697, y: 0.9995564}
   m_EdgeRadius: 0
---- !u!114 &3521470814065114420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6378966792273986690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d649a63236d1d42849971673f8b0bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 770254340218472176}
-  _OldPos: {x: 311.1, y: 0, z: 0}
-  _Time_Delay_Drop: 2
 --- !u!1 &8624914585397314473
 GameObject:
   m_ObjectHideFlags: 0

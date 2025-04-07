@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219d05c95fb8a3d42a308a5e61c5c2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
+  _ObjectCtrl: {fileID: 5640422439292220486}
   _AudioSource: {fileID: 321602284566752673}
   isActived: 0
   _TypeProspectSound: 801
@@ -10086,8 +10086,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0636, y: -1.9182501, z: 0}
-    m_Extent: {x: 1.951, y: 2.67915, z: 0}
+    m_Center: {x: -0.06320006, y: -1.90205, z: 0}
+    m_Extent: {x: 1.9472001, y: 2.68045, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

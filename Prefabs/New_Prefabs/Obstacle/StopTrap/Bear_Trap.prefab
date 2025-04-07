@@ -235,7 +235,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35916436, y: 0.16284585}
+  m_Offset: {x: 0.39656958, y: 0.16906652}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -246,7 +246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72100604, y: 0.14393017}
+  m_Size: {x: 0.7958165, y: 0.1563715}
   m_EdgeRadius: 0
 --- !u!50 &1043736192196127700
 Rigidbody2D:
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6290814707316894147}
   - component: {fileID: 5170581486039829131}
   - component: {fileID: 8959781056583324108}
-  m_Layer: 18
+  m_Layer: 31
   m_Name: ObjDamReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008178711, y: -0.04862219}
+  m_Offset: {x: 0.008178711, y: -0.017248213}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -407,7 +407,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15853882, y: 0.30091584}
+  m_Size: {x: 0.15853882, y: 0.3636638}
   m_EdgeRadius: 0
 --- !u!114 &5170581486039829131
 MonoBehaviour:
@@ -753,7 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6033223030161443030}
   - component: {fileID: 1551491052210222835}
-  m_Layer: 18
+  m_Layer: 31
   m_Name: Bear_Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1480,7 +1480,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35916436, y: 0.15907484}
+  m_Offset: {x: 0.39512703, y: 0.16975479}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1491,7 +1491,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72100604, y: 0.13638821}
+  m_Size: {x: 0.7929314, y: 0.15774807}
   m_EdgeRadius: 0
 --- !u!50 &4095757923556120207
 Rigidbody2D:

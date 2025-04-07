@@ -73,19 +73,20 @@ public class PlayerAttack : PlayerAbstract
 
     protected virtual void Update()
     {
-        if (this._PlayerCtrl.PlayerMovement.IsStunned) return;
-
-        //Change pos Spawn
-        transform.localScale = (this._PlayerCtrl.PlayerMovement.IsWallSliding) ?
-            this._PlayerCtrl.PlayerAnimation.transform.localScale : new Vector3(1, transform.localScale.y, 0);
-
-        this.PerformAttackDashing();
+        if (!this._PlayerCtrl.PlayerMovement.IsStunned)
+        {
+            this.PerformAttackDashing();       
+        }
 
         if (!this.isThrowing) return;
 
         this._Timer += Time.deltaTime;
 
         if (this._Timer < this._Time_Delay) return;
+
+        //Change pos Spawn
+        transform.localScale = (this._PlayerCtrl.PlayerMovement.IsWallSliding) ?
+            this._PlayerCtrl.PlayerAnimation.transform.localScale : new Vector3(1, transform.localScale.y, 0);
 
         this.ActionThrowShuriken();
         
@@ -101,14 +102,11 @@ public class PlayerAttack : PlayerAbstract
 
     public virtual void PerformAttackThrowShuriken()
     {
-        if (this._PlayerCtrl.PlayerMovement.IsStunned) return;
+        //if (this._PlayerCtrl.PlayerMovement.IsStunned) return;
 
         if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
 
-      //  this._Time_Delay = this._PlayerCtrl.PlayerAnimation.Time_Duration * 0.5f;
         this.isThrowing = true;
-        // 
-       // Invoke(nameof(this.ActionThrowShuriken), timeDelay);
     }
 
     protected virtual void ActionThrowShuriken()

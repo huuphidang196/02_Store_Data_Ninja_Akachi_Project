@@ -14,9 +14,13 @@ public class RockHiddenShooterOpening : ObjActionHingeJoint
 
     protected override void ResetValue()
     {
+        this._TargetRot.Max *= this._ObjectCtrl.transform.localScale.x;
+        this._LimitRot.Max *= this._ObjectCtrl.transform.localScale.x;
+
         base.ResetValue();
 
         this.isActivated = false;
+    
     }
 
     protected override void LoadComponents()

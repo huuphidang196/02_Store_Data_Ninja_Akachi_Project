@@ -71,13 +71,11 @@ public class PoisionWaterFallEventManager : SurMonoBehaviour
     {
         var emission = particleSystem.emission;
         float startRate = emission.rateOverTime.constant;
-        float elapsedTime = 0f;
 
-        while (elapsedTime < this._Fade_Duration)
+        for (float t = 0f; t < _Fade_Duration; t += Time.deltaTime)
         {
-            float newRate = Mathf.Lerp(startRate, 0, elapsedTime / this._Fade_Duration);
+            float newRate = Mathf.Lerp(startRate, 0, t / _Fade_Duration);
             emission.rateOverTime = newRate;
-            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
