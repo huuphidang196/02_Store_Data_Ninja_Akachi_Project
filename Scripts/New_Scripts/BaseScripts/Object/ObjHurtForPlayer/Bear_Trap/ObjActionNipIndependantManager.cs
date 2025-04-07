@@ -13,6 +13,8 @@ public class ObjActionNipIndependantManager : ObjectAbstract
     [SerializeField] protected bool isTrapActivated = false;
     public bool IsTrapActivated => this.isTrapActivated;
 
+    [SerializeField] protected bool isNeededSetPos = false;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -44,24 +46,24 @@ public class ObjActionNipIndependantManager : ObjectAbstract
             jaw.ObjActionNip.SpringTarget();
         }
 
-         this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(true);
+        this.BearTrapCtrl.VFX_Stun.gameObject.SetActive(true);
 
         //Remember Freeze Player
         this.RemoveComponentsAvoidTripping();
 
         PlayerCtrl.Instance.PlayerMovement.IsStunned = true;
-     
+
         Invoke(nameof(this.SetPos), 0.2f);
     }
 
     protected virtual void SetPos()
     {
-        this.BearTrapCtrl.transform.position = PlayerCtrl.Instance.transform.position;
-    }    
+        this.isNeededSetPos = true;
+    }
 
     public virtual void TrapWasKilled()
     {
-        
+
         //Call remov hingle and rigid
         foreach (JawBearTrapCtrl jaw in this._List_JawBearTrapCtrl)
         {
@@ -80,5 +82,10 @@ public class ObjActionNipIndependantManager : ObjectAbstract
         this.isTrapActivated = true;
     }
 
-   
+    protected virtual void FixedUpdate()
+    {
+        if (!this.isNeededSetPos) return;
+
+        this.BearTrapCtrl.transform.position = PlayerCtrl.Instance.transform.position;
+    }
 }
