@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3042505564567059228}
   - component: {fileID: 3905972317663932051}
-  - component: {fileID: 3688903973406814271}
+  - component: {fileID: 574891938614531996}
   m_Layer: 26
   m_Name: Stone_Scroll_Prospect
   m_TagString: Untagged
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3688903973406814271
+--- !u!114 &574891938614531996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,12 +71,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191669878780594588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e01f85edcf02a4cae07225cc29f20d, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ec65feef9b1004a898bf2fa6382616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 0}
   _ObjDamageSender: {fileID: 0}
   _ObjImpact_Overall: {fileID: 0}
+  _Rig: {fileID: 3905972317663932051}
 --- !u!1 &1278231728941838062
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8571470642928191279}
   - component: {fileID: 7284397388752215912}
-  - component: {fileID: 5627259049238313305}
+  - component: {fileID: 5701611213175631037}
   m_Layer: 26
   m_Name: ObjApplyForce
   m_TagString: Untagged
@@ -229,7 +230,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8
---- !u!114 &5627259049238313305
+--- !u!114 &5701611213175631037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,8 +239,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1802785714847561139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1d03100a7f3584fb6bdacf3a9861f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 10b8e9a6cd5ae7147972343fc3f8fb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 3688903973406814271}
-  forceMultiplier: 2
+  _ObjectCtrl: {fileID: 574891938614531996}
+  forceMultiplier: 3
+  isScrolling: 0

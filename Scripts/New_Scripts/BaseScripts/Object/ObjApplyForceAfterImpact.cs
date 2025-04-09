@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ObjApplyForceAfterImpact : ObjectAbstract
 {
+    public ObjApplyForceCtrl ObjApplyForceCtrl => this._ObjectCtrl as ObjApplyForceCtrl;
+
     [SerializeField] protected float forceMultiplier = 2f; // Hệ số lực tùy chỉnh
 
     public virtual void ApplyForce(Vector3 pointImpacted, Vector3 forceDirection)
     {
         // Áp dụng lực tại điểm va chạm
-        if (this._ObjectCtrl.GetComponent<Rigidbody2D>() == null) return;
+        if (this.ObjApplyForceCtrl.Rigidbody2D == null) return;
 
-        Rigidbody2D rig = this._ObjectCtrl.GetComponent<Rigidbody2D>();
+        this.ObjApplyForceCtrl.Rigidbody2D.AddForceAtPosition(forceDirection * forceMultiplier, pointImpacted, ForceMode2D.Impulse);
 
-        rig.AddForceAtPosition(forceDirection * forceMultiplier, pointImpacted, ForceMode2D.Impulse);
-    }    
+    }
+  
 }
