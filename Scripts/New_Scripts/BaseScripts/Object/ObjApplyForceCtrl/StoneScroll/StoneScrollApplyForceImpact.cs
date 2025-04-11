@@ -14,7 +14,7 @@ public class StoneScrollApplyForceImpact : ObjApplyForceAfterImpact
       
         this.isScrolling = true;
 
-        Invoke(nameof(this.StopScroll), 1f);
+        Invoke(nameof(this.StopScroll), 3f);
     }
 
     protected virtual void StopScroll()

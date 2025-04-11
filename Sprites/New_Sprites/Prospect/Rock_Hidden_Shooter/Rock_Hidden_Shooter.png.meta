@@ -126,12 +126,12 @@ TextureImporter:
       name: Rock_Hidden_Shooter_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 5
         y: 0
         width: 66
         height: 264
       alignment: 9
-      pivot: {x: 0.47702062, y: 0.8780314}
+      pivot: {x: 0.56818545, y: 0.8358028}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -243,5 +243,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 574891938614531996}
-  forceMultiplier: 3
+  forceMultiplier: 5
   isScrolling: 0

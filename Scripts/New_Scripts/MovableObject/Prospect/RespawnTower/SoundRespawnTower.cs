@@ -7,9 +7,10 @@ public class SoundRespawnTower : ObjSoundRunOnlyOnce
     [Header("LightRespawnTower")]
     [SerializeField] protected TypeProspectSound _TypeProspectSound;
 
+    public RespawnTowerCtrl RespawnTowerCtrl => this._ObjectCtrl as RespawnTowerCtrl;
     protected override void Update()
     {
-        if (PlayerCtrl.Instance.transform.position.x <= this._ObjectCtrl.transform.position.x) return;
+        if (!this.RespawnTowerCtrl.LightRespawnTower.WasTurned) return;
 
         base.Update();
 
