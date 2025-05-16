@@ -110,6 +110,12 @@ public class InputManager : SurMonoBehaviour
     protected virtual void UpdateConfigEndGame()
     {
         if (GateEntranceAutoRun.Instance.WasCom_Mission) this.PointerRightUp();
+
+        if (GamePlayController.Instance.SystemConfig.isGuidedButton) return;
+
+        if (!this._Press_Attack_Throw && !this._Press_Attack_Dashing && !this.Press_Hidden_Mode && !this.Press_Jump) return;
+
+        GuidanceFirstTimePlaying.Instance.RestoreStatusConfigurationGuidance();
     }
 
     //Left

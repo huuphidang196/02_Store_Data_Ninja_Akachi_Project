@@ -235,7 +235,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.39656958, y: 0.16906652}
+  m_Offset: {x: 0.36857685, y: 0.19776317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -246,7 +246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7958165, y: 0.1563715}
+  m_Size: {x: 0.73983103, y: 0.21376479}
   m_EdgeRadius: 0
 --- !u!50 &1043736192196127700
 Rigidbody2D:
@@ -396,7 +396,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008178711, y: -0.017248213}
+  m_Offset: {x: 0.0005645752, y: 0.03398937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -407,7 +407,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15853882, y: 0.3636638}
+  m_Size: {x: 0.106414795, y: 0.46613896}
   m_EdgeRadius: 0
 --- !u!114 &5170581486039829131
 MonoBehaviour:
@@ -895,6 +895,7 @@ MonoBehaviour:
   - {fileID: 532560420119590297}
   - {fileID: 1901836451946533678}
   isTrapActivated: 0
+  isNeededSetPos: 0
 --- !u!1 &5729093739877521061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1481,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.39512703, y: 0.16975479}
+  m_Offset: {x: 0.3670826, y: 0.19818762}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1491,7 +1492,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7929314, y: 0.15774807}
+  m_Size: {x: 0.7368425, y: 0.21461374}
   m_EdgeRadius: 0
 --- !u!50 &4095757923556120207
 Rigidbody2D:

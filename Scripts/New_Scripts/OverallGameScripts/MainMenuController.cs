@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : SystemController
 {
@@ -15,19 +16,5 @@ public class MainMenuController : SystemController
         if (m_instance != null) Debug.LogError("Allow only MainMenuController has been exist");
 
         m_instance = this;
-    }
-    protected override void Start()
-    {
-        base.Start();
-
-        this.LoadGameBySetDataSO();
-    }
-
-    protected virtual void LoadGameBySetDataSO()
-    {
-        SaveData saveData = SaveManager.Instance.DataSaved;
-
-        //Set PlayerSO and Shuriken
-        
     }
 }

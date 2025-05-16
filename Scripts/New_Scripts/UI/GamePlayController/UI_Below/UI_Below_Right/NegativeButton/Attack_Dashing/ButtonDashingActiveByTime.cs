@@ -22,6 +22,9 @@ public class ButtonDashingActiveByTime : ActiveByTimer
     }
     protected override bool CheckAllPrequisite()
     {
+        if (!GamePlayController.Instance.SystemConfig.isGuidedButton)
+            return GuidanceFirstTimePlaying.Instance.GetBoolActiveButton(this._Type_Guidance_Button);
+
         return PlayerCtrl.Instance.PlayerMovement.IsHiding || PlayerCtrl.Instance.PlayerMovement.IsStunned;
     }
 }

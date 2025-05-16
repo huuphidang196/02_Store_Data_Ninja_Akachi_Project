@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &339865902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339865903}
+  - component: {fileID: 339865904}
+  m_Layer: 0
+  m_Name: Begin_Scene_Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &339865903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339865902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339865904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339865902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902f18fda4323144971ef8b13e1d985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
 --- !u!1 &490821643
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +397,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704300897}
   m_CullTransparentMesh: 0
+--- !u!1 &891148903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891148905}
+  - component: {fileID: 891148904}
+  m_Layer: 0
+  m_Name: Save_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &891148904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891148903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543f617370b0ccb40a204cd0cbf2a0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData:
+    playerData:
+      Max_Life: 0
+      Shuriken_Dam_Send: 0
+    systemConfigData:
+      isFinishedStory: 0
+      isGuidedButton: 0
+      StarMissionLevels: []
+      Level_Unlock: 0
+      Total_Golds: 0
+      Total_Diamonds: 0
+    GamePlayConfigUIOverallData:
+      Time_Delay_Active_Button_Hiden: 0
+      Time_Delay_Active_Button_Attack_Throw: 0
+      Time_Delay_Active_Button_Attack_Dashing: 0
+    ShopData:
+      WasRemoved_Ads: 0
+      Order_Skin_Equipped: 0
+      Skins_Hiden_Mode: []
+    ArtifactData:
+      List_ArtifactItems: []
+--- !u!4 &891148905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891148903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182795341
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,3 +929,5 @@ SceneRoots:
   - {fileID: 1300920060}
   - {fileID: 1189433231}
   - {fileID: 1426423521}
+  - {fileID: 891148905}
+  - {fileID: 339865903}

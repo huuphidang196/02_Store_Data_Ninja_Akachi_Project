@@ -6,6 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SystemConfig", menuName = "ScriptableObject/Configuration/SystemConfig")]
 public class SystemConfig : ScriptableObject
 {
+    public bool isFinishedStory = false;
+    public bool isGuidedButton = false;
+
     [SerializeField] protected List<StarMissionLevel> _StarMissionLevels;
     public List<StarMissionLevel> StarMissionLevels
     {

@@ -41,11 +41,15 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
-       // Debug.Log($"Game saved to {savePath}");
+         Debug.Log($"Game saved to {savePath}");
     }
 
     protected virtual void ProgressSaveGame()
     {
+        //FirstPlayting and guided button 
+        this.saveData.systemConfigData.isFinishedStory = SystemController.Sys_Instance.SystemConfig.isFinishedStory;
+        this.saveData.systemConfigData.isGuidedButton = SystemController.Sys_Instance.SystemConfig.isGuidedButton;
+
         //pLayer and Shuriken
         this.saveData.playerData.Max_Life = SystemController.Sys_Instance.SystemConfig.PlayerSO.Max_Life;
         this.saveData.playerData.Shuriken_Dam_Send = SystemController.Sys_Instance.SystemConfig.PlayerSO.ShurikenSO.Damage_Send;
@@ -79,7 +83,7 @@ public class SaveManager : Singleton<SaveManager>
         foreach (ArtifactItem item in SystemController.Sys_Instance.SystemConfig.ArtifactConfigSO.List_ArtifactItems)
         {
             BaseDataUnlock baseDataUnlock = new BaseDataUnlock(item.TypeNameArtifact.ToString(), item.Unlock);
-           // Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
+            // Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
             this.saveData.ArtifactData.List_ArtifactItems.Add(baseDataUnlock);
         }
     }
@@ -93,16 +97,20 @@ public class SaveManager : Singleton<SaveManager>
 
             if (SystemController.Sys_Instance == null) return;
             this.ProgressLoadGame();
-         //   Debug.Log("Game loaded successfully.");
+            //   Debug.Log("Game loaded successfully.");
         }
         else
         {
-          //  Debug.LogWarning("No save file found.");
+            //  Debug.LogWarning("No save file found.");
         }
     }
 
     protected virtual void ProgressLoadGame()
     {
+        //FirstPlayting and guided button 
+        SystemController.Sys_Instance.SystemConfig.isFinishedStory = this.saveData.systemConfigData.isFinishedStory;
+        SystemController.Sys_Instance.SystemConfig.isGuidedButton = this.saveData.systemConfigData.isGuidedButton;
+
         //pLayer and Shuriken
         SystemController.Sys_Instance.SystemConfig.PlayerSO.Max_Life = this.saveData.playerData.Max_Life;
         SystemController.Sys_Instance.SystemConfig.PlayerSO.ShurikenSO.Damage_Send = this.saveData.playerData.Shuriken_Dam_Send;
@@ -172,6 +180,8 @@ public class PlayerData
 [System.Serializable]
 public class SystemConfigData
 {
+    public bool isFinishedStory;
+    public bool isGuidedButton;
     public List<StarMissionLevel> StarMissionLevels = new List<StarMissionLevel>();
     public int Level_Unlock;
     public float Total_Golds;

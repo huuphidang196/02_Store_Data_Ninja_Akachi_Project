@@ -15,6 +15,12 @@ public class ButtonBackMainMenu : BaseButton
 
     protected virtual void LoadMainMenu()
     {
+        if (!SystemController.Sys_Instance.SystemConfig.isFinishedStory)
+        {
+            SceneManager.LoadScene("Introduce");
+            return;
+        }    
+
         SceneManager.LoadScene("MainMenu");
     }
 }

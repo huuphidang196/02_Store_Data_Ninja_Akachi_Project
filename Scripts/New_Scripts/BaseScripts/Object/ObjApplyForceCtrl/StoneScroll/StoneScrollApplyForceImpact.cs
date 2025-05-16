@@ -22,12 +22,12 @@ public class StoneScrollApplyForceImpact : ObjApplyForceAfterImpact
         this.isScrolling = false;
     }
 
-    protected virtual void FixedUpdate()
-    {
-        if (isScrolling) return;
+    //protected virtual void FixedUpdate()
+    //{
+    //    if (isScrolling) return;
 
-        if (this.ObjApplyForceCtrl.Rigidbody2D == null) return;
+    //    if (this.ObjApplyForceCtrl.Rigidbody2D == null) return;
 
-        this.ObjApplyForceCtrl.Rigidbody2D.velocity = new Vector2(0, this.ObjApplyForceCtrl.Rigidbody2D.velocity.y);
-    }
+    //    this.ObjApplyForceCtrl.Rigidbody2D.velocity = new Vector2(0, this.ObjApplyForceCtrl.Rigidbody2D.velocity.y);
+    //}
 }

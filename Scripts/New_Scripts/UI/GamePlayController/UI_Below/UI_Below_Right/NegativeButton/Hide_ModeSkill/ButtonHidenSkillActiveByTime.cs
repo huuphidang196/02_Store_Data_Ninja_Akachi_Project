@@ -61,6 +61,9 @@ public class ButtonHidenSkillActiveByTime : ActiveByTimer
     }
     protected override bool CheckAllPrequisite()
     {
+        if (!GamePlayController.Instance.SystemConfig.isGuidedButton) 
+            return GuidanceFirstTimePlaying.Instance.GetBoolActiveButton(this._Type_Guidance_Button);
+
         return PlayerCtrl.Instance.PlayerMovement.IsDashing || PlayerCtrl.Instance.PlayerMovement.IsStunned;
     }
 
