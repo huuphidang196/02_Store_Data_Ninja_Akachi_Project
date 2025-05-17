@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ActiveByTimer : BaseImage
-{
-    [SerializeField] protected GuidanceButtonFirstTime _Type_Guidance_Button;
-    
+{   
     [SerializeField] protected ButtonActiveParent _ButtonActiveParent;
     public ButtonActiveParent ButtonActiveParent => this._ButtonActiveParent;
 
