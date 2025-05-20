@@ -22,10 +22,12 @@ public class FadeInPlotSummary : SurMonoBehaviour
         if (this.textPlotSummary != null) return;
 
         this.textPlotSummary = GetComponentInChildren<TextMeshProUGUI>();
+        this.textPlotSummary.gameObject.SetActive(false);
     }
 
     protected override void Start()
     {
+        this.textPlotSummary.gameObject.SetActive(true);
         StartCoroutine(ShowAndFade());
     }
 
