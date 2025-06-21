@@ -159,7 +159,11 @@ PrefabInstance:
     - target: {fileID: 7246467510690638084, guid: f95e65a98e439f249b443fc92e01c31d, type: 3}
       propertyPath: _MovableObj_Movement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2957467389269689620}
+    - target: {fileID: 7246467510690638084, guid: f95e65a98e439f249b443fc92e01c31d, type: 3}
+      propertyPath: _MObjScriptableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f04689763a58f54aba946e5aa7e427e, type: 2}
     - target: {fileID: 7283374595719669900, guid: f95e65a98e439f249b443fc92e01c31d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.48680466
@@ -213,8 +217,8 @@ MonoBehaviour:
   isFacingRight: 0
   _Move_Right: 0
   _Speed_Dash_Horizontal: 0
-  isFacingPlayer: 0
   isChangeDir: 0
+  isFacingPlayer: 0
 --- !u!4 &5759696996682754369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5238452810777516295, guid: f95e65a98e439f249b443fc92e01c31d, type: 3}

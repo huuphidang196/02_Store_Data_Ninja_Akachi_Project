@@ -27,7 +27,7 @@ public abstract class MovableObjCtrl : ObjectCtrl
 
         string nameofS_Obj = this.GetNameFolderTypeObject() +"/" + this.GetNameFolderTypeObjectUsing() + transform.name.Split('_', StringSplitOptions.RemoveEmptyEntries)[0] +"/" + transform.name + "SO";
 
-        string path = "ScriptableObject/MovableObjScriptableObject/" + nameofS_Obj;
+        string path = "ScriptableObject/SystemConfig/GameController/MovableObjScriptableObject/" + nameofS_Obj;
         Debug.Log(path);
         this._MObjScriptableObject = Resources.Load<MObjScriptableObject>(path);
 

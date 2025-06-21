@@ -28,10 +28,23 @@ public class InputManagerBoss : SurMonoBehaviour
 
     [SerializeField] protected float _Distance_Recovery_Attack = 2;//seconds;
 
+    [SerializeField] protected bool isBeginFighter = false;
+    public bool IsBeginFighter => this.isBeginFighter;
+
     [SerializeField] protected bool isShadow = false;
+    public bool IsShadow => this.isShadow;
+
     [SerializeField] protected bool isFlowDark = false;
+    public bool IsFlowDark => this.isFlowDark;
+
     [SerializeField] protected bool isAttackSlash = false;
+    public bool IsAttackSlash => this.isAttackSlash;
+
     [SerializeField] protected bool isJumpAttack = false;
+    public bool IsJumpAttack => this.isJumpAttack;
+
+    [SerializeField] protected bool isCoolAttack = false;
+    public bool IsCoolAttack => this.isCoolAttack;
     //move left or right movement decide
 
     protected override void LoadComponents()
@@ -50,13 +63,14 @@ public class InputManagerBoss : SurMonoBehaviour
 
     protected virtual void Update()
     {
-        this.isFlowDark = this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X);
+        this.isFlowDark = this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
 
-        this.isAttackSlash = this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark;
-
-        this.isJumpAttack = !this.isFlowDark && !this.isAttackSlash && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X);
-
-        this.isShadow = !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X);
+        this.isAttackSlash = this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark && !this.isCoolAttack;
+   
+        this.isShadow = !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
+       
+        if (this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
+            this.isJumpAttack = !this.isFlowDark && !this.isAttackSlash && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X) && !this.isCoolAttack;
 
     }
     protected virtual float GetDistanceX()

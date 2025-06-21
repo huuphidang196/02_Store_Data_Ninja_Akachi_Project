@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ba81e6f2dbe4745bb802aff8546a14, type: 3}
+  m_Name: Enemy_BossGaikuSO
+  m_EditorClassIdentifier: 
+  _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
+  Speed_Move_Horizontal: 1.2
+  Max_HP: 1
+  Length_Ray_Forward_Limit: 20
+  Speed_Dash_Horizontal: 3.2
+  Time_Delay_Attack: 1
+  Distance_Attack_Player: 5

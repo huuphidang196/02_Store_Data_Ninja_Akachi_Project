@@ -13,8 +13,8 @@ public class VFXObjectSpawner : Spawner
     public static string VFX_Blood_Fly = "VFX_Blood_Fly";
     public static string VFX_Ground_Emit = "VFX_Ground_Emit";
     public static string VFX_WoodBox_Emit = "VFX_WoodBox_Emit";
-
-
+    public static string VFX_Shadow_Step = "VFX_Shadow_Step";
+    
     protected override void Awake()
     {
         base.Awake();
