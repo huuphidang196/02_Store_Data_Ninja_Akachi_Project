@@ -38,10 +38,17 @@ public class BossAnimation : CharacterAnimation
 
         this._SpriteRenderer = GetComponent<SpriteRenderer>();
     }
+    protected override void Update()
+    {
+     //   if (!this._BossCtrl.InputManagerBoss.IsBeginFighter) return;
+        base.Update();
+    }
 
     protected override void ProcessUpdateProcedureObjectLife()
     {
         this.UpdateBoolByInputManager();
+
+        if (this.CheckAnimationCurrent("BeginFighter")) return;
 
         this.UpdateAnimationControllers();
 
@@ -50,9 +57,9 @@ public class BossAnimation : CharacterAnimation
 
     protected virtual void UpdateAnimationControllers()
     {
-        this.SetBoolNoRepeat("isDead", this.isDead);
-
         this.SetBoolNoRepeat("BeginFighter", this._BossCtrl.InputManagerBoss.IsBeginFighter);
+
+        this.SetBoolNoRepeat("isDead", this.isDead);
 
         this.SetBoolNoRepeat("isShadow", this.isShadow);
 
@@ -101,7 +108,7 @@ public class BossAnimation : CharacterAnimation
         this.isSlash = this._BossCtrl.InputManagerBoss.IsAttackSlash;
 
         this._Run_Ani = (!this.isDead && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDark
-            && this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround);
+            && this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround && this._BossCtrl.InputManagerBoss.IsBeginFighter);
     }
 
     protected virtual void SetAnimationHidenSetup()

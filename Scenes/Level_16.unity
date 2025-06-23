@@ -1528,8 +1528,9 @@ MonoBehaviour:
   _Distance_Attack_Slash: 5
   _Distance_OnMode_Jump_Attack: 7
   _Limit_Space_Jump_Pos_X: 11
-  _Distance_Recovery_Attack: 2
+  _Time_Recovery_Attack: 2
   isBeginFighter: 0
+  _Time_Player_Recognize: 8
   isShadow: 0
   isFlowDark: 0
   isAttackSlash: 0
@@ -32281,9 +32282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7af527603baa984eb31d73922cd9c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
-  _maxHP: 0
-  _currentHP: 0
+  _ObjectCtrl: {fileID: 646790017}
+  _maxHP: 10
+  _currentHP: 10
   isDead: 0
   _BoxCollider2D: {fileID: 789407923}
 --- !u!61 &789407923

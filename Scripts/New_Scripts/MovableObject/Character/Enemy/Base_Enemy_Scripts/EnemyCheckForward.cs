@@ -35,12 +35,18 @@ public class EnemyCheckForward : CharacterCheckForward
 
         if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact)
         {
-            this.isChangedDirForward = false;
-            this.isScanning = false;
+            this.SetBoolAfterImpactOrNotAllow();
+            
             return;
         }
 
         this.UpdateTargetPlayerAppear();
+    }
+
+    protected virtual void SetBoolAfterImpactOrNotAllow()
+    {
+        this.isChangedDirForward = false;
+        this.isScanning = false;
     }
 
     protected override bool CheckAllOtherConditionsToContinue()

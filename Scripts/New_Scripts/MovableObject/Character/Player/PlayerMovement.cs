@@ -226,12 +226,11 @@ public class PlayerMovement : CharacterObjMovement
         {
             this._Horizontal = 0f;
             return;
-        }
+        } 
 
-        float speed_Move = !this.isHiding ? this._Speed_Move_Horizontal : this._Speed_Hiding_Horizontal;
-
-        this._Horizontal = (this._Move_Left) ? -1f * speed_Move : 1f * speed_Move;
+        this._Horizontal = (this._Move_Left) ? -1f * this.GetSpeedMove() : 1f * this.GetSpeedMove();
     }
+    protected virtual float GetSpeedMove() => !this.isHiding ? this._Speed_Move_Horizontal : this._Speed_Hiding_Horizontal;
 
     protected virtual bool IsGrounded()
     {

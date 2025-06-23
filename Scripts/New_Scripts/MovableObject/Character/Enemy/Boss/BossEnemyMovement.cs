@@ -41,10 +41,10 @@ public class BossEnemyMovement : EnemyMovementOverall
             return;
         }
 
-        float speed_Move = !this.BossCtrl.InputManagerBoss.IsCoolAttack ? this._Speed_Dash_Horizontal : this._Speed_Move_Horizontal;
-
-        this._Horizontal = (this._Move_Right) ? 1f * speed_Move : -1f * speed_Move;
+        this._Horizontal = (this._Move_Right) ? 1f * this.GetSpeedMove() : -1f * this.GetSpeedMove();
     }
+
+    protected virtual float GetSpeedMove() => !this.BossCtrl.InputManagerBoss.IsCoolAttack ? this._Speed_Dash_Horizontal : this._Speed_Move_Horizontal;
 
     protected override void UpdateBoolByInputManager()
     {

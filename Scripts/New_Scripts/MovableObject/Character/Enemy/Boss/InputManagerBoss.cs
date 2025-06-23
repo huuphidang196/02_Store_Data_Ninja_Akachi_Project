@@ -20,16 +20,19 @@ public class InputManagerBoss : SurMonoBehaviour
     public float Distance_MoveFlow_Axis_X => 6f;
 
 
-    [SerializeField] protected float _Distance_Attack_Slash = 5f;
+    [SerializeField] protected float _Distance_Attack_Slash = 4f;
 
-    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 7f;
+    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 6f;
     [SerializeField] protected float _Limit_Space_Jump_Pos_X = 11f;
     public float Distance_MoveJump_Axis_X => 7;//must == distanceOnMode
 
-    [SerializeField] protected float _Distance_Recovery_Attack = 2;//seconds;
+    [SerializeField] protected float _Time_Recovery_Attack = 2;//seconds;
 
     [SerializeField] protected bool isBeginFighter = false;
     public bool IsBeginFighter => this.isBeginFighter;
+
+    [SerializeField] protected float _Time_Player_Recognize = 8f;//seconds;
+    public float Time_Player_Recognize => this._Time_Player_Recognize;
 
     [SerializeField] protected bool isShadow = false;
     public bool IsShadow => this.isShadow;
@@ -61,17 +64,33 @@ public class InputManagerBoss : SurMonoBehaviour
         this._BossCtrl = GetComponentInParent<BossCtrl>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        Invoke(nameof(this.SetBeginFighter), this._Time_Player_Recognize);
+    }
+
+    protected virtual void SetBeginFighter()
+    {
+        this.isBeginFighter = true;
+    }
+
     protected virtual void Update()
     {
+        if (!this.isBeginFighter) return;
+
         this.isFlowDark = this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
 
         this.isAttackSlash = this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark && !this.isCoolAttack;
-   
-        this.isShadow = !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
-       
-        if (this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
-            this.isJumpAttack = !this.isFlowDark && !this.isAttackSlash && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X) && !this.isCoolAttack;
 
+        this.isJumpAttack = this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && !this.isFlowDark && !this.isAttackSlash
+          && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X) && !this.isCoolAttack;
+
+        this.isShadow = !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
+
+        //  if (this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
+      
     }
     protected virtual float GetDistanceX()
     {
@@ -81,5 +100,20 @@ public class InputManagerBoss : SurMonoBehaviour
     protected virtual bool CheckInsideScope(float limit)
     {
         return Mathf.Abs(this._BossCtrl.transform.position.x) <= limit;
+    }
+
+    public virtual void ReachedLimitSpaceMustCoolAttack()
+    {
+        //After Boss move over limit  space
+        StartCoroutine(IEReachedLimitSpaceMustCoolAttack());
+    }
+
+    protected IEnumerator IEReachedLimitSpaceMustCoolAttack()
+    {
+        this.isCoolAttack = true;
+
+        yield return new WaitForSeconds(this._Time_Recovery_Attack);
+
+        this.isCoolAttack = false;
     }
 }
