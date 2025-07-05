@@ -24,7 +24,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     [SerializeField] protected bool isSlash = false;
     public bool IsSlash => this.isSlash;
 
-    [SerializeField] protected float _JumpingPower = 17f;
+    [SerializeField] protected float _JumpingPower = 21f;
 
     protected override void ResetDataConfiguration()
     {
@@ -35,9 +35,15 @@ public class BossEnemyMovement : EnemyMovementOverall
     }
     protected override void UpdateSpeedHorizontal()
     {
-        if (this.isSlash || !this.BossCtrl.InputManagerBoss.IsBeginFighter)
+        if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter)
         {
             this._Horizontal = 0f;
+            return;
+        }
+
+        if (this.BossCtrl.BossAnimation.IsDropAttacking)
+        {
+            this._Horizontal = (this._Move_Right) ? 1.5f * this._Speed_Dash_Horizontal : -1.5f * this._Speed_Dash_Horizontal;
             return;
         }
 
@@ -74,7 +80,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         vfxShadow.gameObject.SetActive(true);
 
         //Inactive Mode
-       // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
+        // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
         // need 1s to move shadow + 1 active vfx
@@ -86,7 +92,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         this.BossCtrl.transform.position += new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveShadow_Axis_X, 0.2f, 0);
 
         //Active
-       // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
+        // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
 
     }
 
@@ -96,12 +102,18 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         if (this.isShadow || this.isFlowDark) return;
 
-        this._Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, this._JumpingPower);
+        this._Rigidbody2D.velocity = new Vector2(this.BossCtrl.BossEnemyMovement.Rigidbody2D.velocity.x, this._JumpingPower);
 
         // this._PlayerCtrl.PlayerSoundManager.PlaySoundJump();
 
         this.isJumpAttack = false;
     }
+    protected override void ChangeDirectionMovement()
+    {
+        base.ChangeDirectionMovement();
 
+        //start cooltime
+        this.BossCtrl.InputManagerBoss.ReachedLimitSpaceMustCoolAttack();
+    }
 
 }

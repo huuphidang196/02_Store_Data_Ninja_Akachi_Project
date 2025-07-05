@@ -1,3 +1,4 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,9 @@ public class BossAnimation : CharacterAnimation
     [SerializeField] protected bool isSlash = false;
     public bool IsSlash => this.isSlash;
 
+    [SerializeField] protected bool isDropAttacking = false;
+    public bool IsDropAttacking => this.isDropAttacking;
+
     [SerializeField] protected SpriteRenderer _SpriteRenderer;
 
     protected override void LoadAllClipsAnimation()
@@ -38,38 +42,60 @@ public class BossAnimation : CharacterAnimation
 
         this._SpriteRenderer = GetComponent<SpriteRenderer>();
     }
-    protected override void Update()
-    {
-     //   if (!this._BossCtrl.InputManagerBoss.IsBeginFighter) return;
-        base.Update();
-    }
 
     protected override void ProcessUpdateProcedureObjectLife()
     {
         this.UpdateBoolByInputManager();
 
-        if (this.CheckAnimationCurrent("BeginFighter")) return;
+        //if (this.CheckAnimationCurrent("BeginFighter")) return;
+
+        this.ProcessDroppingAndDropAttack();
 
         this.UpdateAnimationControllers();
 
-        this.SetAnimationHidenSetup();
+     //   this.SetAnimationHidenSetup();
     }
 
+    protected virtual void ProcessDroppingAndDropAttack()
+    {
+        if (!this.isDropAttacking && this.CheckAnimationCurrent("Dropping"))
+        {
+            this.isDropAttacking = true;
+            this.UpdateBoolByInputManager();
+            this._Timer_Animation = 0f;
+        }
+        if (!this.isDropAttacking) return;
+
+        if (!this.isGrounded) return;
+
+        this.SetTimeDurationByAnimationClip("DropAttack");
+
+        if (this.CheckTimer())
+        {
+            this.SetDropAttack();
+        }
+    }
+
+    protected virtual void SetDropAttack() => this.isDropAttacking = false;
     protected virtual void UpdateAnimationControllers()
     {
         this.SetBoolNoRepeat("BeginFighter", this._BossCtrl.InputManagerBoss.IsBeginFighter);
 
         this.SetBoolNoRepeat("isDead", this.isDead);
 
+        this.SetBoolNoRepeat("isGrounded", this.isGrounded);
+
+        this.SetBoolNoRepeat("isCoolAttack", (this._BossCtrl.InputManagerBoss.IsCoolAttack));
+
+        this.SetFloatNoRepeat("isCoolAttackNum", (this._BossCtrl.InputManagerBoss.IsCoolAttack ? 1f : 0f));
+
+        this.SetBoolNoRepeat("isDropAttacking", this.isDropAttacking);
+
         this.SetBoolNoRepeat("isShadow", this.isShadow);
 
         this.SetBoolNoRepeat("isFlowDark", this.isFlowDark);
 
         this.SetBoolNoRepeat("isSlash", this.isSlash);
-
-        this.SetFloatNoRepeat("isCoolAttack", (this._BossCtrl.InputManagerBoss.IsCoolAttack ? 0 : 1f));
-
-        this.SetBoolNoRepeat("isGrounded", this.isGrounded);
 
         this.SetFloatNoRepeat("yVelocity", this._BossCtrl.BossEnemyMovement.Rigidbody2D.velocity.y);
 
@@ -99,16 +125,16 @@ public class BossAnimation : CharacterAnimation
 
         this.isGrounded = this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround;
 
-        this.isShadow = this._BossCtrl.InputManagerBoss.IsShadow && this.isGrounded;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && this.isGrounded && !this.isDropAttacking;
 
-        this.isFlowDark = this._BossCtrl.InputManagerBoss.IsFlowDark && this.isGrounded;
+        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark && this.isGrounded && !this.isDropAttacking;
 
-        this.isJumpAttack = this._BossCtrl.InputManagerBoss.IsJumpAttack;
+        this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
 
-        this.isSlash = this._BossCtrl.InputManagerBoss.IsAttackSlash;
+        this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
 
-        this._Run_Ani = (!this.isDead && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDark
-            && this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround && this._BossCtrl.InputManagerBoss.IsBeginFighter);
+        this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDark
+            && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter);
     }
 
     protected virtual void SetAnimationHidenSetup()

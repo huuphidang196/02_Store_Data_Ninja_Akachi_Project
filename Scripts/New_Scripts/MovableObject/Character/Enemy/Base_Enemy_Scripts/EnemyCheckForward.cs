@@ -35,12 +35,12 @@ public class EnemyCheckForward : CharacterCheckForward
 
         if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact)
         {
-            this.SetBoolAfterImpactOrNotAllow();
-            
+            this.SetBoolAfterImpactOrNotAllow();            
             return;
         }
 
         this.UpdateTargetPlayerAppear();
+
     }
 
     protected virtual void SetBoolAfterImpactOrNotAllow()
@@ -66,8 +66,8 @@ public class EnemyCheckForward : CharacterCheckForward
         // Transform col = this.CheckForwardIsHaveRightObjectLayer().collider.transform;
 
         this._TargetFollow = PlayerCtrl.Instance.transform;
-        this.isChangedDirForward = false;
-        this.isScanning = false;
+
+        this.SetBoolAfterImpactOrNotAllow();
     }
 
     protected virtual void SetChangeDirection()

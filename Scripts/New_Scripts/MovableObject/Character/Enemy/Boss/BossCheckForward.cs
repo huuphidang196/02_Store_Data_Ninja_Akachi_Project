@@ -5,21 +5,30 @@ using UnityEngine;
 public class BossCheckForward : EnemyCheckForward
 {
     protected BossCheckContactEnviroment _BossCheckContactEnviroment => this.CharacterCheckContactEnviroment as BossCheckContactEnviroment;
-    protected override void ProcessFixedUpdateEvent()
+    protected override void LoadLayerMaskForward()
     {
-        if (this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack)
-        {
-            this._ForwardObjRight = false;
-            base.SetBoolAfterImpactOrNotAllow();
-            return;
-        }    
+        if (this._ObjForwardLayer.Length > 0) return;
 
-        base.ProcessFixedUpdateEvent();
+        this._ObjForwardLayer = new string[3];
+        this._ObjForwardLayer[0] = "Player";
+        this._ObjForwardLayer[1] = "Ground";
+        this._ObjForwardLayer[2] = "PlayerHiddenMode";
     }
-
 
     protected override void SetBoolAfterImpactOrNotAllow()
     {
-        this.isChangedDirForward = false;
+        base.SetBoolAfterImpactOrNotAllow();
+        this._ForwardObjRight = false;
     }
+    protected override bool CheckAllOtherConditionsToContinue()
+    {
+       return !this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack;
+    }
+    protected override void ScanTargetOnFOV()
+    {
+        if (!this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack) this._TargetFollow = PlayerCtrl.Instance.transform;
+
+        base.ScanTargetOnFOV();
+    }
+
 }

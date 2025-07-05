@@ -9,24 +9,24 @@ public class InputManagerBoss : SurMonoBehaviour
 
     //Configuration
     ///Number Data
-    [SerializeField] protected float _Limit_Space_Pos_X = 20f;
+    [SerializeField] protected float _Limit_Space_Pos_X = 23f;
 
-    [SerializeField] protected float _Distance_OnMode_ShadowStep = 8f;
-    [SerializeField] protected float _Limit_Space_Shadow_Pos_X = 10f;
-    public float Distance_MoveShadow_Axis_X => 7f;
+    [SerializeField] protected float _Distance_OnMode_ShadowStep = 11f;
+    [SerializeField] protected float _Limit_Space_Shadow_Pos_X = 13f;
+    public float Distance_MoveShadow_Axis_X => 11f;
 
-    [SerializeField] protected float _Distance_OnMode_FlowDark = 2f;
-    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 12f;
-    public float Distance_MoveFlow_Axis_X => 6f;
+    [SerializeField] protected float _Distance_OnMode_FlowDark = 3f;
+    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 15f;
+    public float Distance_MoveFlow_Axis_X => 9f;
 
 
-    [SerializeField] protected float _Distance_Attack_Slash = 4f;
+    [SerializeField] protected float _Distance_Attack_Slash = 7f;
 
-    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 6f;
-    [SerializeField] protected float _Limit_Space_Jump_Pos_X = 11f;
-    public float Distance_MoveJump_Axis_X => 7;//must == distanceOnMode
+    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 10f;
+    [SerializeField] protected float _Limit_Space_Jump_Pos_X = 14f;
+   // public float Distance_MoveJump_Axis_X => 10;//must == distanceOnMode
 
-    [SerializeField] protected float _Time_Recovery_Attack = 2;//seconds;
+    [SerializeField] protected float _Time_Recovery_Attack = 5;//seconds;
 
     [SerializeField] protected bool isBeginFighter = false;
     public bool IsBeginFighter => this.isBeginFighter;
@@ -90,7 +90,7 @@ public class InputManagerBoss : SurMonoBehaviour
         this.isShadow = !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
 
         //  if (this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
-      
+
     }
     protected virtual float GetDistanceX()
     {
@@ -104,16 +104,13 @@ public class InputManagerBoss : SurMonoBehaviour
 
     public virtual void ReachedLimitSpaceMustCoolAttack()
     {
+        this.isCoolAttack = true;
         //After Boss move over limit  space
-        StartCoroutine(IEReachedLimitSpaceMustCoolAttack());
+        Invoke(nameof(IEReachedLimitSpaceMustCoolAttack), this._Time_Recovery_Attack);
     }
 
-    protected IEnumerator IEReachedLimitSpaceMustCoolAttack()
+    protected void IEReachedLimitSpaceMustCoolAttack()
     {
-        this.isCoolAttack = true;
-
-        yield return new WaitForSeconds(this._Time_Recovery_Attack);
-
         this.isCoolAttack = false;
     }
 }
