@@ -12,7 +12,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected float _Limit_Space_Pos_X = 24f;
 
     [SerializeField] protected float _Distance_OnMode_ShadowStep = 11f;
-    [SerializeField] protected float _Limit_Space_Shadow_Pos_X = 13f;
+    [SerializeField] protected float _Limit_Space_Shadow_Pos_X = 11f;
     public float Distance_MoveShadow_Axis_X => 11f;
 
     [SerializeField] protected float _Distance_OnMode_FlowDark = 3f;
@@ -28,6 +28,9 @@ public class InputManagerBoss : SurMonoBehaviour
 
     [SerializeField] protected float _Time_Recovery_Attack = 5;//seconds;
 
+    [SerializeField] protected bool isBeginIntroduce = false;
+    public bool IsBeginIntroduce => this.isBeginIntroduce;
+
     [SerializeField] protected bool isBeginFighter = false;
     public bool IsBeginFighter => this.isBeginFighter;
 
@@ -42,16 +45,25 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowShadow = true;
     public bool AllowShadow { set => this.allowShadow = value; }
 
+    [SerializeField] protected float _TimeDelay_Allow_Shadow = 12f;
+    public float TimeDelay_Allow_Shadow => _TimeDelay_Allow_Shadow;
+
     //Flow Dark
     [SerializeField] protected bool isFlowDark = false;
     public bool IsFlowDark => this.isFlowDark;
 
     [SerializeField] protected bool allowFlowDark = true;
-    public bool AllowFlowDark { set => this.allowFlowDark = value; }
+    public bool AllowFlowDark => this.allowFlowDark;
+
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 20f;
+    public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash
     [SerializeField] protected bool isAttackSlash = false;
     public bool IsAttackSlash => this.isAttackSlash;
+
+    [SerializeField] protected bool allowSlash = true;
+    public bool AllowSlash { set => this.allowSlash = value; }
 
     //JumpAttack
 
@@ -59,7 +71,11 @@ public class InputManagerBoss : SurMonoBehaviour
     public bool IsJumpAttack => this.isJumpAttack;
 
     [SerializeField] protected bool allowJumpAttack = true;
-    public bool AllowJumpAttack { set => this.allowJumpAttack = value; }
+    public bool AllowJumpAttack => this.allowJumpAttack;
+
+    [SerializeField] protected float _TimeDelay_Allow_Jump = 8f;
+    public float TimeDelay_Allow_Jump => _TimeDelay_Allow_Jump;
+
 
     [SerializeField] protected bool isCoolAttack = false;
     public bool IsCoolAttack => this.isCoolAttack;
@@ -85,15 +101,17 @@ public class InputManagerBoss : SurMonoBehaviour
     {
         base.Start();
 
-        Invoke(nameof(this.SetBeginFighter), this._Time_Player_Recognize);
+        StartCoroutine(this.SetBeginFighter());
     }
 
-    protected virtual void SetBeginFighter()
+    protected IEnumerator SetBeginFighter()
     {
+        yield return new WaitForSeconds(this._Time_Player_Recognize);
+        this.isBeginIntroduce = true;
+
+        yield return new WaitForSeconds(1f);
         this.isBeginFighter = true;
     }
-
-
 
     protected virtual void Update()
     {
@@ -102,7 +120,7 @@ public class InputManagerBoss : SurMonoBehaviour
         this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
             && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
 
-        this.isAttackSlash = this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark && !this.isCoolAttack;
+        this.isAttackSlash = this.allowSlash && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark && !this.isCoolAttack;
 
         this.isJumpAttack = this.allowJumpAttack && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && !this.isFlowDark && !this.isAttackSlash
           && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X) && !this.isCoolAttack;
@@ -116,25 +134,35 @@ public class InputManagerBoss : SurMonoBehaviour
 
     protected virtual void SetAllowSkill()
     {
-        StartCoroutine(SetAllowSkill(() => this.allowJumpAttack, (v) => this.allowJumpAttack = v));
-        StartCoroutine(SetAllowSkill(() => this.allowFlowDark, (v) => this.allowFlowDark = v));
-        StartCoroutine(SetAllowSkill(() => this.allowShadow, (v) => this.allowShadow = v));
+        StartCoroutine(SetAllowSkill(() => this.allowJumpAttack, (v) => this.allowJumpAttack = v, this._TimeDelay_Allow_Jump));
     }
 
-    protected IEnumerator SetAllowSkill(Func<bool> getValue, Action<bool> setValue)
+    protected IEnumerator SetAllowSkill(Func<bool> getValue, Action<bool> setValue, float timer)
     {
         if (getValue() == this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround || !getValue() && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
             yield break;
 
         setValue(this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround);
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(timer);
 
         setValue(true);
 
     }
 
+    public IEnumerator SetAllowShadow()
+    {
+        this.allowShadow = false;
+        yield return new WaitForSeconds(this._TimeDelay_Allow_Shadow);
+        this.allowShadow = true;
+    }
 
+    public IEnumerator SetAllowDark()
+    {
+        this.allowFlowDark = false;
+        yield return new WaitForSeconds(this._TimeDelay_Allow_Dark);
+        this.allowFlowDark = true;
+    }
 
     protected virtual float GetDistanceX()
     {
@@ -158,3 +186,19 @@ public class InputManagerBoss : SurMonoBehaviour
         this.isCoolAttack = false;
     }
 }
+
+
+/*
+protected IEnumerator SetAllowSkill(Func<bool> getValue, Action<bool> setValue)
+{
+    if (getValue() == this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround || !getValue() && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
+        yield break;
+
+    setValue(this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround);
+
+    yield return new WaitForSeconds(8f);
+
+    setValue(true);
+
+}
+*/

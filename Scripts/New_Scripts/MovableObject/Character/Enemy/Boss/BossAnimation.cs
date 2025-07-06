@@ -28,7 +28,7 @@ public class BossAnimation : CharacterAnimation
     public bool IsDropAttacking => this.isDropAttacking;
 
     [SerializeField] protected SpriteRenderer _SpriteRenderer;
-
+ 
     protected override void LoadAllClipsAnimation()
     {
         base.LoadAllClipsAnimation();
@@ -69,6 +69,7 @@ public class BossAnimation : CharacterAnimation
         if (!this.isGrounded) return;
 
         this.SetTimeDurationByAnimationClip("DropAttack");
+        this._Time_Duration += Time.deltaTime;
 
         if (this.CheckTimer())
         {
@@ -79,6 +80,8 @@ public class BossAnimation : CharacterAnimation
     protected virtual void SetDropAttack() => this.isDropAttacking = false;
     protected virtual void UpdateAnimationControllers()
     {
+        this.SetBoolNoRepeat("isBeginIntroduce", this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
+
         this.SetBoolNoRepeat("BeginFighter", this._BossCtrl.InputManagerBoss.IsBeginFighter);
 
         this.SetBoolNoRepeat("isDead", this.isDead);
@@ -127,7 +130,7 @@ public class BossAnimation : CharacterAnimation
 
         this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && !this.isDropAttacking;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
 
         this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark  && !this.isDropAttacking;
 
