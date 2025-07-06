@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,14 +43,22 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         if (this.BossCtrl.BossAnimation.IsDropAttacking)
         {
-            this._Horizontal = (this._Move_Right) ? 1.5f * this._Speed_Dash_Horizontal : -1.5f * this._Speed_Dash_Horizontal;
+            this._Horizontal = this.CalculateVox();
             return;
         }
 
-        this._Horizontal = (this._Move_Right) ? 1f * this.GetSpeedMove() : -1f * this.GetSpeedMove();
+        this._Horizontal = (this._Move_Right) ? 1f * this.GetSpeedMoveHorizontal() : -1f * this.GetSpeedMoveHorizontal();
+    }
+    protected float CalculateVox()
+    {
+        float g = Mathf.Abs(Physics2D.gravity.y) * this._Rigidbody2D.gravityScale;
+
+        float vox = this.BossCtrl.InputManagerBoss.Distance_MoveJump_Axis_X * g / (2f * this._JumpingPower);
+
+        return (this._Move_Right) ? 1f * vox : -1f * vox;
     }
 
-    protected virtual float GetSpeedMove() => !this.BossCtrl.InputManagerBoss.IsCoolAttack ? this._Speed_Dash_Horizontal : this._Speed_Move_Horizontal;
+    protected virtual float GetSpeedMoveHorizontal() => !this.BossCtrl.InputManagerBoss.IsCoolAttack ? this._Speed_Dash_Horizontal : this._Speed_Move_Horizontal;
 
     protected override void UpdateBoolByInputManager()
     {
@@ -60,9 +68,9 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         this.isJumpAttack = this.BossCtrl.InputManagerBoss.IsJumpAttack;
 
-        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && this.isGrounded;
+        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow;
 
-        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash && this.isGrounded;
+        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash;
 
         if (this.isShadow) this.ActionShadow();
 
@@ -101,19 +109,25 @@ public class BossEnemyMovement : EnemyMovementOverall
         // if (this.BossCtrl.ObjDamageReceiver.ObjIsDead) return;
 
         if (this.isShadow || this.isFlowDark) return;
-
-        this._Rigidbody2D.velocity = new Vector2(this.BossCtrl.BossEnemyMovement.Rigidbody2D.velocity.x, this._JumpingPower);
+        // Debug.Log("x0: " + this.BossCtrl.transform.position.x);
+        this._Rigidbody2D.velocity = new Vector2(this.CalculateVox(), this._JumpingPower);
 
         // this._PlayerCtrl.PlayerSoundManager.PlaySoundJump();
 
-        this.isJumpAttack = false;
+        //this.isJumpAttack = false; no influence since update bool
+
+     //   this.BossCtrl.InputManagerBoss.SetFalseAllowSkill(value => this.BossCtrl.InputManagerBoss.AllowJumpAttack = false);
     }
     protected override void ChangeDirectionMovement()
     {
-        base.ChangeDirectionMovement();
+        if (this.EnemyCtrl.EnemyImpact.IsImpact)
+        {
+            //start cooltime
+            this.BossCtrl.InputManagerBoss.ReachedLimitSpaceMustCoolAttack();
+        }
 
-        //start cooltime
-        this.BossCtrl.InputManagerBoss.ReachedLimitSpaceMustCoolAttack();
+        base.ChangeDirectionMovement();
     }
+
 
 }

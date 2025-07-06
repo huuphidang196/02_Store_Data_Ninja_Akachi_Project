@@ -53,7 +53,7 @@ public class BossAnimation : CharacterAnimation
 
         this.UpdateAnimationControllers();
 
-     //   this.SetAnimationHidenSetup();
+        this.SetAnimationHidenSetup();
     }
 
     protected virtual void ProcessDroppingAndDropAttack()
@@ -125,11 +125,11 @@ public class BossAnimation : CharacterAnimation
 
         this.isGrounded = this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && this.isGrounded && !this.isDropAttacking;
-
-        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark && this.isGrounded && !this.isDropAttacking;
-
         this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
+
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && !this.isDropAttacking;
+
+        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark  && !this.isDropAttacking;
 
         this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
 

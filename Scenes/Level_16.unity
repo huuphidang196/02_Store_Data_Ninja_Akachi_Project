@@ -1420,21 +1420,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _BossCtrl: {fileID: 646790017}
-  _Limit_Space_Pos_X: 23
+  _Limit_Space_Pos_X: 24
   _Distance_OnMode_ShadowStep: 11
   _Limit_Space_Shadow_Pos_X: 13
-  _Distance_OnMode_FlowDark: 2
+  _Distance_OnMode_FlowDark: 3
   _Limit_Space_Flow_Pos_X: 15
   _Distance_Attack_Slash: 7
-  _Distance_OnMode_Jump_Attack: 9
+  _Distance_OnMode_Jump_Attack: 11
   _Limit_Space_Jump_Pos_X: 14
   _Time_Recovery_Attack: 5
   isBeginFighter: 0
   _Time_Player_Recognize: 8
   isShadow: 0
+  allowShadow: 1
   isFlowDark: 0
+  allowFlowDark: 1
   isAttackSlash: 0
   isJumpAttack: 0
+  allowJumpAttack: 1
   isCoolAttack: 0
 --- !u!4 &240805360
 Transform:
@@ -32062,8 +32065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 646790017}
-  _maxHP: 10
-  _currentHP: 10
+  _maxHP: 99990
+  _currentHP: 99990
   isDead: 0
   _BoxCollider2D: {fileID: 789407923}
 --- !u!61 &789407923

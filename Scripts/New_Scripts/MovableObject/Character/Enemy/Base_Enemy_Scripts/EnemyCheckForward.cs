@@ -35,7 +35,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
         if (!this.isOtherConditionAllow || this.EnemyCheckContactEnviroment.EnemyCtrl.EnemyImpact.IsImpact)
         {
-            this.SetBoolAfterImpactOrNotAllow();            
+            this.SetBoolAfterImpactOrNotAllow();
             return;
         }
 

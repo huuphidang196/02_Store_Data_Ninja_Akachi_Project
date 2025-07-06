@@ -56,14 +56,19 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
     {
         if (!this.CheckAllOtherConditionsToContinue())
         {
-            this._ForwardObjRight = false;
-            this.isOtherConditionAllow = false;
+            this.ConductActionIfNotAlowContinue();        
             return;
         }
         this.isOtherConditionAllow = true;
 
         this.GenerateAndDrawAllRaycastHits();
         this._ForwardObjRight = this.CheckIsFacingTargetLayer();
+    }
+
+    protected virtual void ConductActionIfNotAlowContinue()
+    {
+        this._ForwardObjRight = false;
+        this.isOtherConditionAllow = false;
     }
 
     protected virtual bool CheckAllOtherConditionsToContinue()
