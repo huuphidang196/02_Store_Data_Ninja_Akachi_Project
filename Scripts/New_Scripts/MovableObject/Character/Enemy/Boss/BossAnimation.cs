@@ -47,7 +47,7 @@ public class BossAnimation : CharacterAnimation
     {
         this.UpdateBoolByInputManager();
 
-        //if (this.CheckAnimationCurrent("BeginFighter")) return;
+     //   if (this.CheckAnimationCurrent("Shadow_Step")) return;
 
         this.ProcessDroppingAndDropAttack();
 
@@ -130,35 +130,33 @@ public class BossAnimation : CharacterAnimation
 
         this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && !this.isDropAttacking;
 
         this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark  && !this.isDropAttacking;
 
         this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
 
         this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDark
-            && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter);
+            && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter && this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
     }
 
     protected virtual void SetAnimationHidenSetup()
     {
         if (!this.isShadow && !this.isFlowDark && this._SpriteRenderer.enabled) return;
 
-        if (this.isShadow)
+        if (this.isShadow || this.isFlowDark)
         {
-            this.ActiveAndInActiveSkinHidenMode(this.isShadow != this._SpriteRenderer.enabled);
+            this.ActiveAndInActiveSkinHidenMode(false);
             return;
         }
 
-        if (this.isFlowDark != this._SpriteRenderer.enabled) return;
-
-        this.ActiveAndInActiveSkinHidenMode(this.isFlowDark != this._SpriteRenderer.enabled);
+        this.ActiveAndInActiveSkinHidenMode(true);
 
     }
 
     protected virtual void ActiveAndInActiveSkinHidenMode(bool active)
     {
-        //this._Animator.enabled = active;
+        this._Animator.enabled = active;
         this._SpriteRenderer.enabled = active;
 
         foreach (Transform item in this.transform)

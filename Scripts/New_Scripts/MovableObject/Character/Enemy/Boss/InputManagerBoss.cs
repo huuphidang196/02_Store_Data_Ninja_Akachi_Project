@@ -65,6 +65,8 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowSlash = true;
     public bool AllowSlash { set => this.allowSlash = value; }
 
+    [SerializeField] protected float _TimeDelay_Allow_Slash = 5f;
+    public float TimeDelay_Allow_Slash => _TimeDelay_Allow_Slash;
     //JumpAttack
 
     [SerializeField] protected bool isJumpAttack = false;
@@ -120,12 +122,13 @@ public class InputManagerBoss : SurMonoBehaviour
         this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
             && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
 
-        this.isAttackSlash = this.allowSlash && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isFlowDark && !this.isCoolAttack;
+        this.isAttackSlash = this.allowSlash && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
+            && this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isCoolAttack;
 
-        this.isJumpAttack = this.allowJumpAttack && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround && !this.isFlowDark && !this.isAttackSlash
+        this.isJumpAttack = this.allowJumpAttack && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
           && this.GetDistanceX() <= this._Distance_OnMode_Jump_Attack && this.CheckInsideScope(this._Limit_Space_Jump_Pos_X) && !this.isCoolAttack;
 
-        this.isShadow = this.allowShadow && !this.isFlowDark && !this.isAttackSlash && !this.isJumpAttack && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
+        this.isShadow = this.allowShadow && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
             && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
 
         this.SetAllowSkill();
@@ -156,7 +159,12 @@ public class InputManagerBoss : SurMonoBehaviour
         yield return new WaitForSeconds(this._TimeDelay_Allow_Shadow);
         this.allowShadow = true;
     }
-
+    public IEnumerator SetAllowSlash()
+    {
+        this.allowSlash = false;
+        yield return new WaitForSeconds(this._TimeDelay_Allow_Slash);
+        this.allowSlash = true;
+    }
     public IEnumerator SetAllowDark()
     {
         this.allowFlowDark = false;

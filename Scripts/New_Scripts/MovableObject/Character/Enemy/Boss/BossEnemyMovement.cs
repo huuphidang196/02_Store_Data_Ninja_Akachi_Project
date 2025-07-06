@@ -38,7 +38,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     }
     protected override void UpdateSpeedHorizontal()
     {
-        if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter)
+        if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter ||this.isShadowing)
         {
             this._Horizontal = 0f;
             return;
@@ -71,9 +71,9 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         this.isJumpAttack = this.BossCtrl.InputManagerBoss.IsJumpAttack;
 
-        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking;
+        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isShadowing;
 
-        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash && !this.BossCtrl.BossAnimation.IsDropAttacking;
+        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack && !this.isSlash;
 
         if (this.isShadow && !this.isShadowing) StartCoroutine(this.ActionShadow());
 
@@ -85,32 +85,32 @@ public class BossEnemyMovement : EnemyMovementOverall
     protected IEnumerator ActionShadow()
     {
         this.isShadowing = true;
-        this.BossCtrl.InputManagerBoss.AllowSlash = false;
-
         //VFX
         Transform vfxShadow = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Shadow_Step, this._MovableObjCtrl.transform.position, Quaternion.identity);
         vfxShadow.localScale = Vector3.one;
 
         vfxShadow.gameObject.SetActive(true);
-        //     Debug.Log("Shadow" + vfxShadow.name);
+        //   Debug.Log("Shadow" + vfxShadow.name);
         //Inactive Mode
         // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(1.5f);
-        // need 1s to move shadow + 1 active vfx
+        //Set pos
+        this.BossCtrl.transform.position +=
+            new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveShadow_Axis_X * Math.Sign(this.BossCtrl.transform.localScale.x), 0f, 0);
 
         //VFX
         vfxShadow.position = this._MovableObjCtrl.transform.position;
         vfxShadow.gameObject.SetActive(true);
 
-        //Set pos
-        this.BossCtrl.transform.position += 
-            new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveShadow_Axis_X * Math.Sign(this.BossCtrl.BossAnimation.transform.localScale.x), 0f, 0);
+        //yield return new WaitForSeconds(0.5f);
+        // need 1s to move shadow + 1 active vfx
 
         //Active
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
         this.isShadowing = false;
-        this.BossCtrl.InputManagerBoss.AllowSlash = true; 
+
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowSlash());
 
         //SetAllow Shadow
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowShadow());
@@ -118,6 +118,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
+   
     }
 
     protected virtual void ActionJump()
