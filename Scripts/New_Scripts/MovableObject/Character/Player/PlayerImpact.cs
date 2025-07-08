@@ -27,7 +27,7 @@ public class PlayerImpact : CharacterImpactTrigger
     }
     protected override void ProcessAfterObjectImpacted()
     {
-        this._PlayerAttack.ObjDamSenderInfinity.Send(this._parentObj);
+        this._PlayerAttack.ObjDamageSender.Send(this._parentObj);
 
     }
 }

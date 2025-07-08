@@ -21,6 +21,9 @@ public class BossEnemyMovement : EnemyMovementOverall
     [SerializeField] protected bool isFlowDark = false;
     public bool IsFlowDark => this.isFlowDark;
 
+    [SerializeField] protected bool isFlowDarkening = false;
+    public bool IsFlowDarkening => this.isFlowDarkening;
+
     [SerializeField] protected bool isJumpAttack = false;
     public bool IsJumpAttack => this.isJumpAttack;
 
@@ -28,7 +31,8 @@ public class BossEnemyMovement : EnemyMovementOverall
     public bool IsSlash => this.isSlash;
 
     [SerializeField] protected float _JumpingPower = 21f;
-
+    [SerializeField] protected float _Time_MoveShadow = 1.5f;
+    [SerializeField] protected float _Time_MoveFlow = 3f;
     protected override void ResetDataConfiguration()
     {
         base.ResetDataConfiguration();
@@ -38,7 +42,8 @@ public class BossEnemyMovement : EnemyMovementOverall
     }
     protected override void UpdateSpeedHorizontal()
     {
-        if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter ||this.isShadowing)
+        if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter
+            || this.isShadowing)
         {
             this._Horizontal = 0f;
             return;
@@ -71,9 +76,12 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         this.isJumpAttack = this.BossCtrl.InputManagerBoss.IsJumpAttack;
 
-        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isShadowing;
+        this.isFlowDark = this.BossCtrl.InputManagerBoss.IsFlowDark && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack
+            && !this.isShadowing && !this.isSlash;
 
-        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack && !this.isSlash;
+        this.isSlash = this.BossCtrl.InputManagerBoss.IsAttackSlash && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isShadowing && !this.isFlowDarkening;
+
+        this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack && !this.isSlash && !this.isFlowDarkening;
 
         if (this.isShadow && !this.isShadowing) StartCoroutine(this.ActionShadow());
 
@@ -81,6 +89,45 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         //    if (this.isSlash) this.ActionAttackSlash();
     }
+
+    protected IEnumerator ActionFlowDarkening()
+    {
+        this.isFlowDarkening = true;
+        //VFX
+        Transform vfxFlowDark = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_WoodBox_Emit, this._MovableObjCtrl.transform.position, Quaternion.identity);
+        vfxFlowDark.localScale = Vector3.one;
+
+        vfxFlowDark.gameObject.SetActive(true);
+        //   Debug.Log("Shadow" + vfxShadow.name);
+        //Inactive Mode
+        // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(this._Time_MoveFlow);
+        //Set pos
+        this.BossCtrl.transform.position +=
+            new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveFlow_Axis_X * Math.Sign(this.BossCtrl.transform.localScale.x), 0f, 0);
+
+        //VFX
+        vfxFlowDark.position = this._MovableObjCtrl.transform.position;
+        vfxFlowDark.gameObject.SetActive(false);
+
+        //yield return new WaitForSeconds(0.5f);
+        // need 1s to move shadow + 1 active vfx
+
+        //Active
+        // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
+        this.isFlowDarkening = false;
+
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowSlash());
+
+        //SetAllow Shadow
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowShadow());
+
+        //Set allow flow dark together
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
+
+    }
+
 
     protected IEnumerator ActionShadow()
     {
@@ -94,7 +141,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Inactive Mode
         // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(this._Time_MoveShadow);
         //Set pos
         this.BossCtrl.transform.position +=
             new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveShadow_Axis_X * Math.Sign(this.BossCtrl.transform.localScale.x), 0f, 0);
@@ -118,7 +165,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
-   
+
     }
 
     protected virtual void ActionJump()

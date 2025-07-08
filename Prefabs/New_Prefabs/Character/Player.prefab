@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5628575546046693114}
-  - component: {fileID: 2886161530206196622}
+  - component: {fileID: 1840900729713737921}
   m_Layer: 10
   m_Name: ObjDamSender
   m_TagString: Untagged
@@ -293,7 +293,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2986209216783383127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2886161530206196622
+--- !u!114 &1840900729713737921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,11 +302,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2406784581263668612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2cde509c4963164d8c36c290813df6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9df69859f2bb34a4481414817a30e92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 2890972321005388380}
-  _damage: 9999
+  _damage: 3
 --- !u!1 &2453980969417495924
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 6321020517895561848}
-  _ObjDamageSender: {fileID: 2886161530206196622}
+  _ObjDamageSender: {fileID: 0}
   _ObjImpact_Overall: {fileID: 6915596207984295737}
   _MObjScriptableObject: {fileID: 11400000, guid: ec04cbb18f95f8f4eadc7f5d185d398b, type: 2}
   _MovableObj_Movement: {fileID: 3006772782471773438}
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _PlayerCtrl: {fileID: 2890972321005388380}
   _PlayerImpact: {fileID: 6915596207984295737}
-  _ObjDamSenderInfinity: {fileID: 2886161530206196622}
+  _ObjDamSender: {fileID: 1840900729713737921}
   _Pos_Spawn_Shuriken: {fileID: 87500390278681645}
   isThrowing: 0
   _Time_Delay: 0.25

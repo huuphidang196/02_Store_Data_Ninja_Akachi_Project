@@ -10,7 +10,7 @@ public class BossAnimation : CharacterAnimation
     [Header("BossAnimation")]
 
     [SerializeField] protected bool isGrounded = false;
-    public bool Jump_Ani => this.isGrounded;
+    public bool IsGrounded => this.isGrounded;
 
     [SerializeField] protected bool isShadow = false;
     public bool IsShadow => this.isShadow;
@@ -130,7 +130,7 @@ public class BossAnimation : CharacterAnimation
 
         this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadow && !this.isDropAttacking;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
 
         this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark  && !this.isDropAttacking;
 

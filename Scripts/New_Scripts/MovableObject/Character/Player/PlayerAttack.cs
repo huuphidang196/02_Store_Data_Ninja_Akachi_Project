@@ -10,8 +10,8 @@ public class PlayerAttack : PlayerAbstract
     [SerializeField] protected PlayerImpact _PlayerImpact;
     public PlayerImpact PlayerImpact => this._PlayerImpact;
 
-    [SerializeField] protected ObjDamSenderInfinity _ObjDamSenderInfinity;
-    public ObjDamSenderInfinity ObjDamSenderInfinity => this._ObjDamSenderInfinity;
+    [SerializeField] protected ObjDamageSender _ObjDamSender;
+    public ObjDamageSender ObjDamageSender => this._ObjDamSender;
 
     [SerializeField] protected Transform _Pos_Spawn_Shuriken;
 
@@ -45,7 +45,7 @@ public class PlayerAttack : PlayerAbstract
         base.LoadComponents();
 
         this.LoadPlayerImpact();
-        this.LoadObjDamSenderInfinity();
+        this.LoadObjDamSender();
         this.LoadPositionSpawnShuriken();
     }
     protected virtual void LoadPlayerImpact()
@@ -55,11 +55,11 @@ public class PlayerAttack : PlayerAbstract
         this._PlayerImpact = GetComponentInChildren<PlayerImpact>();
     }
 
-    protected virtual void LoadObjDamSenderInfinity()
+    protected virtual void LoadObjDamSender()
     {
-        if (this._ObjDamSenderInfinity != null) return;
+        if (this._ObjDamSender != null) return;
 
-        this._ObjDamSenderInfinity = GetComponentInChildren<ObjDamSenderInfinity>();
+        this._ObjDamSender = GetComponentInChildren<ObjDamageSender>();
     }
 
     protected virtual void LoadPositionSpawnShuriken()

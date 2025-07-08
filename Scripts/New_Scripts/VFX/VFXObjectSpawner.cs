@@ -14,7 +14,7 @@ public class VFXObjectSpawner : Spawner
     public static string VFX_Ground_Emit = "VFX_Ground_Emit";
     public static string VFX_WoodBox_Emit = "VFX_WoodBox_Emit";
     public static string VFX_Shadow_Step = "VFX_Shadow_Step";
-    
+    public static string VFX_Drop_Attack = "VFX_Drop_Attack";
     protected override void Awake()
     {
         base.Awake();
@@ -23,4 +23,5 @@ public class VFXObjectSpawner : Spawner
 
         m_instance = this;
     }
+ 
 }

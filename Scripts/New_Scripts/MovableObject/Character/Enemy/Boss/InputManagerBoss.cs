@@ -45,7 +45,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowShadow = true;
     public bool AllowShadow { set => this.allowShadow = value; }
 
-    [SerializeField] protected float _TimeDelay_Allow_Shadow = 12f;
+    [SerializeField] protected float _TimeDelay_Allow_Shadow = 10f;
     public float TimeDelay_Allow_Shadow => _TimeDelay_Allow_Shadow;
 
     //Flow Dark
@@ -55,7 +55,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowFlowDark = true;
     public bool AllowFlowDark => this.allowFlowDark;
 
-    [SerializeField] protected float _TimeDelay_Allow_Dark = 20f;
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 12f;
     public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash
@@ -65,7 +65,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowSlash = true;
     public bool AllowSlash { set => this.allowSlash = value; }
 
-    [SerializeField] protected float _TimeDelay_Allow_Slash = 5f;
+    [SerializeField] protected float _TimeDelay_Allow_Slash = 2f;
     public float TimeDelay_Allow_Slash => _TimeDelay_Allow_Slash;
     //JumpAttack
 

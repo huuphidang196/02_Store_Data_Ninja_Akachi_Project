@@ -10,6 +10,8 @@ public class WeaponCharacterSpawner : Spawner
     public static string Name_Shuriken = "Shuriken_Weapon";
 
     public static string Name_Bullet_Enemy_Shooter= "Bullet_Enemy_Shooter";
+
+    public static string VFX_Slash_Attack = "Weapon_VFX_Slash_Attack";
     protected override void Awake()
     {
         base.Awake();
