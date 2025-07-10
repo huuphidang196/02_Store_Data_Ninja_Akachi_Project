@@ -8,9 +8,10 @@ public class WeaponBossImpact : ObjTriigerImpactTargetPlayerAndHidenMode
     {
         // Debug.Log("name: " + this._parentObj.name + ", layer: " + LayerMask.LayerToName(this._parentObj.gameObject.layer));
         //Call OnDead in DamReceiver of Shuriken
-        this.WeaponCharacterCtrl.WeaponCharacterDamReceiver.OnDeadByInfiniteDamage();
         this.WeaponCharacterCtrl.ObjDamageSender.Send(this._parentObj);
         this._TypeImpact = TypeImpact.Emit_Blood;
+        this.WeaponCharacterCtrl.WeaponCharacterDamReceiver.OnDeadByInfiniteDamage();
+
 
 
     }

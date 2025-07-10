@@ -55,7 +55,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowFlowDark = true;
     public bool AllowFlowDark => this.allowFlowDark;
 
-    [SerializeField] protected float _TimeDelay_Allow_Dark = 12f;
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 5f;
     public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash

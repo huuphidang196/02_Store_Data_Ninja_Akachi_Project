@@ -84,6 +84,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack && !this.isSlash && !this.isFlowDarkening;
 
         if (this.isShadow && !this.isShadowing) StartCoroutine(this.ActionShadow());
+        if (this.isFlowDark  && !this.isFlowDarkening) StartCoroutine(this.ActionFlowDarkening());
 
         if (this.isJumpAttack) this.ActionJump();
 
@@ -94,22 +95,20 @@ public class BossEnemyMovement : EnemyMovementOverall
     {
         this.isFlowDarkening = true;
         //VFX
-        Transform vfxFlowDark = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_WoodBox_Emit, this._MovableObjCtrl.transform.position, Quaternion.identity);
+        Transform vfxFlowDark = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Flow_Dark, this._MovableObjCtrl.transform.position, Quaternion.identity);
         vfxFlowDark.localScale = Vector3.one;
 
         vfxFlowDark.gameObject.SetActive(true);
-        //   Debug.Log("Shadow" + vfxShadow.name);
-        //Inactive Mode
-        // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(this._Time_MoveFlow);
+        // Chờ cho đến khi vfxFlowDark không còn active
+        while (vfxFlowDark.gameObject.activeSelf)
+            yield return null;
         //Set pos
         this.BossCtrl.transform.position +=
             new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveFlow_Axis_X * Math.Sign(this.BossCtrl.transform.localScale.x), 0f, 0);
 
         //VFX
         vfxFlowDark.position = this._MovableObjCtrl.transform.position;
-        vfxFlowDark.gameObject.SetActive(false);
 
         //yield return new WaitForSeconds(0.5f);
         // need 1s to move shadow + 1 active vfx

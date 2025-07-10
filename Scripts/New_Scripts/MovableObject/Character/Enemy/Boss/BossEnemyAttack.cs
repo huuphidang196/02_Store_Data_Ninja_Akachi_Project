@@ -90,6 +90,8 @@ public class BossEnemyAttack : EnemyAttack
         vfx_attack_Slash.localScale = Vector3.one;
         vfx_attack_Slash.name = WeaponCharacterSpawner.VFX_Slash_Attack;
         vfx_attack_Slash.gameObject.SetActive(true);
+
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash());
         //Debug.Log("Shoot");
     }
 
