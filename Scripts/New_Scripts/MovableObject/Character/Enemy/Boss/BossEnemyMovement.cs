@@ -33,6 +33,8 @@ public class BossEnemyMovement : EnemyMovementOverall
     [SerializeField] protected float _JumpingPower = 21f;
     [SerializeField] protected float _Time_MoveShadow = 1.5f;
     [SerializeField] protected float _Time_MoveFlow = 3f;
+
+    [SerializeField] protected Transform _waitingVFX = null;
     protected override void ResetDataConfiguration()
     {
         base.ResetDataConfiguration();
@@ -43,7 +45,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     protected override void UpdateSpeedHorizontal()
     {
         if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter
-            || this.isShadowing)
+            || this.isShadowing || this.isFlowDarkening)
         {
             this._Horizontal = 0f;
             return;
@@ -84,34 +86,40 @@ public class BossEnemyMovement : EnemyMovementOverall
         this.isShadow = this.BossCtrl.InputManagerBoss.IsShadow && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack && !this.isSlash && !this.isFlowDarkening;
 
         if (this.isShadow && !this.isShadowing) StartCoroutine(this.ActionShadow());
-        if (this.isFlowDark  && !this.isFlowDarkening) StartCoroutine(this.ActionFlowDarkening());
+        if (this.isFlowDark || this.isFlowDarkening) this.ActionFlowDarkening();
 
         if (this.isJumpAttack) this.ActionJump();
 
         //    if (this.isSlash) this.ActionAttackSlash();
     }
 
-    protected IEnumerator ActionFlowDarkening()
+    protected virtual void ActionFlowDarkening()
     {
-        this.isFlowDarkening = true;
-        //VFX
-        Transform vfxFlowDark = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Flow_Dark, this._MovableObjCtrl.transform.position, Quaternion.identity);
-        vfxFlowDark.localScale = Vector3.one;
+        if (!this.isFlowDarkening)
+        {
+            this.isFlowDarkening = true;
+            //VFX
+            this._waitingVFX = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Flow_Dark, this._MovableObjCtrl.transform.position, Quaternion.identity);
 
-        vfxFlowDark.gameObject.SetActive(true);
+            if (this._waitingVFX == null)
+            {
+                this.isFlowDarkening = false;
+                return;
+            }
 
-        // Chờ cho đến khi vfxFlowDark không còn active
-        while (vfxFlowDark.gameObject.activeSelf)
-            yield return null;
+            this._waitingVFX.localScale = Vector3.one;
+
+            this._waitingVFX.gameObject.SetActive(true);
+
+            FlowDarkCtrl flowCtrl = this._waitingVFX.GetComponent<FlowDarkCtrl>();
+            flowCtrl.FlowDarkMovement.SetDirection(this.BossCtrl.transform);
+
+            return;
+        }
+
+        if (this._waitingVFX.gameObject.activeInHierarchy) return;
         //Set pos
-        this.BossCtrl.transform.position +=
-            new Vector3(this.BossCtrl.InputManagerBoss.Distance_MoveFlow_Axis_X * Math.Sign(this.BossCtrl.transform.localScale.x), 0f, 0);
-
-        //VFX
-        vfxFlowDark.position = this._MovableObjCtrl.transform.position;
-
-        //yield return new WaitForSeconds(0.5f);
-        // need 1s to move shadow + 1 active vfx
+        this.BossCtrl.transform.position = new Vector3(this._waitingVFX.position.x, this.BossCtrl.transform.position.y, 0);
 
         //Active
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);

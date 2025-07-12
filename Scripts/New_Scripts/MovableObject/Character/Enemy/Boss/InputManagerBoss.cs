@@ -16,9 +16,8 @@ public class InputManagerBoss : SurMonoBehaviour
     public float Distance_MoveShadow_Axis_X => 11f;
 
     [SerializeField] protected float _Distance_OnMode_FlowDark = 3f;
-    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 15f;
-    public float Distance_MoveFlow_Axis_X => 9f;
-
+    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 12f;
+    public float Distance_MoveFlow_Axis_X => 10f;
 
     [SerializeField] protected float _Distance_Attack_Slash = 7f;
 

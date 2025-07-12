@@ -18,7 +18,7 @@ public class FlowDarkDespawn : ObjDisableParentByDistaneCompareTarget
     {
         if (this._FlowDarkCtrl != null) return;
 
-        this._FlowDarkCtrl = GetComponentInParent<FlowDarkCtrl>();
+        this._FlowDarkCtrl = transform.parent.GetComponent<FlowDarkCtrl>();
     }
 
     protected override void Start()
@@ -27,13 +27,15 @@ public class FlowDarkDespawn : ObjDisableParentByDistaneCompareTarget
 
         this.activationDistance = BossCtrl.Instance.InputManagerBoss.Distance_MoveFlow_Axis_X;
     }
+
     protected override float GetDistance()
     {
         return this._FlowDarkCtrl.FlowDarkMovement.GetDistanceXMoved();
     }
+
     protected override bool AllowActive()
     {
-        return Mathf.Abs(this.GetDistance()) > activationDistance;
+        return !(Mathf.Abs(this.GetDistance()) >= activationDistance);
     }
 
 }

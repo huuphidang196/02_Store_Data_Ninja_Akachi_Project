@@ -10,6 +10,7 @@ public class FlowDarkMovement : ObjSinMovement
     {
         base.Start();
         prevPos = startPos;
+        this.amplitude = 3f;
     }
 
     protected override void FixedUpdate()

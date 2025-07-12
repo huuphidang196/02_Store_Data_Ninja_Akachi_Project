@@ -132,7 +132,7 @@ public class BossAnimation : CharacterAnimation
 
         this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
 
-        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDark  && !this.isDropAttacking;
+        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDarkening  && !this.isDropAttacking;
 
         this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
 

@@ -6,5 +6,8 @@ public class FlowDarkCtrl : DynamicMovementCtrl
 {
     public FlowDarkMovement FlowDarkMovement => this._MovableObj_Movement as FlowDarkMovement;
 
-    
+    protected override string GetNameFolderTypeObjectUsing()
+    {
+        return "DynamicProspect/";
+    }
 }

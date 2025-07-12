@@ -8,7 +8,7 @@ public class ObjSinMovement : DynamicBridgeMovement
     [SerializeField] protected float amplitude = 6f;
     [SerializeField] protected float frequency = 0.4f;
 
-    protected Vector3 startPos;
+    [SerializeField] protected Vector3 startPos;
     protected float traveledX = 0f;
 
     protected override void Start()
