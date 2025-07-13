@@ -27,8 +27,11 @@ public class BossAnimation : CharacterAnimation
     [SerializeField] protected bool isDropAttacking = false;
     public bool IsDropAttacking => this.isDropAttacking;
 
+    [SerializeField] protected bool isFlowDarkAttack = false;
+    public bool IsFlowDarkAttack => this.isFlowDarkAttack;
+
     [SerializeField] protected SpriteRenderer _SpriteRenderer;
- 
+
     protected override void LoadAllClipsAnimation()
     {
         base.LoadAllClipsAnimation();
@@ -47,9 +50,11 @@ public class BossAnimation : CharacterAnimation
     {
         this.UpdateBoolByInputManager();
 
-     //   if (this.CheckAnimationCurrent("Shadow_Step")) return;
-
+        if (PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead) return;
+        
         this.ProcessDroppingAndDropAttack();
+
+        this.ProcessFlowDarkAttack();
 
         this.UpdateAnimationControllers();
 
@@ -76,8 +81,29 @@ public class BossAnimation : CharacterAnimation
             this.SetDropAttack();
         }
     }
+    protected virtual void ProcessFlowDarkAttack()
+    {
+        if (!this.isFlowDarkAttack && this.isFlowDark)
+        {
+            this.isFlowDarkAttack = true;
+            this.UpdateBoolByInputManager();
+            this._Timer_Animation = 0f;
+        }
+        if (!this.isFlowDarkAttack) return;
+
+        if (!this.isGrounded) return;
+
+        this.SetTimeDurationByAnimationClip("FlowDarkAttack");
+        this._Time_Duration += Time.deltaTime;
+
+        if (this.CheckTimer())
+        {
+            this.SetFlowDarkAttack();
+        }
+    }
 
     protected virtual void SetDropAttack() => this.isDropAttacking = false;
+    protected virtual void SetFlowDarkAttack() => this.isFlowDarkAttack = false;
     protected virtual void UpdateAnimationControllers()
     {
         this.SetBoolNoRepeat("isBeginIntroduce", this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
@@ -97,6 +123,8 @@ public class BossAnimation : CharacterAnimation
         this.SetBoolNoRepeat("isShadow", this.isShadow);
 
         this.SetBoolNoRepeat("isFlowDark", this.isFlowDark);
+
+        this.SetBoolNoRepeat("isFlowDarkAttack", this.isFlowDarkAttack);
 
         this.SetBoolNoRepeat("isSlash", this.isSlash);
 
@@ -132,7 +160,7 @@ public class BossAnimation : CharacterAnimation
 
         this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
 
-        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDarkening  && !this.isDropAttacking;
+        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDarkening && !this.isDropAttacking;
 
         this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
 

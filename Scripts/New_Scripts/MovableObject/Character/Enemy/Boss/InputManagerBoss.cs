@@ -15,8 +15,8 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected float _Limit_Space_Shadow_Pos_X = 11f;
     public float Distance_MoveShadow_Axis_X => 11f;
 
-    [SerializeField] protected float _Distance_OnMode_FlowDark = 3f;
-    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 12f;
+    [SerializeField] protected float _Distance_OnMode_FlowDark = 13f;
+    [SerializeField] protected float _Limit_Space_Flow_Pos_X = 10f;
     public float Distance_MoveFlow_Axis_X => 10f;
 
     [SerializeField] protected float _Distance_Attack_Slash = 7f;
@@ -54,7 +54,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowFlowDark = true;
     public bool AllowFlowDark => this.allowFlowDark;
 
-    [SerializeField] protected float _TimeDelay_Allow_Dark = 5f;
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 8f;
     public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash
@@ -64,7 +64,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowSlash = true;
     public bool AllowSlash { set => this.allowSlash = value; }
 
-    [SerializeField] protected float _TimeDelay_Allow_Slash = 2f;
+    [SerializeField] protected float _TimeDelay_Allow_Slash = 5f;
     public float TimeDelay_Allow_Slash => _TimeDelay_Allow_Slash;
     //JumpAttack
 

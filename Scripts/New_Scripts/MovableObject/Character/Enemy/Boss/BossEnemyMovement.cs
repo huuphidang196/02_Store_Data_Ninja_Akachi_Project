@@ -45,7 +45,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     protected override void UpdateSpeedHorizontal()
     {
         if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter
-            || this.isShadowing || this.isFlowDarkening)
+            || this.isShadowing || this.isFlowDarkening || (this.BossCtrl.BossAnimation.IsFlowDarkAttack && this.isGrounded))
         {
             this._Horizontal = 0f;
             return;

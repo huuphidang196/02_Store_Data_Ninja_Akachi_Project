@@ -15,6 +15,9 @@ public class BossEnemyAttack : EnemyAttack
     [SerializeField] protected bool is_DropAttack_VFX = false;
     [SerializeField] protected bool canSpawn_DropAttack_VFX = false;
 
+    [SerializeField] protected bool is_FlowDarkAttack_VFX = false;
+    [SerializeField] protected bool canSpawn_FlowDarkAttack_VFX = false;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -34,6 +37,7 @@ public class BossEnemyAttack : EnemyAttack
         this.isSlash = this._BossCtrl.BossAnimation.IsSlash;
 
         this.is_DropAttack_VFX = this._BossCtrl.BossAnimation.IsDropAttacking && this._BossCtrl.BossAnimation.IsGrounded;
+        this.is_FlowDarkAttack_VFX = this._BossCtrl.BossAnimation.IsFlowDarkAttack && this._BossCtrl.BossAnimation.IsGrounded;
     }
 
     protected override void Update()
@@ -42,6 +46,29 @@ public class BossEnemyAttack : EnemyAttack
 
         this.ActionAttackSlash();
         StartCoroutine(this.ActionDropAttack());
+        StartCoroutine(this.ActionFlowDarkAttack());
+    }
+    protected IEnumerator ActionFlowDarkAttack()
+    {
+        //Check Exist
+        if (!this.is_FlowDarkAttack_VFX)
+        {
+            this.canSpawn_FlowDarkAttack_VFX = true;
+            yield break;
+        }
+
+        if (!this.canSpawn_FlowDarkAttack_VFX) yield break;
+
+        this.canSpawn_FlowDarkAttack_VFX = false;
+
+        yield return new WaitForSeconds(0.2f);
+
+        // Spawn VFX Attack
+        Transform vfx_attack_Flow = VFXObjectSpawner.Instance.Spawn(VFXObjectSpawner.VFX_Flow_Dark_Attack, this._Pos_Spawn_VFX_Attack.position, Quaternion.identity);
+
+        vfx_attack_Flow.localScale = this._BossCtrl.transform.localScale;
+        vfx_attack_Flow.name = VFXObjectSpawner.VFX_Flow_Dark_Attack;
+        vfx_attack_Flow.gameObject.SetActive(true);
     }
 
     protected IEnumerator ActionDropAttack()
