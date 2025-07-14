@@ -12,6 +12,8 @@ public class BossCtrl : EnemyCtrl
     public BossCheckContactEnviroment BossCheckContactEnviroment => this._CharacterCheckContactEnviroment as BossCheckContactEnviroment;
     public BossEnemyMovement BossEnemyMovement => this._MovableObj_Movement as BossEnemyMovement;
 
+    public BossEnemyDamReceiver BossEnemyDamReceiver => this.EnemyDamReceiver as BossEnemyDamReceiver;
+
     [Header("BossCtrl")]
 
     [SerializeField] protected InputManagerBoss _InputManagerBoss;

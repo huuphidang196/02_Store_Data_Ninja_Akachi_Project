@@ -45,7 +45,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     protected override void UpdateSpeedHorizontal()
     {
         if (this.isSlash || (this.BossCtrl.BossAnimation.IsDropAttacking && this.isGrounded) || !this.BossCtrl.InputManagerBoss.IsBeginFighter
-            || this.isShadowing || this.isFlowDarkening || (this.BossCtrl.BossAnimation.IsFlowDarkAttack && this.isGrounded))
+            || this.isShadowing || (this.isFlowDarkening && this.isGrounded) || PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead)
         {
             this._Horizontal = 0f;
             return;
@@ -76,7 +76,7 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         this.isGrounded = this.BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround;
 
-        this.isJumpAttack = this.BossCtrl.InputManagerBoss.IsJumpAttack;
+        this.isJumpAttack = this.BossCtrl.InputManagerBoss.IsJumpAttack && !this.isFlowDarkening && !isShadowing;
 
         this.isFlowDark = this.BossCtrl.InputManagerBoss.IsFlowDark && !this.BossCtrl.BossAnimation.IsDropAttacking && !this.isJumpAttack
             && !this.isShadowing && !this.isSlash;
@@ -114,12 +114,13 @@ public class BossEnemyMovement : EnemyMovementOverall
             FlowDarkCtrl flowCtrl = this._waitingVFX.GetComponent<FlowDarkCtrl>();
             flowCtrl.FlowDarkMovement.SetDirection(this.BossCtrl.transform);
 
+            this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
             return;
         }
 
         if (this._waitingVFX.gameObject.activeInHierarchy) return;
         //Set pos
-        this.BossCtrl.transform.position = new Vector3(this._waitingVFX.position.x, this.BossCtrl.transform.position.y, 0);
+        this.BossCtrl.transform.position = new Vector3(this._waitingVFX.position.x, -1.35f, 0);
 
         //Active
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
@@ -133,6 +134,9 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowJumpAttack());
+
+        this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(false);
     }
 
 
@@ -144,9 +148,8 @@ public class BossEnemyMovement : EnemyMovementOverall
         vfxShadow.localScale = Vector3.one;
 
         vfxShadow.gameObject.SetActive(true);
-        //   Debug.Log("Shadow" + vfxShadow.name);
-        //Inactive Mode
-        // this.BossCtrl.BossAnimation.gameObject.SetActive(false);
+
+        this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
 
         yield return new WaitForSeconds(this._Time_MoveShadow);
         //Set pos
@@ -157,8 +160,6 @@ public class BossEnemyMovement : EnemyMovementOverall
         vfxShadow.position = this._MovableObjCtrl.transform.position;
         vfxShadow.gameObject.SetActive(true);
 
-        //yield return new WaitForSeconds(0.5f);
-        // need 1s to move shadow + 1 active vfx
 
         //Active
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
@@ -172,18 +173,18 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
-
+        this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(false);
     }
 
     protected virtual void ActionJump()
     {
         // if (this.BossCtrl.ObjDamageReceiver.ObjIsDead) return;
 
-        if (this.isShadow || this.isFlowDark) return;
+        if (this.isShadow || this.isFlowDark || this.isShadowing || this.isFlowDarkening) return;
         // Debug.Log("x0: " + this.BossCtrl.transform.position.x);
         this._Rigidbody2D.velocity = new Vector2(this.CalculateVox(), this._JumpingPower);
 
-        // this._PlayerCtrl.PlayerSoundManager.PlaySoundJump();
+        StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowJumpAttack());
 
     }
     protected override void ChangeDirectionMovement()

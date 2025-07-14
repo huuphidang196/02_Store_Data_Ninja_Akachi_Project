@@ -40,6 +40,7 @@ public class PlayerAttack : PlayerAbstract
         base.OnDisable();
         InputManager.PressAttackThrowButton_Event -= this.PerformAttackThrowShuriken;
     }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -48,6 +49,7 @@ public class PlayerAttack : PlayerAbstract
         this.LoadObjDamSender();
         this.LoadPositionSpawnShuriken();
     }
+
     protected virtual void LoadPlayerImpact()
     {
         if (this._PlayerImpact != null) return;

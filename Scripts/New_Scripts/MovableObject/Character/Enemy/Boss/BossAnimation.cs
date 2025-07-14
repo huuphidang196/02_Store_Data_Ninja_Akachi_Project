@@ -15,8 +15,8 @@ public class BossAnimation : CharacterAnimation
     [SerializeField] protected bool isShadow = false;
     public bool IsShadow => this.isShadow;
 
-    [SerializeField] protected bool isFlowDark = false;
-    public bool IsFlowDark => this.isFlowDark;
+    [SerializeField] protected bool isFlowDarking = false;
+    public bool IsFlowDark => this.isFlowDarking;
 
     [SerializeField] protected bool isJumpAttack = false;
     public bool IsJumpAttack => this.isJumpAttack;
@@ -50,8 +50,6 @@ public class BossAnimation : CharacterAnimation
     {
         this.UpdateBoolByInputManager();
 
-        if (PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead) return;
-        
         this.ProcessDroppingAndDropAttack();
 
         this.ProcessFlowDarkAttack();
@@ -61,8 +59,23 @@ public class BossAnimation : CharacterAnimation
         this.SetAnimationHidenSetup();
     }
 
+    protected virtual void SetFalseAllBool()
+    {
+        this.SetDropAttack();
+
+        this.SetFlowDarkAttack();
+
+        this.UpdateAnimationControllers();
+    }
+
     protected virtual void ProcessDroppingAndDropAttack()
     {
+        if (PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead)
+        {
+            this.SetDropAttack();
+            return;
+        }
+
         if (!this.isDropAttacking && this.CheckAnimationCurrent("Dropping"))
         {
             this.isDropAttacking = true;
@@ -83,7 +96,13 @@ public class BossAnimation : CharacterAnimation
     }
     protected virtual void ProcessFlowDarkAttack()
     {
-        if (!this.isFlowDarkAttack && this.isFlowDark)
+        if (PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead)
+        {
+            this.SetFlowDarkAttack();
+            return;
+        }
+
+        if (!this.isFlowDarkAttack && this.isFlowDarking)
         {
             this.isFlowDarkAttack = true;
             this.UpdateBoolByInputManager();
@@ -106,6 +125,7 @@ public class BossAnimation : CharacterAnimation
     protected virtual void SetFlowDarkAttack() => this.isFlowDarkAttack = false;
     protected virtual void UpdateAnimationControllers()
     {
+
         this.SetBoolNoRepeat("isBeginIntroduce", this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
 
         this.SetBoolNoRepeat("BeginFighter", this._BossCtrl.InputManagerBoss.IsBeginFighter);
@@ -122,7 +142,7 @@ public class BossAnimation : CharacterAnimation
 
         this.SetBoolNoRepeat("isShadow", this.isShadow);
 
-        this.SetBoolNoRepeat("isFlowDark", this.isFlowDark);
+        this.SetBoolNoRepeat("isFlowDark", this.isFlowDarking);
 
         this.SetBoolNoRepeat("isFlowDarkAttack", this.isFlowDarkAttack);
 
@@ -156,30 +176,29 @@ public class BossAnimation : CharacterAnimation
 
         this.isGrounded = this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround;
 
-        this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking;
+        this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking && !this.isFlowDarkAttack && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking && !this.isFlowDarkAttack && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead;
 
-        this.isFlowDark = this._BossCtrl.BossEnemyMovement.IsFlowDarkening && !this.isDropAttacking;
+        this.isFlowDarking = this._BossCtrl.BossEnemyMovement.IsFlowDarkening && !this.isDropAttacking && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead;
 
-        this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking;
+        this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking && !this.isFlowDarkAttack && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead;
 
-        this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDark
-            && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter && this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
+        this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isFlowDarkAttack && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDarking
+            && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter && this._BossCtrl.InputManagerBoss.IsBeginIntroduce && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead);
     }
 
     protected virtual void SetAnimationHidenSetup()
     {
-        if (!this.isShadow && !this.isFlowDark && this._SpriteRenderer.enabled) return;
+        if (!this.isShadow && !this.isFlowDarking && this._SpriteRenderer.enabled) return;
 
-        if (this.isShadow || this.isFlowDark)
+        if (this.isShadow || this.isFlowDarking)
         {
             this.ActiveAndInActiveSkinHidenMode(false);
             return;
         }
 
         this.ActiveAndInActiveSkinHidenMode(true);
-
     }
 
     protected virtual void ActiveAndInActiveSkinHidenMode(bool active)
