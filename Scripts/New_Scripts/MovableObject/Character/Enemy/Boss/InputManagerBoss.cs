@@ -123,7 +123,6 @@ public class InputManagerBoss : SurMonoBehaviour
             this.allowFlowDark = false;
             this.allowJumpAttack = false;
 
-            this.UpdateBoolSkill();
             return;
         }
 

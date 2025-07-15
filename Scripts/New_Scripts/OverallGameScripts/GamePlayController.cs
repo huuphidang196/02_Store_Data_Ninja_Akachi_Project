@@ -17,6 +17,9 @@ public class GamePlayController : SystemController
     [SerializeField] protected bool _EndGame = false;
     public bool EndGame => _EndGame;
 
+    [SerializeField] protected bool isFinalScene = false;
+    public bool IsFinalScene => isFinalScene;
+
     [SerializeField] protected bool _Rivive_Again = false;
     public bool Rivive_Again => _Rivive_Again;
 
