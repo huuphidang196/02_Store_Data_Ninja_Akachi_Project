@@ -15,19 +15,14 @@ public class BossCheckForward : EnemyCheckForward
         this._ObjForwardLayer[2] = "PlayerHiddenMode";
     }
 
-    //protected override void SetBoolAfterImpactOrNotAllow()
-    //{
-    //    base.SetBoolAfterImpactOrNotAllow();
-    //    this._ForwardObjRight = false;
-    //}
-
     protected override bool CheckAllOtherConditionsToContinue()
     {
         return !this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack;
     }
     protected override void ScanTargetOnFOV()
     {
-        this._TargetFollow = this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack ? null : PlayerCtrl.Instance.transform;
+        this._TargetFollow = this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack || PlayerCtrl.Instance.gameObject.layer != LayerMask.NameToLayer(this._ObjForwardLayer[0])
+            ? null : PlayerCtrl.Instance.transform;
 
         base.ScanTargetOnFOV();
     }

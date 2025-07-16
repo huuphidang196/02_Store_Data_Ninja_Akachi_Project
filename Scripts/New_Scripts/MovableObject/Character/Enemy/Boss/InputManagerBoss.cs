@@ -116,7 +116,7 @@ public class InputManagerBoss : SurMonoBehaviour
     {
         if (!this.isBeginFighter) return;
 
-        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead)
+        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead || (this._BossCtrl.BossCheckContactEnviroment.EnemyCheckForward.TargetFollow == null))
         {
             this.allowShadow = false;
             this.allowSlash = false;
@@ -127,8 +127,8 @@ public class InputManagerBoss : SurMonoBehaviour
         }
 
         this.UpdateBoolSkill();
-        
-      //  this.SetAllowSkill();
+
+        //  this.SetAllowSkill();
     }
 
     protected virtual void UpdateBoolSkill()
