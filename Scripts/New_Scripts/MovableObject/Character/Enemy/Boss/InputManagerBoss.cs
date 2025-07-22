@@ -21,7 +21,7 @@ public class InputManagerBoss : SurMonoBehaviour
 
     [SerializeField] protected float _Distance_Attack_Slash = 7f;
 
-    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 11f;
+    [SerializeField] protected float _Distance_OnMode_Jump_Attack = 9f;
     [SerializeField] protected float _Limit_Space_Jump_Pos_X = 13f;
     public float Distance_MoveJump_Axis_X => this._Distance_OnMode_Jump_Attack - 1;//must == distanceOnMode - 1
 
@@ -54,7 +54,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowFlowDark = true;
     public bool AllowFlowDark => this.allowFlowDark;
 
-    [SerializeField] protected float _TimeDelay_Allow_Dark = 8f;
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 20f;
     public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash
@@ -62,7 +62,7 @@ public class InputManagerBoss : SurMonoBehaviour
     public bool IsAttackSlash => this.isAttackSlash;
 
     [SerializeField] protected bool allowSlash = true;
-    public bool AllowSlash { set => this.allowSlash = value; }
+    public bool AllowSlash => this.allowSlash;
 
     [SerializeField] protected float _TimeDelay_Allow_Slash = 5f;
     public float TimeDelay_Allow_Slash => _TimeDelay_Allow_Slash;
@@ -116,7 +116,7 @@ public class InputManagerBoss : SurMonoBehaviour
     {
         if (!this.isBeginFighter) return;
 
-        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead || (this._BossCtrl.BossCheckContactEnviroment.EnemyCheckForward.TargetFollow == null))
+        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead)
         {
             this.allowShadow = false;
             this.allowSlash = false;
@@ -133,8 +133,14 @@ public class InputManagerBoss : SurMonoBehaviour
 
     protected virtual void UpdateBoolSkill()
     {
-        this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
-             && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
+        if (this._BossCtrl.BossCheckContactEnviroment.BossCheckForward.TargetFollow == null)
+        {
+            this.isAttackSlash = false;
+            this.isJumpAttack = false;
+            this.isShadow = false;
+            this.isFlowDark = false;
+            return;
+        }    
 
         this.isAttackSlash = this.allowSlash && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
             && this.GetDistanceX() <= this._Distance_Attack_Slash && !this.isCoolAttack;
@@ -145,6 +151,8 @@ public class InputManagerBoss : SurMonoBehaviour
         this.isShadow = this.allowShadow && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
             && this.GetDistanceX() <= this._Distance_OnMode_ShadowStep && this.CheckInsideScope(this._Limit_Space_Shadow_Pos_X) && !this.isCoolAttack;
 
+        this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
+                 && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
     }
 
     protected virtual void SetAllowSkill()
@@ -187,7 +195,7 @@ public class InputManagerBoss : SurMonoBehaviour
     public IEnumerator SetAllowJumpAttack()
     {
         this.allowJumpAttack = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(this._TimeDelay_Allow_Jump);
         this.allowJumpAttack = true;
     }
 

@@ -91,7 +91,7 @@ public class EnemyCheckForward : CharacterCheckForward
         this.GenerateAndDrawAllRaycastHits();
 
         //exclude enemy Shooter
-        if (this.CheckConditionAllowFlip())
+        if (this.CheckForwardObjectIsRight())
         {
             this.SetChangeDirection();
 
@@ -102,9 +102,9 @@ public class EnemyCheckForward : CharacterCheckForward
         this.isScanning = false;
     }
 
-    protected virtual bool CheckConditionAllowFlip()
+    protected virtual bool CheckForwardObjectIsRight()
     {
-        if (this._TargetFollow.gameObject.layer == LayerMask.NameToLayer("PlayerDead")) return false;
+        if (this._TargetFollow != null && this._TargetFollow.gameObject.layer == LayerMask.NameToLayer("PlayerDead")) return false;
 
         for (int i = 1; i < this._ObjForwardLayer.Length; i++)
         {

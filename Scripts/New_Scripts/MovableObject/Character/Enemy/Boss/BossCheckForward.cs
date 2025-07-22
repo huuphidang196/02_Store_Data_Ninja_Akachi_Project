@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +22,16 @@ public class BossCheckForward : EnemyCheckForward
     }
     protected override void ScanTargetOnFOV()
     {
-        this._TargetFollow = this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack || PlayerCtrl.Instance.gameObject.layer != LayerMask.NameToLayer(this._ObjForwardLayer[0])
-            ? null : PlayerCtrl.Instance.transform;
+        if (this._TargetFollow == null) this._TargetFollow = this.GetTargetFollowByCondition();
 
         base.ScanTargetOnFOV();
     }
 
+    protected virtual Transform GetTargetFollowByCondition()
+    {
+        if (this._BossCheckContactEnviroment.BossCtrl.InputManagerBoss.IsCoolAttack || PlayerCtrl.Instance.gameObject.layer != LayerMask.NameToLayer(this._ObjForwardLayer[0])
+               || !this.CheckForwardObjectIsRight()) return null;
+
+        return PlayerCtrl.Instance.transform;
+    }
 }

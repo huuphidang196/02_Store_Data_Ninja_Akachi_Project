@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703320077209829331}
   - component: {fileID: 2489965083233556385}
-  m_Layer: 17
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Intensity: 1.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000005514d8811b5e87b9975e2c367b194c02
+  m_ApplyToSortingLayers: f1a57d9000000000877b2feaa5b971cfb7930c101bf1d95da9207c9d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

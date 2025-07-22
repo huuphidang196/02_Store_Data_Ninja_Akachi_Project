@@ -122,8 +122,4 @@ public class BossEnemyAttack : EnemyAttack
         //Debug.Log("Shoot");
     }
 
-    protected virtual void EnemyAttackSlash()
-    {
-
-    }
 }

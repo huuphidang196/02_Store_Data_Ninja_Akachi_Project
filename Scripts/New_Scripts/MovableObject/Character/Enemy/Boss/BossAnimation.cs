@@ -183,15 +183,15 @@ public class BossAnimation : CharacterAnimation
 
         this.isGrounded = this._BossCtrl.BossCheckContactEnviroment.CharacterCheckGround.IsGround;
 
-        this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack && !this.isDropAttacking && !this.isFlowDarkAttack;
+        this.isJumpAttack = this._BossCtrl.BossEnemyMovement.IsJumpAttack;
 
-        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing && !this.isDropAttacking && !this.isFlowDarkAttack;
+        this.isShadow = this._BossCtrl.BossEnemyMovement.IsShadowing;
 
-        this.isFlowDarking = this._BossCtrl.BossEnemyMovement.IsFlowDarkening && !this.isDropAttacking;
+        this.isFlowDarking = this._BossCtrl.BossEnemyMovement.IsFlowDarkening;
 
-        this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash && !this.isDropAttacking && !this.isFlowDarkAttack;
+        this.isSlash = this._BossCtrl.BossEnemyMovement.IsSlash;
 
-        this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isFlowDarkAttack && !this.isShadow && !this.isJumpAttack && !this.isSlash && !this.isFlowDarking
+        this._Run_Ani = (!this.isDead && !this.isDropAttacking && !this.isFlowDarkAttack && !this.isShadow && !this.isJumpAttack && !this.isSlashing && !this.isFlowDarking
             && this.isGrounded && this._BossCtrl.InputManagerBoss.IsBeginFighter && this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
     }
 

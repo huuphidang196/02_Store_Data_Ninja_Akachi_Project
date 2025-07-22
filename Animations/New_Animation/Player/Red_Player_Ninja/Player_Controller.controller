@@ -1168,7 +1168,7 @@ BlendTree:
   m_BlendParameterY: Throw_ID
   m_MinThreshold: 0
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1101 &3290511789178927653
@@ -1714,7 +1714,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4906490592329504212}
-    m_Position: {x: -340, y: 340, z: 0}
+    m_Position: {x: -330, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -448739439482680211}
     m_Position: {x: 240, y: 600, z: 0}

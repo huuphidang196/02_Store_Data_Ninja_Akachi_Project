@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,4 +21,6 @@ public class CameraFollowTarget : FollowPlayerTarget
         return new Vector3(2f, 0, 0);
     }
     protected override float GetSpeedFollowTarget() => 0.07f;
+
+  
 }
