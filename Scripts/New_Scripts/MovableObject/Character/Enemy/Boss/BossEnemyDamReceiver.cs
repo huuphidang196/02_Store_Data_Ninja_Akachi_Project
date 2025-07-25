@@ -9,7 +9,7 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
     public override void DeductHP(float damage)
     {
         if (this.isDead || !this._BossCtrl.InputManagerBoss.IsBeginFighter || !this._BossCtrl.InputManagerBoss.IsBeginIntroduce 
-            || this._BossCtrl.BossAnimation.IsFlowDarkAttack || this._BossCtrl.BossEnemyMovement.IsShadowing) return;
+            || this._BossCtrl.BossEnemyMovement.IsFlowDarkening || this._BossCtrl.BossEnemyMovement.IsShadowing) return;
 
         base.DeductHP(damage);
     }
@@ -20,10 +20,10 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
         Debug.Log("End Game");
     }
 
-    public virtual void SetLayerIgnoreImpact(bool isIgnored)
-    {
-        int layer = isIgnored ? LayerMask.NameToLayer("Default") : LayerMask.NameToLayer("Enemy");
-        this._BossCtrl.gameObject.layer = layer;
-        this.gameObject.layer = layer;
-    }    
+    //public virtual void SetLayerIgnoreImpact(bool isIgnored)
+    //{
+    //    int layer = isIgnored ? LayerMask.NameToLayer("Default") : LayerMask.NameToLayer("Enemy");
+    //    this._BossCtrl.gameObject.layer = layer;
+    //    this.gameObject.layer = layer;
+    //}    
 }

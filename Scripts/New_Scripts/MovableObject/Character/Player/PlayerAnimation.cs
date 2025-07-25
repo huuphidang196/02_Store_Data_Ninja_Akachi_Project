@@ -82,17 +82,17 @@ public class PlayerAnimation : CharacterAnimation
         this.SetBoolNoRepeat("isHiding", this.isHiding);
         this.SetBoolNoRepeat("isDashing", this.isDashing);
 
-        int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
-        if (id_Attack == 0) this._Timer_Animation = 0f;
-
-        this.SetFloatNoRepeat("Throw_ID", id_Attack);
-
         this.SetBoolNoRepeat("isGrounded", this.isGrounded);
         this.SetBoolNoRepeat("isSliding", this.isSliding);
 
         this.SetFloatNoRepeat("yVelocity", this._PlayerCtrl.PlayerMovement.Rigidbody2D.velocity.y);
 
         this.SetBoolNoRepeat("Run", this._Run_Ani);
+
+        int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
+        if (id_Attack == 0) this._Timer_Animation = 0f;
+
+        this.SetFloatNoRepeat("Throw_ID", id_Attack);
 
         this.SetTimeDurationByAnimationClip(this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 

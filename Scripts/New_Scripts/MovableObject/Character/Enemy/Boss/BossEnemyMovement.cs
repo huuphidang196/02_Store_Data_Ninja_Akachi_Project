@@ -124,7 +124,6 @@ public class BossEnemyMovement : EnemyMovementOverall
             flowCtrl.FlowDarkMovement.SetDirection(this.BossCtrl.transform);
 
             //  this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
-            this.BossCtrl.BossEnemyDamReceiver.IgnoreLayerCollisionOfPlayerObject("Enemy", "Player", true);
             return;
         }
 
@@ -144,10 +143,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
-        //    StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowJumpAttack());
 
-        //  this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(falsef
-        this.BossCtrl.BossEnemyDamReceiver.IgnoreLayerCollisionOfPlayerObject("Enemy", "Player", false);
     }
 
 
@@ -161,7 +157,6 @@ public class BossEnemyMovement : EnemyMovementOverall
         vfxShadow.gameObject.SetActive(true);
 
         // this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
-        this.BossCtrl.BossEnemyDamReceiver.IgnoreLayerCollisionOfPlayerObject("Enemy", "Player", true);
 
         yield return new WaitForSeconds(this._Time_MoveShadow);
         //Set pos
@@ -186,7 +181,6 @@ public class BossEnemyMovement : EnemyMovementOverall
         // StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowDark());
 
         //  this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(false);
-        this.BossCtrl.BossEnemyDamReceiver.IgnoreLayerCollisionOfPlayerObject("Enemy", "Player", false);
     }
 
     protected virtual void ActionJump()
