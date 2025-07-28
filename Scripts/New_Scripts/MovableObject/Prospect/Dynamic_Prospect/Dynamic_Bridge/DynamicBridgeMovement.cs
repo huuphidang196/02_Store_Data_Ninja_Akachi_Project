@@ -8,7 +8,7 @@ public class DynamicBridgeMovement : MovableObjKinematicMovement
    public DynamicMovementCtrl DynamicMovementCtrl => this._MovableObjCtrl as DynamicMovementCtrl;
 
     [SerializeField] protected Vector3 _Old_Position;
-
+    public Vector3 Old_Position => this._Old_Position;
     protected override void ResetDataConfiguration()
     {
         base.ResetDataConfiguration();

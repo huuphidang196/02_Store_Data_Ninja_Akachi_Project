@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DynamicBridgeVerticalMovement : DynamicBridgeMovement
 {
-    [SerializeField] protected bool MoveOn = true;
-
+    [SerializeField] protected bool MoveUp = true;
+    public bool IsMoveUp => this.MoveUp;
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.MoveOn = true;
+        this.MoveUp = true;
     }
 
     protected override void ResetDataConfiguration()
@@ -20,18 +21,29 @@ public class DynamicBridgeVerticalMovement : DynamicBridgeMovement
     {
         base.Reset();
 
-        this._Speed_Move_Horizontal = this.DynamicMovementCtrl.MObjScriptableObject.Speed_Move_Horizontal;
+        this._Speed_Move_Horizontal = this.GetSpeedMoveHorizontal();
         this._Horizontal = this._Speed_Move_Horizontal;
 
-        this._Speed_Move_Vertical = this.DynamicMovementCtrl.DynamicProspectObjMovementSO.Speed_Move_Vertical;
+        this._Speed_Move_Vertical = this.GetSpeedMoveVertical(); 
         this._Vertical = this._Speed_Move_Vertical;
 
         this._Old_Position = this.DynamicMovementCtrl.transform.position;
     }
+
+    protected virtual float GetSpeedMoveVertical()
+    {
+        return this.DynamicMovementCtrl.DynamicProspectObjMovementSO.Speed_Move_Vertical;
+    }
+
+    protected virtual float GetSpeedMoveHorizontal()
+    {
+        return this.DynamicMovementCtrl.MObjScriptableObject.Speed_Move_Horizontal;
+    }
+
     public override void ChangeDir()
     {
-        this.MoveOn = !this.MoveOn;
-        this._Vertical = this.MoveOn ? this._Speed_Move_Vertical : this._Speed_Move_Vertical * -1f;
+        this.MoveUp = !this.MoveUp;
+        this._Vertical = this.MoveUp ? this._Speed_Move_Vertical : this._Speed_Move_Vertical * -1f;
     }
 
     protected override void FixedUpdate()
