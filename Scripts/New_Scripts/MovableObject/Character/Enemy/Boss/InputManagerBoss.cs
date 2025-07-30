@@ -44,7 +44,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowShadow = true;
     public bool AllowShadow { set => this.allowShadow = value; }
 
-    [SerializeField] protected float _TimeDelay_Allow_Shadow = 10f;
+    [SerializeField] protected float _TimeDelay_Allow_Shadow = 16f;
     public float TimeDelay_Allow_Shadow => _TimeDelay_Allow_Shadow;
 
     //Flow Dark
@@ -54,7 +54,7 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool allowFlowDark = true;
     public bool AllowFlowDark => this.allowFlowDark;
 
-    [SerializeField] protected float _TimeDelay_Allow_Dark = 20f;
+    [SerializeField] protected float _TimeDelay_Allow_Dark = 23f;
     public float TimeDelay_Allow_Dark => _TimeDelay_Allow_Dark;
 
     //Attack Slash
@@ -153,24 +153,6 @@ public class InputManagerBoss : SurMonoBehaviour
 
         this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
                  && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
-    }
-
-    protected virtual void SetAllowSkill()
-    {
-        StartCoroutine(SetAllowSkill(() => this.allowJumpAttack, (v) => this.allowJumpAttack = v, this._TimeDelay_Allow_Jump));
-    }
-
-    protected IEnumerator SetAllowSkill(Func<bool> getValue, Action<bool> setValue, float timer)
-    {
-        if (getValue() == this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround || !getValue() && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
-            yield break;
-
-        setValue(this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround);
-
-        yield return new WaitForSeconds(timer);
-
-        setValue(true);
-
     }
 
     public IEnumerator SetAllowShadow()
