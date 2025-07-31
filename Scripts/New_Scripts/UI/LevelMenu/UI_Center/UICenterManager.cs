@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UICenterManager : SurMonoBehaviour
 {
-     
+
     protected override void Start()
     {
         base.Start();

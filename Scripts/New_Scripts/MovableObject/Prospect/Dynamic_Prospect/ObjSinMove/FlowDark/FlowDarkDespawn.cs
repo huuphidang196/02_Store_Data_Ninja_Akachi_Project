@@ -35,7 +35,7 @@ public class FlowDarkDespawn : ObjDisableParentByDistaneCompareTarget
 
     protected override bool AllowActive()
     {
-        return !(Mathf.Abs(this.GetDistance()) >= activationDistance);
+        return !(Mathf.Abs(this.GetDistance()) >= activationDistance && !PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead);
     }
 
 }

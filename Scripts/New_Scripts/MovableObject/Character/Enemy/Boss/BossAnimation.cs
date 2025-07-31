@@ -64,7 +64,6 @@ public class BossAnimation : CharacterAnimation
         this.SetAnimationHidenSetup();
     }
 
-
     protected virtual void ProcessSlashing()
     {
         if (!this.isSlashing && this.isSlash)

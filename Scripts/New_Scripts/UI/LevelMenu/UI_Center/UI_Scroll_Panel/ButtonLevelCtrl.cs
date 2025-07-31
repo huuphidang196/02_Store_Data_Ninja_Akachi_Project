@@ -97,7 +97,13 @@ public class ButtonLevelCtrl : SurMonoBehaviour
         string str_Level = transform.name.Substring(transform.name.LastIndexOf("_") + 1);
         this._Level_Rep = int.Parse(str_Level);
 
-        this._txtLevelDisplay.text = this._Level_Rep + "";
+        this._txtLevelDisplay.text = this._Level_Rep != 16 ? this._Level_Rep + "" : "BOSS";
+        this._txtLevelDisplay.color = this._Level_Rep != 16 ? Color.white : Color.red;
+        if (this._Level_Rep == 16)
+        {
+            this._txtLevelDisplay.transform.parent.localScale *= 1.14f;
+            this._txtLevelDisplay.transform.localScale *= 0.9f;
+        }    
 
         this._Light_Selected.gameObject.SetActive(false);
 

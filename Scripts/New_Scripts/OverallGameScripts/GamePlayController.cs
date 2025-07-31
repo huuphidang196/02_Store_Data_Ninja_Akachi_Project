@@ -55,6 +55,12 @@ public class GamePlayController : SystemController
         this._Count_Star_Mission = 0;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        this.isFinalScene = BossCtrl.Instance.transform != null;
+    }
     public override void AddMoneyToSystem(ItemUnit itemUnit)
     {
         base.AddMoneyToSystem(itemUnit);

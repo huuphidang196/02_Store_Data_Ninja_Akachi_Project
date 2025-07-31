@@ -118,8 +118,10 @@ public class BossEnemyAttack : EnemyAttack
         vfx_attack_Slash.name = WeaponCharacterSpawner.VFX_Slash_Attack;
         vfx_attack_Slash.gameObject.SetActive(true);
 
-        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash());
-        //Debug.Log("Shoot");
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(null));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(1));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowShadow(1));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowJumpAttack(1));
     }
 
 }

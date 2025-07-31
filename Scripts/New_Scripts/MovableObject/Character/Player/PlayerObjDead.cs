@@ -24,6 +24,17 @@ public class PlayerObjDead : PlayerAbstract
 
         this._Count_Life = this._PlayerCtrl.PlayerSO.Max_Life;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        Invoke(nameof(ProcessmanyEventsAfterStartFunction), 1f);
+    }
+    protected virtual void ProcessmanyEventsAfterStartFunction()
+    {
+        if (GamePlayController.Instance.IsFinalScene) this._Count_Life = 1;
+    }    
     public virtual void EventPlayerDead()
     {
         this._Count_Life--;
@@ -69,5 +80,5 @@ public class PlayerObjDead : PlayerAbstract
         this._Count_Life = 2;
         Invoke(nameof(this.SetPositionOfPlayerRiviveCharacter), 1.9f);
         GamePlayController.Instance.IncreseOrderBuy();
-    }    
+    }
 }

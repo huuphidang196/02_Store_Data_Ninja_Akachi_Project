@@ -155,29 +155,37 @@ public class InputManagerBoss : SurMonoBehaviour
                  && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
     }
 
-    public IEnumerator SetAllowShadow()
+    public IEnumerator SetAllowShadow(float? timeDelay)
     {
+        if (!this.allowShadow) yield break;
+
         this.allowShadow = false;
-        yield return new WaitForSeconds(this._TimeDelay_Allow_Shadow);
+        yield return new WaitForSeconds(timeDelay ?? this._TimeDelay_Allow_Shadow);
         this.allowShadow = true;
     }
-    public IEnumerator SetAllowSlash()
+    public IEnumerator SetAllowSlash(float? timeDelay)
     {
+        if (!this.allowSlash) yield break;
+
         this.allowSlash = false;
-        yield return new WaitForSeconds(this._TimeDelay_Allow_Slash);
+        yield return new WaitForSeconds(timeDelay ?? this._TimeDelay_Allow_Slash);
         this.allowSlash = true;
     }
-    public IEnumerator SetAllowDark()
+    public IEnumerator SetAllowDark(float? timeDelay)
     {
+        if (!this.allowFlowDark) yield break;
+
         this.allowFlowDark = false;
-        yield return new WaitForSeconds(this._TimeDelay_Allow_Dark);
+        yield return new WaitForSeconds(timeDelay ?? this._TimeDelay_Allow_Dark);
         this.allowFlowDark = true;
     }
 
-    public IEnumerator SetAllowJumpAttack()
+    public IEnumerator SetAllowJumpAttack(float? timeDelay)
     {
+        if (!this.allowJumpAttack) yield break;
+
         this.allowJumpAttack = false;
-        yield return new WaitForSeconds(this._TimeDelay_Allow_Jump);
+        yield return new WaitForSeconds(timeDelay ?? this._TimeDelay_Allow_Jump);
         this.allowJumpAttack = true;
     }
 
