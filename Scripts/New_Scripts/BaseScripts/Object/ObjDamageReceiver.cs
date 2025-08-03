@@ -84,5 +84,14 @@ public abstract class ObjDamageReceiver : ObjectAbstract
     {
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layer_01), LayerMask.NameToLayer(layer_02), isInorged);
     }
+    public virtual bool AreLayersIgnoringCollision(string layerName1, string layerName2)
+    {
+        int layer1 = LayerMask.NameToLayer(layerName1);
+        int layer2 = LayerMask.NameToLayer(layerName2);
+
+        if (layer1 == -1 || layer2 == -1) return false;
+
+        return Physics.GetIgnoreLayerCollision(layer1, layer2);
+    }
 
 }

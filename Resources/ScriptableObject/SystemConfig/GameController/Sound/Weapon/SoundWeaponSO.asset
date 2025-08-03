@@ -15,3 +15,4 @@ MonoBehaviour:
   _SoundCtrlSO: {fileID: 11400000, guid: f754f70cd5f515046a13ebd528b4e04d, type: 2}
   Sound_Clips:
   - {fileID: 8300000, guid: a789cdd573bf6944cbab126e8e314596, type: 3}
+  - {fileID: 8300000, guid: d6195cb91af5b1db781bf8564703f1cd, type: 3}

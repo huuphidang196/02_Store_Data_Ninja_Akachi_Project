@@ -138,6 +138,7 @@ public enum TypeVFXSound
     Sound_VFX_Ignite_Fire = 3,
     Sound_VFX_Fire_Burning = 4,
     Sound_VFX_Blood = 5,
+    Sound_FlowDarkAttackSound = 6,
 }
 
 public enum TypeProspectSound
@@ -156,7 +157,7 @@ public enum TypeProspectSound
 
     Sound_LanceTrap_Ground_EventsAutoOn = 1001,
 
-    Sound_RockHiddenShooterOpening= 1201,
+    Sound_RockHiddenShooterOpening = 1201,
 }
 
 public enum TypeWeaponSound
@@ -164,6 +165,7 @@ public enum TypeWeaponSound
     NoType = 0,
 
     Sound_Weapon_Bullet_Enemy = 1,
+    Sound_Slash_Weapon_Boss = 2,
 }
 
 //public enum TypeActionEnemy

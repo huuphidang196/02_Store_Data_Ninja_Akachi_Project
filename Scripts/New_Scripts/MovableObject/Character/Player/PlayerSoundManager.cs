@@ -72,7 +72,7 @@ public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
 
     }
 
-    public virtual void PlaySoundJump() => this.PlayeSoundWithNameAction("Player_Jump_Sound");
+    public virtual void PlaySoundJump(bool isFirst) => this.PlayeSoundWithNameAction(isFirst ? "Player_Jump_Sound" : "Player_Double_Jump_Sound");
     public virtual void PlaySoundDashing() => this.PlayeSoundWithNameAction("Player_Dashing_Sound");
     protected virtual void PlaySoundHidden() => this.PlayeSoundWithNameAction("Player_Hidden_Sound");
     protected virtual void PlaySoundAttackThrow() => this.PlayeSoundWithNameAction("Player_Attack_Throw_Sound");

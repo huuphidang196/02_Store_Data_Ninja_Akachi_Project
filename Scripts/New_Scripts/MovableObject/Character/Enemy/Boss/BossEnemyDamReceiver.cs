@@ -8,7 +8,7 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
     protected BossCtrl _BossCtrl => this.EnemyCtrl as BossCtrl;
     public override void DeductHP(float damage)
     {
-        if (this.isDead || !this._BossCtrl.InputManagerBoss.IsBeginFighter || !this._BossCtrl.InputManagerBoss.IsBeginIntroduce 
+        if (this.isDead || !this._BossCtrl.InputManagerBoss.IsBeginFighter || !this._BossCtrl.InputManagerBoss.IsBeginIntroduce
             || this._BossCtrl.BossEnemyMovement.IsFlowDarkening || this._BossCtrl.BossEnemyMovement.IsShadowing) return;
 
         base.DeductHP(damage);
@@ -27,10 +27,10 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
 
     protected virtual void InActiveCollider()
     {
-        if (!this._BossCtrl.BossEnemyMovement.IsShadowing && !this._BossCtrl.BossEnemyMovement.IsFlowDarkening && this._BoxCollider2D.enabled) return;
+        if (!this._BossCtrl.BossEnemyMovement.IsShadowing && !this._BossCtrl.BossEnemyMovement.IsFlowDarkening && !this.AreLayersIgnoringCollision("Enemy", "WeaponPlayer")) return;
 
-        this._BoxCollider2D.enabled = !this._BossCtrl.BossEnemyMovement.IsShadowing && !this._BossCtrl.BossEnemyMovement.IsFlowDarkening;
- 
+        this.IgnoreLayerCollisionOfPlayerObject("Enemy", "WeaponPlayer", this._BossCtrl.BossEnemyMovement.IsShadowing || this._BossCtrl.BossEnemyMovement.IsFlowDarkening);
+
     }
     //public virtual void SetLayerIgnoreImpact(bool isIgnored)
     //{

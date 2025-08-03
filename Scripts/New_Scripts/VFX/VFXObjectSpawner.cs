@@ -18,6 +18,7 @@ public class VFXObjectSpawner : Spawner
     public static string VFX_Flow_Dark = "VFX_Flow_Dark";
     public static string VFX_Flow_Dark_Attack = "VFX_Flow_Dark_Attack";
     public static string VFX_Player_Hidden_Mode = "VFX_Player_Hidden_Mode";
+    public static string VFX_Player_SecondJump = "VFX_Player_SecondJump";
 
     protected override void Awake()
     {

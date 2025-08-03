@@ -35,6 +35,8 @@ public class LevelMenuController : SystemController
         if (this._SystemConfig.Level_Unlock < LevelButton) return;
 
         this._SystemConfig.Current_Level = LevelButton;
+
+
     }
 
     protected virtual string GetNameSceneCurrent() => this.GetNameSceneByOrder(this._SystemConfig.Current_Level);

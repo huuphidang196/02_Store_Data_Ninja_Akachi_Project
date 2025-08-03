@@ -198,7 +198,10 @@ public class PlayerMovement : CharacterObjMovement
 
         this._First_Jump = !this._First_Jump;
 
-        this._PlayerCtrl.PlayerSoundManager.PlaySoundJump();
+        this._PlayerCtrl.PlayerSoundManager.PlaySoundJump(this._First_Jump);
+
+        //Spawn VFX
+        if (this._Double_Jump) this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_SecondJump, this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position + Vector3.up);
     }
 
     protected override void UpdateBoolByInputManager()
@@ -226,7 +229,7 @@ public class PlayerMovement : CharacterObjMovement
         {
             this._Horizontal = 0f;
             return;
-        } 
+        }
 
         this._Horizontal = (this._Move_Left) ? -1f * this.GetSpeedMove() : 1f * this.GetSpeedMove();
     }
@@ -332,14 +335,14 @@ public class PlayerMovement : CharacterObjMovement
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("PlayerHiddenMode");
 
         //Spawn VFX
-        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode, 
+        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode,
             this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
-      
+
         yield return new WaitForSeconds(this._PlayerCtrl.PlayerSO.Time_Delay_Hiden);
         this.ResetConfigurationPlayerAfterHiden(this._Original_Gravity);
-     
+
         //Spawn VFX
-        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode, 
+        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode,
             this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
     }
 
