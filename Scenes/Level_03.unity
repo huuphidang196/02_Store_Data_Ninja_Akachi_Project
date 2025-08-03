@@ -46981,6 +46981,108 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &786198195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1834148586}
+    m_Modifications:
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562761441798658683, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_Name
+      value: VFX_Player_Hidden_Mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562761441798658683, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083300592521221562, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+--- !u!4 &786198196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+  m_PrefabInstance: {fileID: 786198195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &786417637
 GameObject:
   m_ObjectHideFlags: 0
@@ -69053,6 +69155,7 @@ MonoBehaviour:
   - {fileID: 1952382103}
   - {fileID: 83102417}
   - {fileID: 1816951121}
+  - {fileID: 786198196}
   poolObjs: []
 --- !u!1 &1695176085
 GameObject:
@@ -76080,6 +76183,7 @@ Transform:
   - {fileID: 1952382103}
   - {fileID: 83102417}
   - {fileID: 1816951121}
+  - {fileID: 786198196}
   m_Father: {fileID: 1691371076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1839491791
@@ -78045,7 +78149,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 19
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 3
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -79206,18 +79310,18 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1415223127, guid: b425613db706e0a49821a35253ec9db1, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -1703733471, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   - m_RefCount: 191

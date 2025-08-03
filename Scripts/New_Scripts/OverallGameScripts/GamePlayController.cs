@@ -59,7 +59,7 @@ public class GamePlayController : SystemController
     {
         base.Start();
 
-        this.isFinalScene = BossCtrl.Instance.transform != null;
+        this.isFinalScene = this._SystemConfig.Current_Level == 16;
     }
     public override void AddMoneyToSystem(ItemUnit itemUnit)
     {

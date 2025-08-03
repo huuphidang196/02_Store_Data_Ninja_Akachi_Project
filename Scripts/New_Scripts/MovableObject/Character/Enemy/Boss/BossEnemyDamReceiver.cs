@@ -20,6 +20,18 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
         Debug.Log("End Game");
     }
 
+    protected virtual void Update()
+    {
+        this.InActiveCollider();
+    }
+
+    protected virtual void InActiveCollider()
+    {
+        if (!this._BossCtrl.BossEnemyMovement.IsShadowing && !this._BossCtrl.BossEnemyMovement.IsFlowDarkening && this._BoxCollider2D.enabled) return;
+
+        this._BoxCollider2D.enabled = !this._BossCtrl.BossEnemyMovement.IsShadowing && !this._BossCtrl.BossEnemyMovement.IsFlowDarkening;
+ 
+    }
     //public virtual void SetLayerIgnoreImpact(bool isIgnored)
     //{
     //    int layer = isIgnored ? LayerMask.NameToLayer("Default") : LayerMask.NameToLayer("Enemy");

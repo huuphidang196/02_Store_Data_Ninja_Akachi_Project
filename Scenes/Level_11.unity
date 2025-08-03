@@ -6568,8 +6568,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.77239996, y: -1.8376, z: 0}
-    m_Extent: {x: 1.7625, y: 2.8453, z: 0}
+    m_Center: {x: -0.76970005, y: -1.8443499, z: 0}
+    m_Extent: {x: 1.7669001, y: 2.85035, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -8944,8 +8944,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 4.3308997, y: 1.0581, z: 0}
-    m_Extent: {x: 6.1444, y: 2.9492, z: 0}
+    m_Center: {x: 4.33435, y: 1.0539999, z: 0}
+    m_Extent: {x: 6.15025, y: 2.947, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -11433,8 +11433,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.025650024, y: -1.8360001, z: 0}
-    m_Extent: {x: 1.79365, y: 2.8446002, z: 0}
+    m_Center: {x: -0.031949997, y: -1.8385999, z: 0}
+    m_Extent: {x: 1.79055, y: 2.8478, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -74408,6 +74408,108 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &474863215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1834148586}
+    m_Modifications:
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988786411055785289, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562761441798658683, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_Name
+      value: VFX_Player_Hidden_Mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562761441798658683, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077329264223434215, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083300592521221562, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+--- !u!4 &474863216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1403518829392534835, guid: 4d805ee939ec0174ba0a1b61aca2bfc4, type: 3}
+  m_PrefabInstance: {fileID: 474863215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &476989757
 GameObject:
   m_ObjectHideFlags: 0
@@ -80113,8 +80215,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 3.7407, y: 1.0866499, z: 0}
-    m_Extent: {x: 6.1553, y: 3.08735, z: 0}
+    m_Center: {x: 3.7379, y: 1.0826001, z: 0}
+    m_Extent: {x: 6.1554003, y: 3.1015, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -95971,8 +96073,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.8980498, y: 1.25635, z: 0}
-    m_Extent: {x: 5.31515, y: 3.27635, z: 0}
+    m_Center: {x: 2.9009998, y: 1.2583499, z: 0}
+    m_Extent: {x: 5.3261995, y: 3.26825, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -115662,8 +115764,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.09460002, y: -2.46805, z: 0}
-    m_Extent: {x: 1.6326001, y: 3.4675498, z: 0}
+    m_Center: {x: 0.10205001, y: -2.4634, z: 0}
+    m_Extent: {x: 1.6329501, y: 3.4699001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -118874,6 +118976,7 @@ MonoBehaviour:
   - {fileID: 1952382103}
   - {fileID: 83102417}
   - {fileID: 1816951121}
+  - {fileID: 474863216}
   poolObjs: []
 --- !u!1 &1691982007
 GameObject:
@@ -126485,8 +126588,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 3.7365003, y: 1.083, z: 0}
-    m_Extent: {x: 6.1513, y: 3.0974, z: 0}
+    m_Center: {x: 3.7324, y: 1.0836499, z: 0}
+    m_Extent: {x: 6.1509, y: 3.10405, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -127678,6 +127781,7 @@ Transform:
   - {fileID: 1952382103}
   - {fileID: 83102417}
   - {fileID: 1816951121}
+  - {fileID: 474863216}
   m_Father: {fileID: 1691371076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835489167

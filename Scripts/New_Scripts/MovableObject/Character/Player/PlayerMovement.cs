@@ -331,8 +331,16 @@ public class PlayerMovement : CharacterObjMovement
         //Change layer While player is hiding in order to avoid be recognized by enemy
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("PlayerHiddenMode");
 
+        //Spawn VFX
+        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode, 
+            this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
+      
         yield return new WaitForSeconds(this._PlayerCtrl.PlayerSO.Time_Delay_Hiden);
         this.ResetConfigurationPlayerAfterHiden(this._Original_Gravity);
+     
+        //Spawn VFX
+        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode, 
+            this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
     }
 
     protected virtual void ResetConfigurationPlayerAfterHiden(float originalGravity)
@@ -341,6 +349,4 @@ public class PlayerMovement : CharacterObjMovement
         this.isHiding = false;
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("Player");
     }
-
-
 }

@@ -48,6 +48,7 @@ public class PlayerVFXManager : CharacterVFXManager
 
         this.UpdateVFXDashing();
 
+
     }
 
     protected virtual void UpdateVFXRivival()
@@ -65,4 +66,15 @@ public class PlayerVFXManager : CharacterVFXManager
         this._VFX_Dashing_Fire.SetActive(this.PlayerCtrl.PlayerMovement.IsDashing);
 
     }
+    public virtual Transform SpawnVFXForPlayer(string nameVFX, Vector3 posSpawn)
+    {
+        //Spawn VFX
+        Transform vfxSpawn = VFXObjectSpawner.Instance.Spawn(nameVFX, posSpawn, Quaternion.identity);
+        vfxSpawn.transform.localScale = Vector3.one;
+
+        vfxSpawn.gameObject.SetActive(true);
+
+        return vfxSpawn;
+    }
+
 }

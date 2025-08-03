@@ -86,13 +86,16 @@ public class SystemController : SurMonoBehaviour
 
     protected IEnumerator LoadSceneWithWait(string sceneName)
     {
+        this.ConductActionWhileLoadingNewScene();
+        
+        yield return new WaitForSeconds(0.1f);
+
         // Bắt đầu load scene bất đồng bộ
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
 
         // Đảm bảo scene sẽ không được kích hoạt ngay lập tức khi load xong
         asyncOperation.allowSceneActivation = false;
 
-        this.ConductActionWhileLoadingNewScene();
         // Chờ cho đến khi scene load xong (progress = 0.9)
         yield return new WaitUntil(() => asyncOperation.progress >= 0.9f);
 

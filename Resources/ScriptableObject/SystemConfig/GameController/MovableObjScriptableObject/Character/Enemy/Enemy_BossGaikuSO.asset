@@ -16,6 +16,6 @@ MonoBehaviour:
   Speed_Move_Horizontal: 2.56
   Max_HP: 50
   Length_Ray_Forward_Limit: 20
-  Speed_Dash_Horizontal: 3.2
+  Speed_Dash_Horizontal: 3.5
   Time_Delay_Attack: 1
   Distance_Attack_Player: 5

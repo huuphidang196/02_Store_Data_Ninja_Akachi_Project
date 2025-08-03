@@ -17,6 +17,8 @@ public class PlayerCtrl : CharacterCtrl
 
     public PlayerSO PlayerSO => this._MObjScriptableObject as PlayerSO;
 
+    public PlayerVFXManager PlayerVFXManager => this.CharacterVFXManager as PlayerVFXManager;
+
     [Header("Player Ctrl")]
     [SerializeField] protected PlayerObjDead _PlayerObjDead;
     public PlayerObjDead PlayerObjDead => _PlayerObjDead;
