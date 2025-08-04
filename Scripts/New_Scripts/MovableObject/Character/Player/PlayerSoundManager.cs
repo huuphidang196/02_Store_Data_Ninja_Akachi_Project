@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
+public class PlayerSoundManager : CharacterMainSoundManager
 {
     public PlayerCtrl PlayerCtrl => this._ObjectCtrl as PlayerCtrl;
 
@@ -77,23 +77,13 @@ public class PlayerSoundManager : ObjSoundWasEffectByMusicChanging
     protected virtual void PlaySoundHidden() => this.PlayeSoundWithNameAction("Player_Hidden_Sound");
     protected virtual void PlaySoundAttackThrow() => this.PlayeSoundWithNameAction("Player_Attack_Throw_Sound");
 
-    protected virtual void PlayeSoundWithNameAction(string nameAction)
+    protected override void PlayeSoundWithNameAction(string nameAction)
     {
         AudioClip clip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundPlayerSO.GetAudioClipByNameAction(nameAction);
         this.PlaySound(clip);
     }
-    protected override void PlaySound(AudioClip clip)
-    {
-        if (clip == null) return;
 
-        if (this._AudioSource.isPlaying && clip.name == this._AudioSource.clip.name) return; // Tránh chồng âm
-
-        if (!this.CheckOrderSound(clip)) return;
-
-        base.PlaySound(clip);
-    }
-
-    protected virtual bool CheckOrderSound(AudioClip clip)
+    protected override bool CheckOrderSound(AudioClip clip)
     {
         if (this._AudioSource.clip == null) return true;
         // Chuyển chuỗi thành enum
@@ -116,11 +106,13 @@ public enum PlayerOrderSounAction
 
     Player_Jump_Sound = 4,
 
-    Player_Dashing_Sound = 5,
+    Player_Double_Jump_Sound = 5,
 
-    Player_Hidden_Sound = 6,
+    Player_Dashing_Sound = 6,
 
-    Player_Dead_Sound = 7,
+    Player_Hidden_Sound = 7,
 
-    Player_Rivival_Sound = 8,
+    Player_Dead_Sound = 8,
+
+    Player_Rivival_Sound = 9,
 }

@@ -151,6 +151,8 @@ public enum TypeProspectSound
     Sound_BackGround_04 = 104,
     Sound_BackGround_05 = 105,
 
+    Sound_BackGround_Final_Scene_01 = 201,
+
     Sound_MainMenu_Adventure = 301,
 
     Sound_Ring_The_Bell = 801,

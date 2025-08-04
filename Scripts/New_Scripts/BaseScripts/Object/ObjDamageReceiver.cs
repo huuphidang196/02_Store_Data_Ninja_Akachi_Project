@@ -91,7 +91,7 @@ public abstract class ObjDamageReceiver : ObjectAbstract
 
         if (layer1 == -1 || layer2 == -1) return false;
 
-        return Physics.GetIgnoreLayerCollision(layer1, layer2);
+        return Physics2D.GetIgnoreLayerCollision(layer1, layer2);
     }
 
 }

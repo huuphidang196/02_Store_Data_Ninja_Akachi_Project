@@ -129,7 +129,7 @@ public class BossEnemyMovement : EnemyMovementOverall
             FlowDarkCtrl flowCtrl = this._waitingVFX.GetComponent<FlowDarkCtrl>();
             flowCtrl.FlowDarkMovement.SetDirection(this._BossCtrl.transform);
 
-            //  this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
+            this._BossCtrl.BossSoundManager.PlaySoundFlowDark();
             return;
         }
 
@@ -144,8 +144,9 @@ public class BossEnemyMovement : EnemyMovementOverall
         //Set allow flow dark together
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(null));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1));
-    }
 
+        this._BossCtrl.BossSoundManager.PlaySoundFlowDark();
+    }
 
     protected IEnumerator ActionShadow()
     {
@@ -156,7 +157,7 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         vfxShadow.gameObject.SetActive(true);
 
-        // this.BossCtrl.BossEnemyDamReceiver.SetLayerIgnoreImpact(true);
+        this._BossCtrl.BossSoundManager.PlaySoundShadow();
 
         yield return new WaitForSeconds(this._Time_MoveShadow);
         //Set pos
@@ -172,7 +173,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
         this.isShadowing = false;
 
-        //  StartCoroutine(this.BossCtrl.InputManagerBoss.SetAllowSlash());
+        this._BossCtrl.BossSoundManager.PlaySoundShadow();
 
         //SetAllow Shadow
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowShadow(null));
@@ -189,6 +190,8 @@ public class BossEnemyMovement : EnemyMovementOverall
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowJumpAttack(null));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(1));
+
+        this._BossCtrl.BossSoundManager.PlaySoundJump();
 
     }
     protected override void ChangeDirectionMovement()

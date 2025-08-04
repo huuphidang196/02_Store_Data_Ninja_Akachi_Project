@@ -105,6 +105,8 @@ public class BossEnemyAttack : EnemyAttack
 
         if (!this.canSpawn_SlashVFX) return;
 
+        this._BossCtrl.BossSoundManager.PlaySoundAttackSlash();
+
         this.canSpawn_SlashVFX = false;
 
         // Spawn VFX Attack

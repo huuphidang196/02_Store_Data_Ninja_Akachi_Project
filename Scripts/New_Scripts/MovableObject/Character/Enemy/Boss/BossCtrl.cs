@@ -19,6 +19,10 @@ public class BossCtrl : EnemyCtrl
     [SerializeField] protected InputManagerBoss _InputManagerBoss;
     public InputManagerBoss InputManagerBoss => this._InputManagerBoss;
 
+    [SerializeField] protected BossSoundManager _BossSoundManager;
+    public BossSoundManager BossSoundManager => this._BossSoundManager;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -33,6 +37,14 @@ public class BossCtrl : EnemyCtrl
         base.LoadComponents();
 
         this.LoadInputManagerBoss();
+        this.LoadBossSoundManager();
+    }
+
+    protected virtual void LoadBossSoundManager()
+    {
+        if (this._BossSoundManager != null) return;
+
+        this._BossSoundManager = GetComponentInChildren<BossSoundManager>();
     }
 
     protected virtual void LoadInputManagerBoss()
