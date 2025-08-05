@@ -109,7 +109,7 @@ public class BossEnemyMovement : EnemyMovementOverall
     }
     protected virtual void ActionFlowDarkening()
     {
-        if (!this.isFlowDarkening)
+        if (!this.isFlowDarkening && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround)
         {
             this.isFlowDarkening = true;
 
@@ -133,7 +133,7 @@ public class BossEnemyMovement : EnemyMovementOverall
             return;
         }
 
-        if (this._waitingVFX.gameObject.activeInHierarchy) return;
+        if (this._waitingVFX.gameObject.activeInHierarchy || this._waitingVFX == null) return;
         //Set pos
         this._BossCtrl.transform.position = new Vector3(this._waitingVFX.position.x, -1.35f, 0);
 
@@ -141,9 +141,11 @@ public class BossEnemyMovement : EnemyMovementOverall
         // this.BossCtrl.BossAnimation.gameObject.SetActive(true);
         this.isFlowDarkening = false;
 
+        this._waitingVFX = null;
         //Set allow flow dark together
-        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(null));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(null));
+
 
         this._BossCtrl.BossSoundManager.PlaySoundFlowDark();
     }

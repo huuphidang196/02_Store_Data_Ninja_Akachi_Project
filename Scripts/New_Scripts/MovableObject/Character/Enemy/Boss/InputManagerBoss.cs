@@ -171,6 +171,7 @@ public class InputManagerBoss : SurMonoBehaviour
         yield return new WaitForSeconds(timeDelay ?? this._TimeDelay_Allow_Slash);
         this.allowSlash = true;
     }
+
     public IEnumerator SetAllowDark(float? timeDelay)
     {
         if (!this.allowFlowDark) yield break;

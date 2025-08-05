@@ -114,6 +114,9 @@ public class BossEnemyAttack : EnemyAttack
 
         //Set Direction fly
         WeaponCharacterCtrl WeaponCharacterCtrl = vfx_attack_Slash.GetComponent<WeaponCharacterCtrl>();
+
+        if (WeaponCharacterCtrl == null) return;
+
         WeaponCharacterCtrl.WeaponCharacterMovement.SetDirectionFly(this._CharacterCtrl.transform);
 
         vfx_attack_Slash.localScale = Vector3.one;
