@@ -18,7 +18,7 @@ MonoBehaviour:
   Length_Ray_Forward_Limit: 0.35
   Speed_Dash_Horizontal: 15
   Max_Life: 3
-  Original_GravityScale: 5
+  Original_GravityScale: 3
   Time_Delay_Hiden: 5
   JumpingPower: 17
   WallSlidingSpeed: 1

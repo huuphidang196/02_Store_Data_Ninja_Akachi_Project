@@ -13,11 +13,20 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
 
         base.DeductHP(damage);
     }
+    protected override void OnDead()
+    {
+        this._BossCtrl.BossEnemyMovement.Rigidbody2D.bodyType = RigidbodyType2D.Static;
 
+        Invoke(nameof(this.InActiveEnemy), 5f);
+
+    }
     protected override void InActiveEnemy()
     {
         //End Game
-        Debug.Log("End Game");
+      //  Debug.Log("End Game");
+
+        StoryEndGameCtrl.Instance.ConclusionEndGameByStory();
+
     }
 
     protected virtual void Update()
@@ -32,10 +41,5 @@ public class BossEnemyDamReceiver : EnemyDamReceiver
         this.IgnoreLayerCollisionOfPlayerObject("Enemy", "WeaponPlayer", this._BossCtrl.BossEnemyMovement.IsShadowing || this._BossCtrl.BossEnemyMovement.IsFlowDarkening);
 
     }
-    //public virtual void SetLayerIgnoreImpact(bool isIgnored)
-    //{
-    //    int layer = isIgnored ? LayerMask.NameToLayer("Default") : LayerMask.NameToLayer("Enemy");
-    //    this._BossCtrl.gameObject.layer = layer;
-    //    this.gameObject.layer = layer;
-    //}    
+  
 }

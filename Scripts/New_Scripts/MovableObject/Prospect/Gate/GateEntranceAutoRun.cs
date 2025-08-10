@@ -109,4 +109,6 @@ public class GateEntranceAutoRun : SurMonoBehaviour
         return distance < this._Distance_ModeOn
             && distance > -7f;
     }
+
+    public virtual void SetCompletedMissionOnLastLevel() => this.wasCom_Mission = true;
 }

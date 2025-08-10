@@ -33,7 +33,7 @@ public class PlayerObjDead : PlayerAbstract
     }
     protected virtual void ProcessmanyEventsAfterStartFunction()
     {
-        if (GamePlayController.Instance.IsFinalScene) this._Count_Life = 1;
+        if (FinalGamePlayController.Final_Instance != null) this._Count_Life = 1;
     }    
     public virtual void EventPlayerDead()
     {

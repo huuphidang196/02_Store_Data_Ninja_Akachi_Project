@@ -17,9 +17,6 @@ public class GamePlayController : SystemController
     [SerializeField] protected bool _EndGame = false;
     public bool EndGame => _EndGame;
 
-    [SerializeField] protected bool isFinalScene = false;
-    public bool IsFinalScene => isFinalScene;
-
     [SerializeField] protected bool _Rivive_Again = false;
     public bool Rivive_Again => _Rivive_Again;
 
@@ -55,12 +52,6 @@ public class GamePlayController : SystemController
         this._Count_Star_Mission = 0;
     }
 
-    protected override void Start()
-    {
-        base.Start();
-
-        this.isFinalScene = this._SystemConfig.Current_Level == 16;
-    }
     public override void AddMoneyToSystem(ItemUnit itemUnit)
     {
         base.AddMoneyToSystem(itemUnit);

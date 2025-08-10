@@ -29,7 +29,7 @@ public class PlayerMovement : CharacterObjMovement
     [SerializeField] protected float _WallJumpingDuration = 0.4f;
     [SerializeField] protected Vector2 _WallJumpingPower;
 
-    [SerializeField] protected float _Original_Gravity = 5f;
+    [SerializeField] protected float _Original_Gravity = 3f;
 
     //[SerializeField] protected bool canDash = false;
     [SerializeField] protected bool isDashing = false;
@@ -38,7 +38,7 @@ public class PlayerMovement : CharacterObjMovement
     [SerializeField] protected float _DashingPower = 35f;
     [SerializeField] protected float _DashingTime = 0.3f;
 
-    [SerializeField] protected bool canHiden = false;
+   // [SerializeField] protected bool canHiden = false;
     [SerializeField] protected bool isHiding;
     public bool IsHiding => isHiding;
 
@@ -59,12 +59,14 @@ public class PlayerMovement : CharacterObjMovement
 
         InputManager.PressJumpButton_Event += this.PressJumpEvent;
         InputManager.PressDashingButton_Event += this.PressDashingEvent;
+        InputManager.PressHiddenButton_Event += this.PressHiddenEvent;
     }
     protected override void OnDisable()
     {
         base.OnDisable();
         InputManager.PressJumpButton_Event -= this.PressJumpEvent;
         InputManager.PressDashingButton_Event -= this.PressDashingEvent;
+        InputManager.PressHiddenButton_Event -= this.PressHiddenEvent;
     }
     protected override void LoadRigidbody2D()
     {
@@ -85,7 +87,7 @@ public class PlayerMovement : CharacterObjMovement
         this._Original_Gravity = this._PlayerCtrl.PlayerSO.Original_GravityScale;
         //this.canDash = false;
         this._First_Jump = false;
-        this.canHiden = false;
+       // this.canHiden = false;
         this.isRiviving = false;
     }
 
@@ -96,6 +98,8 @@ public class PlayerMovement : CharacterObjMovement
         base.Start();
         //Debug.Log(transform.parent.name);
         this._WallJumpingPower = new Vector2(Mathf.Tan(5f * Mathf.Deg2Rad) * this._JumpingPower, this._JumpingPower);
+
+
     }
 
     protected override void Update()
@@ -124,7 +128,7 @@ public class PlayerMovement : CharacterObjMovement
             this.Flip();
             return;
         }
-        this.PressHiddenEvent();
+      //  this.PressHiddenEvent();
         this.WallSlide();
 
         base.Update();
@@ -136,6 +140,10 @@ public class PlayerMovement : CharacterObjMovement
         // if (this._PlayerCtrl.PlayerDamReceiver.ObjIsDead) return;
         if (this.isStunned) return;//Was stunned
 
+        //Spawn VFX
+        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode,
+            this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
+
         if (!InputManager.Instance.Press_Hidden_Mode)
         {
             StopCoroutine(this.Hiden());
@@ -143,7 +151,7 @@ public class PlayerMovement : CharacterObjMovement
 
             return;
         }
-        if (!this.canHiden) return;
+      //  if (!this.canHiden) return;
 
         StartCoroutine(this.Hiden());
 
@@ -176,7 +184,6 @@ public class PlayerMovement : CharacterObjMovement
             this._Rigidbody2D.velocity = new Vector2(0, this._Rigidbody2D.velocity.y);
             return;
         }
-
 
         if (this.isDashing) return;
 
@@ -216,7 +223,7 @@ public class PlayerMovement : CharacterObjMovement
 
         // this.canDash = InputManager.Instance.Press_Attack_Dashing;
 
-        this.canHiden = InputManager.Instance.Press_Hidden_Mode;
+      //  this.canHiden = InputManager.Instance.Press_Hidden_Mode;
 
         if (!this._First_Jump) return;
         if (this.IsGrounded() && this._Rigidbody2D.velocity.y < 0.1f || this.isWallSliding) this._First_Jump = false;
@@ -326,17 +333,13 @@ public class PlayerMovement : CharacterObjMovement
     }
     protected virtual IEnumerator Hiden()
     {
-        this.canHiden = false;
+      //  this.canHiden = false;
         this.isHiding = true;
 
         this._Rigidbody2D.gravityScale = 7f;
 
         //Change layer While player is hiding in order to avoid be recognized by enemy
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("PlayerHiddenMode");
-
-        //Spawn VFX
-        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode,
-            this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
 
         yield return new WaitForSeconds(this._PlayerCtrl.PlayerSO.Time_Delay_Hiden);
         this.ResetConfigurationPlayerAfterHiden(this._Original_Gravity);
@@ -348,9 +351,6 @@ public class PlayerMovement : CharacterObjMovement
         this._Rigidbody2D.gravityScale = originalGravity;
         this.isHiding = false;
         this._PlayerCtrl.PlayerDamReceiver.ChangeLayerPlayerByName("Player");
-
-        //Spawn VFX
-        this._PlayerCtrl.PlayerVFXManager.SpawnVFXForPlayer(VFXObjectSpawner.VFX_Player_Hidden_Mode,
-            this._PlayerCtrl.PlayerCheckContactEnviroment.CharacterCheckGround.transform.position);
+      //  Debug.Log("Call reset");
     }
 }

@@ -143,7 +143,7 @@ public class BossEnemyMovement : EnemyMovementOverall
 
         this._waitingVFX = null;
         //Set allow flow dark together
-        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1.5f));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(null));
 
 
@@ -190,7 +190,7 @@ public class BossEnemyMovement : EnemyMovementOverall
         this._Rigidbody2D.velocity = new Vector2(this.CalculateVox(), this._JumpingPower);
 
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowJumpAttack(null));
-        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(1));
+        StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowSlash(2.2f));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowDark(1));
 
         this._BossCtrl.BossSoundManager.PlaySoundJump();

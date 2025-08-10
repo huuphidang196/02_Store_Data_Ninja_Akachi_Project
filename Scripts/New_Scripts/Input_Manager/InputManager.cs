@@ -109,7 +109,7 @@ public class InputManager : SurMonoBehaviour
 
     protected virtual void UpdateConfigEndGame()
     {
-        if (GateEntranceAutoRun.Instance.WasCom_Mission) this.PointerRightUp();        
+        if (GateEntranceAutoRun.Instance.WasCom_Mission) this.PointerRightUp();
     }
 
     //Left
@@ -181,7 +181,6 @@ public class InputManager : SurMonoBehaviour
     public virtual void PointerHidenModeSkillDown()
     {
         //only for sound use event
-        PressHiddenButton_Event?.Invoke();
 
         if (this._Press_Hidden_Mode)
         {
@@ -190,12 +189,15 @@ public class InputManager : SurMonoBehaviour
             return;
         }
         this._Press_Hidden_Mode = true;
-
+        PressHiddenButton_Event?.Invoke();
     }
 
     public virtual void PointerHidenModeSkillPresAndUp()
     {
+        if (!this._Press_Hidden_Mode) return;
+
         this._Press_Hidden_Mode = false;
+        PressHiddenButton_Event?.Invoke();
     }
 
     //Riviving

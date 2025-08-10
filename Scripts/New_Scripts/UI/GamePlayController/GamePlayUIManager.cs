@@ -90,7 +90,6 @@ public class GamePlayUIManager : GamePlayUIOverallAbstract
 
         this.IsHidenUIScenePlay();
 
-
     }
     protected virtual void ProcessEventCompletedMission()
     {
