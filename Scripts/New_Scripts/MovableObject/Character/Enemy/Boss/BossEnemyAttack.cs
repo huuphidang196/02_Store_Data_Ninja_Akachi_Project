@@ -105,17 +105,23 @@ public class BossEnemyAttack : EnemyAttack
 
         if (!this.canSpawn_SlashVFX) return;
 
-        this._BossCtrl.BossSoundManager.PlaySoundAttackSlash();
-
-        this.canSpawn_SlashVFX = false;
-
+        StartCoroutine(this.ActionIESpawnVFXSlash());
+    }
+    protected IEnumerator ActionIESpawnVFXSlash()
+    {
         // Spawn VFX Attack
         Transform vfx_attack_Slash = WeaponCharacterSpawner.Instance.Spawn(WeaponCharacterSpawner.VFX_Slash_Attack, this._Pos_Spawn_VFX_Attack.position, Quaternion.identity);
 
         //Set Direction fly
         WeaponCharacterCtrl WeaponCharacterCtrl = vfx_attack_Slash.GetComponent<WeaponCharacterCtrl>();
 
-        if (WeaponCharacterCtrl == null) return;
+        if (WeaponCharacterCtrl == null) yield break;
+
+        this.canSpawn_SlashVFX = false;
+
+        yield return new WaitForSeconds(0.3f);
+
+        this._BossCtrl.BossSoundManager.PlaySoundAttackSlash();
 
         WeaponCharacterCtrl.WeaponCharacterMovement.SetDirectionFly(this._CharacterCtrl.transform);
 
@@ -128,5 +134,4 @@ public class BossEnemyAttack : EnemyAttack
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowShadow(1));
         StartCoroutine(this._BossCtrl.InputManagerBoss.SetAllowJumpAttack(1));
     }
-
 }

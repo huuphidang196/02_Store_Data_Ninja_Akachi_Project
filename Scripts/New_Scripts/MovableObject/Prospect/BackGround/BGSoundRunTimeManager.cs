@@ -39,5 +39,21 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
         this._AudioSource.clip = this.GetAudioSlipBackGroundByOrder();
     }
 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (GamePlayController.Instance.SystemConfig.Current_Level != 16) return;
+
+        if (BossCtrl.Instance == null) return;
+
+        if (!BossCtrl.Instance.ObjDamageReceiver.ObjIsDead) return;
+
+        AudioClip audioClip = GamePlayController.Instance.SystemConfig.SoundCtrlSO.SoundProspectSO.GetAudioClipByNameTypeProspectSound(this._List_Sound_BG_Final_Scene[this._List_Sound_BG_Final_Scene.Count - 1]);
+
+        if (this._AudioSource.clip == audioClip) return;
+
+        this._AudioSource.clip = audioClip;
+    }
 
 }

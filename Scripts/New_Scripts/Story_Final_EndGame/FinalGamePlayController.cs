@@ -39,6 +39,10 @@ public class FinalGamePlayController : GamePlayController
         //Back Scene
         GateEntranceAutoRun.Instance.SetCompletedMissionOnLastLevel();
 
+        SaveManager.Instance.SaveGame();
+
+        this.StartLoadingSceneByNameSceneAfterWatchAds("LevelMenu");
+
     }
 }
 
