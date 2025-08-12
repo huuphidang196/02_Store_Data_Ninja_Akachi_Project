@@ -43,6 +43,8 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
     {
         base.FixedUpdate();
 
+        if (GamePlayController.Instance == null) return;
+
         if (GamePlayController.Instance.SystemConfig.Current_Level != 16) return;
 
         if (BossCtrl.Instance == null) return;
@@ -54,6 +56,7 @@ public class BGSoundRunTimeManager : AudioRuntimeManager
         if (this._AudioSource.clip == audioClip) return;
 
         this._AudioSource.clip = audioClip;
+        this._AudioSource.Play();
     }
 
 }

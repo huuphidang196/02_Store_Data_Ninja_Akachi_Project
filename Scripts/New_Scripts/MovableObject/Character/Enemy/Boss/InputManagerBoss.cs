@@ -80,6 +80,9 @@ public class InputManagerBoss : SurMonoBehaviour
     [SerializeField] protected bool isCoolAttack = false;
     public bool IsCoolAttack => this.isCoolAttack;
 
+    [SerializeField] protected float _TimerInActiveSlash = 0;
+    [SerializeField] protected float _TimeDelayAllowInActiveSlash = 8f;
+
     //move left or right movement decide
 
     protected override void LoadComponents()
@@ -153,6 +156,24 @@ public class InputManagerBoss : SurMonoBehaviour
 
         this.isFlowDark = this.allowFlowDark && this._BossCtrl.CharacterCheckContactEnviroment.CharacterCheckGround.IsGround
                  && this.GetDistanceX() <= this._Distance_OnMode_FlowDark && this.CheckInsideScope(this._Limit_Space_Flow_Pos_X) && !this.isCoolAttack;
+
+        this.FucntionSetAllowSlashActiveAfterTime();
+    }
+
+    protected virtual void FucntionSetAllowSlashActiveAfterTime()
+    {
+        if (this.allowSlash)
+        {
+            this._TimerInActiveSlash = 0f;
+            return;
+        }
+
+        this._TimerInActiveSlash += Time.deltaTime;
+
+        if (this._TimerInActiveSlash < this._TimeDelayAllowInActiveSlash) return;
+
+        this._TimerInActiveSlash = 0f;
+        this.allowSlash = true;
     }
 
     public IEnumerator SetAllowShadow(float? timeDelay)
