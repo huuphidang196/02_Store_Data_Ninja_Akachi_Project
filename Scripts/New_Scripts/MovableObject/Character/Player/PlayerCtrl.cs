@@ -49,8 +49,6 @@ public class PlayerCtrl : CharacterCtrl
         this.LoadPlayerLooter();
         this.LoadPlayerSoundManager();
     }
-
-  
     protected virtual void LoadPlayerObjDead()
     {
         if (this._PlayerObjDead != null) return;

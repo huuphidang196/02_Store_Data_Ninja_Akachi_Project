@@ -41,7 +41,7 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
-         Debug.Log($"Game saved to {savePath}");
+        Debug.Log($"Game saved to {savePath}");
     }
 
     protected virtual void ProgressSaveGame()

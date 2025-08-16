@@ -251,11 +251,10 @@ MonoBehaviour:
   _WallJumpingDirection: 0
   _WallJumpingDuration: 0.4
   _WallJumpingPower: {x: 0, y: 0}
-  _Original_Gravity: 5
+  _Original_Gravity: 3
   isDashing: 0
   _DashingPower: 35
   _DashingTime: 0.3
-  canHiden: 0
   isHiding: 0
   isRiviving: 0
   isStunned: 0
@@ -420,7 +419,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 5c53c3ddf78b717498bf06b27bdda851, type: 2}
   m_IncludeLayers:
     serializedVersion: 2

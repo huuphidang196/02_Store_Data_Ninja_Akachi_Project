@@ -30,11 +30,10 @@ public class FinalGamePlayController : GamePlayController
     public virtual void ProcessAllEventSystemAfterEndGame()
     {
         //Set Stars
-        ItemUnit itemUnit = new ItemUnit(3, TypeItemMoney.Star_Mission);
-        this.AddMoneyToSystem(itemUnit);
+        this._SystemConfig.SetCountStarMissionByLevelCurrent(3);
 
         // Set Level Unlock
-        this._SystemConfig.SetLevelUnlock();
+        this._SystemConfig.SetLevelUnlock(16);
 
         //Back Scene
         GateEntranceAutoRun.Instance.SetCompletedMissionOnLastLevel();
