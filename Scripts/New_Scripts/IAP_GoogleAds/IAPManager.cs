@@ -7,7 +7,7 @@ public class IAPManager : Singleton<IAPManager>
 {
     public virtual void ProcessBuyDiamonds(ItemUnit itemUnit)
     {
-        this.CheckTransactWasSuccess();
+        //this.CheckTransactWasSuccess();
         //if buying progress was successful
         GamePlayController.Instance.AddMoneyToSystem(itemUnit);
     }

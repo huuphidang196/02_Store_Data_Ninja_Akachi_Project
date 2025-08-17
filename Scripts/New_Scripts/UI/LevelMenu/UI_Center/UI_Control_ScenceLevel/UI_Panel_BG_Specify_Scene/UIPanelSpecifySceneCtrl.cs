@@ -74,6 +74,6 @@ public class UIPanelSpecifySceneCtrl : SurMonoBehaviour
         base.Start();
 
         //false button Play
-        this.ProcessEventClickedSelectLevel(SystemController.CountScene + 1);
+        this._btnPlay.gameObject.SetActive(false);
     }
 }
