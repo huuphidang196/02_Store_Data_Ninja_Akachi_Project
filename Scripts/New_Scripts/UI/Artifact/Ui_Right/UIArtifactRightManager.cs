@@ -11,7 +11,7 @@ public class UIArtifactRightManager : SurMonoBehaviour
     [SerializeField] protected TextMeshProUGUI txt_Artifact_Name_Selected;
     [SerializeField] protected Image _Image_Artifact_Represent;
     [SerializeField] protected TextMeshProUGUI txt_Detail_Artifact;
-    [SerializeField] protected Button btnUnlock_Artifact;
+    [SerializeField] protected Transform _List_Button_Artifact;
     [SerializeField] protected TextMeshProUGUI txt_Unlock_Price;
 
     protected override void LoadComponents()
@@ -60,12 +60,19 @@ public class UIArtifactRightManager : SurMonoBehaviour
 
     protected virtual void LoadButtonUnlockArtifact()
     {
-        if (this.btnUnlock_Artifact != null) return;
+        if (this._List_Button_Artifact != null) return;
 
-        this.btnUnlock_Artifact = transform.Find("btnUnlock_Artifact").GetComponent<Button>();
+        this._List_Button_Artifact = transform.Find("List_Button_Artifact");
+
         this._Image_Artifact_Represent.color = Color.black;
-        this.btnUnlock_Artifact.gameObject.SetActive(false);
-        this.btnUnlock_Artifact.image.raycastTarget = true;
+
+        foreach (Transform item in this._List_Button_Artifact)
+        {
+            Button btn = item.GetComponent<Button>();
+            btn.image.raycastTarget = true;
+            item.gameObject.SetActive(false);
+        }
+       
     }
     protected virtual void LoadTextUnlockPrice()
     {
@@ -102,7 +109,16 @@ public class UIArtifactRightManager : SurMonoBehaviour
 
         this.txt_Detail_Artifact.text = artifactItem.Note_Detail_Artifact;
 
-        this.btnUnlock_Artifact.gameObject.SetActive(!artifactItem.Unlock);
+        for (int i = 0; i < this._List_Button_Artifact.childCount; i++)
+        {
+            if (i != order)
+            {
+                this._List_Button_Artifact.GetChild(i).gameObject.SetActive(false);
+                continue;
+            }    
+
+            this._List_Button_Artifact.GetChild(i).gameObject.SetActive(!artifactItem.Unlock);
+        }
 
         this.txt_Unlock_Price.text = "Unlock " + artifactItem.Price_Artifact + " $";
         this.txt_Unlock_Price.gameObject.SetActive(!artifactItem.Unlock);

@@ -24,10 +24,6 @@ public class ArtifactSceneManager : SystemController
 
         if (artifactItem.TypeNameArtifact == TypeNameArtifact.NoType) return;
 
-        bool purchasing_Success = this.TestPurchasing();
-
-        if (!purchasing_Success) return;
-
         artifactItem.Unlock = true;
 
         //Update Artifact display immidiately
@@ -62,7 +58,5 @@ public class ArtifactSceneManager : SystemController
         //Increase max life +1
         this._SystemConfig.PlayerSO.Max_Life++;
     }
-
-    private bool TestPurchasing() => true;
 
 }
