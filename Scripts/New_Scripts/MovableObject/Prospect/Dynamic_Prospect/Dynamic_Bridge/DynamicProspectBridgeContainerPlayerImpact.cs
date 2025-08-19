@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class DynamicProspectBridgeContainerPlayerImpact : DynamicProspectImpact
 {
-    [SerializeField] protected bool Test_parent_null;
-    [SerializeField] protected bool Test_parent_diff;
     protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
         base.OnTriggerEnter2D(collider2D);
@@ -26,13 +24,12 @@ public class DynamicProspectBridgeContainerPlayerImpact : DynamicProspectImpact
 
     protected virtual void Update()
     {
-        this.Test_parent_null = PlayerCtrl.Instance.transform.parent == null;
-        this.Test_parent_diff = PlayerCtrl.Instance.transform.parent != this.transform;
         if (PlayerCtrl.Instance.transform.parent == null) return;
 
         if (PlayerCtrl.Instance.transform.parent != this.DynamicMovementCtrl.DynamicProspectContainerPlayer.transform) return;
 
         PlayerCtrl.Instance.PlayerMovement.Rigidbody2D.bodyType = this.CheckPlayerHasAction() ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
+
     }
 
     protected virtual bool CheckPlayerHasAction()

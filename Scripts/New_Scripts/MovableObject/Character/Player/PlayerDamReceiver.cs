@@ -48,6 +48,8 @@ public class PlayerDamReceiver : ObjDamageReceiver
         this.ChangeLayerPlayerByName("PlayerDead");
 
         this.SpawnVFXBlood();
+
+        this.PlayerCtrl.transform.parent = null;
     }
     protected virtual void SpawnVFXBlood()
     {

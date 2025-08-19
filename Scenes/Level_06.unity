@@ -62807,7 +62807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjDamageReceiver: {fileID: 0}
   _ObjDamageSender: {fileID: 5178232969723229153}
-  _ObjImpact_Overall: {fileID: 6088925259794383325}
+  _ObjImpact_Overall: {fileID: 0}
   _MObjScriptableObject: {fileID: 11400000, guid: 1dd55e8ade405e84aba3d51eacc8d482, type: 2}
   _MovableObj_Movement: {fileID: 2909532023067106462}
   _DynamicProspectContainerPlayer: {fileID: 0}
@@ -86301,25 +86301,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5728420011833032474, guid: 756b486a8159b8d45a3279010b82c750, type: 3}
   m_PrefabInstance: {fileID: 135430980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6088925259794383325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522607429910940285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e3df1a57711444895271338720dd49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 0}
-  _parentObj: {fileID: 0}
-  isImpact: 0
-  _Rigidbody2D: {fileID: 7362581219349678140}
-  _boxCollider: {fileID: 8546043323207105970}
-  Test_parent_null: 0
-  Test_parent_diff: 0
 --- !u!1 &6102602457874312116
 GameObject:
   m_ObjectHideFlags: 0
@@ -86499,9 +86480,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698456125310721904}
-  - component: {fileID: 6088925259794383325}
   - component: {fileID: 8546043323207105970}
   - component: {fileID: 7362581219349678140}
+  - component: {fileID: 8546043323207105971}
   m_Layer: 17
   m_Name: ObjImpact
   m_TagString: Untagged
@@ -87189,6 +87170,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 3.2343934}
   m_EdgeRadius: 0
+--- !u!114 &8546043323207105971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522607429910940285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9791bd97eb763404686b4ea82d482759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjectCtrl: {fileID: 1235669582}
+  _parentObj: {fileID: 0}
+  isImpact: 0
+  _Rigidbody2D: {fileID: 7362581219349678140}
+  _boxCollider: {fileID: 8546043323207105970}
 --- !u!1001 &8648765484605033248
 PrefabInstance:
   m_ObjectHideFlags: 0

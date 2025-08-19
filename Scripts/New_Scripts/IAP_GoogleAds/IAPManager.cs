@@ -9,11 +9,7 @@ public class IAPManager : Singleton<IAPManager>
     {
         //this.CheckTransactWasSuccess();
         //if buying progress was successful
-        GamePlayController.Instance.AddMoneyToSystem(itemUnit);
+        SystemController.Sys_Instance.AddMoneyToSystem(itemUnit);
     }
 
-    protected virtual bool CheckTransactWasSuccess()
-    {
-        return true;
-    }
 }
