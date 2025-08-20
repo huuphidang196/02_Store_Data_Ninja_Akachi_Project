@@ -1323,6 +1323,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWatchGift: 0
+  _MinRequestInterval: 3
+  _MaxAdViewsPerDay: 7
+  _AdViewCountToday: 0
+  _Max_Ad_Request_Once: 5
+  _Ad_Request_Count_Today: 0
+  allowButton_Active: 0
 --- !u!4 &1998771866
 Transform:
   m_ObjectHideFlags: 0
