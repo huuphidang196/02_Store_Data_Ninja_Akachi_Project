@@ -147,15 +147,27 @@ public class GamePlayController : SystemController
     public virtual void StartLoadingSceneByNameSceneAfterWatchAds(string nameScene)
     {
         this.ConductSomeActionBeforeLoadScene();
-        // Load Ads
-        GoogleAdsManager.Instance.WatchVideoAdsAfterCompletedMissionOrEndGame(() => StartCoroutine(LoadSceneWithWait(nameScene)));
+
+        // Gán global action trước khi show ads
+        GoogleAdsManager.Instance.AdmobAdsManager.OnAdClosedGlobal = () =>
+        {
+            StartCoroutine(LoadSceneWithWait(nameScene));
+        };
+
+        GoogleAdsManager.Instance.AdmobAdsManager.WatchVideoAdsAfterCompletedMissionOrEndGame();
     }
 
     public override void StartLoadingSceneByOrderScene(int orderScene)
     {
         this.ConductSomeActionBeforeLoadScene();
-        // Load Ads
-        GoogleAdsManager.Instance.WatchVideoAdsAfterCompletedMissionOrEndGame(() => base.StartLoadingSceneByOrderScene(orderScene));
+
+        // Gán global action trước khi show ads
+        GoogleAdsManager.Instance.AdmobAdsManager.OnAdClosedGlobal = () =>
+        {
+            base.StartLoadingSceneByOrderScene(orderScene);
+        };
+
+        GoogleAdsManager.Instance.AdmobAdsManager.WatchVideoAdsAfterCompletedMissionOrEndGame();
 
     }
     protected override void ConductActionWhileLoadingNewScene()
