@@ -168,7 +168,6 @@ public class GamePlayController : SystemController
         };
 
         GoogleAdsManager.Instance.AdmobAdsManager.WatchVideoAdsAfterCompletedMissionOrEndGame();
-
     }
     protected override void ConductActionWhileLoadingNewScene()
     {
