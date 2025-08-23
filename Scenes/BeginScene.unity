@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167662181}
+  - component: {fileID: 167662182}
   m_Layer: 0
   m_Name: Firebase-RemoteConfig
   m_TagString: Untagged
@@ -154,6 +155,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1998771866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167662182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167662180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3196e1c6577464d82fd62055580a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GoogleAdsManager: {fileID: 1998771865}
+  _ConfigData:
+    AllowAds: 1
+    Max_Ads_View_Today: 7
+    Max_Request_Once: 5
 --- !u!1 &339865902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1539851488}
+  - component: {fileID: 1539851489}
   m_Layer: 0
   m_Name: Admob_Ads
   m_TagString: Untagged
@@ -1241,6 +1260,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1998771866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539851489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539851487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d99e7b91790e8048a55642f38e8fda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GoogleAdsManager: {fileID: 1998771865}
+  isWatchGift: 0
+  _MinRequestInterval: 30
+  _MaxAdViewsPerDay: 9
+  _AdViewCountToday: 0
+  _Max_Ad_Request_Once: 4
+  _Ad_Request_One_Count_Today: 0
+  allowButton_Active: 0
 --- !u!1 &1677047999
 GameObject:
   m_ObjectHideFlags: 0

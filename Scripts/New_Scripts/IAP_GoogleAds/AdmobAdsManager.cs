@@ -35,14 +35,12 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     [SerializeField] protected bool allowButton_Active = false;
     public bool AllowButttonActive => this.allowButton_Active;
 
-    [SerializeField] protected bool allowButton_Internal = false;
-    public bool AllowButton_Internal => this.allowButton_Internal;
 
     // Action toàn cục
     public Action OnAdClosedGlobal;
 
 #if UNITY_ANDROID
-    string rewardedId_Main = "ca-app-pub-6587943818507249/9181061849";
+    string rewardedId_Main = "ca-app-pub-3940256099942544/1033173712";
 
 #elif UNITY_IPHONE
     string rewardedId = "ca-app-pub-3940256099942544/1712485313";
@@ -59,7 +57,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         }
 
         this._LastReachADS_Time = DateTime.Now;
-        this.allowButton_Internal = true;
+
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
@@ -80,7 +78,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
 
     protected virtual void FixedUpdate()
     {
-        if (!this.ProcessLoadWatchAds()) return;
+        this.ProcessLoadWatchAds();
 
         this.allowButton_Active = this.rewardedAd == null && this._AdViewCountToday < this._MaxAdViewsPerDay && this._Ad_Request_One_Count_Today < this._Max_Ad_Request_Once && this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds;
     }
@@ -89,16 +87,27 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     {
         this.isWatchGift = true;
 
-        this.ShowRewardedAd();
+        this.ShowRewardAndCallBackLoadLevel();
     }
 
     public virtual void WatchVideoAdsAfterCompletedMissionOrEndGame()
     {
         this.isWatchGift = false;
 
-        this.ShowRewardedAd();
+        this.ShowRewardAndCallBackLoadLevel();
         // Debug.Log("Watch");
     }
+
+    protected virtual void ShowRewardAndCallBackLoadLevel()
+    {
+        if (this.rewardedAd == null)
+        {
+            OnAdClosedGlobal?.Invoke();
+            return;
+        }
+        this.ShowRewardedAd();
+
+    }    
 
     public virtual void SetBoolPurposeWatchADS(bool isGift) => this.isWatchGift = isGift;
 
@@ -113,22 +122,18 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
 
     }
 
-    protected virtual bool ProcessLoadWatchAds()
+    protected virtual void ProcessLoadWatchAds()
     {
         //These instructions only apply for allowing btn watch ads.
-        if (!this.CheckInternetConnection()) return true;
+        if (!this.CheckInternetConnection()) return;
+
+        if (rewardedAd != null) return;
 
         this._MaxAdViewsPerDay = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Ads_View_Today;
         this._Max_Ad_Request_Once = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Request_Once;
 
-        if (rewardedAd != null) return true;
-
         //Donnot allow user watch ads since reached limit
-        if (this._AdViewCountToday >= this._MaxAdViewsPerDay)
-        {
-            // this.allowButton_Active = false;
-            return false;
-        }
+        if (this._AdViewCountToday >= this._MaxAdViewsPerDay) return;
 
         //Debug.Log("Đợi thêm trước khi request lại.");
         if ((DateTime.Now - this._LastRequestTime).TotalSeconds > this._MinRequestInterval)
@@ -136,17 +141,13 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
             this._Ad_Request_One_Count_Today = 0;
         }
 
-        if (this._Ad_Request_One_Count_Today >= this._Max_Ad_Request_Once)
-        {
-            // this.allowButton_Active = false;
-            return false;
-        }
+        if (this._Ad_Request_One_Count_Today >= this._Max_Ad_Request_Once) return;
 
         this._Ad_Request_One_Count_Today++;
         this._LastRequestTime = DateTime.Now;
 
         this.LoadRewardedAd();
-        return true;
+        return;
     }
 
     public virtual void ProcessWatchAdvertisement(bool watchSuccess)
@@ -179,6 +180,8 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     protected virtual void DestroyReward()
     {
         //Prepare Ad
+        if (this.rewardedAd == null) return;
+
         rewardedAd.Destroy();
         this.rewardedAd = null;
     }
@@ -197,7 +200,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
                     this.ProcessWatchAdByAdmobFailure();
                     return;
                 }
-
+                Debug.Log("Loaded Ad");
                 rewardedAd = ad;
                 RegisterEventHandlers(rewardedAd);
             });
@@ -215,11 +218,13 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
             {
                 this.ProcessWatchAdvertisement(true);
 
-                OnAdClosedGlobal?.Invoke();
+           //     OnAdClosedGlobal?.Invoke();
 
             });
             return;
         }
+
+        OnAdClosedGlobal?.Invoke();
     }
 
     public virtual void EnableOrDisableButtonWatchAd(bool active) => this.allowButton_Active = active;
@@ -244,7 +249,6 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         // Raised when an ad opened full screen content.
         ad.OnAdFullScreenContentOpened += () =>
         {
-            this.allowButton_Internal = false;
             //  Debug.Log("Rewarded ad full screen content opened.");
         };
         // Raised when the ad closed full screen content.
