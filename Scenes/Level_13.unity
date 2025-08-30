@@ -10722,6 +10722,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8236212754669278935, guid: a51707d2bd0e8c64b882c6728b284b8c, type: 3}
+      propertyPath: _Old_Position.x
+      value: 230.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236212754669278935, guid: a51707d2bd0e8c64b882c6728b284b8c, type: 3}
+      propertyPath: _Old_Position.y
+      value: 2.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70879,8 +70887,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 3.73645, y: 1.0846, z: 0}
-    m_Extent: {x: 6.1490498, y: 3.0909, z: 0}
+    m_Center: {x: 3.73565, y: 1.0807, z: 0}
+    m_Extent: {x: 6.1599503, y: 3.098, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -78288,7 +78296,6 @@ GameObject:
   - component: {fileID: 705660609}
   - component: {fileID: 705660611}
   - component: {fileID: 705660610}
-  - component: {fileID: 705660612}
   m_Layer: 0
   m_Name: Plane_BUSH - BACKGROUND
   m_TagString: Untagged
@@ -78361,26 +78368,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705660608}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &705660612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705660608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcebffa08d579d44a0164674b54e82c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MainCamera: {fileID: 0}
-  _Cam_Start_Pos: {x: 0, y: 0, z: 0}
-  _Distance: 0
-  _List_Elements_BG: []
-  _List_Material: []
-  _List_BackSpeed: []
-  _FarthestBack: 0
-  _Parallax_Speed: 0.07
 --- !u!1 &709646113
 GameObject:
   m_ObjectHideFlags: 0
@@ -80098,8 +80085,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.025150001, y: -1.8453, z: 0}
-    m_Extent: {x: 1.7915499, y: 2.8539999, z: 0}
+    m_Center: {x: -0.032999992, y: -1.8460501, z: 0}
+    m_Extent: {x: 1.7888, y: 2.8377502, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -87757,8 +87744,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 3.7304502, y: 1.08645, z: 0}
-    m_Extent: {x: 6.15295, y: 3.09685, z: 0}
+    m_Center: {x: 3.7285, y: 1.0793501, z: 0}
+    m_Extent: {x: 6.1524997, y: 3.0966501, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -96923,6 +96910,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8236212754669278935, guid: a51707d2bd0e8c64b882c6728b284b8c, type: 3}
+      propertyPath: _Old_Position.x
+      value: 258.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236212754669278935, guid: a51707d2bd0e8c64b882c6728b284b8c, type: 3}
+      propertyPath: _Old_Position.y
+      value: -3.44
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104929,8 +104924,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.092700005, y: -2.47195, z: 0}
-    m_Extent: {x: 1.6307, y: 3.4675498, z: 0}
+    m_Center: {x: 0.09864998, y: -2.4718502, z: 0}
+    m_Extent: {x: 1.63545, y: 3.47665, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28
@@ -123575,8 +123570,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.77169997, y: -1.84785, z: 0}
-    m_Extent: {x: 1.7651, y: 2.84305, z: 0}
+    m_Center: {x: -0.75855, y: -1.8416499, z: 0}
+    m_Extent: {x: 1.76035, y: 2.8502498, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.28

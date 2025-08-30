@@ -9,8 +9,8 @@ public class GoogleAdsManager : Singleton<GoogleAdsManager>
     [SerializeField] protected AdmobAdsManager _AdmobAdsManager;
     public AdmobAdsManager AdmobAdsManager => this._AdmobAdsManager;
 
-    [SerializeField] protected FirebaseRemoteConfig _FirebaseRemoteConfig;
-    public FirebaseRemoteConfig FirebaseRemoteConfig => this._FirebaseRemoteConfig;
+    [SerializeField] protected FirebaseRemoteConfigManager _FirebaseRemoteConfig;
+    public FirebaseRemoteConfigManager FirebaseRemoteConfig => this._FirebaseRemoteConfig;
 
     protected override void LoadComponents()
     {
@@ -31,7 +31,7 @@ public class GoogleAdsManager : Singleton<GoogleAdsManager>
     {
         if (this._FirebaseRemoteConfig != null) return;
 
-        this._FirebaseRemoteConfig = GetComponentInChildren<FirebaseRemoteConfig>();
+        this._FirebaseRemoteConfig = GetComponentInChildren<FirebaseRemoteConfigManager>();
     }
 }
 

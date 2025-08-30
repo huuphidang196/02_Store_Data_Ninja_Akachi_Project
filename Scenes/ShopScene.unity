@@ -1208,7 +1208,6 @@ GameObject:
   m_Component:
   - component: {fileID: 437874914}
   - component: {fileID: 437874918}
-  - component: {fileID: 437874917}
   - component: {fileID: 437874919}
   - component: {fileID: 437874916}
   - component: {fileID: 437874915}
@@ -1315,22 +1314,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &437874917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437874913}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316b3da1b899a3f40b76c23e1099d1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _btnExect: {fileID: 437874915}
-  _ItemUnit:
-    TypeItem: 2
-    Value: 7500
 --- !u!222 &437874918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2126,7 +2109,6 @@ GameObject:
   m_Component:
   - component: {fileID: 677711812}
   - component: {fileID: 677711816}
-  - component: {fileID: 677711815}
   - component: {fileID: 677711817}
   - component: {fileID: 677711814}
   - component: {fileID: 677711813}
@@ -2233,22 +2215,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &677711815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677711811}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316b3da1b899a3f40b76c23e1099d1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _btnExect: {fileID: 677711813}
-  _ItemUnit:
-    TypeItem: 2
-    Value: 20000
 --- !u!222 &677711816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3712,7 +3678,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1096880308}
   - component: {fileID: 1096880312}
-  - component: {fileID: 1096880311}
   - component: {fileID: 1096880313}
   - component: {fileID: 1096880310}
   - component: {fileID: 1096880309}
@@ -3819,22 +3784,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1096880311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096880307}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316b3da1b899a3f40b76c23e1099d1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _btnExect: {fileID: 1096880309}
-  _ItemUnit:
-    TypeItem: 2
-    Value: 2500
 --- !u!222 &1096880312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6112,7 +6061,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1909566139}
   - component: {fileID: 1909566143}
-  - component: {fileID: 1909566142}
   - component: {fileID: 1909566144}
   - component: {fileID: 1909566141}
   - component: {fileID: 1909566140}
@@ -6219,22 +6167,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1909566142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909566138}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316b3da1b899a3f40b76c23e1099d1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _btnExect: {fileID: 1909566140}
-  _ItemUnit:
-    TypeItem: 2
-    Value: 1000
 --- !u!222 &1909566143
 CanvasRenderer:
   m_ObjectHideFlags: 0

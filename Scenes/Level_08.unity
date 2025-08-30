@@ -9093,11 +9093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.x
-      value: 133.81
+      value: 381.91998
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.y
-      value: 0.23
+      value: -2.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -10841,11 +10841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.x
-      value: 148.12
+      value: 410.5
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.y
-      value: 2.65
+      value: -6.7599998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -63000,7 +63000,6 @@ GameObject:
   - component: {fileID: 705660609}
   - component: {fileID: 705660611}
   - component: {fileID: 705660610}
-  - component: {fileID: 705660612}
   m_Layer: 0
   m_Name: Plane_BUSH - BACKGROUND
   m_TagString: Untagged
@@ -63073,26 +63072,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705660608}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &705660612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705660608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcebffa08d579d44a0164674b54e82c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MainCamera: {fileID: 0}
-  _Cam_Start_Pos: {x: 0, y: 0, z: 0}
-  _Distance: 0
-  _List_Elements_BG: []
-  _List_Material: []
-  _List_BackSpeed: []
-  _FarthestBack: 0
-  _Parallax_Speed: 0.07
 --- !u!1 &715665816
 GameObject:
   m_ObjectHideFlags: 0
@@ -72716,11 +72695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982620997242873842, guid: 3607d9c6d94feb64c9de834f68c08dbf, type: 3}
       propertyPath: _Old_Position.x
-      value: 497.3
+      value: 131.07
       objectReference: {fileID: 0}
     - target: {fileID: 6982620997242873842, guid: 3607d9c6d94feb64c9de834f68c08dbf, type: 3}
       propertyPath: _Old_Position.y
-      value: 1.27
+      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -98709,11 +98688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.x
-      value: 148.12
+      value: 429.09
       objectReference: {fileID: 0}
     - target: {fileID: 8748347983881910790, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: _Old_Position.y
-      value: 2.65
+      value: -1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

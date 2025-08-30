@@ -7,8 +7,10 @@ public class DynamicBridgeHorizontalMovement : DynamicBridgeMovement
     protected override void ResetDataConfiguration()
     {
         this._Speed_Move_Horizontal = this.DynamicMovementCtrl.MObjScriptableObject.Speed_Move_Horizontal;
+        this._Horizontal = this._Speed_Move_Horizontal;
 
         this._Speed_Move_Vertical = this.DynamicMovementCtrl.DynamicProspectObjMovementSO.Speed_Move_Vertical;
+        this._Vertical = this._Speed_Move_Vertical;
 
         this._Old_Position = this.DynamicMovementCtrl.transform.position;
     }

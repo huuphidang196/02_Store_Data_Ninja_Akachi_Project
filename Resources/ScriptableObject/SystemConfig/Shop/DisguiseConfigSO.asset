@@ -15,8 +15,8 @@ MonoBehaviour:
   Order_Skin_Equipped: 0
   Skins_Hiden_Mode:
   - BaseDataUnlock:
-      Name_Data: 
-      Unlock: 1
+      Name_Data: CLASSIC TREE TRUCK
+      Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
         TypeItem: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: b8bcc39f115dbc14f9a141f82da8a38d, type: 3}
     Sprite_Rep_Skin: {fileID: 21300000, guid: 5f2700602bfddac4a9c2ec0a82aab5c5, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: AZURE PHANTOM
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -33,7 +33,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: -1709202686, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: SCARLET BLADE
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -42,7 +42,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -1202230043, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: SHADOW FANG
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -51,7 +51,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: 1452876212, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: CRIMSON SHADOW
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -60,7 +60,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -187647583, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: INFERNO SAMURAI
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -69,7 +69,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: ecfaa658036020c4faa7947133ec61c9, type: 3}
     Sprite_Rep_Skin: {fileID: -365500653, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: SILENT WIND
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -78,7 +78,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: 2093822734, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: ECHO RONIN
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:
@@ -87,7 +87,7 @@ MonoBehaviour:
       Sprite_Represent_Money: {fileID: 21300000, guid: 183a6d54a44bc9e4da1f20037be8f084, type: 3}
     Sprite_Rep_Skin: {fileID: -1795161555, guid: 00349d1c966dc1f40a8fe377252bfadf, type: 3}
   - BaseDataUnlock:
-      Name_Data: 
+      Name_Data: STEEL RIDER
       Unlock: 0
     ItemMoneyUnit:
       ItemUnit:

@@ -32,7 +32,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     [SerializeField] protected int _Max_Ad_Request_Once = 4;
     [SerializeField] protected int _Ad_Request_One_Count_Today = 0;
 
-    [SerializeField] protected bool allowButton_Active = false;
+    [SerializeField] protected bool allowButton_Active = true;
     public bool AllowButttonActive => this.allowButton_Active;
 
 
@@ -80,7 +80,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     {
         this.ProcessLoadWatchAds();
 
-        this.allowButton_Active = this.rewardedAd == null && this._AdViewCountToday < this._MaxAdViewsPerDay && this._Ad_Request_One_Count_Today < this._Max_Ad_Request_Once && this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds;
+        this.allowButton_Active = this.rewardedAd != null;
     }
 
     public virtual void WatchVideoAdsEarnMoney()
@@ -107,9 +107,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         }
         this.ShowRewardedAd();
 
-    }    
-
-    public virtual void SetBoolPurposeWatchADS(bool isGift) => this.isWatchGift = isGift;
+    }
 
     public virtual bool CheckInternetConnection()
     {
@@ -126,6 +124,8 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     {
         //These instructions only apply for allowing btn watch ads.
         if (!this.CheckInternetConnection()) return;
+
+        if (!this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds) return;
 
         if (rewardedAd != null) return;
 
@@ -216,9 +216,9 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         {
             rewardedAd.Show((Reward reward) =>
             {
-                this.ProcessWatchAdvertisement(true);
 
-           //     OnAdClosedGlobal?.Invoke();
+
+                //     OnAdClosedGlobal?.Invoke();
 
             });
             return;
@@ -256,7 +256,8 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         {
             //Debug.Log("Rewarded ad full screen content closed.");
             // TODO: Reward the user.
-            this.DestroyReward();
+            this.ProcessWatchAdvertisement(true);
+           // this.DestroyReward();
             OnAdClosedGlobal?.Invoke();
         };
         // Raised when the ad failed to open full screen content.
