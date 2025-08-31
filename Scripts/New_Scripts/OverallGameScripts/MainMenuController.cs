@@ -17,4 +17,10 @@ public class MainMenuController : SystemController
 
         m_instance = this;
     }
+
+    public virtual void ChangeStatusOnOffMusic()
+    {
+        bool onMusic = SystemController.Sys_Instance.SystemConfig.OnMusic;
+        SystemController.Sys_Instance.SystemConfig.OnMusic = !onMusic;
+    }
 }
