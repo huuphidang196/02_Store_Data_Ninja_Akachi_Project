@@ -145,11 +145,13 @@ public enum TypeProspectSound
 {
     NoType = 0,
 
+
     Sound_BackGround_01 = 101,
     Sound_BackGround_02 = 102,
     Sound_BackGround_03 = 103,
     Sound_BackGround_04 = 104,
     Sound_BackGround_05 = 105,
+    Sound_BackGround_06 = 106,
 
     Sound_BackGround_Final_Scene_01 = 201,
     Sound_EndGame_Story_Final_Scene= 202,

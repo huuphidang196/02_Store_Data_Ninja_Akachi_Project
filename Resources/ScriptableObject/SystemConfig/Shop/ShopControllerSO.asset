@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ShopControllerSO
   m_EditorClassIdentifier: 
   _SystemConfig: {fileID: 11400000, guid: e4d1dca74aa11b3419d081da1d77ff30, type: 2}
+  WasRemoved_Ads: 0
   _DisguiseConfigSO: {fileID: 11400000, guid: edc10fdb9d5c7b04ea2d039104d4fc96, type: 2}

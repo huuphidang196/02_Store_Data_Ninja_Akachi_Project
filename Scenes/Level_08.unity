@@ -10835,6 +10835,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1703641142, guid: 32c1f1c8dc49db44abc621438d316328, type: 3}
+    - target: {fileID: 4842690871943793210, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5554365902544037182, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: m_Name
       value: DynamicProspect_Bridge_Vertical_Movement_2
@@ -98682,6 +98686,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1703641142, guid: 32c1f1c8dc49db44abc621438d316328, type: 3}
+    - target: {fileID: 4842690871943793210, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5554365902544037182, guid: 206c8cb0a34def247949ced58172e3a7, type: 3}
       propertyPath: m_Name
       value: DynamicProspect_Bridge_Vertical_Movement_3
@@ -100303,7 +100311,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 3471a1273739c224f8286c4de9e4683a, type: 3}
-  m_Color: {r: 0.23584908, g: 0.23473659, b: 0.23473659, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14676042, b: 0.14676042, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110145,7 +110153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7125123321907859204, guid: 41a9306f775bfae4e93bcf79922aca8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.32
+      value: 8.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

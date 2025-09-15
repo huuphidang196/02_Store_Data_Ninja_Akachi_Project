@@ -80,7 +80,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     {
         this.ProcessLoadWatchAds();
 
-        this.allowButton_Active = this.rewardedAd != null;
+        this.allowButton_Active = this.rewardedAd != null && !SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads;
     }
 
     public virtual void WatchVideoAdsEarnMoney()
@@ -123,6 +123,12 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     protected virtual void ProcessLoadWatchAds()
     {
         //These instructions only apply for allowing btn watch ads.
+        if (SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads)
+        {
+            this.rewardedAd = null;
+            return;
+        }
+
         if (!this.CheckInternetConnection()) return;
 
         if (!this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds) return;
@@ -200,7 +206,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
                     this.ProcessWatchAdByAdmobFailure();
                     return;
                 }
-                Debug.Log("Loaded Ad");
+                //Debug.Log("Loaded Ad");
                 rewardedAd = ad;
                 RegisterEventHandlers(rewardedAd);
             });
@@ -257,7 +263,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
             //Debug.Log("Rewarded ad full screen content closed.");
             // TODO: Reward the user.
             this.ProcessWatchAdvertisement(true);
-           // this.DestroyReward();
+            // this.DestroyReward();
             OnAdClosedGlobal?.Invoke();
         };
         // Raised when the ad failed to open full screen content.

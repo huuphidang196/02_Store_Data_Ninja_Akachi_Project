@@ -11,6 +11,7 @@ public class DynamicProspectBridgeContainerPlayerImpact : DynamicProspectImpact
 
         if (this.GetParent(collider2D.gameObject).gameObject.layer != LayerMask.NameToLayer("Player")) return;
 
+        if (!PlayerCtrl.Instance.PlayerCheckContactEnviroment.PlayerCheckGround.CheckContainer()) return;
         //Notify to Container
         this.DynamicMovementCtrl.DynamicProspectContainerPlayer.ContainPlayerBecomeParent(PlayerCtrl.Instance.transform);
     }
@@ -18,6 +19,8 @@ public class DynamicProspectBridgeContainerPlayerImpact : DynamicProspectImpact
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (this.GetParent(collision.gameObject).gameObject.layer != LayerMask.NameToLayer("Player")) return;
+
+        if (PlayerCtrl.Instance.transform.parent == null) return;
 
         this.DynamicMovementCtrl.DynamicProspectContainerPlayer.DetachedPlayerBecomeSeperatedObject(PlayerCtrl.Instance.transform);
     }

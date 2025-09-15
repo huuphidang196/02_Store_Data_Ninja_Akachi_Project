@@ -43,6 +43,7 @@ public class UICenterManager : SurMonoBehaviour
         //Set Active Button
         this.SetActiveButtonAndTextByOrder(0);
     }
+
     protected virtual void LoadUICenterLevelMenuCtrl()
     {
         if (this._UICenterLevelMenuCtrl != null) return;
@@ -54,6 +55,8 @@ public class UICenterManager : SurMonoBehaviour
         base.Start();
 
         this.SpawnAllButtonLevel();
+
+        this.ProcessTransitImageBGRepresentLevelMode(LevelMenuController.Instance.SystemConfig.Level_Unlock >= 16);
     }
 
     protected virtual void SpawnAllButtonLevel()

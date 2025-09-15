@@ -27,6 +27,9 @@ public class CharacterCheckGround : SurMonoBehaviour
     {
         return Physics2D.OverlapCircle(this._GroundCheck.position, this._Radius_Check, this._GroundLayer);
     }
+
+   
+
     //protected virtual void OnDrawGizmos()
     //{
     //    // Thiết lập màu cho Gizmos

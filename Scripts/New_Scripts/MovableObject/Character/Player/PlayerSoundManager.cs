@@ -64,7 +64,7 @@ public class PlayerSoundManager : CharacterMainSoundManager
             return;
         }
 
-        if (this.PlayerCtrl.PlayerAnimation.Run_Ani)
+        if (this.PlayerCtrl.PlayerAnimation.Run_Ani && !this.PlayerCtrl.PlayerMovement.IsStunned)
         {
             this.PlayeSoundWithNameAction("Player_Run_Sound");
             return;

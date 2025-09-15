@@ -131,7 +131,7 @@ public class PlayerAnimation : CharacterAnimation
         this._Rivive_Again_Ani = InputManager.Instance.IsRiviving;
 
         this._Run_Ani = (!this.isDead && this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround
-            && InputManager.Instance.Press_Left != InputManager.Instance.Press_Right && !this.isDashing && !this.isHiding) || GateEntranceAutoRun.Instance.IsEntranceAuto;
+            && this._PlayerCtrl.PlayerMovement.Move_Left != this._PlayerCtrl.PlayerMovement.Move_Right && !this.isDashing && !this.isHiding) || GateEntranceAutoRun.Instance.IsEntranceAuto;
 
         this.isStunned = this._PlayerCtrl.PlayerMovement.IsStunned;
     }
