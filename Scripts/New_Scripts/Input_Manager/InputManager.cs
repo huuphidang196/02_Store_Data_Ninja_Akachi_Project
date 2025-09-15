@@ -110,6 +110,8 @@ public class InputManager : SurMonoBehaviour
     protected virtual void UpdateConfigEndGame()
     {
         if (GateEntranceAutoRun.Instance.WasCom_Mission) this.PointerRightUp();
+
+        if (this._Press_Hidden_Mode && PlayerCtrl.Instance.ObjDamageReceiver.ObjIsDead) this.PointerHidenModeSkillDown();
     }
 
     //Left
