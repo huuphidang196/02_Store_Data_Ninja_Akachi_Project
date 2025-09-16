@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShopControllerSO", menuName = "ScriptableObject/Shop/ShopControllerSO", order = 0)]
 public class ShopControllerSO : SystemConfigCtrl
 {
-    public bool WasRemoved_Ads;
+    public bool WasRemoved_AdsInterstitial;
 
     [SerializeField] protected DisguiseConfigSO _DisguiseConfigSO;
     public DisguiseConfigSO DisguiseConfigSO => this._DisguiseConfigSO;

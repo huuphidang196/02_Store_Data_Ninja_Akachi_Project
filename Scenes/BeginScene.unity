@@ -169,9 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GoogleAdsManager: {fileID: 1998771865}
   _ConfigData:
-    AllowAds: 1
+    AllowAds: 0
     Max_Ads_View_Today: 9
     Max_Request_Once: 3
+    rewardedId_Main: ca-app-pub-3940256099942544/1033173712
 --- !u!1 &339865902
 GameObject:
   m_ObjectHideFlags: 0

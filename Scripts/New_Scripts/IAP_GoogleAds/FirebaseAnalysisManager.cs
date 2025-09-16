@@ -23,5 +23,6 @@ public class FirebaseAnalysisManager : GoogleAdsManagerAbstract
             //    Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             //}
         });
+        
     }
 }

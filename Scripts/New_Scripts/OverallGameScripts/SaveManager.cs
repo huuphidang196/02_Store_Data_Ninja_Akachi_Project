@@ -71,7 +71,7 @@ public class SaveManager : Singleton<SaveManager>
         this.saveData.GamePlayConfigUIOverallData.Time_Delay_Active_Button_Attack_Dashing = SystemController.Sys_Instance.SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Attack_Dashing;
 
         //Shop
-        this.saveData.ShopData.WasRemoved_Ads = SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads;
+        this.saveData.ShopData.WasRemoved_Ads = SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_AdsInterstitial;
         this.saveData.ShopData.Order_Skin_Equipped = SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped;
 
         foreach (SkinHidenMode item in SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode)
@@ -133,7 +133,7 @@ public class SaveManager : Singleton<SaveManager>
         SystemController.Sys_Instance.SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Attack_Dashing = this.saveData.GamePlayConfigUIOverallData.Time_Delay_Active_Button_Attack_Dashing;
 
         //Shop
-        SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads = this.saveData.ShopData.WasRemoved_Ads;
+        SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_AdsInterstitial = this.saveData.ShopData.WasRemoved_Ads;
         SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Order_Skin_Equipped = this.saveData.ShopData.Order_Skin_Equipped;
 
         foreach (SkinHidenMode item in SystemController.Sys_Instance.SystemConfig.ShopControllerSO.DisguiseConfigSO.Skins_Hiden_Mode)

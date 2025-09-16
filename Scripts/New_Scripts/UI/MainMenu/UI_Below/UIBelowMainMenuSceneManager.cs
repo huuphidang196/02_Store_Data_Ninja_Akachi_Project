@@ -49,7 +49,7 @@ public class UIBelowMainMenuSceneManager : SurMonoBehaviour
         this.isInternal_Active = false;
 
         // Gán global action trước khi show ads
-        GoogleAdsManager.Instance.AdmobAdsManager.OnAdClosedGlobal = () =>
+        GoogleAdsManager.Instance.AdmobAdsManager.OnAdRewardClosedGlobal = () =>
         {
             //Set true internal bool
             this.isInternal_Active = true;

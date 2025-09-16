@@ -40,7 +40,7 @@ public class ShopPurchasing : SurMonoBehaviour
         else if (product.definition.id == this._removeAds)
         {
             //RemoveAds + SaveGame
-            SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads = true;
+            SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_AdsInterstitial = true;
         }
         else if (product.definition.id == this._Onimori)
         {

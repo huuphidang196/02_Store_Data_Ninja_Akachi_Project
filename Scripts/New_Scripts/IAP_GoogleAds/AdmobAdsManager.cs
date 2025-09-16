@@ -6,172 +6,153 @@ using System;
 
 public class AdmobAdsManager : GoogleAdsManagerAbstract
 {
-
-    [SerializeField] protected bool isWatchGift = false;
-    [SerializeField]
-    protected RewardedAd rewardedAd;
+    [SerializeField] protected RewardedAd rewardedAd;
     public RewardedAd RewardedAd => this.rewardedAd;
 
-    [SerializeField]
-    protected DateTime _LastRequestTime;
+    [SerializeField] protected InterstitialAd interstitialAd; // ✅ Thêm Interstitial
+    [SerializeField] protected DateTime _LastRequest_Reward_Time;
+    [SerializeField] protected DateTime _LastRequest_Inter_Time;
 
-    [SerializeField]
-    protected DateTime _LastReachADS_Time;
-    public DateTime LastReachADS_Time => this._LastReachADS_Time;
+    [Header("Config")]
+    [SerializeField] protected float _MinRequestInterval = 30f;
+    [SerializeField] protected float _RequestCooldown = 300f;
 
-    [SerializeField]
-    protected float _MinRequestInterval = 30f; // Thời gian tối thiểu giữa 2 lần request
+    [Header("Reward_ADS")]
+    [SerializeField] protected int _MaxRewardedPerDay = 3;
+    [SerializeField] protected int _RewardedCountToday = 0;
+    public int RewardedCountToday => this._RewardedCountToday;
 
-    [SerializeField]
-    protected int _MaxAdViewsPerDay = 9;
+    [SerializeField] protected int _Max_Ad_Reward_Request_Once = 3;
+    [SerializeField] protected int _Ad_Request_One_Count_Today_Reward = 0;
 
-    [SerializeField]
-    protected int _AdViewCountToday = 0;//Save
-    public int ADS_View_Count_today => this._AdViewCountToday;
+    [Header("Interstitial_ADS")]
+    [SerializeField] protected int _MaxInterstitialPerDay = 4; // ✅ Giới hạn Interstitial Ads
+    [SerializeField] protected int _InterstitialCountToday = 0;
 
-    [SerializeField] protected int _Max_Ad_Request_Once = 4;
-    [SerializeField] protected int _Ad_Request_One_Count_Today = 0;
+    [SerializeField] protected int _Max_Ad_Inter_Request_Once = 3;
+    [SerializeField] protected int _Ad_Request_One_Count_Today_Interstitial = 0;
+
 
     [SerializeField] protected bool allowButton_Active = true;
     public bool AllowButttonActive => this.allowButton_Active;
 
-
     // Action toàn cục
-    public Action OnAdClosedGlobal;
+    public Action OnAdRewardClosedGlobal;
+    public Action OnAdInterstitialAdClosedGlobal;
 
 #if UNITY_ANDROID
     string rewardedId_Main = "ca-app-pub-3940256099942544/1033173712";
-
+    string interstitialId_Main = "ca-app-pub-3940256099942544/1033173712"; // test id interstitial
 #elif UNITY_IPHONE
     string rewardedId = "ca-app-pub-3940256099942544/1712485313";
-
+    string interstitialId = "ca-app-pub-3940256099942544/4411468910";
 #endif
 
     protected override void Start()
     {
-        if (this.rewardedAd != null)
-        {
-            rewardedAd.Destroy();
-            this.rewardedAd = null;
+        if (this.rewardedAd != null) { rewardedAd.Destroy(); this.rewardedAd = null; }
+        if (this.interstitialAd != null) { interstitialAd.Destroy(); this.interstitialAd = null; }
 
-        }
-
-        this._LastReachADS_Time = DateTime.Now;
-
-        // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize((InitializationStatus initStatus) =>
-        {
-            //Load Ad
-
-            // this.LoadRewardedAd();
-            // this.LoadLoadInterstitialAd();
-        });
-
-    }
-
-    public virtual void SetAdviewCountToday(int viewCount)
-    {
-        this._AdViewCountToday = viewCount;
-        this._LastRequestTime = DateTime.Now;
-
+        MobileAds.Initialize((InitializationStatus initStatus) => { });
     }
 
     protected virtual void FixedUpdate()
     {
-        this.ProcessLoadWatchAds();
+        // Cho phép nút Reward nếu có Ad và chưa mua gói remove ads
+        this.allowButton_Active = this.rewardedAd != null;
 
-        this.allowButton_Active = this.rewardedAd != null && !SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads;
+        if (!this.CheckInternetConnection()) return;
+        if (!this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds) return;
+
+        this.UpdateDataConfig();
+        this.ProcessLoadWatchAds();
+        this.ProcessLoadWatchInterstitialAd();
     }
 
+    protected virtual void UpdateDataConfig()
+    {
+        //Overall using
+        this._MinRequestInterval = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.MinRequestInterval;
+        this._RequestCooldown = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.RequestCooldown; // vd: 300s = 5 phút
+
+        //Reward
+        this._MaxRewardedPerDay = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Ads_Reward_View_Today;
+        this._Max_Ad_Reward_Request_Once = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Request_Once_AdsReward;
+
+        //Interstitial
+        this._MaxInterstitialPerDay = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Ads_Interstitial_View_Today;
+        this._Max_Ad_Inter_Request_Once = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Request_Once_Interstitial;
+    }
+
+    #region ================= Reference OutSide =================
     public virtual void WatchVideoAdsEarnMoney()
     {
-        this.isWatchGift = true;
-
         this.ShowRewardAndCallBackLoadLevel();
     }
 
     public virtual void WatchVideoAdsAfterCompletedMissionOrEndGame()
     {
-        this.isWatchGift = false;
-
-        this.ShowRewardAndCallBackLoadLevel();
-        // Debug.Log("Watch");
+        this.ShowInterAndCallBackLoadLevel();
     }
 
     protected virtual void ShowRewardAndCallBackLoadLevel()
     {
         if (this.rewardedAd == null)
         {
-            OnAdClosedGlobal?.Invoke();
+            OnAdRewardClosedGlobal?.Invoke();
             return;
         }
         this.ShowRewardedAd();
-
     }
-
-    public virtual bool CheckInternetConnection()
+    protected virtual void ShowInterAndCallBackLoadLevel()
     {
-        if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork ||
-            Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork)
-
-            return true;
-
-        return false;
-
+        if (this.interstitialAd == null)
+        {
+            OnAdInterstitialAdClosedGlobal?.Invoke();
+            return;
+        }
+        this.ShowInterstitialAd();
     }
+    #endregion
+    #region ================= Rewarded Ads =================
 
     protected virtual void ProcessLoadWatchAds()
     {
-        //These instructions only apply for allowing btn watch ads.
-        if (SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_Ads)
-        {
-            this.rewardedAd = null;
-            return;
-        }
-
-        if (!this.CheckInternetConnection()) return;
-
-        if (!this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.AllowAds) return;
-
         if (rewardedAd != null) return;
 
-        this._MaxAdViewsPerDay = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Ads_View_Today;
-        this._Max_Ad_Request_Once = this._GoogleAdsManager.FirebaseRemoteConfig.ConfigData.Max_Request_Once;
+        // ✅ Đủ số lần xem trong ngày thì thôi
+        if (this._RewardedCountToday >= this._MaxRewardedPerDay) return;
 
-        //Donnot allow user watch ads since reached limit
-        if (this._AdViewCountToday >= this._MaxAdViewsPerDay) return;
+        // ✅ Nếu chưa tới thời gian request lại thì bỏ qua
+        if ((DateTime.Now - this._LastRequest_Reward_Time).TotalSeconds < this._MinRequestInterval) return;
 
-        //Debug.Log("Đợi thêm trước khi request lại.");
-        if ((DateTime.Now - this._LastRequestTime).TotalSeconds > this._MinRequestInterval)
+        // ✅ Nếu đã quá số request liên tiếp thì cần cooldown dài hơn
+        if (this._Ad_Request_One_Count_Today_Reward >= this._Max_Ad_Reward_Request_Once)
         {
-            this._Ad_Request_One_Count_Today = 0;
+            // Nếu đã hết hạn cooldown thì reset để thử lại
+
+            if ((DateTime.Now - this._LastRequest_Reward_Time).TotalSeconds < this._RequestCooldown) return;
+
+            // reset đếm để cho phép request tiếp
+            this._Ad_Request_One_Count_Today_Reward = 0;
         }
 
-        if (this._Ad_Request_One_Count_Today >= this._Max_Ad_Request_Once) return;
-
-        this._Ad_Request_One_Count_Today++;
-        this._LastRequestTime = DateTime.Now;
+        // ✅ Request hợp lệ
+        this._Ad_Request_One_Count_Today_Reward++;
+        this._LastRequest_Reward_Time = DateTime.Now;
 
         this.LoadRewardedAd();
-        return;
     }
 
-    public virtual void ProcessWatchAdvertisement(bool watchSuccess)
+    public virtual void ProcessWatchRewarded(bool success)
     {
-        //must give ID because Ad load faild => user select other button 
-        //bool watchSuccess = this.WatchAdvertisementAndReponse();
+        this._Ad_Request_One_Count_Today_Reward = 0;
 
-        //Watch success => add List Purchased
-        if (!watchSuccess) return;
+        if (!success) return;
 
-        this._AdViewCountToday++;
-        this._LastReachADS_Time = DateTime.Now;
-
-        this._Ad_Request_One_Count_Today = 0;
-
+        this._RewardedCountToday++;
         this.DestroyReward();
-
-        if (this.isWatchGift) this.GiftForUserSinceWatchADS();
+        this.GiftForUserSinceWatchADS();
 
         SaveManager.Instance.SaveGame();
     }
@@ -182,99 +163,150 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         SystemController.Sys_Instance.AddMoneyToSystem(itemMoneyUnit);
     }
 
-    #region Rewarded
     protected virtual void DestroyReward()
     {
-        //Prepare Ad
         if (this.rewardedAd == null) return;
-
         rewardedAd.Destroy();
         this.rewardedAd = null;
+
+        this._Ad_Request_One_Count_Today_Reward = 0;
     }
+
     public void LoadRewardedAd()
     {
-        // create our request used to load the ad.
         var adRequest = new AdRequest();
 
-        // send the request to load the ad.
         RewardedAd.Load(this.rewardedId_Main, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
-                // if error is not null, the load request failed.
                 if (error != null || ad == null)
                 {
                     this.ProcessWatchAdByAdmobFailure();
                     return;
                 }
-                //Debug.Log("Loaded Ad");
                 rewardedAd = ad;
-                RegisterEventHandlers(rewardedAd);
+                RegisterRewardedHandlers(rewardedAd);
+                this._Ad_Request_One_Count_Today_Reward = 0;
             });
     }
-    protected virtual void ProcessWatchAdByAdmobFailure()
-    {
-        //Process load failed;
-    }
+
+    protected virtual void ProcessWatchAdByAdmobFailure() { }
 
     public virtual void ShowRewardedAd()
     {
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-            rewardedAd.Show((Reward reward) =>
-            {
-
-
-                //     OnAdClosedGlobal?.Invoke();
-
-            });
+            rewardedAd.Show((Reward reward) => { });
             return;
         }
-
-        OnAdClosedGlobal?.Invoke();
+        OnAdRewardClosedGlobal?.Invoke();
     }
 
-    public virtual void EnableOrDisableButtonWatchAd(bool active) => this.allowButton_Active = active;
-
-    private void RegisterEventHandlers(RewardedAd ad)
+    private void RegisterRewardedHandlers(RewardedAd ad)
     {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-            //Debug.Log(String.Format("Rewarded ad paid {0} {1}.", adValue.Value, adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            // Debug.Log("Rewarded ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            //  this.EnableOrDisableButtonWatchAd(false);
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            //  Debug.Log("Rewarded ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += () =>
         {
-            //Debug.Log("Rewarded ad full screen content closed.");
-            // TODO: Reward the user.
-            this.ProcessWatchAdvertisement(true);
-            // this.DestroyReward();
-            OnAdClosedGlobal?.Invoke();
+            this.ProcessWatchRewarded(true);
+            OnAdRewardClosedGlobal?.Invoke();
         };
-        // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
+            this.ProcessWatchRewarded(false);
             this.DestroyReward();
-            // Nếu không có quảng cáo thì vẫn gọi để không kẹt
-            OnAdClosedGlobal?.Invoke();
+            OnAdRewardClosedGlobal?.Invoke();
+        };
+    }
+    #endregion
+
+    #region ================= Interstitial Ads =================
+    protected virtual void ProcessLoadWatchInterstitialAd()
+    {
+        //For endgame or load new scene using interstitial
+        if (SystemController.Sys_Instance.SystemConfig.ShopControllerSO.WasRemoved_AdsInterstitial)
+        {
+            this.interstitialAd = null;
+            return;
+        }
+        if (this.interstitialAd != null) return;
+
+        // ✅ Đủ số lần xem trong ngày thì thôi
+        if (this._InterstitialCountToday >= this._MaxInterstitialPerDay) return;
+
+        // ✅ Nếu chưa tới thời gian request lại thì bỏ qua
+        if ((DateTime.Now - this._LastRequest_Inter_Time).TotalSeconds < this._MinRequestInterval) return;
+
+        // ✅ Nếu đã quá số request liên tiếp thì cần cooldown dài hơn
+        if (this._Ad_Request_One_Count_Today_Interstitial >= this._Max_Ad_Inter_Request_Once)
+        {
+            if ((DateTime.Now - this._LastRequest_Inter_Time).TotalSeconds < this._RequestCooldown) return;
+
+            // reset đếm để cho phép request tiếp
+            this._Ad_Request_One_Count_Today_Interstitial = 0;
+        }
+
+        // ✅ Request hợp lệ
+        this._Ad_Request_One_Count_Today_Interstitial++;
+        this._LastRequest_Inter_Time = DateTime.Now;
+
+        this.LoadInterstitialAd();
+    }
+
+    public void LoadInterstitialAd()
+    {
+        var adRequest = new AdRequest();
+        InterstitialAd.Load(this.interstitialId_Main, adRequest,
+            (InterstitialAd ad, LoadAdError error) =>
+            {
+                if (error != null || ad == null) return;
+                interstitialAd = ad;
+                RegisterInterstitialHandlers(interstitialAd);
+            });
+    }
+
+    public void ShowInterstitialAd()
+    {
+        if (interstitialAd != null && interstitialAd.CanShowAd())
+        {
+            interstitialAd.Show();
+            return;
+        }
+       
+        OnAdInterstitialAdClosedGlobal?.Invoke();
+    }
+
+    private void RegisterInterstitialHandlers(InterstitialAd ad)
+    {
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            this._InterstitialCountToday++;
+            this.DestroyInterstitial();
+
+            OnAdInterstitialAdClosedGlobal?.Invoke();
+        };
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            interstitialAd = null;
+            OnAdInterstitialAdClosedGlobal?.Invoke();
+            // reset đếm để cho phép request tiếp
+            this._Ad_Request_One_Count_Today_Interstitial = 0;
         };
     }
 
+    protected virtual void DestroyInterstitial()
+    {
+        if (this.interstitialAd == null) return;
+
+        interstitialAd.Destroy();
+        interstitialAd = null;
+
+        // reset đếm để cho phép request tiếp
+        this._Ad_Request_One_Count_Today_Interstitial = 0;
+    }
     #endregion
 
+    public virtual bool CheckInternetConnection()
+    {
+        return Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork ||
+               Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
+    }
 }

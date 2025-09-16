@@ -149,7 +149,7 @@ public class GamePlayController : SystemController
         this.ConductSomeActionBeforeLoadScene();
 
         // Gán global action trước khi show ads
-        GoogleAdsManager.Instance.AdmobAdsManager.OnAdClosedGlobal = () =>
+        GoogleAdsManager.Instance.AdmobAdsManager.OnAdInterstitialAdClosedGlobal = () =>
         {
             StartCoroutine(LoadSceneWithWait(nameScene));
         };
@@ -162,7 +162,7 @@ public class GamePlayController : SystemController
         this.ConductSomeActionBeforeLoadScene();
 
         // Gán global action trước khi show ads
-        GoogleAdsManager.Instance.AdmobAdsManager.OnAdClosedGlobal = () =>
+        GoogleAdsManager.Instance.AdmobAdsManager.OnAdInterstitialAdClosedGlobal = () =>
         {
             base.StartLoadingSceneByOrderScene(orderScene);
         };
