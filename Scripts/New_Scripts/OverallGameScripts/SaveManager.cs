@@ -9,7 +9,7 @@ public class SaveManager : Singleton<SaveManager>
     //private static SaveManager instance;
     //public static SaveManager Instance => instance;
 
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveData5.json");
+    private string savePath => Path.Combine(Application.persistentDataPath, "saveData6.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
@@ -41,7 +41,7 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
-        Debug.Log($"Game saved to {savePath}");
+        // Debug.Log($"Game saved to {savePath}");
     }
 
     protected virtual void ProgressSaveGame()
@@ -86,6 +86,15 @@ public class SaveManager : Singleton<SaveManager>
             // Debug.Log("Name: " + baseDataUnlock.Name_Data + ", bool: " + baseDataUnlock.Unlock);
             this.saveData.ArtifactData.List_ArtifactItems.Add(baseDataUnlock);
         }
+
+        //Admob
+        AdmobAdsManager ads = GoogleAdsManager.Instance.AdmobAdsManager;
+        if (ads == null) return;
+
+        this.saveData.AdmobData.Last_Reached_Reward = ads.LastReached_Reward_Time;
+        this.saveData.AdmobData.Last_Reached_Inter = ads.LastReached_Inter_Time;
+        this.saveData.AdmobData.Count_Reward_Watched = ads.RewardedCountToday;
+        this.saveData.AdmobData.Count_Inter_Watched = ads.InterstitialCountToday;
     }
 
     public virtual void LoadGame()
@@ -155,7 +164,14 @@ public class SaveManager : Singleton<SaveManager>
 
             item.Unlock = data.Unlock;
         }
+        //Admob
+        AdmobAdsManager ads = GoogleAdsManager.Instance.AdmobAdsManager;
+        if (ads == null) return;
 
+        ads.LastReached_Reward_Time = this.saveData.AdmobData.Last_Reached_Reward;
+        ads.LastReached_Inter_Time = this.saveData.AdmobData.Last_Reached_Inter;
+        ads.RewardedCountToday =(DateTime.Now.Date > this.saveData.AdmobData.Last_Reached_Reward.Date) ? 0 : this.saveData.AdmobData.Count_Reward_Watched;
+        ads.InterstitialCountToday = (DateTime.Now.Date > this.saveData.AdmobData.Last_Reached_Inter.Date) ? 0 : this.saveData.AdmobData.Count_Inter_Watched;
     }
 
 }
@@ -168,6 +184,7 @@ public class SaveData
     public GamePlayConfigUIOverallData GamePlayConfigUIOverallData = new GamePlayConfigUIOverallData();
     public ShopData ShopData = new ShopData();
     public ArtifactData ArtifactData = new ArtifactData();
+    public AdmobData AdmobData = new AdmobData();
 }
 
 [System.Serializable]
@@ -210,3 +227,11 @@ public class ArtifactData
     public List<BaseDataUnlock> List_ArtifactItems = new List<BaseDataUnlock>();
 }
 
+[System.Serializable]
+public class AdmobData
+{
+    public DateTime Last_Reached_Reward;
+    public DateTime Last_Reached_Inter;
+    public int Count_Reward_Watched;
+    public int Count_Inter_Watched;
+}

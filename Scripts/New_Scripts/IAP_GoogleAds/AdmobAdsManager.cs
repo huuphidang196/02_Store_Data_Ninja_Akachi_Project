@@ -7,11 +7,15 @@ using System;
 public class AdmobAdsManager : GoogleAdsManagerAbstract
 {
     [SerializeField] protected RewardedAd rewardedAd;
-    public RewardedAd RewardedAd => this.rewardedAd;
 
     [SerializeField] protected InterstitialAd interstitialAd; // ✅ Thêm Interstitial
     [SerializeField] protected DateTime _LastRequest_Reward_Time;
+    [SerializeField] protected DateTime _LastReached_Reward_Time;
+    public DateTime LastReached_Reward_Time { get => this._LastReached_Reward_Time; set => this._LastReached_Reward_Time = value; }
+
     [SerializeField] protected DateTime _LastRequest_Inter_Time;
+    [SerializeField] protected DateTime _LastReached_Inter_Time;
+    public DateTime LastReached_Inter_Time { get => this._LastReached_Inter_Time; set => this._LastReached_Inter_Time = value; }
 
     [Header("Config")]
     [SerializeField] protected float _MinRequestInterval = 30f;
@@ -20,7 +24,8 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     [Header("Reward_ADS")]
     [SerializeField] protected int _MaxRewardedPerDay = 3;
     [SerializeField] protected int _RewardedCountToday = 0;
-    public int RewardedCountToday => this._RewardedCountToday;
+    public int RewardedCountToday { get => this._RewardedCountToday; set => this._RewardedCountToday = value; }
+
 
     [SerializeField] protected int _Max_Ad_Reward_Request_Once = 3;
     [SerializeField] protected int _Ad_Request_One_Count_Today_Reward = 0;
@@ -28,6 +33,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     [Header("Interstitial_ADS")]
     [SerializeField] protected int _MaxInterstitialPerDay = 4; // ✅ Giới hạn Interstitial Ads
     [SerializeField] protected int _InterstitialCountToday = 0;
+    public int InterstitialCountToday { get => this._InterstitialCountToday; set => this._InterstitialCountToday = value; }
 
     [SerializeField] protected int _Max_Ad_Inter_Request_Once = 3;
     [SerializeField] protected int _Ad_Request_One_Count_Today_Interstitial = 0;
@@ -154,6 +160,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         this.DestroyReward();
         this.GiftForUserSinceWatchADS();
 
+        this._LastReached_Reward_Time = DateTime.Now;
         SaveManager.Instance.SaveGame();
     }
 
@@ -186,7 +193,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
                 }
                 rewardedAd = ad;
                 RegisterRewardedHandlers(rewardedAd);
-                this._Ad_Request_One_Count_Today_Reward = 0;
+
             });
     }
 
@@ -282,6 +289,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
             this.DestroyInterstitial();
 
             OnAdInterstitialAdClosedGlobal?.Invoke();
+            this._LastReached_Inter_Time = DateTime.Now;
         };
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {

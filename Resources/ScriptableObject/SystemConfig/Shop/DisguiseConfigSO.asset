@@ -16,7 +16,7 @@ MonoBehaviour:
   Skins_Hiden_Mode:
   - BaseDataUnlock:
       Name_Data: CLASSIC TREE TRUCK
-      Unlock: 0
+      Unlock: 1
     ItemMoneyUnit:
       ItemUnit:
         TypeItem: 1

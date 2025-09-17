@@ -67,7 +67,7 @@ public class FirebaseRemoteConfigManager : GoogleAdsManagerAbstract
 
                 string configData = remoteConfig.GetValue("ADS_Config_Data").StringValue;
                 this._ConfigData = JsonUtility.FromJson<ConfigData>(configData);
-              
+              /*
                                 print("Total values: " + remoteConfig.AllValues.Count);
 
                                 foreach (var item in remoteConfig.AllValues)
@@ -75,7 +75,7 @@ public class FirebaseRemoteConfigManager : GoogleAdsManagerAbstract
                                     print("Key :" + item.Key);
                                     print("Value: " + item.Value.StringValue);
                                 }
-                
+                */
             });
 
     }
