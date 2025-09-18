@@ -158,6 +158,8 @@ public enum TypeProspectSound
 
     Sound_MainMenu_Adventure = 301,
 
+    Sound_Introduce_Story = 401,
+
     Sound_Ring_The_Bell = 801,
 
     Sound_LanceTrap_Ground_EventsAutoOn = 1001,

@@ -9,7 +9,7 @@ public class SaveManager : Singleton<SaveManager>
     //private static SaveManager instance;
     //public static SaveManager Instance => instance;
 
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveData6.json");
+    private string savePath => Path.Combine(Application.persistentDataPath, "saveData7.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
