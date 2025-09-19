@@ -90961,7 +90961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2739268065719261544, guid: 41a9306f775bfae4e93bcf79922aca8f, type: 3}
       propertyPath: activationDistance
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3390727025721652968, guid: 41a9306f775bfae4e93bcf79922aca8f, type: 3}
       propertyPath: m_Layer
@@ -90981,7 +90981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201464114774185134, guid: 41a9306f775bfae4e93bcf79922aca8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: 5.75
       objectReference: {fileID: 0}
     - target: {fileID: 4201464114774185134, guid: 41a9306f775bfae4e93bcf79922aca8f, type: 3}
       propertyPath: m_LocalPosition.z

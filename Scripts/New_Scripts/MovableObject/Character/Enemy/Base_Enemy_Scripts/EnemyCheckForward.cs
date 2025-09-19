@@ -73,7 +73,7 @@ public class EnemyCheckForward : CharacterCheckForward
     protected virtual void SetChangeDirection()
     {
         float localX = this.EnemyCheckContactEnviroment.EnemyCtrl.transform.localScale.x;
-        this.isChangedDirForward = (localX * this._Direction_Raycast2D.x < 0 && Mathf.Abs(this._Direction_Raycast2D.x) > 0.05f) ? true : false;
+        this.isChangedDirForward = (localX * this._Direction_Raycast2D.x < 0 && Mathf.Abs(this._Direction_Raycast2D.x) > 0.05f && Mathf.Abs(this._Direction_Raycast2D.x) > 0.3f) ? true : false;
     }
 
     public virtual void ScanTargetAfterWasHurt()

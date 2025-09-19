@@ -87,6 +87,7 @@ public class UICenterManager : SurMonoBehaviour
 
             int t = item.GetSiblingIndex() + (isNext ? 1 : -1);
 
+            if (t < 0) continue;
             BG_REP.GetChild(t).gameObject.SetActive(true);
             item.gameObject.SetActive(false);
 

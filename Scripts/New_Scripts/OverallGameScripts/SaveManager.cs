@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ public class SaveManager : Singleton<SaveManager>
     //private static SaveManager instance;
     //public static SaveManager Instance => instance;
 
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveData7.json");
+    private string savePath => Path.Combine(Application.persistentDataPath, "saveData8.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
@@ -41,7 +41,7 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
-        // Debug.Log($"Game saved to {savePath}");
+        //Debug.Log($"Game saved to {savePath}");
     }
 
     protected virtual void ProgressSaveGame()
@@ -91,10 +91,12 @@ public class SaveManager : Singleton<SaveManager>
         AdmobAdsManager ads = GoogleAdsManager.Instance.AdmobAdsManager;
         if (ads == null) return;
 
-        this.saveData.AdmobData.Last_Reached_Reward = ads.LastReached_Reward_Time;
-        this.saveData.AdmobData.Last_Reached_Inter = ads.LastReached_Inter_Time;
+        this.saveData.AdmobData.Last_Reached_Reward = this.GetLastAds(ads.LastReached_Reward_Time);
+        this.saveData.AdmobData.Last_Reached_Inter = this.GetLastAds(ads.LastReached_Inter_Time);
         this.saveData.AdmobData.Count_Reward_Watched = ads.RewardedCountToday;
         this.saveData.AdmobData.Count_Inter_Watched = ads.InterstitialCountToday;
+      //  Debug.Log(ads.LastReached_Reward_Time + "," + ads.LastReached_Inter_Time + "," + ads.RewardedCountToday + "," + ads.InterstitialCountToday);
+
     }
 
     public virtual void LoadGame()
@@ -165,13 +167,19 @@ public class SaveManager : Singleton<SaveManager>
             item.Unlock = data.Unlock;
         }
         //Admob
-        AdmobAdsManager ads = GoogleAdsManager.Instance.AdmobAdsManager;
-        if (ads == null) return;
+        if (GoogleAdsManager.Instance.AdmobAdsManager == null) return;
 
-        ads.LastReached_Reward_Time = this.saveData.AdmobData.Last_Reached_Reward;
-        ads.LastReached_Inter_Time = this.saveData.AdmobData.Last_Reached_Inter;
-        ads.RewardedCountToday =(DateTime.Now.Date > this.saveData.AdmobData.Last_Reached_Reward.Date) ? 0 : this.saveData.AdmobData.Count_Reward_Watched;
-        ads.InterstitialCountToday = (DateTime.Now.Date > this.saveData.AdmobData.Last_Reached_Inter.Date) ? 0 : this.saveData.AdmobData.Count_Inter_Watched;
+        GoogleAdsManager.Instance.AdmobAdsManager.LastReached_Reward_Time = this.GetLastTimeReached(this.saveData.AdmobData.Last_Reached_Reward);
+        GoogleAdsManager.Instance.AdmobAdsManager.LastReached_Inter_Time = this.GetLastTimeReached(this.saveData.AdmobData.Last_Reached_Inter);
+        GoogleAdsManager.Instance.AdmobAdsManager.RewardedCountToday = (DateTime.Now.Date > this.GetLastTimeReached(this.saveData.AdmobData.Last_Reached_Reward)) ? 0 : this.saveData.AdmobData.Count_Reward_Watched;
+        GoogleAdsManager.Instance.AdmobAdsManager.InterstitialCountToday = (DateTime.Now.Date > this.GetLastTimeReached(this.saveData.AdmobData.Last_Reached_Inter)) ? 0 : this.saveData.AdmobData.Count_Inter_Watched;
+   //     Debug.Log(GoogleAdsManager.Instance.AdmobAdsManager.LastReached_Reward_Time + "," + GoogleAdsManager.Instance.AdmobAdsManager.LastReached_Inter_Time + "," + GoogleAdsManager.Instance.AdmobAdsManager.RewardedCountToday + "," + GoogleAdsManager.Instance.AdmobAdsManager.InterstitialCountToday);
+    }
+    protected virtual string GetLastAds(DateTime dt) => dt.ToString("o"); // ISO 8601 format
+
+    protected virtual DateTime GetLastTimeReached(string dt)
+    {
+        return string.IsNullOrEmpty(dt) ? DateTime.MinValue : DateTime.Parse(dt);
     }
 
 }
@@ -230,8 +238,8 @@ public class ArtifactData
 [System.Serializable]
 public class AdmobData
 {
-    public DateTime Last_Reached_Reward;
-    public DateTime Last_Reached_Inter;
+    public string Last_Reached_Reward;
+    public string Last_Reached_Inter;
     public int Count_Reward_Watched;
     public int Count_Inter_Watched;
 }

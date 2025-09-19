@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 189110683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e637cb0d97bcc74a90a660376a40c39, type: 3}
+  m_Script: {fileID: 11500000, guid: 139eacb631978ce46af7bdd2d752075c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _MovableObjCtrl: {fileID: 1974837991}
@@ -81632,7 +81632,7 @@ MonoBehaviour:
   _ObjDamageSender: {fileID: 0}
   _ObjImpact_Overall: {fileID: 1813229874}
   _MObjScriptableObject: {fileID: 11400000, guid: 25458b9f6bdb2254fabf681aede2300e, type: 2}
-  _MovableObj_Movement: {fileID: 189110685}
+  _MovableObj_Movement: {fileID: 0}
   _DynamicProspectContainerPlayer: {fileID: 1372759575}
 --- !u!50 &1974837992
 Rigidbody2D:

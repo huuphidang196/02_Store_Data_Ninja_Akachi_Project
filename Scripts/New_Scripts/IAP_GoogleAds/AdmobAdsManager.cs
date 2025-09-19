@@ -204,9 +204,11 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
             rewardedAd.Show((Reward reward) => { });
+            Debug.Log("Reward");
             return;
         }
         OnAdRewardClosedGlobal?.Invoke();
+  
     }
 
     private void RegisterRewardedHandlers(RewardedAd ad)
@@ -275,10 +277,12 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             interstitialAd.Show();
+            Debug.Log("Inter");
             return;
         }
        
         OnAdInterstitialAdClosedGlobal?.Invoke();
+       
     }
 
     private void RegisterInterstitialHandlers(InterstitialAd ad)
