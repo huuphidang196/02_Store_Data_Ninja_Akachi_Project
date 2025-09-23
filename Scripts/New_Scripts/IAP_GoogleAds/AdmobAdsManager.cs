@@ -204,7 +204,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
             rewardedAd.Show((Reward reward) => { });
-            Debug.Log("Reward");
+           // Debug.Log("Reward");
             return;
         }
         OnAdRewardClosedGlobal?.Invoke();
@@ -277,7 +277,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             interstitialAd.Show();
-            Debug.Log("Inter");
+           // Debug.Log("Inter");
             return;
         }
        

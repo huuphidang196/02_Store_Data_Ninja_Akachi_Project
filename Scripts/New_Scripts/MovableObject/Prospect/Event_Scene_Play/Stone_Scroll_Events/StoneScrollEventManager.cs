@@ -6,12 +6,7 @@ public class StoneScrollEventManager : EventScenePlayAutoOnByDistancePlayer
 {
     [SerializeField] protected Transform _Stone_Scroll_Events;
 
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-
-        this.activationDistance = 27f;
-    }
+  
     protected override void ConductActionEvents()
     {
         if (this._Stone_Scroll_Events == null) return;

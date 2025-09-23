@@ -101,7 +101,7 @@ MonoBehaviour:
       Max: 1
     _ItemUnit:
       TypeItem: 3
-      Value: 0
+      Value: 1
 --- !u!1 &868970041270077083
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0019500256, y: 0.07394999, z: 0}
-    m_Extent: {x: 0.61855, y: 0.60895, z: 0}
+    m_Center: {x: -0.009450018, y: 0.06999999, z: 0}
+    m_Extent: {x: 0.62255, y: 0.6095, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjectCtrl: {fileID: 1508745646580583182}
   _AudioSource: {fileID: 7337283568018532030}
+  isActived: 0
   _TypeItemSound: 4
 --- !u!82 &7337283568018532030
 AudioSource:

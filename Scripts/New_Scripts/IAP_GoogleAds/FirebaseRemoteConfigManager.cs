@@ -15,8 +15,8 @@ public class ConfigData
     public float MinRequestInterval = 30f;
 
     [Header("Reward_ADS")]
-    public int Max_Ads_Reward_View_Today = 3;
-    public int Max_Request_Once_AdsReward = 3;
+    public int Max_Ads_Reward_View_Today = 2;
+    public int Max_Request_Once_AdsReward = 2;
 
     [Header("Interstitial_ADS")]
     public int Max_Ads_Interstitial_View_Today = 4;
