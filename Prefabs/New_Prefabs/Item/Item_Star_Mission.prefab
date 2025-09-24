@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4818150763621965068}
-  - component: {fileID: 7092977154646075557}
   - component: {fileID: 8702100020032154997}
+  - component: {fileID: 7092977154646075557}
   m_Layer: 19
   m_Name: ObjDamReceiver
   m_TagString: Untagged
@@ -33,6 +33,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5335091049962482671}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8702100020032154997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782910220615828865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f1fac1bbf16994d9d14bd82cfb443b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjectCtrl: {fileID: 1508745646580583182}
+  _maxHP: 1
+  _currentHP: 1
+  isDead: 0
+  _BoxCollider2D: {fileID: 7092977154646075557}
+  _ItemDropUnit:
+    RangeValueDrop:
+      Min: 1
+      Max: 1
+    _ItemUnit:
+      TypeItem: 3
+      Value: 1
 --- !u!61 &7092977154646075557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78,30 +102,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.77241516, y: 0.8664446}
   m_EdgeRadius: 0
---- !u!114 &8702100020032154997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782910220615828865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f1fac1bbf16994d9d14bd82cfb443b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjectCtrl: {fileID: 1508745646580583182}
-  _maxHP: 1
-  _currentHP: 1
-  isDead: 0
-  _BoxCollider2D: {fileID: 7092977154646075557}
-  _ItemDropUnit:
-    RangeValueDrop:
-      Min: 1
-      Max: 1
-    _ItemUnit:
-      TypeItem: 3
-      Value: 1
 --- !u!1 &868970041270077083
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.009450018, y: 0.06999999, z: 0}
-    m_Extent: {x: 0.62255, y: 0.6095, z: 0}
+    m_Center: {x: -0.00939998, y: 0.063250005, z: 0}
+    m_Extent: {x: 0.62450004, y: 0.59995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

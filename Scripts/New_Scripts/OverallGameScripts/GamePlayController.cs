@@ -58,10 +58,15 @@ public class GamePlayController : SystemController
         if (itemUnit.TypeItem != TypeItemMoney.Star_Mission) return;
 
         this._Count_Star_Mission++;
-        this._SystemConfig.SetCountStarMissionByLevelCurrent(this._Count_Star_Mission);
-
     }
 
+    public virtual void ActionEventPlayerComMission()
+    {
+        // Set Level Unlock
+        this.SystemConfig.SetLevelUnlock();
+        //Set only if player com mission
+        this.SystemConfig.SetCountStarMissionByLevelCurrent(this._Count_Star_Mission);
+    }
     public virtual void PauseGamePlay()
     {
         this._PauseGame = true;
