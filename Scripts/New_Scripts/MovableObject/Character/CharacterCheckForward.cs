@@ -7,6 +7,7 @@ public abstract class CharacterCheckForward : CharacterContactAbstract
 {
     [Header("CharacterCheckForward")]
     [SerializeField] protected float _Length_Raycast = 0.5f;
+    public float LengthRayCast => this._Length_Raycast;
 
     [SerializeField] protected Transform _PosForwardCheck;
 

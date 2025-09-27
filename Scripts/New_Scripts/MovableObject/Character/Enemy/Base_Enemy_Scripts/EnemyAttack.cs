@@ -41,7 +41,7 @@ public class EnemyAttack : EnemyAbstract
     protected virtual void UpdateBoolSlash()
     {
         //Check distance enemy with player < distance attack => attack
-        if (!this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight)
+        if (!this.EnemyCtrl.EnemyCheckContactEnviroment.EnemyCheckForward.ForwardObjRight || this.EnemyCtrl.EnemyAnimations.IsDelayAttack)
         {
             this.isSlash = false;
             return;

@@ -12,13 +12,15 @@ public class EnemyAnimations : CharacterAnimation
     [SerializeField] protected bool _Attack_Slash_Ani = false;
     public bool Attack => this._Attack_Slash_Ani;
 
-    [SerializeField] protected float _Time_Delay_Attack = 1.5f;
-    public float Time_Delay_Attack => _Time_Delay_Attack;
+    [SerializeField] protected float _Time_Attacking = 1.5f;
+    public float Time_Delay_Attack => _Time_Attacking;
 
+    [SerializeField] protected bool isDelayAttack = false;
+    public bool IsDelayAttack => this.isDelayAttack;
     protected override void ResetValue()
     {
         base.ResetValue();
-        this._Time_Delay_Attack = this.EnemyCtrl.EnemySO.Time_Delay_Attack;
+        this._Time_Attacking = this.EnemyCtrl.EnemySO.Time_Delay_Attack;
     }
 
     protected override void ProcessUpdateProcedureObjectLife()
@@ -56,20 +58,31 @@ public class EnemyAnimations : CharacterAnimation
 
     protected virtual void SetAnimationEnemySlash()
     {
+        if (this.isDelayAttack) return;
+
         string nameAnimation = "Slash";
 
-        this._Time_Duration = this._Time_Delay_Attack;
-
-        if (!this.CheckTimer())
+        if (this.CheckAnimationCurrent(nameAnimation))
         {
-            if (this.CheckAnimationCurrent(nameAnimation)) return;
-
-            this._Animator.SetTrigger("Slash");
-            this._Timer_Animation = 0;
-            return;
+            if (this.CheckTimer())
+            {
+                this.isDelayAttack = true;
+                StartCoroutine(this.DelayAttack());
+            }    
+                return;
         }
 
+        this._Time_Duration = this.GetAnimationDuration(nameAnimation);
+        this._Animator.SetTrigger("Slash");
+        this._Timer_Animation = 0;
+
     }
+    protected IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        this.isDelayAttack = false;
+    }    
     protected virtual void ReturnWlakState()
     {
         string nameAnimation = "Run";

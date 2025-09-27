@@ -14,6 +14,7 @@ public class EnemyShooterAttack : EnemyAttack
         this.LoadPosSpawnBullet();
     }
 
+
     protected virtual void LoadPosSpawnBullet()
     {
         if (this._Pos_Spawn_Bullet != null) return;

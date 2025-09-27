@@ -26,7 +26,7 @@ public class RockHiddenShooterCheckForward : CharacterCheckForward
     {
         this.LoadLayerMaskForward();
 
-        this._Length_Raycast = 15f;
+        this._Length_Raycast = 11f;
     }
 
     protected override void LoadLayerMaskForward()

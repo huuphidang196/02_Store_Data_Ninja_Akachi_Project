@@ -82,8 +82,8 @@ public class GateEntranceAutoRun : SurMonoBehaviour
         if (PlayerCtrl.Instance.transform.position.x - this._Gate_Entrance[this._Gate_Entrance.Count - 1].Gate.position.x >= 0)
         {
             this.wasCom_Mission = true;
-            GamePlayController.Instance.ActionEventPlayerComMission();
 
+            GamePlayController.Instance.ActionEventPlayerComMission();
 
             Invoke(nameof(this.SetAutoRunFalseAfterComMission), 3f);
         }

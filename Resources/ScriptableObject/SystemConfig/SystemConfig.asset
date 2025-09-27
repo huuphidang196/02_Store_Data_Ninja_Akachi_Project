@@ -12,19 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f51aed81be6cdf46b85c7040369c2f9, type: 3}
   m_Name: SystemConfig
   m_EditorClassIdentifier: 
-  isFinishedStory: 1
-  isGuidedButton: 1
+  isFinishedStory: 0
+  isGuidedButton: 0
   _StarMissionLevels:
   - Level_Mission: 1
-    Count_Star_Acquired: 3
-  - Level_Mission: 2
-    Count_Star_Acquired: 2
-  - Level_Mission: 3
     Count_Star_Acquired: 0
-  Current_Level: 3
-  _Level_Unlock: 3
-  Total_Golds: 27940
-  Total_Diamonds: 3500
+  Current_Level: 1
+  _Level_Unlock: 1
+  Total_Golds: 999999
+  Total_Diamonds: 999999
   OnMusic: 1
   _GameConfigController: {fileID: 11400000, guid: 7d40b42346e874348b33a6e24f1151f3, type: 2}
   _GamePlayConfigUIOverall: {fileID: 11400000, guid: e9505d581a5a5ca4e9804d5773d692cc, type: 2}

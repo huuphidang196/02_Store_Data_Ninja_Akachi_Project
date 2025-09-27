@@ -77,7 +77,11 @@ public class PlayerAnimation : CharacterAnimation
     {
         this.SetBoolNoRepeat("isDead", this.isDead);
 
-        this.SetBoolNoRepeat("isStunned", this.IsStunned);
+        int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
+        if (id_Attack == 0) this._Timer_Animation = 0f;
+
+        this.SetFloatNoRepeat("Throw_ID", id_Attack);
+        this.SetBoolNoRepeat("isStunned", this.isStunned);
         this.SetBoolNoRepeat("isRiviving", this._Rivive_Again_Ani);
         this.SetBoolNoRepeat("isHiding", this.isHiding);
         this.SetBoolNoRepeat("isDashing", this.isDashing);
@@ -89,10 +93,7 @@ public class PlayerAnimation : CharacterAnimation
 
         this.SetBoolNoRepeat("Run", this._Run_Ani);
 
-        int id_Attack = !this._Attack_Throw_Ani ? 0 : 1;
-        if (id_Attack == 0) this._Timer_Animation = 0f;
 
-        this.SetFloatNoRepeat("Throw_ID", id_Attack);
 
         this.SetTimeDurationByAnimationClip(this._Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
 
@@ -120,6 +121,8 @@ public class PlayerAnimation : CharacterAnimation
     {
         //this._Attack_Throw_Ani = !this.isDead && !this.isHiding && InputManager.Instance.Press_Attack_Throw;
 
+        this.isStunned = this._PlayerCtrl.PlayerMovement.IsStunned;
+
         this.isGrounded = this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround;
 
         this.isSliding = !this.isDead && !this.isHiding && this._PlayerCtrl.PlayerMovement.IsWallSliding;
@@ -131,9 +134,9 @@ public class PlayerAnimation : CharacterAnimation
         this._Rivive_Again_Ani = InputManager.Instance.IsRiviving;
 
         this._Run_Ani = (!this.isDead && this._PlayerCtrl.PlayerCheckContactEnviroment.PlayerCheckGround.IsGround
-            && this._PlayerCtrl.PlayerMovement.Move_Left != this._PlayerCtrl.PlayerMovement.Move_Right && !this.isDashing && !this.isHiding) || GateEntranceAutoRun.Instance.IsEntranceAuto;
+            && this._PlayerCtrl.PlayerMovement.Move_Left != this._PlayerCtrl.PlayerMovement.Move_Right && !this.isDashing && !this.isHiding && !this.isStunned) || GateEntranceAutoRun.Instance.IsEntranceAuto ;
 
-        this.isStunned = this._PlayerCtrl.PlayerMovement.IsStunned;
+
     }
 
     protected virtual void SetAnimationHidenSetup()

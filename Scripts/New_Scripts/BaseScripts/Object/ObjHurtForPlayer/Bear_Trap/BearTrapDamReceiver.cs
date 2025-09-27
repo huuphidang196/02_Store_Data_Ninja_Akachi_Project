@@ -11,4 +11,19 @@ public class BearTrapDamReceiver : ObjDamageReceiver
         this._BearTrapCtrl.ObjActionNipIndependantManager.TrapWasKilled();
         this._BoxCollider2D.enabled = false;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        this.SetIgnoreCollision();
+    }
+
+    protected virtual void SetIgnoreCollision()
+    {
+        this.IgnoreLayerCollisionOfPlayerObject("StopTrap", "Item", true);
+        this.IgnoreLayerCollisionOfPlayerObject("StopTrap", "ItemLootable", true);
+        this.IgnoreLayerCollisionOfPlayerObject("StopTrap", "WoodThing", true);
+
+    }
 }

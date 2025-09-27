@@ -22,5 +22,6 @@ public class MainMenuController : SystemController
     {
         bool onMusic = SystemController.Sys_Instance.SystemConfig.OnMusic;
         SystemController.Sys_Instance.SystemConfig.OnMusic = !onMusic;
+        SaveManager.Instance.SaveGame();
     }
 }
