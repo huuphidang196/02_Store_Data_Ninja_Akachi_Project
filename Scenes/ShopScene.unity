@@ -1596,7 +1596,7 @@ MonoBehaviour:
   _txtPrice: {fileID: 1929312493}
   _Image_Money_Rep: {fileID: 1290498515}
   _Image_Skin_Rep: {fileID: 143150310}
-  _txtNameSkin: {fileID: 0}
+  _txtNameSkin: {fileID: 1651128784}
 --- !u!1001 &489373927
 PrefabInstance:
   m_ObjectHideFlags: 0

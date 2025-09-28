@@ -41,10 +41,10 @@ public class StoneCanBrokeModel : StoneCanBrokeAbstract
         this._SpriteRenderer_Model.sprite = isNormal ? this._Sprite_Normal : this._Sprite_Is_Attacked;
     }
 
-    protected virtual void Update()
-    {
-        if (!this._StoneCanBrokeCtrl.StoneCanBrokeDamReceiver.ObjIsDead) return;
+    //protected virtual void Update()
+    //{
+    //    if (!this._StoneCanBrokeCtrl.StoneCanBrokeDamReceiver.ObjIsDead) return;
 
-        this._SpriteRenderer_Model.enabled = false;
-    }    
+    //    this._SpriteRenderer_Model.enabled = false;
+    //}    
 }

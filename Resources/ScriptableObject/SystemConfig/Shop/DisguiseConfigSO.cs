@@ -8,6 +8,8 @@ public class DisguiseConfigSO : ScriptableObject
 {
     public int Order_Skin_Equipped;
 
+    public Sprite Sprite_Rep_Eqqiped_Overall;
+
     public List<SkinHidenMode> Skins_Hiden_Mode;
 
     public SkinHidenMode SkinHidenMode_Using => this.Skins_Hiden_Mode[Order_Skin_Equipped];

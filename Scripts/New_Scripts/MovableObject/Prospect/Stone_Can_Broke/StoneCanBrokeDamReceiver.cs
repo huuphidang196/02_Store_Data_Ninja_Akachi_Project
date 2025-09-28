@@ -29,7 +29,7 @@ public class StoneCanBrokeDamReceiver : ObjDamageReceiver
     {
         //Disable Image Model
 
-        Invoke(nameof(this.DespawnStoneCanBroke), 0.5f);
+        Invoke(nameof(this.DespawnStoneCanBroke), 0.2f);
     }
 
     protected virtual void DespawnStoneCanBroke()
@@ -39,5 +39,6 @@ public class StoneCanBrokeDamReceiver : ObjDamageReceiver
 
         //Disable Collider
         this._BoxCollider2D.enabled = false;
+        this._StoneCanBrokeCtrl.StoneCanBrokeModel.gameObject.SetActive(false);
     }    
 }

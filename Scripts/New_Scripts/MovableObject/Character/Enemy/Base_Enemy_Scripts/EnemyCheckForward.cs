@@ -51,6 +51,7 @@ public class EnemyCheckForward : CharacterCheckForward
 
     protected override bool CheckAllOtherConditionsToContinue()
     {
+        if (PlayerCtrl.Instance.PlayerDamReceiver.ObjIsDead) return false;
         return Mathf.Abs(this.GetVectorToPlayer().x) < this._Length_Raycast && this.GetVectorToPlayer().y > -0.5f;
     }
 

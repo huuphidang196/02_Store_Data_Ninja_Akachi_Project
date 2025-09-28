@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DisguiseConfigSO
   m_EditorClassIdentifier: 
   Order_Skin_Equipped: 0
+  Sprite_Rep_Eqqiped_Overall: {fileID: 21300000, guid: b8bcc39f115dbc14f9a141f82da8a38d, type: 3}
   Skins_Hiden_Mode:
   - BaseDataUnlock:
       Name_Data: CLASSIC TREE TRUCK

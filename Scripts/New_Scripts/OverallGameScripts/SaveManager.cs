@@ -64,6 +64,7 @@ public class SaveManager : Singleton<SaveManager>
 
         this.saveData.systemConfigData.Total_Golds = SystemController.Sys_Instance.SystemConfig.Total_Golds;
         this.saveData.systemConfigData.Total_Diamonds = SystemController.Sys_Instance.SystemConfig.Total_Diamonds;
+        this.saveData.systemConfigData.OnMusic = SystemController.Sys_Instance.SystemConfig.OnMusic;
 
         //GamePlayUI Overall
         this.saveData.GamePlayConfigUIOverallData.Time_Delay_Active_Button_Hiden = SystemController.Sys_Instance.SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Hiden;
@@ -137,6 +138,7 @@ public class SaveManager : Singleton<SaveManager>
 
         SystemController.Sys_Instance.SystemConfig.Total_Golds = this.saveData.systemConfigData.Total_Golds;
         SystemController.Sys_Instance.SystemConfig.Total_Diamonds = this.saveData.systemConfigData.Total_Diamonds;
+        SystemController.Sys_Instance.SystemConfig.OnMusic = this.saveData.systemConfigData.OnMusic;
 
         //GamePlayUI Overall
         SystemController.Sys_Instance.SystemConfig.GamePlayConfigUIOverall.Time_Delay_Active_Button_Hiden = this.saveData.GamePlayConfigUIOverallData.Time_Delay_Active_Button_Hiden;
@@ -211,6 +213,7 @@ public class SystemConfigData
     public int Level_Unlock;
     public float Total_Golds;
     public float Total_Diamonds;
+    public bool OnMusic;
 }
 
 [System.Serializable]
