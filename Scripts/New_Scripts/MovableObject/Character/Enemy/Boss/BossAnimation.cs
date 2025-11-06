@@ -130,7 +130,6 @@ public class BossAnimation : CharacterAnimation
     protected virtual void SetFlowDarkAttack() => this.isFlowDarkAttack = false;
     protected virtual void UpdateAnimationControllers()
     {
-
         this.SetBoolNoRepeat("isBeginIntroduce", this._BossCtrl.InputManagerBoss.IsBeginIntroduce);
 
         this.SetBoolNoRepeat("BeginFighter", this._BossCtrl.InputManagerBoss.IsBeginFighter);

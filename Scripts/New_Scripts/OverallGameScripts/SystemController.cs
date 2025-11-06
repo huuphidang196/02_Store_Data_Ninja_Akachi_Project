@@ -114,4 +114,17 @@ public class SystemController : SurMonoBehaviour
     {
         SaveManager.Instance.SaveGame(); // Lưu dữ liệu từ ScriptableObject xuống file
     }
+
+    public virtual void ChangeAdsSettingPrivacy(bool accept)
+    {
+        //Set ads Setting
+        this._SystemConfig.isAcceptAdsSetting = accept;
+
+        //Save
+        SaveManager.Instance.SaveGame();
+
+        //if unaccept => quit game
+        if (!accept) Application.Quit();
+
+    }    
 }

@@ -9,7 +9,7 @@ public class SaveManager : Singleton<SaveManager>
     //private static SaveManager instance;
     //public static SaveManager Instance => instance;
 
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveData8.json");
+    private string savePath => Path.Combine(Application.persistentDataPath, "saveData11.json");
 
     [SerializeField] protected SaveData saveData = new SaveData();
     public SaveData DataSaved => this.saveData;
@@ -49,6 +49,7 @@ public class SaveManager : Singleton<SaveManager>
         //FirstPlayting and guided button 
         this.saveData.systemConfigData.isFinishedStory = SystemController.Sys_Instance.SystemConfig.isFinishedStory;
         this.saveData.systemConfigData.isGuidedButton = SystemController.Sys_Instance.SystemConfig.isGuidedButton;
+        this.saveData.systemConfigData.isAcceptAdsSetting = SystemController.Sys_Instance.SystemConfig.isAcceptAdsSetting;
 
         //pLayer and Shuriken
         this.saveData.playerData.Max_Life = SystemController.Sys_Instance.SystemConfig.PlayerSO.Max_Life;
@@ -122,6 +123,7 @@ public class SaveManager : Singleton<SaveManager>
         //FirstPlayting and guided button 
         SystemController.Sys_Instance.SystemConfig.isFinishedStory = this.saveData.systemConfigData.isFinishedStory;
         SystemController.Sys_Instance.SystemConfig.isGuidedButton = this.saveData.systemConfigData.isGuidedButton;
+        SystemController.Sys_Instance.SystemConfig.isAcceptAdsSetting = this.saveData.systemConfigData.isAcceptAdsSetting;
 
         //pLayer and Shuriken
         SystemController.Sys_Instance.SystemConfig.PlayerSO.Max_Life = this.saveData.playerData.Max_Life;
@@ -209,6 +211,7 @@ public class SystemConfigData
 {
     public bool isFinishedStory;
     public bool isGuidedButton;
+    public bool isAcceptAdsSetting;
     public List<StarMissionLevel> StarMissionLevels = new List<StarMissionLevel>();
     public int Level_Unlock;
     public float Total_Golds;

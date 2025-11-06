@@ -7775,12 +7775,16 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -5.0728455, y: -1.5106983}
-  - {x: -4.5276184, y: -1.4514999}
+  - {x: -6.2932434, y: -1.5106988}
+  - {x: -5.370819, y: -1.4529161}
+  - {x: -4.6812744, y: -1.415241}
+  - {x: -4.4151, y: -1.3566837}
   - {x: -2.5856934, y: -0.48839998}
   - {x: -1.2263489, y: -0.4839747}
-  - {x: 0.79400635, y: -1.4900932}
-  - {x: 1.0813599, y: -1.5202229}
+  - {x: 0.6457825, y: -1.3760943}
+  - {x: 1.4804382, y: -1.4183495}
+  - {x: 1.8574829, y: -1.5088224}
+  - {x: 1.7653503, y: -1.5088227}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -8646,6 +8650,18 @@ PrefabInstance:
     - target: {fileID: 2997950541592919141, guid: b35847b29a3de824c9386f867b45debd, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539093298248561116, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_Size.x
+      value: 2.8518937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182712585310229793, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.8518937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173826174095283594, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1737
       objectReference: {fileID: 0}
     - target: {fileID: 8377194519820252504, guid: b35847b29a3de824c9386f867b45debd, type: 3}
       propertyPath: m_Name
@@ -56785,7 +56801,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300028, guid: 3471a1273739c224f8286c4de9e4683a, type: 3}
-  m_Color: {r: 0.1509434, g: 0.14595942, b: 0.14595942, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -69635,13 +69651,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1696680767729342531, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2997950541592919141, guid: b35847b29a3de824c9386f867b45debd, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3539093298248561116, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_Size.x
+      value: 2.871822
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182712585310229793, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.871822
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173826174095283594, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1934
+      objectReference: {fileID: 0}
     - target: {fileID: 8377194519820252504, guid: b35847b29a3de824c9386f867b45debd, type: 3}
       propertyPath: m_Name
       value: Rock_Hidden_Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377194519820252504, guid: b35847b29a3de824c9386f867b45debd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85773,7 +85809,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.4425354, y: -0.27585006}
+  - {x: -3.9380493, y: -0.2666753}
+  - {x: -2.8906555, y: -0.18703502}
   - {x: -1.633667, y: -0.21304137}
   - {x: 2.2754822, y: -2.164743}
   - {x: 7.1974792, y: -2.14785}
@@ -92490,7 +92527,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300028, guid: 3471a1273739c224f8286c4de9e4683a, type: 3}
-  m_Color: {r: 0.1509434, g: 0.14595942, b: 0.14595942, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99352,7 +99389,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300028, guid: 3471a1273739c224f8286c4de9e4683a, type: 3}
-  m_Color: {r: 0.1509434, g: 0.14595942, b: 0.14595942, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110146,7 +110183,7 @@ Transform:
   m_GameObject: {fileID: 5599143878404808129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75099695, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0.888, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110432,7 +110469,7 @@ Transform:
   m_GameObject: {fileID: 5599143879071427889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0469971, y: 0.75100005, z: 0}
+  m_LocalPosition: {x: 1.298, y: 0.75100005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

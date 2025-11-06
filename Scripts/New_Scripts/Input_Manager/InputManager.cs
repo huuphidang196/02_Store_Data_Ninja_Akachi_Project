@@ -104,6 +104,17 @@ public class InputManager : SurMonoBehaviour
             this.PointerAttackDashingDown();
         }
 
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            //Debug.Log("Mũi tên phải được nhấn");
+            this.PointerHidenModeSkillDown();
+        }
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            //Debug.Log("Mũi tên phải được nhấn");
+            this.PointerHidenModeSkillPresAndUp();
+        }
+
         this.UpdateConfigEndGame();
     }
 

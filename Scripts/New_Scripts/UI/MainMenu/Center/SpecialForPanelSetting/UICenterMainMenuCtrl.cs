@@ -11,11 +11,34 @@ public class UICenterMainMenuCtrl : SurMonoBehaviour
     [SerializeField] protected Transform _UI_Panel_Settings;
     public Transform UI_Panel_Settings => this._UI_Panel_Settings;
 
+    [SerializeField] protected Transform _UI_Panel_ADS_Settings;
+    public Transform UI_Panel_ADS_Settings => this._UI_Panel_ADS_Settings;
+  
+    [SerializeField] protected UICenterMainMenuManager _UICenterMainMenuManager;
+    public UICenterMainMenuManager UICenterMainMenuManager => this._UICenterMainMenuManager;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
 
         this.LoadPanelSettings();
+        this.LoadUICenterMainMenuManager();
+        this.LoadPanelADSSetting();
+    }
+
+    protected virtual void LoadPanelADSSetting()
+    {
+        if (this._UI_Panel_ADS_Settings != null) return;
+
+        this._UI_Panel_ADS_Settings = transform.Find("pnlAdsSetting");
+        this._UI_Panel_ADS_Settings.gameObject.SetActive(false);
+    }
+
+    protected virtual void LoadUICenterMainMenuManager()
+    {
+        if (this._UICenterMainMenuManager != null) return;
+
+        this._UICenterMainMenuManager = GetComponentInChildren<UICenterMainMenuManager>();
     }
 
     protected virtual void LoadPanelSettings()
@@ -35,10 +58,4 @@ public class UICenterMainMenuCtrl : SurMonoBehaviour
         _instance = this;
     }
 
-    public virtual void ToggelPanelSettingMenu()
-    {
-        bool isToggle = this._UI_Panel_Settings.gameObject.activeInHierarchy;
-
-        this._UI_Panel_Settings.gameObject.SetActive(!isToggle);
-    }    
 }

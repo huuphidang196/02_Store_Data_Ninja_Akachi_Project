@@ -49,6 +49,9 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
 #if UNITY_ANDROID
     string rewardedId_Main = "ca-app-pub-3940256099942544/1033173712";
     string interstitialId_Main = "ca-app-pub-3940256099942544/1033173712"; // test id interstitial
+
+    //string rewardedId_Main = "ca-app-pub-2542085501460285/5064993257";
+    //string interstitialId_Main = "ca-app-pub-2542085501460285/4626009554"; // test id interstitial
 #elif UNITY_IPHONE
     string rewardedId = "ca-app-pub-3940256099942544/1712485313";
     string interstitialId = "ca-app-pub-3940256099942544/4411468910";
@@ -64,7 +67,7 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
 
     protected virtual void FixedUpdate()
     {
-        // Cho phép nút Reward nếu có Ad và chưa mua gói remove ads
+        // Cho phép nút Reward nếu có Ad 
         this.allowButton_Active = this.rewardedAd != null;
 
         if (!this.CheckInternetConnection()) return;
@@ -203,7 +206,11 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
     {
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-            rewardedAd.Show((Reward reward) => { });
+            rewardedAd.Show((Reward reward) => 
+            {
+
+             
+            });
            // Debug.Log("Reward");
             return;
         }
@@ -297,7 +304,8 @@ public class AdmobAdsManager : GoogleAdsManagerAbstract
         };
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
-            interstitialAd = null;
+            this.DestroyInterstitial();
+
             OnAdInterstitialAdClosedGlobal?.Invoke();
             // reset đếm để cho phép request tiếp
             this._Ad_Request_One_Count_Today_Interstitial = 0;

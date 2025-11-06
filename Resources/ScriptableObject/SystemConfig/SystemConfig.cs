@@ -8,6 +8,7 @@ public class SystemConfig : ScriptableObject
 {
     public bool isFinishedStory = false;
     public bool isGuidedButton = false;
+    public bool isAcceptAdsSetting = false;
 
     [SerializeField] protected List<StarMissionLevel> _StarMissionLevels;
     public List<StarMissionLevel> StarMissionLevels

@@ -34,6 +34,8 @@ public class ArtifactSceneManager : SystemController
         //Save immidiately
         ///
 
+        SaveManager.Instance.SaveGame();
+
     }
 
     protected virtual void ProcessConductArtifact(ArtifactItem artifactItem)

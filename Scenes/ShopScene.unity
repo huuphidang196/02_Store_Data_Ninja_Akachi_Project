@@ -5712,7 +5712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productId: com.kairoxstudio.ninjakairox.removeads
-  buttonType: 1
+  buttonType: 0
   automaticallyConfirmTransaction: 1
   onProductFetched:
     m_PersistentCalls:

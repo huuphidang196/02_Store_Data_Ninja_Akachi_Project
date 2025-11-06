@@ -45,15 +45,21 @@ public abstract class ActiveByTimer : BaseImage
         if (this.CheckAllPrequisite())
         {
             this.ConductActiveFasleButton();
+            this.ProcessCountDownButton();
             return;
         }
 
         this.SetAllConfigurationBeforeInActiveButton();
 
+        this.ProcessCountDownButton();
+      
+    }
+
+    protected virtual void ProcessCountDownButton()
+    {
         if (!this.GetBoolVariable() && this._Timer == 0) return;
 
         this.ProcedureCountDownHideButton();
-       
     }
 
     protected virtual void ProcedureCountDownHideButton()

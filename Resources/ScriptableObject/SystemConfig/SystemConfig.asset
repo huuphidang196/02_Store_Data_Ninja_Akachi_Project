@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinishedStory: 0
   isGuidedButton: 0
+  isAcceptAdsSetting: 0
   _StarMissionLevels:
   - Level_Mission: 1
     Count_Star_Acquired: 0
   Current_Level: 1
   _Level_Unlock: 1
-  Total_Golds: 999999
-  Total_Diamonds: 999999
+  Total_Golds: 0
+  Total_Diamonds: 0
   OnMusic: 1
   _GameConfigController: {fileID: 11400000, guid: 7d40b42346e874348b33a6e24f1151f3, type: 2}
   _GamePlayConfigUIOverall: {fileID: 11400000, guid: e9505d581a5a5ca4e9804d5773d692cc, type: 2}

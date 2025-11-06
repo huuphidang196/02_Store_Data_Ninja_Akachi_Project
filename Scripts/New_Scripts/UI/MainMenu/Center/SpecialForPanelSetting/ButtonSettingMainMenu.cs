@@ -8,6 +8,6 @@ public class ButtonSettingMainMenu : BaseButton
     {
         base.OnClick();
 
-        UICenterMainMenuCtrl.Instance.ToggelPanelSettingMenu();
+        UICenterMainMenuCtrl.Instance.UICenterMainMenuManager.ToggelPanelSettingMenu();
     }
 }
